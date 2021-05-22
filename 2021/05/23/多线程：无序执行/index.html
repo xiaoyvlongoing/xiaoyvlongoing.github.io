@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>小龙播客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="函数名 使用的方法    导入的函数包import multiprocessing 创建的进程导入的包名   multiprocessing.Process([group [, target [, name [, args：传入指定形参 [, kwargs：以字典的类型进行传参]]]]]) 导入进程函数说明   target&#x3D;方法名 执行的目标任务名（函数名，线程名）   name&#x3D;进程的名">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小龙播客">
+<meta property="og:url" content="https://xiaoyvlongoing.github.io/2021/05/23/%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%9A%E6%97%A0%E5%BA%8F%E6%89%A7%E8%A1%8C/index.html">
+<meta property="og:site_name" content="小龙播客">
+<meta property="og:description" content="函数名 使用的方法    导入的函数包import multiprocessing 创建的进程导入的包名   multiprocessing.Process([group [, target [, name [, args：传入指定形参 [, kwargs：以字典的类型进行传参]]]]]) 导入进程函数说明   target&#x3D;方法名 执行的目标任务名（函数名，线程名）   name&#x3D;进程的名">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-05-22T16:59:06.957Z">
+<meta property="article:modified_time" content="2021-05-22T16:59:18.113Z">
+<meta property="article:author" content="小龙">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="小龙播客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">小龙播客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">小龙播客</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://xiaoyvlongoing.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-多线程：无序执行" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/23/%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%9A%E6%97%A0%E5%BA%8F%E6%89%A7%E8%A1%8C/" class="article-date">
+  <time class="dt-published" datetime="2021-05-22T16:59:06.957Z" itemprop="datePublished">2021-05-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>使用的方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>导入的函数包import multiprocessing</td>
+<td>创建的进程导入的包名</td>
+</tr>
+<tr>
+<td>multiprocessing.Process([group [, target [, name [, args：传入指定形参 [, kwargs：以字典的类型进行传参]]]]])</td>
+<td>导入进程函数说明</td>
+</tr>
+<tr>
+<td>target=方法名</td>
+<td>执行的目标任务名（函数名，线程名）</td>
+</tr>
+<tr>
+<td>name=进程的名字</td>
+<td>进程名字</td>
+</tr>
+<tr>
+<td>对象名=multiprocessing.Process(target=方法名)</td>
+<td>启动进程的方法</td>
+</tr>
+<tr>
+<td>子进程对象.start()</td>
+<td>对象.start（）：启动子进程实例（创建子进程）</td>
+</tr>
+<tr>
+<td>os.getpid</td>
+<td>print(os.getpid)查看子进程编号</td>
+</tr>
+<tr>
+<td>os.getppid</td>
+<td>print(os.getppid)查看父进程编号</td>
+</tr>
+<tr>
+<td>multiprocessing.current_process().name进程名字</td>
+<td>查看当前进程编号</td>
+</tr>
+<tr>
+<td>子进程对象.join()</td>
+<td>加入jojn后主线程会等待子线程执行后再结束主线程，让线程可以形成串行，形成有顺序的，线性和进程的也可进行串行，结束前一个，进行下一个执行</td>
+</tr>
+<tr>
+<td>子进程对象.terminate()</td>
+<td>不管任务是否完成，立即终止子进程</td>
+</tr>
+<tr>
+<td>子进程对象.daemom = True</td>
+<td>不管任务是否完成，立即终止子进程</td>
+</tr>
+<tr>
+<td>进程在ubuntu中 ps -aux|grep 要查找的线程的名字</td>
+<td>过滤需要的进程来查看ID</td>
+</tr>
+<tr>
+<td>os.kill(os.getpid(),9)  进程的id</td>
+<td>强制杀死进程</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="多线程：无序执行"><a href="#多线程：无序执行" class="headerlink" title="多线程：无序执行"></a>多线程：无序执行</h2><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>使用方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>import threading</td>
+<td>创建线程的包</td>
+</tr>
+<tr>
+<td>方法名= threading.Thread(target=方法名)</td>
+<td>启动进程的方法</td>
+</tr>
+<tr>
+<td>对象名 = threading.Thread(target=方法名,daemon= True)</td>
+<td>主线程结束，会让子线程结束(方法1）</td>
+</tr>
+<tr>
+<td>对象名 .setDaemon(True)：在启动线程之前</td>
+<td>主线程结束，会让子线程结束(方法2）</td>
+</tr>
+<tr>
+<td>current = threading.current_thread().name</td>
+<td>获取线程的名称</td>
+</tr>
+<tr>
+<td>多线程不能强制杀死，要把线程进行循环停止加上一个          变量 =</td>
+<td></td>
+</tr>
+<tr>
+<td>lock = threading.Lock()</td>
+<td>创建互斥锁</td>
+</tr>
+<tr>
+<td>lock.acquire()</td>
+<td>创建锁</td>
+</tr>
+<tr>
+<td>lock.release</td>
+<td>解锁</td>
+</tr>
+</tbody></table>
+<p>[TOC]</p>
+<p>1：进程是操作系统资源分配的最小单位</p>
+<p>2：进程之间执行也是无序的，它是由操作系统调度决定的，操作系统调度哪个进程，哪个进程就先执行，没有调度的进程不能执行</p>
+<p>3：进程不共享全局变量</p>
+<p>二：线程和进程有什么区别：</p>
+<p>1：进程是操作系统资源分配的最小单位，线程是cpu调度的最小单位</p>
+<p>2：线程依附于进程，没有进程就没有线程，一个进程默认创造一个主线程，一个进程可以创造多个线程</p>
+<p>3：进程不共享全局变量，而同一个进程的线程可以共享进程的全局变量</p>
+<p>4：进程开销比较大，可以利用多核（并行），线程开销比较小不能利用多核（并发）</p>
+<p>三：什么是主进程：</p>
+<p>主进程是：程序执行的入口，一个进程里默认带一个线程，主进程可以创建多个子线程，</p>
+<p>四：写出创造进程的步骤：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>：导入进程包：</span><br><span class="line"></span><br><span class="line">​		<span class="keyword">import</span>  multiprocessing</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>：创建进程函数（方法）</span><br><span class="line"></span><br><span class="line">​		<span class="function"><span class="keyword">def</span> <span class="title">num</span>（）：</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">​				<span class="title">pass</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">3：创建进程，调用进程函数（方法）</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">​		变量 = <span class="title">multiprocessing</span>.<span class="title">Process</span>(<span class="params">target = num</span>)</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">4:</span>启动进程</span><br><span class="line"></span><br><span class="line">		变量.start（）</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>五：怎么获得进程的pid</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>：improre  os </span><br><span class="line"></span><br><span class="line"><span class="number">2</span>：os.getppid :   <span class="built_in">print</span>(os.getppid)查看父进程<span class="built_in">id</span>编号</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>：os.getpid  ：   <span class="built_in">print</span>（os.getpid）查看当前进程<span class="built_in">id</span>编号</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>：multiprocessing.current_process().name进程（线程）名字   ：查看当前进程（线程）的<span class="built_in">id</span>编号    </span><br></pre></td></tr></table></figure>
+
+<p>六：怎么给进程函数传递参数：</p>
+<p>1：通过元组进程传递参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">multiprocessing.Process(target = coding , args = （参数，）)</span><br><span class="line">传入的是一个元组需要加上，传入的参数要保持一致</span><br></pre></td></tr></table></figure>
+
+<p>2：通过字典进程传参：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">multiprocessing.Process(target = coding , kwargs = &#123;传递的进程变量名：传入的参数&#125;)</span><br><span class="line">因为用的是字典的要与进程参数对住</span><br></pre></td></tr></table></figure>
+
+<h2 id="七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行"><a href="#七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行" class="headerlink" title="七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行"></a>七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行</h2><p>1：把join加入到子进程中，子进程变量.join，形成串联运行完子进程在运行主线线程</p>
+<p>八：Process创建的实例对象的常用的方法有什么？</p>
+<p>1：start（）：启动子进程实例（创建子进程）</p>
+<p>2：join（）：等待子进程执行结束，形成串联</p>
+<p>3：terminate（）：不管任务是否完成，立即终止子进程</p>
+<p>八《一》：    Process常用的属性：</p>
+<p>1：name：当前进程的别名，默认为Process - n ，n为从1开始递增的整数</p>
+<p>2：pid：当前进程的id</p>
+<p>九：编写一个程序，实现创建一个子进程，子进程每一秒打印一次：这是子进程，循环的第n次，打印 的次数是由主进程传递给子进程。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">1：#利用args和kwargs传参</span><br><span class="line">import multiprocessing</span><br><span class="line">import time</span><br><span class="line">def ness(num):</span><br><span class="line">    for i in range(num):</span><br><span class="line">        time.sleep(1)</span><br><span class="line">        print(&quot;这个是一个线程&quot;)</span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    # mues = multiprocessing.Process(target= ness,args=(6,))</span><br><span class="line">    mues = multiprocessing.Process(target=ness, kwargs=&#123;&quot;num&quot;:6&#125;)</span><br><span class="line">    mues.start()</span><br><span class="line"></span><br><span class="line">2：#利用类方法实现线程</span><br><span class="line">import multiprocessing</span><br><span class="line">import time</span><br><span class="line">class nees():</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        super(nees, self).__init__()</span><br><span class="line">        self.name = name</span><br><span class="line">    def num(self):</span><br><span class="line">        for i in range(self.name):</span><br><span class="line">            time.sleep(1)</span><br><span class="line">            print(&quot;这个是一个子进程&quot;)</span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    num_process = multiprocessing.Process(target=nees)</span><br><span class="line">    A=nees(3)</span><br><span class="line">    A.num()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<p>：线程资源竞争问题：</p>
+<p>1：100万次加法，线程1和线程2谁先执行完</p>
+<p>2：线程1计算的结果一定比线程2小吗？</p>
+<p>3：某个线程计算的结果有没有可能小于100万？为什么：</p>
+<p>​            1：不一定谁先执行完，因为线程是由cpu进行调度的，没有执行顺序那个先执行完都是不一定的</p>
+<p>​            2：不一定，因为没办法知道那个线程能先执行完，所有没有办法知道执行的时间，没有办法知道执行的大小</p>
+<p>​            3：有的，因为多线程共享全局变量，再赋予全局变量的时候，线程一和线程二计算的先后没有办法确定下来，当线程一计算的多时，线程二计算的少时，线程一又把线程二中的值共享过来这时就不安之前的顺序的，会小于100万</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://xiaoyvlongoing.github.io/2021/05/23/%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%9A%E6%97%A0%E5%BA%8F%E6%89%A7%E8%A1%8C/" data-id="ckozzylw60000v8tvb3lad9fb" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/05/23/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8BTC/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/05/23/%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%9A%E6%97%A0%E5%BA%8F%E6%89%A7%E8%A1%8C/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/23/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8BTC/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/22/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 小龙<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
