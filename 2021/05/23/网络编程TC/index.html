@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>小龙播客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="网络编程TC网络编程TC[TOC] P客户端   变量名称 变量使用方法    ifconfig 查看网络的ip   ping 查看网络是否连通   socket 网络编程包   socket.AF_INET ip地址   socket.SOCK_STREAM 端口   tcp_clien_socket.connect 客户端：传入ip和端口，用于建立与指定指定socket的连接   tcp_c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小龙播客">
+<meta property="og:url" content="https://xiaoyvlongoing.github.io/2021/05/23/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8BTC/index.html">
+<meta property="og:site_name" content="小龙播客">
+<meta property="og:description" content="网络编程TC网络编程TC[TOC] P客户端   变量名称 变量使用方法    ifconfig 查看网络的ip   ping 查看网络是否连通   socket 网络编程包   socket.AF_INET ip地址   socket.SOCK_STREAM 端口   tcp_clien_socket.connect 客户端：传入ip和端口，用于建立与指定指定socket的连接   tcp_c">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-05-22T16:30:09.417Z">
+<meta property="article:modified_time" content="2021-05-22T16:31:35.917Z">
+<meta property="article:author" content="小龙">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="小龙播客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">小龙播客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">小龙播客</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://xiaoyvlongoing.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-网络编程TC" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/23/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8BTC/" class="article-date">
+  <time class="dt-published" datetime="2021-05-22T16:30:09.417Z" itemprop="datePublished">2021-05-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="网络编程TC"><a href="#网络编程TC" class="headerlink" title="网络编程TC"></a>网络编程TC</h2><h2 id="网络编程TC-1"><a href="#网络编程TC-1" class="headerlink" title="网络编程TC"></a>网络编程TC</h2><p>[TOC]</p>
+<h2 id="P客户端"><a href="#P客户端" class="headerlink" title="P客户端"></a>P客户端</h2><table>
+<thead>
+<tr>
+<th align="center">变量名称</th>
+<th>变量使用方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ifconfig</td>
+<td>查看网络的ip</td>
+</tr>
+<tr>
+<td align="center">ping</td>
+<td>查看网络是否连通</td>
+</tr>
+<tr>
+<td align="center">socket</td>
+<td>网络编程包</td>
+</tr>
+<tr>
+<td align="center">socket.AF_INET</td>
+<td>ip地址</td>
+</tr>
+<tr>
+<td align="center">socket.SOCK_STREAM</td>
+<td>端口</td>
+</tr>
+<tr>
+<td align="center">tcp_clien_socket.connect</td>
+<td>客户端：传入ip和端口，用于建立与指定指定socket的连接</td>
+</tr>
+<tr>
+<td align="center">tcp_clien_socket.send（字符串.encode(encoding=”utf-8”)）</td>
+<td>send（）：把数据组转换成二进制，encode：写入编辑的字符串和要转成数据组的函数：encode（encoding = “”）</td>
+</tr>
+<tr>
+<td align="center">字符串.encode(encoding=”utf-8”)）</td>
+<td>encode：把字符串转换成数据组</td>
+</tr>
+<tr>
+<td align="center">tcp_clien_socket.recv(数值)</td>
+<td>套接字最大传入数据数值，接收来自socket缓存区对字节数据，当缓存区没有数值时会一直进行阻塞</td>
+</tr>
+<tr>
+<td align="center">.decode()</td>
+<td>对服务端发来的数据进行解码</td>
+</tr>
+<tr>
+<td align="center">conn_socket.close()</td>
+<td>关闭套接字</td>
+</tr>
+</tbody></table>
+<h2 id="网络编程TCP服务端"><a href="#网络编程TCP服务端" class="headerlink" title="网络编程TCP服务端"></a>网络编程TCP服务端</h2><table>
+<thead>
+<tr>
+<th>变量名称</th>
+<th>变量使用方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>socket</td>
+<td>网络编程包</td>
+</tr>
+<tr>
+<td>bind</td>
+<td>服务端：创建ip和端口</td>
+</tr>
+<tr>
+<td>tcp_evens_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, True)</td>
+<td>端口的复用</td>
+</tr>
+<tr>
+<td>tcp_sever_socket.listen（数值）</td>
+<td>设置端口监听功能监听多少个数值上限</td>
+</tr>
+<tr>
+<td>tcp_server_socket.accept()</td>
+<td><code>accept()</code>接受一个客户端的连接请求，接收的数据用于recv，并返回一个新的套接字，用于了send分开数据和ip不同于以上<code>socket()</code>返回的用于监听和接受客户端的连接请求的套接字；，</td>
+</tr>
+</tbody></table>
+<h2 id="扩展函数："><a href="#扩展函数：" class="headerlink" title="扩展函数："></a>扩展函数：</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数表达意思</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>client_socket.recv(1024).<strong>decode()</strong></td>
+<td>decode()：将查询的值翻译成其他的值，以其他形式表现出来</td>
+</tr>
+<tr>
+<td><strong>os.listdir</strong></td>
+<td>方法用于返回指定的文件夹包含的文件或文件夹的名字的列表。</td>
+</tr>
+<tr>
+<td><strong>os.path.getsize()</strong></td>
+<td><strong>获得文件的大小（字节）</strong></td>
+</tr>
+<tr>
+<td>f.read（）</td>
+<td>从文件指针所在的位置开始读</td>
+</tr>
+<tr>
+<td>isdigit</td>
+<td></td>
+</tr>
+</tbody></table>
+<pre><code>
+</code></pre>
+<h2 id="静态服务器："><a href="#静态服务器：" class="headerlink" title="静态服务器："></a>静态服务器：</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数定义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.open（“地址”，“要读或写”）</td>
+<td>用于打开一个文件，创建一个 file 对象，相关的方法才可以调用它进行读写。</td>
+</tr>
+<tr>
+<td>.read()</td>
+<td>读取文件信息内容</td>
+</tr>
+<tr>
+<td>英文：response</td>
+<td>翻译：相应</td>
+</tr>
+<tr>
+<td>英文：Server</td>
+<td>翻译：服务器</td>
+</tr>
+<tr>
+<td>localhost:8080</td>
+<td>浏览器查看</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="使用多线程多客户端连接服务器，多发送信息"><a href="#使用多线程多客户端连接服务器，多发送信息" class="headerlink" title="使用多线程多客户端连接服务器，多发送信息"></a>使用多线程多客户端连接服务器，多发送信息</h2><pre><code>import socket
+import threading
+def duoe_sock(code_sock):
+    while True:
+        recv_data = code_sock.recv(1024)
+        data = recv_data.decode()
+        print(data)
+        code_sock.send(&quot;niaho1&quot;.encode())
+        if data == &quot;quit&quot; or not data:
+            break
+    print(&quot;连接关闭&quot;)
+    code_sock.close()
+if __name__ == &#39;__main__&#39;:
+    tcp_evelt_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+    tcp_evelt_socket.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,True)
+    tcp_evelt_socket.bind((&quot;&quot;,8080))
+    tcp_evelt_socket.listen(128)
+    while True:
+        code_sock,ip_lies = tcp_evelt_socket.accept()
+        print(&quot;ip:&quot;,ip_lies)
+        smeus_pskd = threading.Thread(target=duoe_sock,args=(code_sock,))
+        smeus_pskd.start()
+    code_sock.close()
+</code></pre>
+<h2 id="静态服务器返回固态页面："><a href="#静态服务器返回固态页面：" class="headerlink" title="静态服务器返回固态页面："></a>静态服务器返回固态页面：</h2><pre><code>import socket
+if __name__ == &#39;__main__&#39;:
+    tcp_serer_sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+    tcp_serer_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, True)
+    tcp_serer_sock.bind((&quot;&quot;,8080))
+    tcp_serer_sock.listen(800)
+    while True:
+        clien_sock,client_abbr = tcp_serer_sock.accept()
+        clien_request_data = clien_sock.recv(10230).decode()
+        print(clien_request_data)
+        with open(&quot;./nksld.html&quot;,&quot;rb&quot;) as f:#打开文件夹有会报错，异常处理
+            # f = open(&quot;当前文件夹&quot;,&quot;rb&quot;)
+            file_data = f.read()
+        # 应答行
+        response_line = &quot;HTTP/1.1 200 OK\r\n&quot;
+        # 头
+        response_header = &quot;Server:pwd\r\n&quot;
+        # 体
+        response_body = file_data#界面的数据
+        #应答数据
+        response_data= (response_line + response_header + &quot;\r\n&quot;).encode() + response_body
+        clien_sock.send(response_data)
+
+        clien_sock.close()
+</code></pre>
+<h2 id="静态服务器返回指定页面"><a href="#静态服务器返回指定页面" class="headerlink" title="静态服务器返回指定页面"></a>静态服务器返回指定页面</h2><pre><code class="python">import socket
+if __name__ == &#39;__main__&#39;:
+    tcp_server_sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+    tcp_server_sock.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,True)
+    tcp_server_sock.bind((&quot;&quot;,8080))
+    tcp_server_sock.listen(123)
+    while True:
+        tcp_sock,ip_sock = tcp_server_sock.accept()
+        print(&quot;ip&quot;,ip_sock)
+        recv_data = tcp_sock.recv(1024).decode()
+        spli_dat = recv_data.split()
+        if len(spli_dat) &lt;=1:
+            tcp_sock.close()
+            print(&quot;浏览器关闭&quot;)
+        else:
+            data = spli_dat[1]
+            if data == &quot;/&quot;:
+                data = &quot;/001.jpg&quot;
+            try:
+                with open(&quot;.&quot;+ data,&quot;rb&quot;) as f:
+                    f_data = f.read()
+            except Exception as e:
+                tecponse_hine = &quot;HTTP/1.1 404 NG\r\n&quot;
+                tecponse_toue = &quot;Server : long\r\n&quot;
+                tecponse_toes = &quot;404 NG\r\n&quot;
+                tecponse_zhen = (tecponse_hine+tecponse_toue+&quot;\r\n&quot;+tecponse_toes).encode()
+                tcp_sock.send(tecponse_zhen)
+            else:
+                tecponse_hine = &quot;HTTP/1.1 200 OK\r\n&quot;
+                tecponse_toue = &quot;Server : long\r\n&quot;
+                tecponse_toes = f_data
+                tecponse_zhen = (tecponse_hine  + tecponse_toue+ &quot;\r\n&quot;).encode()+ tecponse_toes
+                tcp_sock.send(tecponse_zhen)
+            finally:
+                tcp_sock.close()
+</code></pre>
+<h2 id="静态服务器多线程任务"><a href="#静态服务器多线程任务" class="headerlink" title="静态服务器多线程任务"></a>静态服务器多线程任务</h2><pre><code class="python">import threading
+import socket
+def nuws_sock(tcp_sock):
+    recv_data = tcp_sock.recv(1024).decode()
+    spli_dat = recv_data.split()
+    if len(spli_dat) &lt;=1:
+        tcp_sock.close()
+        print(&quot;浏览器关闭&quot;)
+    else:
+        data = spli_dat[1]
+        if data == &quot;/&quot;:
+            data = &quot;/001.jpg&quot;
+        try:
+            with open(&quot;.&quot;+ data,&quot;rb&quot;) as f:
+                f_data = f.read()
+        except Exception as e:
+            tecponse_hine = &quot;HTTP/1.1 404 NG\r\n&quot;
+            tecponse_toue = &quot;Server : long\r\n&quot;
+            tecponse_toes = &quot;404 NG\r\n&quot;
+            tecponse_zhen = (tecponse_hine+tecponse_toue+&quot;\r\n&quot;+tecponse_toes).encode()
+            tcp_sock.send(tecponse_zhen)
+        else:
+            tecponse_hine = &quot;HTTP/1.1 200 OK\r\n&quot;
+            tecponse_toue = &quot;Server : long\r\n&quot;
+            tecponse_toes = f_data
+            tecponse_zhen = (tecponse_hine  + tecponse_toue+ &quot;\r\n&quot;).encode()+ tecponse_toes
+            tcp_sock.send(tecponse_zhen)
+        finally:
+            tcp_sock.close()
+if __name__ == &#39;__main__&#39;:
+    tcp_server_sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+    tcp_server_sock.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,True)
+    tcp_server_sock.bind((&quot;&quot;,8080))
+    tcp_server_sock.listen(123)
+    while True:
+        tcp_sock,ip_sock = tcp_server_sock.accept()
+        print(&quot;ip&quot;,ip_sock)
+        nues_sock =  threading.Thread(target=nuws_sock,args=(tcp_sock,))
+        nues_sock.start()
+</code></pre>
+<h2 id="静态服务器对象调用"><a href="#静态服务器对象调用" class="headerlink" title="静态服务器对象调用"></a>静态服务器对象调用</h2><pre><code class="python">import threading
+import socket
+class Pues_sock():
+    def __init__(self):
+        self.tcp_server_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.tcp_server_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, True)
+        self.tcp_server_sock.bind((&quot;&quot;, 8080))
+        self.tcp_server_sock.listen(123)
+    def nuws_sock(self,tcp_sock):
+        recv_data = tcp_sock.recv(1024).decode()
+        spli_dat = recv_data.split()
+        if len(spli_dat) &lt;=1:
+            tcp_sock.close()
+            print(&quot;浏览器关闭&quot;)
+        else:
+            data = spli_dat[1]
+            if data == &quot;/&quot;:
+                data = &quot;/001.jpg&quot;
+            try:
+                with open(&quot;.&quot;+ data,&quot;rb&quot;) as f:
+                    f_data = f.read()
+            except Exception as e:
+                tecponse_hine = &quot;HTTP/1.1 404 NG\r\n&quot;
+                tecponse_toue = &quot;Server : long\r\n&quot;
+                tecponse_toes = &quot;404 NG\r\n&quot;
+                tecponse_zhen = (tecponse_hine+tecponse_toue+&quot;\r\n&quot;+tecponse_toes).encode()
+                tcp_sock.send(tecponse_zhen)
+            else:
+                tecponse_hine = &quot;HTTP/1.1 200 OK\r\n&quot;
+                tecponse_toue = &quot;Server : long\r\n&quot;
+                tecponse_toes = f_data
+                tecponse_zhen = (tecponse_hine  + tecponse_toue+ &quot;\r\n&quot;).encode()+ tecponse_toes
+                tcp_sock.send(tecponse_zhen)
+            finally:
+                tcp_sock.close()
+
+    def nuse_sock(self):
+        while True:
+            tcp_sock, ip_sock = self.tcp_server_sock.accept()
+            print(&quot;ip&quot;, ip_sock)
+            nues_sock = threading.Thread(target=self.nuws_sock, args=(tcp_sock,))
+            nues_sock.start()
+
+
+if __name__ == &#39;__main__&#39;:
+
+    nues = Pues_sock()
+    nues.nuse_sock()
+</code></pre>
+<h2 id="静态服务器变换端口号"><a href="#静态服务器变换端口号" class="headerlink" title="静态服务器变换端口号"></a>静态服务器变换端口号</h2><pre><code class="python">import socket
+import threading
+import sys
+
+def main():
+    # 获取执行python程序的终端命令行参数
+    print(sys.argv)
+    if len(sys.argv) != 2:
+        print(&quot;格式错误 python3 xxx.py 9090&quot;)
+        return
+    # 判断参数的类型，设置端口号必须是整型
+    if not sys.argv[1].isdigit():
+        print(&quot;格式错误 python3 xxx.py 9090&quot;)
+        return
+    port = int(sys.argv[1])
+    # 创建服务器对象
+    # 给Web服务器类的初始化方法添加一个端口号参数，用于绑定端口号
+    my_web_server = HttpWebServer(port)
+    # 启动服务器
+    my_web_server.start()
+
+
+if __name__ == &#39;__main__&#39;:
+    main()
+</code></pre>
+<h2 id="TCP协议是什么？提示：TCP定义及特点"><a href="#TCP协议是什么？提示：TCP定义及特点" class="headerlink" title="TCP协议是什么？提示：TCP定义及特点"></a>TCP协议是什么？提示：TCP定义及特点</h2><h4 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h4><p>传输控制协议，是一种面向连接，可靠的，基于字节流的传输层通讯协议</p>
+<h5 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h5><p>面向连接：通信双方必须先建立好连接才能进行数据的传输，数据传输完成后，双方必须断开连接，以释放系统资源</p>
+<p>可靠的通信方式</p>
+<p>基于字节流</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="2-TCP特点是什么？"><a href="#2-TCP特点是什么？" class="headerlink" title="2. TCP特点是什么？"></a>2. TCP特点是什么？</h2><p>提示：TCP特点及解释说明</p>
+<p>基于字节流的</p>
+<p>面向连接</p>
+<p>可靠通信</p>
+<p>在网络状况不佳的时候尽量降低系统由于重传带来的宽开销</p>
+<p>通信连接维护是面向通信的两个端点，而不考虑中间网段和节点</p>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><h2 id="3-在TCP客户端使用connect的作用是什么？"><a href="#3-在TCP客户端使用connect的作用是什么？" class="headerlink" title="3. 在TCP客户端使用connect的作用是什么？"></a>3. 在TCP客户端使用connect的作用是什么？</h2><p>提示：connect的作用及connect()函数的参数形式</p>
+<p>connenct：用于建立与指定指定socket的连接，对于流类套接口（SOCK—STREAMl类型），利用名字来与一个远程主机建立连接，一但套用接口调用成功，他就能收发数据，对于数据报类套接口（SOCK—STREAMl类型），则设置成一个缺省的目的并用它来进行后序的send与recv调用</p>
+<h3 id="4-在TCP服务器中listen的作用是什么？"><a href="#4-在TCP服务器中listen的作用是什么？" class="headerlink" title="4. 在TCP服务器中listen的作用是什么？"></a>4. 在TCP服务器中listen的作用是什么？</h3><p>提示：listen()函数的作用及参数含义、</p>
+<p>在网络中服务端是被动的，客户是主动的，被动要用listen来监听，listen（）作用是将socket（）得到一个sockfd被动监听的套接字，来通知内核来完成连接</p>
+<h2 id="-2"><a href="#-2" class="headerlink" title=""></a></h2><h2 id="5-简述tcp客户端创建的流程。"><a href="#5-简述tcp客户端创建的流程。" class="headerlink" title="5. 简述tcp客户端创建的流程。"></a>5. 简述tcp客户端创建的流程。</h2><p>提示：参考课件代码说出客户端创建步骤</p>
+<p>创建一个套接字协议用：connenct赖建立连接</p>
+<p>导入IP地址可端口</p>
+<p>创建发送的数据用send（数据encode），先把字符串转换成数据组，在把数据组装换成二进制</p>
+<p>设置最大字节数据：recv（）</p>
+<p>接收客户端发来的数据用decode来解码</p>
+<p>关闭套接字用close</p>
+<h2 id="-3"><a href="#-3" class="headerlink" title=""></a></h2><h2 id="6-recv函数的参数表示什么含义？"><a href="#6-recv函数的参数表示什么含义？" class="headerlink" title="6. recv函数的参数表示什么含义？"></a>6. recv函数的参数表示什么含义？</h2><p>提示：recv()函数的作用及参数含义</p>
+<p>接收来自socket缓存区对字节数据，当缓存区没有数值时会一直进行阻塞，直到有数据时进行读取，远程关闭并读取所有数据之后会返回空字符串</p>
+<h2 id="7-简述TCP服务器创建的流程、"><a href="#7-简述TCP服务器创建的流程、" class="headerlink" title="7. 简述TCP服务器创建的流程、"></a>7. 简述TCP服务器创建的流程、</h2><p>提示：参考课件代码，说出服务器创建流程</p>
+<p>1：创建套接字，进行网络协议</p>
+<p>2：进行端口复用</p>
+<p>3：进行bind进行套接字协议</p>
+<p>4：进行与服务端监听连接的最大数值，listen</p>
+<p>5：accept（）接收数据再返回一个新的socket字，接收的数据用于recv，返回客户端的数据用于了send分开数据和ip，</p>
+<p>6：进行设置recv进行数据的阻塞，</p>
+<p>7：给客户端发送一个数据用send（encode）来转成二进制</p>
+<p>8：接收客户端发来的数据，用decode来进行解码</p>
+<h2 id="8-accept的返回值分别代表的什么？"><a href="#8-accept的返回值分别代表的什么？" class="headerlink" title="8. accept的返回值分别代表的什么？"></a>8. accept的返回值分别代表的什么？</h2><p>提示：accept()函数的作用，及返回值的形式和返回值的含义</p>
+<p>accept（）接收数据再返回一个新的socket字，接收的数据用于recv，返回客户端的数据用于了send分开数据和ip，</p>
+<h2 id="9-完成TCP客户端的编写。"><a href="#9-完成TCP客户端的编写。" class="headerlink" title="9. 完成TCP客户端的编写。"></a>9. 完成TCP客户端的编写。</h2><p>服务器的ip和端口号需手动输入</p>
+<p>要发送的信息需要手动输入</p>
+<p>接收服务器返回的数据，并打印。</p>
+<p>请在下方的注释下补充代码：</p>
+<p>​       # 导入socket模块</p>
+<pre><code>import socket
+if __name__ == &#39;__main__&#39;:
+    tcp_codne_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+    tcp_codne_socket.connect((&quot;&quot;,8080))
+    tcp_codne_socket.send(&quot;&quot;.encode())
+    cone_recv = tcp_codne_socket.recv(1024)
+    print(cone_recv.decode())
+    tcp_codne_socket.close()
+</code></pre>
+<h2 id="-4"><a href="#-4" class="headerlink" title=""></a></h2><h2 id="10-完成TCP服务的的编写"><a href="#10-完成TCP服务的的编写" class="headerlink" title="10. 完成TCP服务的的编写"></a>10. 完成TCP服务的的编写</h2><p>请在下方注释下补充代码：</p>
+<p>  # 导入socket模块</p>
+<pre><code>import socket
+if __name__ == &#39;__main__&#39;:
+    tcp_evens_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+    tcp_evens_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, True)
+    tcp_evens_socket.bind((&quot;&quot;,8080))
+    tcp_evens_socket.listen(138)
+    coet_socket,ip_mes = tcp_evens_socket.accept()
+    recv_data = coet_socket.recv(1025)
+    print(recv_data.decode())
+    coet_socket.send(&quot;&quot;.encode())
+    coet_socket.close()
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://xiaoyvlongoing.github.io/2021/05/23/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8BTC/" data-id="ckp0zim0r000778tvc2ldd6n5" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/05/23/%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%9A%E6%97%A0%E5%BA%8F%E6%89%A7%E8%A1%8C/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/05/22/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/05/23/%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%9A%E6%97%A0%E5%BA%8F%E6%89%A7%E8%A1%8C/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/23/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8BTC/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/22/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 小龙<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
