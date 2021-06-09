@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="小龙播客" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="小龙播客" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -589,18 +589,43 @@
 <p>三：什么是主进程：</p>
 <p>主进程是：程序执行的入口，一个进程里默认带一个线程，主进程可以创建多个子线程，</p>
 <p>四：写出创造进程的步骤：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>：导入进程包：</span><br><span class="line"></span><br><span class="line">​		<span class="keyword">import</span>  multiprocessing</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>：创建进程函数（方法）</span><br><span class="line"></span><br><span class="line">​		<span class="function"><span class="keyword">def</span> <span class="title">num</span>（）：</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">​				<span class="title">pass</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">3：创建进程，调用进程函数（方法）</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">​		变量 = <span class="title">multiprocessing</span>.<span class="title">Process</span>(<span class="params">target = num</span>)</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">4:</span>启动进程</span><br><span class="line"></span><br><span class="line">		变量.start（）</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class=" language-python"><code class="language-python"><span class="token number">1</span>：导入进程包：
 
+​        <span class="token keyword">import</span>  multiprocessing
+
+<span class="token number">2</span>：创建进程函数（方法）
+
+​        <span class="token keyword">def</span> num（）：
+
+​                <span class="token keyword">pass</span>
+
+<span class="token number">3</span>：创建进程，调用进程函数（方法）
+
+​        变量 <span class="token operator">=</span> multiprocessing<span class="token punctuation">.</span>Process<span class="token punctuation">(</span>target <span class="token operator">=</span> num<span class="token punctuation">)</span>
+
+<span class="token number">4</span><span class="token punctuation">:</span>启动进程
+
+        变量<span class="token punctuation">.</span>start（）
+
+</code></pre>
 <p>五：怎么获得进程的pid</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>：improre  os </span><br><span class="line"></span><br><span class="line"><span class="number">2</span>：os.getppid :   <span class="built_in">print</span>(os.getppid)查看父进程<span class="built_in">id</span>编号</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>：os.getpid  ：   <span class="built_in">print</span>（os.getpid）查看当前进程<span class="built_in">id</span>编号</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>：multiprocessing.current_process().name进程（线程）名字   ：查看当前进程（线程）的<span class="built_in">id</span>编号    </span><br></pre></td></tr></table></figure>
+<pre class=" language-python"><code class="language-python"><span class="token number">1</span>：improre  os 
 
+<span class="token number">2</span>：os<span class="token punctuation">.</span>getppid <span class="token punctuation">:</span>   <span class="token keyword">print</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>getppid<span class="token punctuation">)</span>查看父进程id编号
+
+<span class="token number">3</span>：os<span class="token punctuation">.</span>getpid  ：   <span class="token keyword">print</span>（os<span class="token punctuation">.</span>getpid）查看当前进程id编号
+
+<span class="token number">4</span>：multiprocessing<span class="token punctuation">.</span>current_process<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>name进程（线程）名字   ：查看当前进程（线程）的id编号    
+</code></pre>
 <p>六：怎么给进程函数传递参数：</p>
 <p>1：通过元组进程传递参数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">multiprocessing.Process(target = coding , args = （参数，）)</span><br><span class="line">传入的是一个元组需要加上，传入的参数要保持一致</span><br></pre></td></tr></table></figure>
-
+<pre><code>multiprocessing.Process(target = coding , args = （参数，）)
+传入的是一个元组需要加上，传入的参数要保持一致
+</code></pre>
 <p>2：通过字典进程传参：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">multiprocessing.Process(target = coding , kwargs = &#123;传递的进程变量名：传入的参数&#125;)</span><br><span class="line">因为用的是字典的要与进程参数对住</span><br></pre></td></tr></table></figure>
-
+<pre><code>multiprocessing.Process(target = coding , kwargs = &#123;传递的进程变量名：传入的参数&#125;)
+因为用的是字典的要与进程参数对住
+</code></pre>
 <h2 id="七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行"><a href="#七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行" class="headerlink" title="七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行"></a>七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行</h2><p>1：把join加入到子进程中，子进程变量.join，形成串联运行完子进程在运行主线线程</p>
 <p>八：Process创建的实例对象的常用的方法有什么？</p>
 <p>1：start（）：启动子进程实例（创建子进程）</p>
@@ -610,14 +635,34 @@
 <p>1：name：当前进程的别名，默认为Process - n ，n为从1开始递增的整数</p>
 <p>2：pid：当前进程的id</p>
 <p>九：编写一个程序，实现创建一个子进程，子进程每一秒打印一次：这是子进程，循环的第n次，打印 的次数是由主进程传递给子进程。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">1：#利用args和kwargs传参</span><br><span class="line">import multiprocessing</span><br><span class="line">import time</span><br><span class="line">def ness(num):</span><br><span class="line">    for i in range(num):</span><br><span class="line">        time.sleep(1)</span><br><span class="line">        print(&quot;这个是一个线程&quot;)</span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    # mues = multiprocessing.Process(target= ness,args=(6,))</span><br><span class="line">    mues = multiprocessing.Process(target=ness, kwargs=&#123;&quot;num&quot;:6&#125;)</span><br><span class="line">    mues.start()</span><br><span class="line"></span><br><span class="line">2：#利用类方法实现线程</span><br><span class="line">import multiprocessing</span><br><span class="line">import time</span><br><span class="line">class nees():</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        super(nees, self).__init__()</span><br><span class="line">        self.name = name</span><br><span class="line">    def num(self):</span><br><span class="line">        for i in range(self.name):</span><br><span class="line">            time.sleep(1)</span><br><span class="line">            print(&quot;这个是一个子进程&quot;)</span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    num_process = multiprocessing.Process(target=nees)</span><br><span class="line">    A=nees(3)</span><br><span class="line">    A.num()</span><br></pre></td></tr></table></figure>
+<pre><code>1：#利用args和kwargs传参
+import multiprocessing
+import time
+def ness(num):
+    for i in range(num):
+        time.sleep(1)
+        print(&quot;这个是一个线程&quot;)
+if __name__ == &#39;__main__&#39;:
+    # mues = multiprocessing.Process(target= ness,args=(6,))
+    mues = multiprocessing.Process(target=ness, kwargs=&#123;&quot;num&quot;:6&#125;)
+    mues.start()
 
-
-
-
-
-
-
+2：#利用类方法实现线程
+import multiprocessing
+import time
+class nees():
+    def __init__(self,name):
+        super(nees, self).__init__()
+        self.name = name
+    def num(self):
+        for i in range(self.name):
+            time.sleep(1)
+            print(&quot;这个是一个子进程&quot;)
+if __name__ == &#39;__main__&#39;:
+    num_process = multiprocessing.Process(target=nees)
+    A=nees(3)
+    A.num()
+</code></pre>
 <p>：线程资源竞争问题：</p>
 <p>1：100万次加法，线程1和线程2谁先执行完</p>
 <p>2：线程1计算的结果一定比线程2小吗？</p>

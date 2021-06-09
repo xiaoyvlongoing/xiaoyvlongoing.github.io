@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="小龙播客" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="小龙播客" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -512,10 +512,46 @@
 <li>完成字符到id的映射.</li>
 <li>完成padding, cutting的工作.</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">train_path = <span class="string">&#x27;train.csv&#x27;</span></span><br><span class="line">test_path = <span class="string">&#x27;test.csv&#x27;</span></span><br><span class="line"></span><br><span class="line">df = pd.read_csv(train_path, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">df.info()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;**********************&#x27;</span>)</span><br><span class="line"></span><br><span class="line">df = pd.read_csv(test_path, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">df.info()</span><br></pre></td></tr></table></figure>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
 
-<h4 id="打印："><a href="#打印：" class="headerlink" title="打印："></a>打印：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">pandas</span>.<span class="title">core</span>.<span class="title">frame</span>.<span class="title">DataFrame</span>&#x27;&gt;</span></span><br><span class="line"><span class="class"><span class="title">RangeIndex</span>:</span> <span class="number">82943</span> entries, <span class="number">0</span> to <span class="number">82942</span></span><br><span class="line">Data columns (total <span class="number">6</span> columns):</span><br><span class="line"> <span class="comment">#   Column    Non-Null Count  Dtype </span></span><br><span class="line"></span><br><span class="line"> <span class="number">0</span>   QID       <span class="number">82943</span> non-null  <span class="built_in">object</span></span><br><span class="line"> <span class="number">1</span>   Brand     <span class="number">81642</span> non-null  <span class="built_in">object</span></span><br><span class="line"> <span class="number">2</span>   Model     <span class="number">81642</span> non-null  <span class="built_in">object</span></span><br><span class="line"> <span class="number">3</span>   Question  <span class="number">82943</span> non-null  <span class="built_in">object</span></span><br><span class="line"> <span class="number">4</span>   Dialogue  <span class="number">82941</span> non-null  <span class="built_in">object</span></span><br><span class="line"> <span class="number">5</span>   Report    <span class="number">82873</span> non-null  <span class="built_in">object</span></span><br><span class="line">dtypes: <span class="built_in">object</span>(<span class="number">6</span>)</span><br><span class="line">memory usage: <span class="number">3.8</span>+ MB</span><br><span class="line"></span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">pandas</span>.<span class="title">core</span>.<span class="title">frame</span>.<span class="title">DataFrame</span>&#x27;&gt;</span></span><br><span class="line"><span class="class"><span class="title">RangeIndex</span>:</span> <span class="number">20000</span> entries, <span class="number">0</span> to <span class="number">19999</span></span><br><span class="line">Data columns (total <span class="number">5</span> columns):</span><br><span class="line"> <span class="comment">#   Column    Non-Null Count  Dtype </span></span><br><span class="line"></span><br><span class="line"> <span class="number">0</span>   QID       <span class="number">20000</span> non-null  <span class="built_in">object</span></span><br><span class="line"> <span class="number">1</span>   Brand     <span class="number">19987</span> non-null  <span class="built_in">object</span></span><br><span class="line"> <span class="number">2</span>   Model     <span class="number">19987</span> non-null  <span class="built_in">object</span></span><br><span class="line"> <span class="number">3</span>   Question  <span class="number">20000</span> non-null  <span class="built_in">object</span></span><br><span class="line"> <span class="number">4</span>   Dialogue  <span class="number">20000</span> non-null  <span class="built_in">object</span></span><br><span class="line">dtypes: <span class="built_in">object</span>(<span class="number">5</span>)</span><br><span class="line">memory usage: <span class="number">781.4</span>+ KB</span><br></pre></td></tr></table></figure>
+train_path <span class="token operator">=</span> <span class="token string">'train.csv'</span>
+test_path <span class="token operator">=</span> <span class="token string">'test.csv'</span>
 
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span>train_path<span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'**********************'</span><span class="token punctuation">)</span>
+
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span>test_path<span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="打印："><a href="#打印：" class="headerlink" title="打印："></a>打印：</h4><pre class=" language-python"><code class="language-python"><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'pandas.core.frame.DataFrame'</span><span class="token operator">></span>
+RangeIndex<span class="token punctuation">:</span> <span class="token number">82943</span> entries<span class="token punctuation">,</span> <span class="token number">0</span> to <span class="token number">82942</span>
+Data columns <span class="token punctuation">(</span>total <span class="token number">6</span> columns<span class="token punctuation">)</span><span class="token punctuation">:</span>
+ <span class="token comment" spellcheck="true">#   Column    Non-Null Count  Dtype </span>
+
+ <span class="token number">0</span>   QID       <span class="token number">82943</span> non<span class="token operator">-</span>null  object
+ <span class="token number">1</span>   Brand     <span class="token number">81642</span> non<span class="token operator">-</span>null  object
+ <span class="token number">2</span>   Model     <span class="token number">81642</span> non<span class="token operator">-</span>null  object
+ <span class="token number">3</span>   Question  <span class="token number">82943</span> non<span class="token operator">-</span>null  object
+ <span class="token number">4</span>   Dialogue  <span class="token number">82941</span> non<span class="token operator">-</span>null  object
+ <span class="token number">5</span>   Report    <span class="token number">82873</span> non<span class="token operator">-</span>null  object
+dtypes<span class="token punctuation">:</span> object<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span>
+memory usage<span class="token punctuation">:</span> <span class="token number">3.8</span><span class="token operator">+</span> MB
+
+<span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'pandas.core.frame.DataFrame'</span><span class="token operator">></span>
+RangeIndex<span class="token punctuation">:</span> <span class="token number">20000</span> entries<span class="token punctuation">,</span> <span class="token number">0</span> to <span class="token number">19999</span>
+Data columns <span class="token punctuation">(</span>total <span class="token number">5</span> columns<span class="token punctuation">)</span><span class="token punctuation">:</span>
+ <span class="token comment" spellcheck="true">#   Column    Non-Null Count  Dtype </span>
+
+ <span class="token number">0</span>   QID       <span class="token number">20000</span> non<span class="token operator">-</span>null  object
+ <span class="token number">1</span>   Brand     <span class="token number">19987</span> non<span class="token operator">-</span>null  object
+ <span class="token number">2</span>   Model     <span class="token number">19987</span> non<span class="token operator">-</span>null  object
+ <span class="token number">3</span>   Question  <span class="token number">20000</span> non<span class="token operator">-</span>null  object
+ <span class="token number">4</span>   Dialogue  <span class="token number">20000</span> non<span class="token operator">-</span>null  object
+dtypes<span class="token punctuation">:</span> object<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+memory usage<span class="token punctuation">:</span> <span class="token number">781.4</span><span class="token operator">+</span> KB
+</code></pre>
 <h4 id="3：TextRank：算法理论基础"><a href="#3：TextRank：算法理论基础" class="headerlink" title="3：TextRank：算法理论基础"></a>3：TextRank：算法理论基础</h4><p>对比于衡量网页重要性的PageRank算法, TextRank算法用于衡量哪些单词是关键词, 类比之下的算法思想也就很好理解了:</p>
 <ul>
 <li>如果一个单词出现在很多单词的后面, 就是它和很多单词有关联, 那么说明这个单词比较重要.</li>
