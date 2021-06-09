@@ -21,9 +21,9 @@ Sakura.prototype.update = function () {
     this.x = this.fn.x(this.x, this.y);
     this.y = this.fn.y(this.y, this.y);
     this.r = this.fn.r(this.r);
-    if (this.x &gt; window.innerWidth || this.x &lt; 0 || this.y &gt; window.innerHeight || this.y &lt; 0) {
+    if (this.x > window.innerWidth || this.x < 0 || this.y > window.innerHeight || this.y < 0) {
         this.r = getRandom('fnr');
-        if (Math.random() &gt; 0.4) {
+        if (Math.random() > 0.4) {
             this.x = getRandom('x');
             this.y = 0;
             this.s = getRandom('s');
@@ -43,12 +43,12 @@ SakuraList.prototype.push = function (sakura) {
     this.list.push(sakura);
 }
 SakuraList.prototype.update = function () {
-    for (var i = 0, len = this.list.length; i &lt; len; i++) {
+    for (var i = 0, len = this.list.length; i < len; i++) {
         this.list[i].update();
     }
 }
 SakuraList.prototype.draw = function (cxt) {
-    for (var i = 0, len = this.list.length; i &lt; len; i++) {
+    for (var i = 0, len = this.list.length; i < len; i++) {
         this.list[i].draw(cxt);
     }
 }
@@ -108,7 +108,7 @@ function startSakura() {
     document.getElementsByTagName('body')[0].appendChild(canvas);
     cxt = canvas.getContext('2d');
     var sakuraList = new SakuraList();
-    for (var i = 0; i &lt; 50; i++) {
+    for (var i = 0; i < 50; i++) {
         var sakura, randomX, randomY, randomS, randomR, randomFnx, randomFny;
         randomX = getRandom('x');
         randomY = getRandom('y');

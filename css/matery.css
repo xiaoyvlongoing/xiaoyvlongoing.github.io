@@ -2050,13 +2050,13 @@ footer .copy-right {
     transition: all .3s;
 }
 
-.m-nav-show .m-nav-item&gt;a:hover {
+.m-nav-show .m-nav-item>a:hover {
     color: #FFF;
     background: rgba(255, 255, 255, .8);
 }
 
-.m-nav-show&gt;a:before,
-.m-nav-item&gt;a:hover:before {
+.m-nav-show>a:before,
+.m-nav-item>a:hover:before {
     opacity: 1;
 }
 

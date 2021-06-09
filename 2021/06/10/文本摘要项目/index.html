@@ -29,9 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小龙播客" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="小龙播客" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -597,7 +595,7 @@ memory usage<span class="token punctuation">:</span> <span class="token number">
     <span class="token comment" spellcheck="true"># pagerank_config: pagerank算法参数配置, 阻尼系数为0.85</span>
 
     tr4w<span class="token punctuation">.</span>analyze<span class="token punctuation">(</span>text<span class="token operator">=</span>text<span class="token punctuation">,</span> window<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> lower<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> vertex_source<span class="token operator">=</span><span class="token string">'all_filters'</span><span class="token punctuation">,</span>
-                 edge_source<span class="token operator">=</span><span class="token string">'no_stop_words'</span><span class="token punctuation">,</span> pagerank_config<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'alpha'</span><span class="token punctuation">:</span> <span class="token number">0.85</span><span class="token punctuation">,</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+                 edge_source<span class="token operator">=</span><span class="token string">'no_stop_words'</span><span class="token punctuation">,</span> pagerank_config<span class="token operator">=</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'alpha': 0.85, &amp;#125;)</span>
 
     <span class="token comment" spellcheck="true"># num: 返回关键词数量</span>
     <span class="token comment" spellcheck="true"># word_min_len: 词的最小长度, 默认值为1    </span>
@@ -639,12 +637,12 @@ memory usage<span class="token punctuation">:</span> <span class="token number">
     <span class="token keyword">print</span><span class="token punctuation">(</span>keywords<span class="token punctuation">)</span>
 </code></pre>
 <h5 id="打印：-1"><a href="#打印：-1" class="headerlink" title="打印："></a>打印：</h5><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#关键词抽取</span>
-<span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">'word'</span><span class="token punctuation">:</span> <span class="token string">'小行星'</span><span class="token punctuation">,</span> <span class="token string">'weight'</span><span class="token punctuation">:</span> <span class="token number">0.05808441467341854</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">{</span><span class="token string">'word'</span><span class="token punctuation">:</span> <span class="token string">'天文台'</span><span class="token punctuation">,</span> <span class="token string">'weight'</span><span class="token punctuation">:</span> <span class="token number">0.05721653775742513</span><span class="token punctuation">}</span><span class="token punctuation">,</span> 
-<span class="token punctuation">{</span><span class="token string">'word'</span><span class="token punctuation">:</span> <span class="token string">'命名'</span><span class="token punctuation">,</span> <span class="token string">'weight'</span><span class="token punctuation">:</span> <span class="token number">0.0485177005159723</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">{</span><span class="token string">'word'</span><span class="token punctuation">:</span> <span class="token string">'中国'</span><span class="token punctuation">,</span> <span class="token string">'weight'</span><span class="token punctuation">:</span> <span class="token number">0.045716478124251815</span><span class="token punctuation">}</span><span class="token punctuation">,</span> 
-<span class="token punctuation">{</span><span class="token string">'word'</span><span class="token punctuation">:</span> <span class="token string">'中国科学院'</span><span class="token punctuation">,</span> <span class="token string">'weight'</span><span class="token punctuation">:</span> <span class="token number">0.037818937836996636</span><span class="token punctuation">}</span><span class="token punctuation">,</span> 
-<span class="token punctuation">{</span><span class="token string">'word'</span><span class="token punctuation">:</span> <span class="token string">'国家'</span><span class="token punctuation">,</span> <span class="token string">'weight'</span><span class="token punctuation">:</span> <span class="token number">0.03438059254484016</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'word': '小行星', 'weight': 0.05808441467341854&amp;#125;,</span>
+<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'word': '天文台', 'weight': 0.05721653775742513&amp;#125;, </span>
+<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'word': '命名', 'weight': 0.0485177005159723&amp;#125;,</span>
+<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'word': '中国', 'weight': 0.045716478124251815&amp;#125;, </span>
+<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'word': '中国科学院', 'weight': 0.037818937836996636&amp;#125;, </span>
+<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'word': '国家', 'weight': 0.03438059254484016&amp;#125;]</span>
 
 
 <span class="token comment" spellcheck="true">#提取重要关键短句</span>
@@ -653,9 +651,9 @@ memory usage<span class="token punctuation">:</span> <span class="token number">
 
 
 <span class="token comment" spellcheck="true">#提取关键句</span>
-<span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">'index'</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">'sentence'</span><span class="token punctuation">:</span> <span class="token string">'2018年9月25日，经国家天文台申报，国际天文学联合会小天体联合会小天体命名委员会批准，国际天文学联合会《小行星通报》通知国际社会，正式将该小行星命名为“周又元星”'</span><span class="token punctuation">,</span> <span class="token string">'weight'</span><span class="token punctuation">:</span> <span class="token number">0.2281040325096452</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
- <span class="token punctuation">{</span><span class="token string">'index'</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'sentence'</span><span class="token punctuation">:</span> <span class="token string">'”据介绍，这颗小行星由国家天文台施密特CCD小行星项目组于1997年9月26日发现于兴隆观测站，获得国际永久编号第120730号'</span><span class="token punctuation">,</span> <span class="token string">'weight'</span><span class="token punctuation">:</span> <span class="token number">0.2106246105971721</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
- <span class="token punctuation">{</span><span class="token string">'index'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'sentence'</span><span class="token punctuation">:</span> <span class="token string">'4月19日下午，中国科学院国家天文台在京举行“周又元星”颁授仪式，我国天文学家、中国科学院院士周又元的弟子与后辈在欢声笑语中济济一堂'</span><span class="token punctuation">,</span> <span class="token string">'weight'</span><span class="token punctuation">:</span> <span class="token number">0.2020923401661083</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'index': 4, 'sentence': '2018年9月25日，经国家天文台申报，国际天文学联合会小天体联合会小天体命名委员会批准，国际天文学联合会《小行星通报》通知国际社会，正式将该小行星命名为“周又元星”', 'weight': 0.2281040325096452&amp;#125;,</span>
+ <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'index': 3, 'sentence': '”据介绍，这颗小行星由国家天文台施密特CCD小行星项目组于1997年9月26日发现于兴隆观测站，获得国际永久编号第120730号', 'weight': 0.2106246105971721&amp;#125;,</span>
+ <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'index': 1, 'sentence': '4月19日下午，中国科学院国家天文台在京举行“周又元星”颁授仪式，我国天文学家、中国科学院院士周又元的弟子与后辈在欢声笑语中济济一堂', 'weight': 0.2020923401661083&amp;#125;]</span>
 </code></pre>
 <h4 id="3-2：基于jieba的TextRank算法"><a href="#3-2：基于jieba的TextRank算法" class="headerlink" title="3.2：基于jieba的TextRank算法"></a>3.2：基于jieba的TextRank算法</h4><ul>
 <li>jieba工具不仅仅可以用来分词, 进行词性分析. 也可以用来完成TextRank.</li>
@@ -1137,7 +1135,7 @@ partitions <span class="token operator">=</span> cores
 <ul>
 <li>输出结果:</li>
 </ul>
-<pre class=" language-python"><code class="language-python"><span class="token punctuation">{</span><span class="token string">'max_enc_len'</span><span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span> <span class="token string">'max_dec_len'</span><span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token string">'batch_size'</span><span class="token punctuation">:</span> <span class="token number">64</span><span class="token punctuation">,</span> <span class="token string">'seq2seq_train_epochs'</span><span class="token punctuation">:</span> 
+<pre class=" language-python"><code class="language-python"><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'max_enc_len': 300, 'max_dec_len': 50, 'batch_size': 64, 'seq2seq_train_epochs': </span>
 </code></pre>
 <h4 id="第四步-实现保存字典的函数word2vec-utils-py"><a href="#第四步-实现保存字典的函数word2vec-utils-py" class="headerlink" title="第四步: 实现保存字典的函数word2vec_utils.py"></a>第四步: 实现保存字典的函数word2vec_utils.py</h4><ul>
 <li>代码文件路径: /home/ec2-user/text_summary/seq2seq/utils/word2vec_utils.py</li>
@@ -1158,8 +1156,8 @@ partitions <span class="token operator">=</span> cores
     <span class="token comment" spellcheck="true"># 从word2vec模型中获取正向和反向词典</span>
     <span class="token comment" spellcheck="true"># wv_model_path: word2vec模型的路径</span>
     wv_model <span class="token operator">=</span> Word2Vec<span class="token punctuation">.</span>load<span class="token punctuation">(</span>wv_model_path<span class="token punctuation">)</span>
-    id_to_word <span class="token operator">=</span> <span class="token punctuation">{</span>index<span class="token punctuation">:</span> word <span class="token keyword">for</span> index<span class="token punctuation">,</span> word <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>wv_model<span class="token punctuation">.</span>wv<span class="token punctuation">.</span>index2word<span class="token punctuation">)</span><span class="token punctuation">}</span>
-    word_to_id <span class="token operator">=</span> <span class="token punctuation">{</span>word<span class="token punctuation">:</span> index <span class="token keyword">for</span> index<span class="token punctuation">,</span> word <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>wv_model<span class="token punctuation">.</span>wv<span class="token punctuation">.</span>index2word<span class="token punctuation">)</span><span class="token punctuation">}</span>
+    id_to_word <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;index: word for index, word in enumerate(wv_model.wv.index2word)&amp;#125;</span>
+    word_to_id <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;word: index for index, word in enumerate(wv_model.wv.index2word)&amp;#125;</span>
     <span class="token keyword">return</span> word_to_id<span class="token punctuation">,</span> id_to_word
 
 
@@ -1169,7 +1167,7 @@ partitions <span class="token operator">=</span> cores
     <span class="token comment" spellcheck="true"># word_to_id: 要保存的字典</span>
     <span class="token keyword">with</span> open<span class="token punctuation">(</span>filename<span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
         <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> word_to_id<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"{}\t{}\n"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>k<span class="token punctuation">,</span> v<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"&amp;#123;&amp;#125;\t&amp;#123;&amp;#125;\n"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>k<span class="token punctuation">,</span> v<span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 
                 

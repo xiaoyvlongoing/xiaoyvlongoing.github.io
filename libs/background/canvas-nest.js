@@ -4,8 +4,8 @@
         "SymbianOS", "Windows Phone",
         "iPod", "webOS", "BlackBerry", "IEMobile"
     ];
-    for (var v = 0; v &lt; Agents.length; v++) {
-        if (userAgentInfo.indexOf(Agents[v]) &gt; 0) {
+    for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) {
             return;
         }
     }
@@ -40,12 +40,12 @@
         var w = [f].concat(t);
         var x, v, A, B, z, y;
         t.forEach(function (i) {
-            i.x += i.xa, i.y += i.ya, i.xa *= i.x &gt; r || i.x &lt; 0 ? -1 : 1, i.ya *= i.y &gt; n || i.y &lt; 0 ? -1 : 1, e.fillRect(i.x - 0.5, i.y - 0.5, 1, 1);
-            for (v = 0; v &lt; w.length; v++) {
+            i.x += i.xa, i.y += i.ya, i.xa *= i.x > r || i.x < 0 ? -1 : 1, i.ya *= i.y > n || i.y < 0 ? -1 : 1, e.fillRect(i.x - 0.5, i.y - 0.5, 1, 1);
+            for (v = 0; v < w.length; v++) {
                 x = w[v];
-                if (i !== x &amp;&amp; null !== x.x &amp;&amp; null !== x.y) {
+                if (i !== x && null !== x.x && null !== x.y) {
                     B = i.x - x.x, z = i.y - x.y, y = B * B + z * z;
-                    y &lt; x.max &amp;&amp; (x === f &amp;&amp; y &gt;= x.max / 2 &amp;&amp; (i.x -= 0.03 * B, i.y -= 0.03 * z), A = (x.max - y) / x.max, e.beginPath(), e.lineWidth = A / 2, e.strokeStyle = "rgba(" + s.c + "," + (A + 0.2) + ")", e.moveTo(i.x, i.y), e.lineTo(x.x, x.y), e.stroke())
+                    y < x.max && (x === f && y >= x.max / 2 && (i.x -= 0.03 * B, i.y -= 0.03 * z), A = (x.max - y) / x.max, e.beginPath(), e.lineWidth = A / 2, e.strokeStyle = "rgba(" + s.c + "," + (A + 0.2) + ")", e.moveTo(i.x, i.y), e.lineTo(x.x, x.y), e.stroke())
                 }
             }
             w.splice(w.indexOf(i), 1)
@@ -73,7 +73,7 @@
     }, window.onmouseout = function () {
         f.x = null, f.y = null
     };
-    for (var t = [], p = 0; s.n &gt; p; p++) {
+    for (var t = [], p = 0; s.n > p; p++) {
         var h = a() * r,
             g = a() * n,
             q = 2 * a() - 1,
