@@ -2,7 +2,7 @@
 //背景雪花飘落特效
 (function($){
 	$.fn.snow = function(options){
-	var $flake = $('<div id="snowbox" />').css({'position': 'absolute','z-index':'9999', 'top': '-50px'}).html('&#10052;'),
+	var $flake = $('<div id="snowbox">').css({'position': 'absolute','z-index':'9999', 'top': '-50px'}).html('&#10052;'),
 	documentHeight 	= $(document).height(),
 	documentWidth	= $(document).width(),
 	defaults = {
@@ -40,4 +40,4 @@ $(function(){
 	    maxSize: 50,/* 定义雪花最大尺寸 */
 	    newOn: 500  /* 定义密集程度，数字越小越密集 */
     });
-});
+});</div>

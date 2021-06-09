@@ -100,28 +100,8 @@
                 a = "right" === t ? -200 : n,
                 r = Math.round(o(0, this._height));
             /^(top|min)$/i.test(this._options.verticalPosition) ? r = 200 : /^(middle|center)$/i.test(this._options.verticalPosition) ? r = this._height / 2 : /^(bottom|max)$/i.test(this._options.verticalPosition) && (r = this._height - 200);
-            for (var l = [], c = new h(a, r), p = new h(a, r), _ = null, d = Math.round(o(0, 360)), u = 0; !(i <= 0);) {
-                if (i--, s = Math.round((1 * Math.random() - .2) * this._options.horizontalSpeed), e = Math.round((1 * Math.random() - .5) * (.25 * this._height)), (_ = new h).copy(p), "right" === t) {
-                    if (_.add(s, e), p.x >= n) break
-                } else if ("left" === t && (_.subtract(s, e), p.x <= -200)) break;
-                l.push({
-                    point1: new h(c.x, c.y),
-                    point2: new h(p.x, p.y),
-                    point3: _,
-                    color: d,
-                    delay: u,
-                    dir: t,
-                    alpha: 0,
-                    phase: 0
-                }), c.copy(p), p.copy(_), u += 4, d += this._options.colorCycleSpeed
-            }
-            this._ribbons.push(l)
-        },
-        _drawRibbonSection: function (t) {
-            if (t) {
-                if (t.phase >= 1 && t.alpha <= 0) return !0;
-                if (t.delay <= 0) {
-                    if (t.phase += .02, t.alpha = 1 * Math.sin(t.phase), t.alpha = t.alpha <= 0 ? 0 : t.alpha, t.alpha = t.alpha >= 1 ? 1 : t.alpha, this._options.animateSections) {
+            for (var l = [], c = new h(a, r), p = new h(a, r), _ = null, d = Math.round(o(0, 360)), u = 0; !(i <= 0);) { if (i--, s="Math.round((1" * math.random() - .2) this._options.horizontalspeed), e="Math.round((1" .5) (.25 this._height)), (_="new" h).copy(p), "right"="==" t) (_.add(s, e), p.x>= n) break
+                } else if ("left" === t && (_.subtract(s, e), p.x <= 0 -200)) break; l.push({ point1: new h(c.x, c.y), point2: h(p.x, p.y), point3: _, color: d, delay: u, dir: t, alpha: 0, phase: }), c.copy(p), p.copy(_), u +="4," d } this._ribbons.push(l) }, _drawribbonsection: function (t) { if (t.phase>= 1 && t.alpha <= 0 0) return !0; if (t.delay <="0)" { (t.phase +=".02," t.alpha="1" * math.sin(t.phase), ? : t.alpha,>= 1 ? 1 : t.alpha, this._options.animateSections) {
                         var i = .1 * Math.sin(1 + t.phase * Math.PI / 2);
                         "right" === t.dir ? (t.point1.add(i, 0), t.point2.add(i, 0), t.point3.add(i, 0)) : (t.point1.subtract(i, 0), t.point2.subtract(i, 0), t.point3.subtract(i, 0)), t.point1.add(0, i), t.point2.add(0, i), t.point3.add(0, i)
                     }
@@ -162,4 +142,4 @@
     strokeSize: 0,
     parallaxAmount: -.2,
     animateSections: !0
-});
+});</=></=></=>
