@@ -680,24 +680,24 @@ if __name__ == &#39;__main__&#39;:
 <h5 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h5><p>面向连接：通信双方必须先建立好连接才能进行数据的传输，数据传输完成后，双方必须断开连接，以释放系统资源</p>
 <p>可靠的通信方式</p>
 <p>基于字节流</p>
-<h2 id><a href="#" class="headerlink" title></a></h2><h2 id="2-TCP特点是什么？"><a href="#2-TCP特点是什么？" class="headerlink" title="2. TCP特点是什么？"></a>2. TCP特点是什么？</h2><p>提示：TCP特点及解释说明</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="2-TCP特点是什么？"><a href="#2-TCP特点是什么？" class="headerlink" title="2. TCP特点是什么？"></a>2. TCP特点是什么？</h2><p>提示：TCP特点及解释说明</p>
 <p>基于字节流的</p>
 <p>面向连接</p>
 <p>可靠通信</p>
 <p>在网络状况不佳的时候尽量降低系统由于重传带来的宽开销</p>
 <p>通信连接维护是面向通信的两个端点，而不考虑中间网段和节点</p>
-<h2 id="-1"><a href="#-1" class="headerlink" title></a></h2><h2 id="3-在TCP客户端使用connect的作用是什么？"><a href="#3-在TCP客户端使用connect的作用是什么？" class="headerlink" title="3. 在TCP客户端使用connect的作用是什么？"></a>3. 在TCP客户端使用connect的作用是什么？</h2><p>提示：connect的作用及connect()函数的参数形式</p>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><h2 id="3-在TCP客户端使用connect的作用是什么？"><a href="#3-在TCP客户端使用connect的作用是什么？" class="headerlink" title="3. 在TCP客户端使用connect的作用是什么？"></a>3. 在TCP客户端使用connect的作用是什么？</h2><p>提示：connect的作用及connect()函数的参数形式</p>
 <p>connenct：用于建立与指定指定socket的连接，对于流类套接口（SOCK—STREAMl类型），利用名字来与一个远程主机建立连接，一但套用接口调用成功，他就能收发数据，对于数据报类套接口（SOCK—STREAMl类型），则设置成一个缺省的目的并用它来进行后序的send与recv调用</p>
 <h3 id="4-在TCP服务器中listen的作用是什么？"><a href="#4-在TCP服务器中listen的作用是什么？" class="headerlink" title="4. 在TCP服务器中listen的作用是什么？"></a>4. 在TCP服务器中listen的作用是什么？</h3><p>提示：listen()函数的作用及参数含义、</p>
 <p>在网络中服务端是被动的，客户是主动的，被动要用listen来监听，listen（）作用是将socket（）得到一个sockfd被动监听的套接字，来通知内核来完成连接</p>
-<h2 id="-2"><a href="#-2" class="headerlink" title></a></h2><h2 id="5-简述tcp客户端创建的流程。"><a href="#5-简述tcp客户端创建的流程。" class="headerlink" title="5. 简述tcp客户端创建的流程。"></a>5. 简述tcp客户端创建的流程。</h2><p>提示：参考课件代码说出客户端创建步骤</p>
+<h2 id="-2"><a href="#-2" class="headerlink" title=""></a></h2><h2 id="5-简述tcp客户端创建的流程。"><a href="#5-简述tcp客户端创建的流程。" class="headerlink" title="5. 简述tcp客户端创建的流程。"></a>5. 简述tcp客户端创建的流程。</h2><p>提示：参考课件代码说出客户端创建步骤</p>
 <p>创建一个套接字协议用：connenct赖建立连接</p>
 <p>导入IP地址可端口</p>
 <p>创建发送的数据用send（数据encode），先把字符串转换成数据组，在把数据组装换成二进制</p>
 <p>设置最大字节数据：recv（）</p>
 <p>接收客户端发来的数据用decode来解码</p>
 <p>关闭套接字用close</p>
-<h2 id="-3"><a href="#-3" class="headerlink" title></a></h2><h2 id="6-recv函数的参数表示什么含义？"><a href="#6-recv函数的参数表示什么含义？" class="headerlink" title="6. recv函数的参数表示什么含义？"></a>6. recv函数的参数表示什么含义？</h2><p>提示：recv()函数的作用及参数含义</p>
+<h2 id="-3"><a href="#-3" class="headerlink" title=""></a></h2><h2 id="6-recv函数的参数表示什么含义？"><a href="#6-recv函数的参数表示什么含义？" class="headerlink" title="6. recv函数的参数表示什么含义？"></a>6. recv函数的参数表示什么含义？</h2><p>提示：recv()函数的作用及参数含义</p>
 <p>接收来自socket缓存区对字节数据，当缓存区没有数值时会一直进行阻塞，直到有数据时进行读取，远程关闭并读取所有数据之后会返回空字符串</p>
 <h2 id="7-简述TCP服务器创建的流程、"><a href="#7-简述TCP服务器创建的流程、" class="headerlink" title="7. 简述TCP服务器创建的流程、"></a>7. 简述TCP服务器创建的流程、</h2><p>提示：参考课件代码，说出服务器创建流程</p>
 <p>1：创建套接字，进行网络协议</p>
@@ -724,7 +724,7 @@ if __name__ == &#39;__main__&#39;:
     print(cone_recv.decode())
     tcp_codne_socket.close()
 </code></pre>
-<h2 id="-4"><a href="#-4" class="headerlink" title></a></h2><h2 id="10-完成TCP服务的的编写"><a href="#10-完成TCP服务的的编写" class="headerlink" title="10. 完成TCP服务的的编写"></a>10. 完成TCP服务的的编写</h2><p>请在下方注释下补充代码：</p>
+<h2 id="-4"><a href="#-4" class="headerlink" title=""></a></h2><h2 id="10-完成TCP服务的的编写"><a href="#10-完成TCP服务的的编写" class="headerlink" title="10. 完成TCP服务的的编写"></a>10. 完成TCP服务的的编写</h2><p>请在下方注释下补充代码：</p>
 <p>  # 导入socket模块</p>
 <pre><code>import socket
 if __name__ == &#39;__main__&#39;:
@@ -1020,7 +1020,6 @@ dfa  <span class="token operator">=</span> pd<span class="token punctuation">.</
 dfa<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <p>打印结果</p>
-<p><img src="/.io//%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81%E9%A1%B9%E7%9B%AE%5C1623239367253.png" alt="1623239367253.png"></p>
 <h4 id="第二步-删除”脏”数据"><a href="#第二步-删除”脏”数据" class="headerlink" title="第二步: 删除”脏”数据."></a>第二步: 删除”脏”数据.</h4><ul>
 <li>关于什么是”脏”数据是个千人千面的问题, 我们在第一章中也讨论过. 这一步也仅仅处理一个baseline的级别.</li>
 </ul>
@@ -1269,7 +1268,6 @@ i<span class="token operator">=</span> <span class="token number">4500</span>
 <h1 id="3：-seq2seq实现baseline-1模型：文本摘要"><a href="#3：-seq2seq实现baseline-1模型：文本摘要" class="headerlink" title="3： seq2seq实现baseline-1模型：文本摘要"></a>3： seq2seq实现baseline-1模型：文本摘要</h1><h3 id="seq2seq实现文本摘要的架构"><a href="#seq2seq实现文本摘要的架构" class="headerlink" title="seq2seq实现文本摘要的架构"></a>seq2seq实现文本摘要的架构</h3><ul>
 <li>首选回顾一下在英译法任务中的经典seq2seq架构图</li>
 </ul>
-<p><img src="/.io//%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81%E9%A1%B9%E7%9B%AE%5C1623239860981.png" alt="1623239860981"></p>
 <blockquote>
 <ul>
 <li>编码器端负责将输入数据进行编码, 得到中间语义张量.</li>
@@ -1277,8 +1275,7 @@ i<span class="token operator">=</span> <span class="token number">4500</span>
 <li>一般来说, 我们将注意力机制添加在解码器端.</li>
 </ul>
 </blockquote>
-<h4 id="对比于英译法任务-我们再来看文本摘要任务下的seq2seq架构图"><a href="#对比于英译法任务-我们再来看文本摘要任务下的seq2seq架构图" class="headerlink" title="对比于英译法任务, 我们再来看文本摘要任务下的seq2seq架构图:"></a>对比于英译法任务, 我们再来看文本摘要任务下的seq2seq架构图:</h4><p><img src="/.io//%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81%E9%A1%B9%E7%9B%AE%5C1623241168701.png" alt="1623241168701"></p>
-<blockquote>
+<h4 id="对比于英译法任务-我们再来看文本摘要任务下的seq2seq架构图"><a href="#对比于英译法任务-我们再来看文本摘要任务下的seq2seq架构图" class="headerlink" title="对比于英译法任务, 我们再来看文本摘要任务下的seq2seq架构图:"></a>对比于英译法任务, 我们再来看文本摘要任务下的seq2seq架构图:</h4><blockquote>
 <ul>
 <li>编码器端负责进行原始文本的编码.</li>
 <li>注意力层结合编码张量和解码器端的当前输入, 得到总体上的内容张量.</li>

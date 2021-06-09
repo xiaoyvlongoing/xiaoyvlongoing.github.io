@@ -742,7 +742,6 @@ dfa  <span class="token operator">=</span> pd<span class="token punctuation">.</
 dfa<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <p>打印结果</p>
-<p><img src="/.io//%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81%E9%A1%B9%E7%9B%AE%5C1623239367253.png" alt="1623239367253.png"></p>
 <h4 id="第二步-删除”脏”数据"><a href="#第二步-删除”脏”数据" class="headerlink" title="第二步: 删除”脏”数据."></a>第二步: 删除”脏”数据.</h4><ul>
 <li>关于什么是”脏”数据是个千人千面的问题, 我们在第一章中也讨论过. 这一步也仅仅处理一个baseline的级别.</li>
 </ul>
@@ -991,7 +990,6 @@ i<span class="token operator">=</span> <span class="token number">4500</span>
 <h1 id="3：-seq2seq实现baseline-1模型：文本摘要"><a href="#3：-seq2seq实现baseline-1模型：文本摘要" class="headerlink" title="3： seq2seq实现baseline-1模型：文本摘要"></a>3： seq2seq实现baseline-1模型：文本摘要</h1><h3 id="seq2seq实现文本摘要的架构"><a href="#seq2seq实现文本摘要的架构" class="headerlink" title="seq2seq实现文本摘要的架构"></a>seq2seq实现文本摘要的架构</h3><ul>
 <li>首选回顾一下在英译法任务中的经典seq2seq架构图</li>
 </ul>
-<p><img src="/.io//%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81%E9%A1%B9%E7%9B%AE%5C1623239860981.png" alt="1623239860981"></p>
 <blockquote>
 <ul>
 <li>编码器端负责将输入数据进行编码, 得到中间语义张量.</li>
@@ -999,8 +997,7 @@ i<span class="token operator">=</span> <span class="token number">4500</span>
 <li>一般来说, 我们将注意力机制添加在解码器端.</li>
 </ul>
 </blockquote>
-<h4 id="对比于英译法任务-我们再来看文本摘要任务下的seq2seq架构图"><a href="#对比于英译法任务-我们再来看文本摘要任务下的seq2seq架构图" class="headerlink" title="对比于英译法任务, 我们再来看文本摘要任务下的seq2seq架构图:"></a>对比于英译法任务, 我们再来看文本摘要任务下的seq2seq架构图:</h4><p><img src="/.io//%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81%E9%A1%B9%E7%9B%AE%5C1623241168701.png" alt="1623241168701"></p>
-<blockquote>
+<h4 id="对比于英译法任务-我们再来看文本摘要任务下的seq2seq架构图"><a href="#对比于英译法任务-我们再来看文本摘要任务下的seq2seq架构图" class="headerlink" title="对比于英译法任务, 我们再来看文本摘要任务下的seq2seq架构图:"></a>对比于英译法任务, 我们再来看文本摘要任务下的seq2seq架构图:</h4><blockquote>
 <ul>
 <li>编码器端负责进行原始文本的编码.</li>
 <li>注意力层结合编码张量和解码器端的当前输入, 得到总体上的内容张量.</li>
