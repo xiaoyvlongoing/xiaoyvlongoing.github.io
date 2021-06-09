@@ -444,7 +444,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-05-23
+                    2021-06-10
                 </div>
                 
 
@@ -465,166 +465,73 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <table>
-<thead>
-<tr>
-<th>函数名</th>
-<th>使用的方法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>导入的函数包import multiprocessing</td>
-<td>创建的进程导入的包名</td>
-</tr>
-<tr>
-<td>multiprocessing.Process([group [, target [, name [, args：传入指定形参 [, kwargs：以字典的类型进行传参]]]]])</td>
-<td>导入进程函数说明</td>
-</tr>
-<tr>
-<td>target=方法名</td>
-<td>执行的目标任务名（函数名，线程名）</td>
-</tr>
-<tr>
-<td>name=进程的名字</td>
-<td>进程名字</td>
-</tr>
-<tr>
-<td>对象名=multiprocessing.Process(target=方法名)</td>
-<td>启动进程的方法</td>
-</tr>
-<tr>
-<td>子进程对象.start()</td>
-<td>对象.start（）：启动子进程实例（创建子进程）</td>
-</tr>
-<tr>
-<td>os.getpid</td>
-<td>print(os.getpid)查看子进程编号</td>
-</tr>
-<tr>
-<td>os.getppid</td>
-<td>print(os.getppid)查看父进程编号</td>
-</tr>
-<tr>
-<td>multiprocessing.current_process().name进程名字</td>
-<td>查看当前进程编号</td>
-</tr>
-<tr>
-<td>子进程对象.join()</td>
-<td>加入jojn后主线程会等待子线程执行后再结束主线程，让线程可以形成串行，形成有顺序的，线性和进程的也可进行串行，结束前一个，进行下一个执行</td>
-</tr>
-<tr>
-<td>子进程对象.terminate()</td>
-<td>不管任务是否完成，立即终止子进程</td>
-</tr>
-<tr>
-<td>子进程对象.daemom = True</td>
-<td>不管任务是否完成，立即终止子进程</td>
-</tr>
-<tr>
-<td>进程在ubuntu中 ps -aux|grep 要查找的线程的名字</td>
-<td>过滤需要的进程来查看ID</td>
-</tr>
-<tr>
-<td>os.kill(os.getpid(),9)  进程的id</td>
-<td>强制杀死进程</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="多线程：无序执行"><a href="#多线程：无序执行" class="headerlink" title="多线程：无序执行"></a>多线程：无序执行</h2><table>
-<thead>
-<tr>
-<th>函数名</th>
-<th>使用方法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>import threading</td>
-<td>创建线程的包</td>
-</tr>
-<tr>
-<td>方法名= threading.Thread(target=方法名)</td>
-<td>启动进程的方法</td>
-</tr>
-<tr>
-<td>对象名 = threading.Thread(target=方法名,daemon= True)</td>
-<td>主线程结束，会让子线程结束(方法1）</td>
-</tr>
-<tr>
-<td>对象名 .setDaemon(True)：在启动线程之前</td>
-<td>主线程结束，会让子线程结束(方法2）</td>
-</tr>
-<tr>
-<td>current = threading.current_thread().name</td>
-<td>获取线程的名称</td>
-</tr>
-<tr>
-<td>多线程不能强制杀死，要把线程进行循环停止加上一个          变量 =</td>
-<td></td>
-</tr>
-<tr>
-<td>lock = threading.Lock()</td>
-<td>创建互斥锁</td>
-</tr>
-<tr>
-<td>lock.acquire()</td>
-<td>创建锁</td>
-</tr>
-<tr>
-<td>lock.release</td>
-<td>解锁</td>
-</tr>
-</tbody></table>
-<p>[TOC]</p>
-<p>1：进程是操作系统资源分配的最小单位</p>
-<p>2：进程之间执行也是无序的，它是由操作系统调度决定的，操作系统调度哪个进程，哪个进程就先执行，没有调度的进程不能执行</p>
-<p>3：进程不共享全局变量</p>
-<p>二：线程和进程有什么区别：</p>
-<p>1：进程是操作系统资源分配的最小单位，线程是cpu调度的最小单位</p>
-<p>2：线程依附于进程，没有进程就没有线程，一个进程默认创造一个主线程，一个进程可以创造多个线程</p>
-<p>3：进程不共享全局变量，而同一个进程的线程可以共享进程的全局变量</p>
-<p>4：进程开销比较大，可以利用多核（并行），线程开销比较小不能利用多核（并发）</p>
-<p>三：什么是主进程：</p>
-<p>主进程是：程序执行的入口，一个进程里默认带一个线程，主进程可以创建多个子线程，</p>
-<p>四：写出创造进程的步骤：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>：导入进程包：</span><br><span class="line"></span><br><span class="line">​		<span class="keyword">import</span>  multiprocessing</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>：创建进程函数（方法）</span><br><span class="line"></span><br><span class="line">​		<span class="function"><span class="keyword">def</span> <span class="title">num</span>（）：</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">​				<span class="title">pass</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">3：创建进程，调用进程函数（方法）</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">​		变量 = <span class="title">multiprocessing</span>.<span class="title">Process</span>(<span class="params">target = num</span>)</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">4:</span>启动进程</span><br><span class="line"></span><br><span class="line">		变量.start（）</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+                <h2 id="1：文本摘要项目理论"><a href="#1：文本摘要项目理论" class="headerlink" title="1：文本摘要项目理论"></a><strong>1：文本摘要项目理论</strong></h2><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p><strong>文本摘要思想</strong>：就是一个长文本把重要的摘要出来</p>
+<h5 id="1：NLP角度来看文本摘要任务，主流的概括两大方法："><a href="#1：NLP角度来看文本摘要任务，主流的概括两大方法：" class="headerlink" title="1：NLP角度来看文本摘要任务，主流的概括两大方法："></a>1：NLP角度来看文本摘要任务，主流的概括两大方法：</h5><ul>
+<li>抽取式摘要：Extraction-based（从文本中抽取）：直接从原文中选择若干条重要的句子, 并对它们进行排序和重组, 以形成摘要的方法.<ul>
+<li><strong>无监督抽取</strong>：不需要平行语料, 节省了人工标记的成本. 大体上有如下几种:<ul>
+<li>Lead</li>
+<li>Centroid</li>
+<li>ClusterCMRW</li>
+<li>TextRank：最经典</li>
+</ul>
+</li>
+<li><strong>有监督抽取：</strong>将文本摘要抽象成二分类问题, 通过神经网络来学习句子及其标签之间的对应关系. 需要平行语料, 需要人工标记的成本. 常见方法有如下几种<ul>
+<li>R2N2</li>
+<li>NeuralSum</li>
+<li>SummaRuNNer</li>
+<li><strong>BertSum</strong>：原本用来计算网页之间的关联性，后来被应用在句子上，句子之间反复传播，选出最关键的语句进行排序。因为文章总有中心句，而textrank就试图找出这个中心句。</li>
+</ul>
+</li>
+<li>取式<strong>缺点</strong>：主要考虑单词词频，没有过多的语义信息，所以无法建立段落中的完整语义信息</li>
+</ul>
+</li>
+<li><strong>生成式摘要: Abstraction-based：</strong>需要通过<strong>转述、同义替换、句子缩写</strong>等生成。<ul>
+<li>生成式神经网络模型的基本结构主要由<strong>编码器（encoder）和解码器（decoder）</strong>组成，编码和解码都由神经网络实现。<ul>
+<li><strong>编码器</strong>负责将输入的原文本编码成一个<strong>向量C（context），</strong></li>
+<li><strong>而解码器</strong>负责从这个<strong>向量C</strong>提取<strong>重要信息、加工剪辑，生成文本摘要。</strong></li>
+<li><strong>Sequence-to-Sequence</strong>（以下简称Seq2Seq），被广泛应用于存在输入序列和输出序列的场景，比如机器翻译（一种语言序列到另一种语言序列）、image captioning（图片像素序列到语言序列）、对话机器人（如问题到回答）等</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2：数据的处理："><a href="#2：数据的处理：" class="headerlink" title="2：数据的处理："></a>2：数据的处理：</h4><p>一般来说, 在任何项目中, 面对原始数据都要进行接下来的几点工作:</p>
+<ul>
+<li>删除空值.</li>
+<li>删除”脏”数据.<ul>
+<li>在这个数据集中的脏数据为：<ul>
+<li>有很多的技师说和，车主说</li>
+<li>文本中有很多的图片字样和语音字样</li>
+<li>有很多进口，车型，还有一些符号</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>删除特定字符的集合.</li>
+<li>分词.</li>
+<li>完成字符到id的映射.</li>
+<li>完成padding, cutting的工作.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">train_path = <span class="string">&#x27;train.csv&#x27;</span></span><br><span class="line">test_path = <span class="string">&#x27;test.csv&#x27;</span></span><br><span class="line"></span><br><span class="line">df = pd.read_csv(train_path, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">df.info()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;**********************&#x27;</span>)</span><br><span class="line"></span><br><span class="line">df = pd.read_csv(test_path, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">df.info()</span><br></pre></td></tr></table></figure>
 
-<p>五：怎么获得进程的pid</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>：improre  os </span><br><span class="line"></span><br><span class="line"><span class="number">2</span>：os.getppid :   <span class="built_in">print</span>(os.getppid)查看父进程<span class="built_in">id</span>编号</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>：os.getpid  ：   <span class="built_in">print</span>（os.getpid）查看当前进程<span class="built_in">id</span>编号</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>：multiprocessing.current_process().name进程（线程）名字   ：查看当前进程（线程）的<span class="built_in">id</span>编号    </span><br></pre></td></tr></table></figure>
+<h4 id="打印："><a href="#打印：" class="headerlink" title="打印："></a>打印：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">pandas</span>.<span class="title">core</span>.<span class="title">frame</span>.<span class="title">DataFrame</span>&#x27;&gt;</span></span><br><span class="line"><span class="class"><span class="title">RangeIndex</span>:</span> <span class="number">82943</span> entries, <span class="number">0</span> to <span class="number">82942</span></span><br><span class="line">Data columns (total <span class="number">6</span> columns):</span><br><span class="line"> <span class="comment">#   Column    Non-Null Count  Dtype </span></span><br><span class="line"></span><br><span class="line"> <span class="number">0</span>   QID       <span class="number">82943</span> non-null  <span class="built_in">object</span></span><br><span class="line"> <span class="number">1</span>   Brand     <span class="number">81642</span> non-null  <span class="built_in">object</span></span><br><span class="line"> <span class="number">2</span>   Model     <span class="number">81642</span> non-null  <span class="built_in">object</span></span><br><span class="line"> <span class="number">3</span>   Question  <span class="number">82943</span> non-null  <span class="built_in">object</span></span><br><span class="line"> <span class="number">4</span>   Dialogue  <span class="number">82941</span> non-null  <span class="built_in">object</span></span><br><span class="line"> <span class="number">5</span>   Report    <span class="number">82873</span> non-null  <span class="built_in">object</span></span><br><span class="line">dtypes: <span class="built_in">object</span>(<span class="number">6</span>)</span><br><span class="line">memory usage: <span class="number">3.8</span>+ MB</span><br><span class="line"></span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">pandas</span>.<span class="title">core</span>.<span class="title">frame</span>.<span class="title">DataFrame</span>&#x27;&gt;</span></span><br><span class="line"><span class="class"><span class="title">RangeIndex</span>:</span> <span class="number">20000</span> entries, <span class="number">0</span> to <span class="number">19999</span></span><br><span class="line">Data columns (total <span class="number">5</span> columns):</span><br><span class="line"> <span class="comment">#   Column    Non-Null Count  Dtype </span></span><br><span class="line"></span><br><span class="line"> <span class="number">0</span>   QID       <span class="number">20000</span> non-null  <span class="built_in">object</span></span><br><span class="line"> <span class="number">1</span>   Brand     <span class="number">19987</span> non-null  <span class="built_in">object</span></span><br><span class="line"> <span class="number">2</span>   Model     <span class="number">19987</span> non-null  <span class="built_in">object</span></span><br><span class="line"> <span class="number">3</span>   Question  <span class="number">20000</span> non-null  <span class="built_in">object</span></span><br><span class="line"> <span class="number">4</span>   Dialogue  <span class="number">20000</span> non-null  <span class="built_in">object</span></span><br><span class="line">dtypes: <span class="built_in">object</span>(<span class="number">5</span>)</span><br><span class="line">memory usage: <span class="number">781.4</span>+ KB</span><br></pre></td></tr></table></figure>
 
-<p>六：怎么给进程函数传递参数：</p>
-<p>1：通过元组进程传递参数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">multiprocessing.Process(target = coding , args = （参数，）)</span><br><span class="line">传入的是一个元组需要加上，传入的参数要保持一致</span><br></pre></td></tr></table></figure>
-
-<p>2：通过字典进程传参：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">multiprocessing.Process(target = coding , kwargs = &#123;传递的进程变量名：传入的参数&#125;)</span><br><span class="line">因为用的是字典的要与进程参数对住</span><br></pre></td></tr></table></figure>
-
-<h2 id="七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行"><a href="#七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行" class="headerlink" title="七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行"></a>七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行</h2><p>1：把join加入到子进程中，子进程变量.join，形成串联运行完子进程在运行主线线程</p>
-<p>八：Process创建的实例对象的常用的方法有什么？</p>
-<p>1：start（）：启动子进程实例（创建子进程）</p>
-<p>2：join（）：等待子进程执行结束，形成串联</p>
-<p>3：terminate（）：不管任务是否完成，立即终止子进程</p>
-<p>八《一》：    Process常用的属性：</p>
-<p>1：name：当前进程的别名，默认为Process - n ，n为从1开始递增的整数</p>
-<p>2：pid：当前进程的id</p>
-<p>九：编写一个程序，实现创建一个子进程，子进程每一秒打印一次：这是子进程，循环的第n次，打印 的次数是由主进程传递给子进程。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">1：#利用args和kwargs传参</span><br><span class="line">import multiprocessing</span><br><span class="line">import time</span><br><span class="line">def ness(num):</span><br><span class="line">    for i in range(num):</span><br><span class="line">        time.sleep(1)</span><br><span class="line">        print(&quot;这个是一个线程&quot;)</span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    # mues = multiprocessing.Process(target= ness,args=(6,))</span><br><span class="line">    mues = multiprocessing.Process(target=ness, kwargs=&#123;&quot;num&quot;:6&#125;)</span><br><span class="line">    mues.start()</span><br><span class="line"></span><br><span class="line">2：#利用类方法实现线程</span><br><span class="line">import multiprocessing</span><br><span class="line">import time</span><br><span class="line">class nees():</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        super(nees, self).__init__()</span><br><span class="line">        self.name = name</span><br><span class="line">    def num(self):</span><br><span class="line">        for i in range(self.name):</span><br><span class="line">            time.sleep(1)</span><br><span class="line">            print(&quot;这个是一个子进程&quot;)</span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    num_process = multiprocessing.Process(target=nees)</span><br><span class="line">    A=nees(3)</span><br><span class="line">    A.num()</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<p>：线程资源竞争问题：</p>
-<p>1：100万次加法，线程1和线程2谁先执行完</p>
-<p>2：线程1计算的结果一定比线程2小吗？</p>
-<p>3：某个线程计算的结果有没有可能小于100万？为什么：</p>
-<p>​            1：不一定谁先执行完，因为线程是由cpu进行调度的，没有执行顺序那个先执行完都是不一定的</p>
-<p>​            2：不一定，因为没办法知道那个线程能先执行完，所有没有办法知道执行的时间，没有办法知道执行的大小</p>
-<p>​            3：有的，因为多线程共享全局变量，再赋予全局变量的时候，线程一和线程二计算的先后没有办法确定下来，当线程一计算的多时，线程二计算的少时，线程一又把线程二中的值共享过来这时就不安之前的顺序的，会小于100万</p>
+<h4 id="3：TextRank：算法理论基础"><a href="#3：TextRank：算法理论基础" class="headerlink" title="3：TextRank：算法理论基础"></a>3：TextRank：算法理论基础</h4><p>对比于衡量网页重要性的PageRank算法, TextRank算法用于衡量哪些单词是关键词, 类比之下的算法思想也就很好理解了:</p>
+<ul>
+<li>如果一个单词出现在很多单词的后面, 就是它和很多单词有关联, 那么说明这个单词比较重要.</li>
+<li>如果一个TextRank值很高的单词后面跟着另一个单词, 那么后面这个单词的TextRank值也会相应的被提高.</li>
+</ul>
+<h4 id="3-1：TextRank算法代码实践"><a href="#3-1：TextRank算法代码实践" class="headerlink" title="3.1：TextRank算法代码实践"></a>3.1：TextRank算法代码实践</h4><ul>
+<li>在本小节中, 我们仅以示例代码跑通几段小程序, 让同学们掌握如何具体在代码层面用TextRank.<ul>
+<li>关键词抽取(keyword extraction)：是指从文本中确定一些能够描述文档含义的关键术语的过程<ul>
+<li>对关键词抽取而言, 用于构建顶点集的文本单元可以使句子中的一个或多个字. 根据这些字之间的关系构建边.</li>
+<li>根据任务的需要, 可以使用语法过滤器(syntactic filters)对顶点集进行优化. 语法过滤器的主要作用是将某一类或者某几类词性的字过滤出来作为顶点集.</li>
+</ul>
+</li>
+<li>关键短语抽取(keyphrase extraction)</li>
+</ul>
+</li>
+</ul>
 
                 
             </div>
@@ -651,7 +558,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://xiaoyvlongoing.github.io/2021/05/23/%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%9A%E6%97%A0%E5%BA%8F%E6%89%A7%E8%A1%8C/">https://xiaoyvlongoing.github.io/2021/05/23/%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%9A%E6%97%A0%E5%BA%8F%E6%89%A7%E8%A1%8C/</a>
+                    <a href="https://xiaoyvlongoing.github.io/2021/06/10/1%EF%BC%9A%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81%E9%A1%B9%E7%9B%AE%E7%90%86%E8%AE%BA/">https://xiaoyvlongoing.github.io/2021/06/10/1%EF%BC%9A%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81%E9%A1%B9%E7%9B%AE%E7%90%86%E8%AE%BA/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -862,7 +769,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/06/10/1%EF%BC%9A%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81%E9%A1%B9%E7%9B%AE%E7%90%86%E8%AE%BA/">
+                <a href="/2021/06/10/%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81%E9%A1%B9%E7%9B%AE/">
                     <div class="card-image">
                         
                         
@@ -899,7 +806,7 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/23/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8BTC/">
+                <a href="/2021/05/23/%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%9A%E6%97%A0%E5%BA%8F%E6%89%A7%E8%A1%8C/">
                     <div class="card-image">
                         
                         
