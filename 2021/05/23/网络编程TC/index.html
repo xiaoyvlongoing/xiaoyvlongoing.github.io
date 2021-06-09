@@ -29,7 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="小龙播客" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小龙播客" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -860,10 +862,10 @@
 <p>请在下方的注释下补充代码：</p>
 <p>​       # 导入socket模块</p>
 <pre><code>import socket
-if __name__ == &#39;__main__&#39;:
+if __name__ == '__main__':
     tcp_codne_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-    tcp_codne_socket.connect((&quot;&quot;,8080))
-    tcp_codne_socket.send(&quot;&quot;.encode())
+    tcp_codne_socket.connect(("",8080))
+    tcp_codne_socket.send("".encode())
     cone_recv = tcp_codne_socket.recv(1024)
     print(cone_recv.decode())
     tcp_codne_socket.close()
@@ -871,15 +873,15 @@ if __name__ == &#39;__main__&#39;:
 <h2 id="-4"><a href="#-4" class="headerlink" title=""></a></h2><h2 id="10-完成TCP服务的的编写"><a href="#10-完成TCP服务的的编写" class="headerlink" title="10. 完成TCP服务的的编写"></a>10. 完成TCP服务的的编写</h2><p>请在下方注释下补充代码：</p>
 <p>  # 导入socket模块</p>
 <pre><code>import socket
-if __name__ == &#39;__main__&#39;:
+if __name__ == '__main__':
     tcp_evens_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     tcp_evens_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, True)
-    tcp_evens_socket.bind((&quot;&quot;,8080))
+    tcp_evens_socket.bind(("",8080))
     tcp_evens_socket.listen(138)
     coet_socket,ip_mes = tcp_evens_socket.accept()
     recv_data = coet_socket.recv(1025)
     print(recv_data.decode())
-    coet_socket.send(&quot;&quot;.encode())
+    coet_socket.send("".encode())
     coet_socket.close()
 </code></pre>
 

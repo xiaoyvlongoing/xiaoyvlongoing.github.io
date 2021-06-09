@@ -1,4 +1,4 @@
-"object" == typeof window && (window.Ribbons = function () {
+"object" == typeof window &amp;&amp; (window.Ribbons = function () {
     var t = window,
         i = document.body,
         n = document.documentElement,
@@ -81,7 +81,7 @@
         constructor: e,
         setOptions: function (t) {
             if ("object" == typeof t)
-                for (var i in t) t.hasOwnProperty(i) && (this._options[i] = t[i])
+                for (var i in t) t.hasOwnProperty(i) &amp;&amp; (this._options[i] = t[i])
         },
         init: function () {
             try {
@@ -92,18 +92,18 @@
             this._onDraw()
         },
         addRibbon: function () {
-            var t = Math.round(o(1, 9)) > 5 ? "right" : "left",
+            var t = Math.round(o(1, 9)) &gt; 5 ? "right" : "left",
                 i = 1e3,
                 n = this._width + 200,
                 s = 0,
                 e = 0,
                 a = "right" === t ? -200 : n,
                 r = Math.round(o(0, this._height));
-            /^(top|min)$/i.test(this._options.verticalPosition) ? r = 200 : /^(middle|center)$/i.test(this._options.verticalPosition) ? r = this._height / 2 : /^(bottom|max)$/i.test(this._options.verticalPosition) && (r = this._height - 200);
-            for (var l = [], c = new h(a, r), p = new h(a, r), _ = null, d = Math.round(o(0, 360)), u = 0; !(i <= 0);) {
+            /^(top|min)$/i.test(this._options.verticalPosition) ? r = 200 : /^(middle|center)$/i.test(this._options.verticalPosition) ? r = this._height / 2 : /^(bottom|max)$/i.test(this._options.verticalPosition) &amp;&amp; (r = this._height - 200);
+            for (var l = [], c = new h(a, r), p = new h(a, r), _ = null, d = Math.round(o(0, 360)), u = 0; !(i &lt;= 0);) {
                 if (i--, s = Math.round((1 * Math.random() - .2) * this._options.horizontalSpeed), e = Math.round((1 * Math.random() - .5) * (.25 * this._height)), (_ = new h).copy(p), "right" === t) {
-                    if (_.add(s, e), p.x >= n) break
-                } else if ("left" === t && (_.subtract(s, e), p.x <= -200)) break;
+                    if (_.add(s, e), p.x &gt;= n) break
+                } else if ("left" === t &amp;&amp; (_.subtract(s, e), p.x &lt;= -200)) break;
                 l.push({
                     point1: new h(c.x, c.y),
                     point2: new h(p.x, p.y),
@@ -119,9 +119,9 @@
         },
         _drawRibbonSection: function (t) {
             if (t) {
-                if (t.phase >= 1 && t.alpha <= 0) return !0;
-                if (t.delay <= 0) {
-                    if (t.phase += .02, t.alpha = 1 * Math.sin(t.phase), t.alpha = t.alpha <= 0 ? 0 : t.alpha, t.alpha = t.alpha >= 1 ? 1 : t.alpha, this._options.animateSections) {
+                if (t.phase &gt;= 1 &amp;&amp; t.alpha &lt;= 0) return !0;
+                if (t.delay &lt;= 0) {
+                    if (t.phase += .02, t.alpha = 1 * Math.sin(t.phase), t.alpha = t.alpha &lt;= 0 ? 0 : t.alpha, t.alpha = t.alpha &gt;= 1 ? 1 : t.alpha, this._options.animateSections) {
                         var i = .1 * Math.sin(1 + t.phase * Math.PI / 2);
                         "right" === t.dir ? (t.point1.add(i, 0), t.point2.add(i, 0), t.point3.add(i, 0)) : (t.point1.subtract(i, 0), t.point2.subtract(i, 0), t.point3.subtract(i, 0)), t.point1.add(0, i), t.point2.add(0, i), t.point3.add(0, i)
                     }
@@ -129,22 +129,22 @@
                 var n = this._options.colorSaturation,
                     o = this._options.colorBrightness,
                     s = "hsla(" + t.color + ", " + n + ", " + o + ", " + t.alpha + " )";
-                this._context.save(), 0 !== this._options.parallaxAmount && this._context.translate(0, this._scroll * this._options.parallaxAmount), this._context.beginPath(), this._context.moveTo(t.point1.x, t.point1.y), this._context.lineTo(t.point2.x, t.point2.y), this._context.lineTo(t.point3.x, t.point3.y), this._context.fillStyle = s, this._context.fill(), this._options.strokeSize > 0 && (this._context.lineWidth = this._options.strokeSize, this._context.strokeStyle = s, this._context.lineCap = "round", this._context.stroke()), this._context.restore()
+                this._context.save(), 0 !== this._options.parallaxAmount &amp;&amp; this._context.translate(0, this._scroll * this._options.parallaxAmount), this._context.beginPath(), this._context.moveTo(t.point1.x, t.point1.y), this._context.lineTo(t.point2.x, t.point2.y), this._context.lineTo(t.point3.x, t.point3.y), this._context.fillStyle = s, this._context.fill(), this._options.strokeSize &gt; 0 &amp;&amp; (this._context.lineWidth = this._options.strokeSize, this._context.strokeStyle = s, this._context.lineCap = "round", this._context.stroke()), this._context.restore()
             }
             return !1
         },
         _onDraw: function () {
-            for (var t = 0, i = this._ribbons.length; t < i; ++t) this._ribbons[t] || this._ribbons.splice(t, 1);
+            for (var t = 0, i = this._ribbons.length; t &lt; i; ++t) this._ribbons[t] || this._ribbons.splice(t, 1);
             this._context.clearRect(0, 0, this._width, this._height);
-            for (var n = 0; n < this._ribbons.length; ++n) {
-                for (var o = this._ribbons[n], s = o.length, h = 0, e = 0; e < s; ++e) this._drawRibbonSection(o[e]) && h++;
-                h >= s && (this._ribbons[n] = null)
+            for (var n = 0; n &lt; this._ribbons.length; ++n) {
+                for (var o = this._ribbons[n], s = o.length, h = 0, e = 0; e &lt; s; ++e) this._drawRibbonSection(o[e]) &amp;&amp; h++;
+                h &gt;= s &amp;&amp; (this._ribbons[n] = null)
             }
-            this._ribbons.length < this._options.ribbonCount && this.addRibbon(), requestAnimationFrame(this._onDraw)
+            this._ribbons.length &lt; this._options.ribbonCount &amp;&amp; this.addRibbon(), requestAnimationFrame(this._onDraw)
         },
         _onResize: function (t) {
             var i = s();
-            this._width = i.width, this._height = i.height, this._canvas && (this._canvas.width = this._width, this._canvas.height = this._height, this._context && (this._context.globalAlpha = this._options.colorAlpha))
+            this._width = i.width, this._height = i.height, this._canvas &amp;&amp; (this._canvas.width = this._width, this._canvas.height = this._height, this._context &amp;&amp; (this._context.globalAlpha = this._options.colorAlpha))
         },
         _onScroll: function (t) {
             var i = s();

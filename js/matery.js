@@ -23,11 +23,11 @@ $(function () {
         }
 
         let w = srcDiv.width();
-        if (w >= 450) {
+        if (w &gt;= 450) {
             w = w + 21;
-        } else if (w >= 350 && w < 450) {
+        } else if (w &gt;= 350 &amp;&amp; w &lt; 450) {
             w = w + 18;
-        } else if (w >= 300 && w < 350) {
+        } else if (w &gt;= 300 &amp;&amp; w &lt; 350) {
             w = w + 16;
         } else {
             w = w + 14;
@@ -85,7 +85,7 @@ $(function () {
             let captionText = "";
             // 如果alt为空，title来替
             if (alt === undefined || alt === "") {
-                if (title !== undefined && title !== "") {
+                if (title !== undefined &amp;&amp; title !== "") {
                     captionText = title;
                 }
             } else {
@@ -118,7 +118,7 @@ $(function () {
         // progress bar init
         const progressElement = window.document.querySelector('.progress-bar');
         if (progressElement) {
-            new ScrollProgress((x, y) => {
+            new ScrollProgress((x, y) =&gt; {
                 progressElement.style.width = y * 100 + '%';
             });
         }
@@ -141,7 +141,7 @@ $(function () {
     $(window).scroll(function () {
         /* 回到顶部按钮根据滚动条的位置的显示和隐藏.*/
         let scroll = $(window).scrollTop();
-        if (scroll < 100) {
+        if (scroll &lt; 100) {
             $nav.addClass('nav-transparent');
             $backTop.slideUp(300);
         } else {
@@ -151,7 +151,7 @@ $(function () {
     });
 
     // 增加二级菜单功能 洪卫 shw2018 add 2019.09.17
-    $(".nav-menu>li").hover(function(){
+    $(".nav-menu&gt;li").hover(function(){
 		$(this).children('ul').stop(true,true).show();
 		$(this).addClass('nav-show').siblings('li').removeClass('nav-show');
 		
@@ -160,7 +160,7 @@ $(function () {
 		$('.nav-item.nav-show').removeClass('nav-show');
 	})
 	
-    $('.m-nav-item>a').on('click',function(){
+    $('.m-nav-item&gt;a').on('click',function(){
             if ($(this).next('ul').css('display') == "none") {
                 $('.m-nav-item').children('ul').slideUp(300);
                 $(this).next('ul').slideDown(300);
