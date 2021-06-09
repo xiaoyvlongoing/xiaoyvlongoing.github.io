@@ -1020,7 +1020,7 @@ dfa  <span class="token operator">=</span> pd<span class="token punctuation">.</
 dfa<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <p>打印结果</p>
-<p><img src="/.io//%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81%E9%A1%B9%E7%9B%AE%5C1623239367253.png" alt="1623239367253"></p>
+<p><img src="/.io//%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81%E9%A1%B9%E7%9B%AE%5C1623239367253.png" alt="1623239367253.png"></p>
 <h4 id="第二步-删除”脏”数据"><a href="#第二步-删除”脏”数据" class="headerlink" title="第二步: 删除”脏”数据."></a>第二步: 删除”脏”数据.</h4><ul>
 <li>关于什么是”脏”数据是个千人千面的问题, 我们在第一章中也讨论过. 这一步也仅仅处理一个baseline的级别.</li>
 </ul>
