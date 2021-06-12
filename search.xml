@@ -217,6 +217,251 @@ if __name__ == &#39;__main__&#39;:
       </tags>
   </entry>
   <entry>
+    <title>人脸识别</title>
+    <url>/2020/02/10/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/</url>
+    <content><![CDATA[<h1 id="人脸识别"><a href="#人脸识别" class="headerlink" title="人脸识别"></a>人脸识别</h1><h3 id="1：人脸识别简介："><a href="#1：人脸识别简介：" class="headerlink" title="1：人脸识别简介："></a>1：人脸识别简介：</h3><p>1.1：运用的是YOLO3深度学习进行人脸识别检测，使用pytorch框架进行编写</p>
+<p>1.2：评价指标：</p>
+<ul>
+<li><h5 id="召回率："><a href="#召回率：" class="headerlink" title="召回率："></a>召回率：</h5><ul>
+<li>通常交并比IoU大于0.5就认为是检测出来了，所以 recall = 检测出来的人脸数量/图像中总人脸数量</li>
+</ul>
+</li>
+<li><h5 id="误检数："><a href="#误检数：" class="headerlink" title="误检数："></a><strong>误检数</strong>：</h5><ul>
+<li>与recall相对，detector检测出来的矩形框与任何人工标注框的IoU都小于0.5，则认为这个检测结果是误检，误检越少越好</li>
+</ul>
+</li>
+<li><h5 id="检测速度："><a href="#检测速度：" class="headerlink" title="检测速度："></a><strong>检测速度</strong>：</h5><ul>
+<li>detector检测一幅图像所用的时间越少越好，通常用帧率(frame-per-second，FPS)来表示。不过这里有点小问题，很多detector都是图像越小、图像中人脸越少、检测最小人脸越大，检测速度越快</li>
+</ul>
+</li>
+</ul>
+<h3 id="2：数据集加载和处理"><a href="#2：数据集加载和处理" class="headerlink" title="2：数据集加载和处理"></a>2：数据集加载和处理</h3><h4 id="2-1：主要通过类LoadImagesAndLabels来实现，"><a href="#2-1：主要通过类LoadImagesAndLabels来实现，" class="headerlink" title="2.1：主要通过类LoadImagesAndLabels来实现，"></a>2.1：主要通过类LoadImagesAndLabels来实现，</h4><ul>
+<li>该方法继承自DataSet，主要实现了以下三个方法：<ul>
+<li>init方法 进行参数的初始化，包括图像路径，图像大小等</li>
+<li>len方法 返回数据集中图像文件的数量</li>
+<li>getitem方法 返回数据集中的每一个图像信息，供datasetloader来使用，在这里除了完成图像读取的任务外，我们还增加了图像增强处理</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-2：导入依赖包"><a href="#2-2：导入依赖包" class="headerlink" title="2.2：导入依赖包"></a>2.2：导入依赖包</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> glob
+<span class="token keyword">import</span> math
+<span class="token keyword">import</span> os
+<span class="token keyword">import</span> random
+<span class="token keyword">import</span> shutil
+<span class="token keyword">from</span> pathlib <span class="token keyword">import</span> Path
+<span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
+<span class="token comment" spellcheck="true"># import matplotlib.pyplot as plt</span>
+<span class="token keyword">from</span> tqdm <span class="token keyword">import</span> tqdm
+<span class="token keyword">import</span> cv2
+<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> torch
+<span class="token keyword">from</span> torch<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>data <span class="token keyword">import</span> Dataset
+<span class="token keyword">from</span> torch<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>data <span class="token keyword">import</span> DataLoader
+
+
+<span class="token comment" spellcheck="true">#[x, y, w, h]：中点坐标x，y和图片的宽高</span>
+<span class="token keyword">def</span> <span class="token function">xyxy2xywh</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># Convert bounding box format from [x1, y1, x2, y2] to [x, y, w, h]</span>
+    <span class="token comment" spellcheck="true">#转换边界框格式: [x1, y1, x2, y2] to [x, y, w, h]</span>
+    y <span class="token operator">=</span> torch<span class="token punctuation">.</span>zeros_like<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">if</span> isinstance<span class="token punctuation">(</span>x<span class="token punctuation">,</span> torch<span class="token punctuation">.</span>Tensor<span class="token punctuation">)</span> <span class="token keyword">else</span> np<span class="token punctuation">.</span>zeros_like<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+    y<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span>
+    y<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span>
+    y<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">-</span> x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span>
+    y<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">-</span> x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
+    <span class="token keyword">return</span> y
+
+
+<span class="token keyword">def</span> <span class="token function">xywh2xyxy</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># Convert bounding box format from [x, y, w, h] to [x1, y1, x2, y2]</span>
+    <span class="token comment" spellcheck="true">#转换边界框格式 :[x, y, w, h] to [x1, y1, x2, y2]</span>
+    y <span class="token operator">=</span> torch<span class="token punctuation">.</span>zeros_like<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">if</span> isinstance<span class="token punctuation">(</span>x<span class="token punctuation">,</span> torch<span class="token punctuation">.</span>Tensor<span class="token punctuation">)</span> <span class="token keyword">else</span> np<span class="token punctuation">.</span>zeros_like<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+    y<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">-</span> x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">/</span> <span class="token number">2</span>
+    y<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">/</span> <span class="token number">2</span>
+    y<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">/</span> <span class="token number">2</span>
+    y<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">/</span> <span class="token number">2</span>
+    <span class="token keyword">return</span> y
+</code></pre>
+<h3 id="2-3：获取数据，对尺度变换，图像增强，获取图片数据和标签数据"><a href="#2-3：获取数据，对尺度变换，图像增强，获取图片数据和标签数据" class="headerlink" title="2.3：获取数据，对尺度变换，图像增强，获取图片数据和标签数据"></a>2.3：获取数据，对尺度变换，图像增强，获取图片数据和标签数据</h3><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 获取数据：图像数据和标签数据</span>
+<span class="token keyword">class</span> <span class="token class-name">LoadImagesAndLabels</span><span class="token punctuation">(</span>Dataset<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> path<span class="token punctuation">,</span> batch_size<span class="token punctuation">,</span> img_size<span class="token operator">=</span><span class="token number">416</span><span class="token punctuation">,</span> augment<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> multi_scale<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> root_path<span class="token operator">=</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>curdir<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        :param path: txt文件
+        :param batch_size:批次
+        :param img_size: 图像大小
+        :param augment: 是否进行增强
+        :param multi_scale: 多尺度训练
+        :param root_path: 指定数据的根目录
+        """</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'LoadImagesAndLabels init : '</span><span class="token punctuation">,</span> path<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 读取txt文件，获取所有的图像文件</span>
+        <span class="token keyword">with</span> open<span class="token punctuation">(</span>path<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> file<span class="token punctuation">:</span>
+            img_files <span class="token operator">=</span> file<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>splitlines<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#按照行('\r', '\r\n', \n')分隔</span>
+            img_files <span class="token operator">=</span> list<span class="token punctuation">(</span>filter<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> len<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">,</span> img_files<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#函数用于过滤序列，过滤掉不符合条件的图像文件</span>
+
+        <span class="token comment" spellcheck="true"># 打乱图像文件</span>
+        np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>shuffle<span class="token punctuation">(</span>img_files<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"shuffle image..."</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>img_files <span class="token operator">=</span> img_files
+        <span class="token keyword">assert</span> len<span class="token punctuation">(</span>self<span class="token punctuation">.</span>img_files<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">'No images found in %s'</span> <span class="token operator">%</span> path<span class="token comment" spellcheck="true">#断言，检测条件，不符合就终止程序</span>
+        self<span class="token punctuation">.</span>img_size <span class="token operator">=</span> img_size<span class="token comment" spellcheck="true">#图像大小</span>
+        self<span class="token punctuation">.</span>batch_size <span class="token operator">=</span> batch_size
+        self<span class="token punctuation">.</span>multi_scale <span class="token operator">=</span> multi_scale
+        self<span class="token punctuation">.</span>augment <span class="token operator">=</span> augment
+        self<span class="token punctuation">.</span>scale_index <span class="token operator">=</span> <span class="token number">0</span>
+        self<span class="token punctuation">.</span>root_path <span class="token operator">=</span> root_path
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>multi_scale<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>img_size <span class="token operator">=</span> img_size  <span class="token comment" spellcheck="true"># 在内存不足的情况下，以最大多刻度大小启动</span>
+            <span class="token comment" spellcheck="true">#多尺度图像训练，初始图像大小</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Multi scale images training, init img_size"</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>img_size<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Fixed scale images, img_size"</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>img_size<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 获取对应的标签图像</span>
+        self<span class="token punctuation">.</span>label_files <span class="token operator">=</span> <span class="token punctuation">[</span>
+            x<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'images'</span><span class="token punctuation">,</span> <span class="token string">'labels'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">"JPEGImages"</span><span class="token punctuation">,</span> <span class="token string">'labels'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'.bmp'</span><span class="token punctuation">,</span> <span class="token string">'.txt'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'.jpg'</span><span class="token punctuation">,</span>
+                                                                                                          <span class="token string">'.txt'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span>
+                <span class="token string">'.png'</span><span class="token punctuation">,</span> <span class="token string">'.txt'</span><span class="token punctuation">)</span>
+            <span class="token keyword">for</span> x <span class="token keyword">in</span> self<span class="token punctuation">.</span>img_files<span class="token punctuation">]</span>
+
+    <span class="token keyword">def</span> <span class="token function">__len__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 返回图像文件的个数</span>
+        <span class="token keyword">return</span> len<span class="token punctuation">(</span>self<span class="token punctuation">.</span>img_files<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">__getitem__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 返回一个训练数据</span>
+        <span class="token comment" spellcheck="true"># 判断是否进行多尺度训练且是新的批次，并且批次不为0</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>multi_scale <span class="token operator">and</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>scale_index <span class="token operator">%</span> self<span class="token punctuation">.</span>batch_size <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">and</span> self<span class="token punctuation">.</span>scale_index <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># 随机生成要进行检测的图像的大小</span>
+            self<span class="token punctuation">.</span>img_size <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>range<span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">32</span><span class="token comment" spellcheck="true">#yolo图片的传入的都是32的倍数，随机生成进行检测的大小</span>
+        <span class="token comment" spellcheck="true"># 多尺度训练时要对数据个数进行计数</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>multi_scale<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>scale_index <span class="token operator">+=</span> <span class="token number">1</span>
+            <span class="token keyword">if</span> self<span class="token punctuation">.</span>scale_index <span class="token operator">>=</span> <span class="token punctuation">(</span><span class="token number">100</span> <span class="token operator">*</span> self<span class="token punctuation">.</span>batch_size<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                self<span class="token punctuation">.</span>scale_index <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token comment" spellcheck="true"># 获取图像位置，指定数据根路径和txt文件的路径位置进行拼接</span>
+        img_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>self<span class="token punctuation">.</span>root_path<span class="token punctuation">,</span> self<span class="token punctuation">.</span>img_files<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#位置进行拼接</span>
+        <span class="token comment" spellcheck="true">#对应的是2，就是前面为./后面是路径</span>
+        label_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>self<span class="token punctuation">.</span>root_path<span class="token punctuation">,</span> self<span class="token punctuation">.</span>label_files<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 图像读取</span>
+        img <span class="token operator">=</span> cv2<span class="token punctuation">.</span>imread<span class="token punctuation">(</span>img_path<span class="token punctuation">)</span>
+        <span class="token keyword">assert</span> img <span class="token keyword">is</span> <span class="token operator">not</span> None<span class="token punctuation">,</span> <span class="token string">'File Not Found '</span> <span class="token operator">+</span> img_path
+       
+<span class="token comment" spellcheck="true">#图片的数据增强       </span>
+        
+        <span class="token comment" spellcheck="true"># 进行颜色增强，概率为0.5</span>
+        augment_hsv <span class="token operator">=</span> random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0.5</span><span class="token comment" spellcheck="true">#返回的是T或F</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>augment <span class="token operator">and</span> augment_hsv<span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># SV通道增强的概率为0.5</span>
+            fraction <span class="token operator">=</span> <span class="token number">0.50</span>
+            <span class="token comment" spellcheck="true"># 颜色空间转换</span>
+            img_hsv <span class="token operator">=</span> cv2<span class="token punctuation">.</span>cvtColor<span class="token punctuation">(</span>img<span class="token punctuation">,</span> cv2<span class="token punctuation">.</span>COLOR_BGR2HSV<span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true"># 获取S和V两个通道的数据</span>
+            S <span class="token operator">=</span> img_hsv<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span>np<span class="token punctuation">.</span>float32<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#最后一个索引为1的时候获取的是S通道</span>
+            V <span class="token operator">=</span> img_hsv<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span>np<span class="token punctuation">.</span>float32<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#最后一个索引为2的时候获取的是v通道</span>
+            <span class="token comment" spellcheck="true"># 生成随机数a 在[0,5, 1.5]之间，对S通道进行处理</span>
+            a <span class="token operator">=</span> <span class="token punctuation">(</span>random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> fraction <span class="token operator">+</span> <span class="token number">1</span>
+            S <span class="token operator">*=</span> a
+            <span class="token keyword">if</span> a <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">:</span>
+                np<span class="token punctuation">.</span>clip<span class="token punctuation">(</span>S<span class="token punctuation">,</span> None<span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span> out<span class="token operator">=</span>S<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#大于1的进行裁剪</span>
+            <span class="token comment" spellcheck="true"># 生成随机数a 在[0,5, 1.5]之间，对通道进行处理</span>
+            a <span class="token operator">=</span> <span class="token punctuation">(</span>random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> fraction <span class="token operator">+</span> <span class="token number">1</span>
+            V <span class="token operator">*=</span> a
+            <span class="token keyword">if</span> a <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">:</span>
+                np<span class="token punctuation">.</span>clip<span class="token punctuation">(</span>V<span class="token punctuation">,</span> None<span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span> out<span class="token operator">=</span>V<span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true">#增强后的赋值给原图像</span>
+            img_hsv<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> S
+            img_hsv<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> V
+            <span class="token comment" spellcheck="true"># 颜色空间转换为BGR，完成图像增强</span>
+            cv2<span class="token punctuation">.</span>cvtColor<span class="token punctuation">(</span>img_hsv<span class="token punctuation">,</span> cv2<span class="token punctuation">.</span>COLOR_HSV2BGR<span class="token punctuation">,</span> dst<span class="token operator">=</span>img<span class="token punctuation">)</span>
+            
+<span class="token comment" spellcheck="true">#yolo图片输入为正方形，图像进行填充</span>
+        <span class="token comment" spellcheck="true"># 获取图像的宽高</span>
+        h<span class="token punctuation">,</span> w<span class="token punctuation">,</span> _ <span class="token operator">=</span> img<span class="token punctuation">.</span>shape
+        <span class="token comment" spellcheck="true"># yoloV3输入图片要求为正方形，而数据集中的图片一般为长方形，粗暴的resize会使得图片失真，</span>
+        <span class="token comment" spellcheck="true"># 采用letterbox可以保持图片的长宽比例，剩下的部分采用灰色填充</span>
+        <span class="token comment" spellcheck="true"># img是处理后的图像，ratio是resize的比例，padw和padh是宽高两部分填充的大小</span>
+        img<span class="token punctuation">,</span> ratio<span class="token punctuation">,</span> padw<span class="token punctuation">,</span> padh <span class="token operator">=</span> letterbox<span class="token punctuation">(</span>img<span class="token punctuation">,</span> height<span class="token operator">=</span>self<span class="token punctuation">.</span>img_size<span class="token punctuation">,</span> augment<span class="token operator">=</span>self<span class="token punctuation">.</span>augment<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#height=self.img_size：对尺度的图像的生成，再对图片进行放射裁剪变换，</span>
+        <span class="token comment" spellcheck="true">#返回：图像，比例，高，宽</span>
+
+        <span class="token comment" spellcheck="true"># 加载标签值</span>
+        labels <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token comment" spellcheck="true"># 读取标签文件，有画框的图片</span>
+        <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>isfile<span class="token punctuation">(</span>label_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true">#判断有这个路径就为T，否者为F</span>
+            <span class="token keyword">with</span> open<span class="token punctuation">(</span>label_path<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> file<span class="token punctuation">:</span>
+                lines <span class="token operator">=</span> file<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>splitlines<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true">#</span>
+            x <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span>x<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> lines<span class="token punctuation">]</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>np<span class="token punctuation">.</span>float32<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> x<span class="token punctuation">.</span>size <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
+                
+               <span class="token comment" spellcheck="true">#图像进增强后的框进行处理，写出位置    </span>
+                <span class="token comment" spellcheck="true"># 将归一化的xywh转换为xyxy的形式</span>
+                labels <span class="token operator">=</span> x<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#进行拷贝</span>
+                labels<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> ratio <span class="token operator">*</span> w <span class="token operator">*</span> <span class="token punctuation">(</span>x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> padw
+                labels<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> ratio <span class="token operator">*</span> h <span class="token operator">*</span> <span class="token punctuation">(</span>x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">-</span> x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> padh
+                labels<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> ratio <span class="token operator">*</span> w <span class="token operator">*</span> <span class="token punctuation">(</span>x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> padw
+                labels<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">=</span> ratio <span class="token operator">*</span> h <span class="token operator">*</span> <span class="token punctuation">(</span>x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">+</span> x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> padh
+
+<span class="token comment" spellcheck="true">#几何变化图像增强</span>
+        <span class="token comment" spellcheck="true"># 图像增强</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>augment<span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># 仿射变换的增强</span>
+            img<span class="token punctuation">,</span> labels <span class="token operator">=</span> random_affine<span class="token punctuation">(</span>img<span class="token punctuation">,</span> labels<span class="token punctuation">,</span> degrees<span class="token operator">=</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span> translate<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0.10</span><span class="token punctuation">,</span> <span class="token number">0.10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> scale<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0.9</span><span class="token punctuation">,</span> <span class="token number">1.1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 获取目标的个数</span>
+        nL <span class="token operator">=</span> len<span class="token punctuation">(</span>labels<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> nL<span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># # 转化xyxy为xywh，且并归一化</span>
+            labels<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">=</span> xyxy2xywh<span class="token punctuation">(</span>labels<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> self<span class="token punctuation">.</span>img_size
+
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>augment<span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># 随机左右翻转</span>
+            lr_flip <span class="token operator">=</span> <span class="token boolean">True</span>
+            <span class="token keyword">if</span> lr_flip <span class="token operator">and</span> random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0.5</span><span class="token punctuation">:</span>
+                img <span class="token operator">=</span> np<span class="token punctuation">.</span>fliplr<span class="token punctuation">(</span>img<span class="token punctuation">)</span>
+                <span class="token keyword">if</span> nL<span class="token punctuation">:</span>
+                    labels<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">-</span> labels<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
+
+            <span class="token comment" spellcheck="true"># 随机上下翻转，不适用</span>
+            ud_flip <span class="token operator">=</span> <span class="token boolean">False</span>
+            <span class="token keyword">if</span> ud_flip <span class="token operator">and</span> random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0.5</span><span class="token punctuation">:</span>
+                img <span class="token operator">=</span> np<span class="token punctuation">.</span>flipud<span class="token punctuation">(</span>img<span class="token punctuation">)</span>
+                <span class="token keyword">if</span> nL<span class="token punctuation">:</span>
+                    labels<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">-</span> labels<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span>
+        <span class="token comment" spellcheck="true"># 生成一个全零数据存储label值</span>
+        labels_out <span class="token operator">=</span> torch<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token punctuation">(</span>nL<span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 若标签不为空，将其填充在全零数组中</span>
+        <span class="token keyword">if</span> nL<span class="token punctuation">:</span>
+            labels_out<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">=</span> torch<span class="token punctuation">.</span>from_numpy<span class="token punctuation">(</span>labels<span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># 通道BGR to RGB，表示形式转换为3x416x416（CHW）</span>
+        img <span class="token operator">=</span> img<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>transpose<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#进行转至</span>
+        <span class="token comment" spellcheck="true"># 类型转换uint8 to float32</span>
+        img <span class="token operator">=</span> np<span class="token punctuation">.</span>ascontiguousarray<span class="token punctuation">(</span>img<span class="token punctuation">,</span> dtype<span class="token operator">=</span>np<span class="token punctuation">.</span>float32<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#返回有顺序的转换好的类型</span>
+        <span class="token comment" spellcheck="true"># 归一化 0 - 255 to 0.0 - 1.0</span>
+        img <span class="token operator">/=</span> <span class="token number">255.0</span>
+        <span class="token comment" spellcheck="true"># 返回结果：图片增强后的结果，图片反转后的数组，图像位置，</span>
+        <span class="token keyword">return</span> torch<span class="token punctuation">.</span>from_numpy<span class="token punctuation">(</span>img<span class="token punctuation">)</span><span class="token punctuation">,</span> labels_out<span class="token punctuation">,</span> img_path<span class="token punctuation">,</span> <span class="token punctuation">(</span>h<span class="token punctuation">,</span> w<span class="token punctuation">)</span>
+
+    @staticmethod
+    <span class="token keyword">def</span> <span class="token function">collate_fn</span><span class="token punctuation">(</span>batch<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        实现自定义的batch的输出
+        :param batch:
+        :return:
+        """</span>
+        img<span class="token punctuation">,</span> label<span class="token punctuation">,</span> path<span class="token punctuation">,</span> hw <span class="token operator">=</span> list<span class="token punctuation">(</span>zip<span class="token punctuation">(</span><span class="token operator">*</span>batch<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i<span class="token punctuation">,</span> l <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>label<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            l<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> i  <span class="token comment" spellcheck="true"># 获取 物体的 归属于 图片 的 index</span>
+        <span class="token keyword">return</span> torch<span class="token punctuation">.</span>stack<span class="token punctuation">(</span>img<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> torch<span class="token punctuation">.</span>cat<span class="token punctuation">(</span>label<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> path<span class="token punctuation">,</span> hw
+</code></pre>
+]]></content>
+      <categories>
+        <category>CV深度学习</category>
+      </categories>
+      <tags>
+        <tag>CV人脸识别项目</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>网络编程</title>
     <url>/2020/02/10/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8BTC/</url>
     <content><![CDATA[<h2 id="网络编程TC"><a href="#网络编程TC" class="headerlink" title="网络编程TC"></a>网络编程TC</h2><p>[TOC]</p>
@@ -2582,7 +2827,7 @@ Process finished <span class="token keyword">with</span> exit code <span class="
         <category>NLP</category>
       </categories>
       <tags>
-        <tag>文本分类</tag>
+        <tag>文本摘要</tag>
       </tags>
   </entry>
 </search>
