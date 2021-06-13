@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="人脸识别, 小龙播客">
+    <meta name="keywords" content="人脸识别：第一章, 小龙播客">
     <meta name="description" content="家里蹲大学">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>人脸识别 | 小龙播客</title>
+    <title>人脸识别：第一章 | 小龙播客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -235,7 +235,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/xiaoyvlongoing/xiaoyvlongoing.github.io" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -292,7 +292,7 @@
     }
 </style>
 
-<a href="https://github.com/xiaoyvlongoing/xiaoyvlongoing.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">人脸识别</h1>
+                    <h1 class="description center-align post-title">人脸识别：第一章</h1>
                 </div>
             </div>
         </div>
@@ -457,7 +457,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-02-10
+                    2020-06-10
                 </div>
                 
 
@@ -471,14 +471,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.9k
+                    3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    8 Min
+                    14 Min
                 </div>
                 
 
@@ -498,7 +498,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="人脸识别"><a href="#人脸识别" class="headerlink" title="人脸识别"></a>人脸识别</h1><h3 id="1：人脸识别简介："><a href="#1：人脸识别简介：" class="headerlink" title="1：人脸识别简介："></a>1：人脸识别简介：</h3><p>1.1：运用的是YOLO3深度学习进行人脸识别检测，使用pytorch框架进行编写</p>
+                <h2 id="第一章：人脸识别，图片数据处理增强"><a href="#第一章：人脸识别，图片数据处理增强" class="headerlink" title="第一章：人脸识别，图片数据处理增强"></a>第一章：人脸识别，图片数据处理增强</h2><h3 id="1：人脸识别简介："><a href="#1：人脸识别简介：" class="headerlink" title="1：人脸识别简介："></a>1：人脸识别简介：</h3><p>1.1：运用的是YOLO3深度学习进行人脸识别检测，使用pytorch框架进行编写</p>
 <p>1.2：评价指标：</p>
 <ul>
 <li><h5 id="召回率："><a href="#召回率：" class="headerlink" title="召回率："></a>召回率：</h5><ul>
@@ -560,7 +560,7 @@
     y<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">/</span> <span class="token number">2</span>
     <span class="token keyword">return</span> y
 </code></pre>
-<h3 id="2-3：获取数据，对尺度变换，图像增强，获取图片数据和标签数据"><a href="#2-3：获取数据，对尺度变换，图像增强，获取图片数据和标签数据" class="headerlink" title="2.3：获取数据，对尺度变换，图像增强，获取图片数据和标签数据"></a>2.3：获取数据，对尺度变换，图像增强，获取图片数据和标签数据</h3><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 获取数据：图像数据和标签数据</span>
+<h4 id="2-3：获取数据，对尺度变换，图像增强，获取图片数据和标签数据"><a href="#2-3：获取数据，对尺度变换，图像增强，获取图片数据和标签数据" class="headerlink" title="2.3：获取数据，对尺度变换，图像增强，获取图片数据和标签数据"></a>2.3：获取数据，对尺度变换，图像增强，获取图片数据和标签数据</h4><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 获取数据：图像数据和标签数据</span>
 <span class="token keyword">class</span> <span class="token class-name">LoadImagesAndLabels</span><span class="token punctuation">(</span>Dataset<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> path<span class="token punctuation">,</span> batch_size<span class="token punctuation">,</span> img_size<span class="token operator">=</span><span class="token number">416</span><span class="token punctuation">,</span> augment<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> multi_scale<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> root_path<span class="token operator">=</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>curdir<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token triple-quoted-string string">"""
@@ -732,6 +732,163 @@
             l<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> i  <span class="token comment" spellcheck="true"># 获取 物体的 归属于 图片 的 index</span>
         <span class="token keyword">return</span> torch<span class="token punctuation">.</span>stack<span class="token punctuation">(</span>img<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> torch<span class="token punctuation">.</span>cat<span class="token punctuation">(</span>label<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> path<span class="token punctuation">,</span> hw
 </code></pre>
+<h4 id="2-4：对图片进行裁剪插值变换"><a href="#2-4：对图片进行裁剪插值变换" class="headerlink" title="2.4：对图片进行裁剪插值变换"></a>2.4：对图片进行裁剪插值变换</h4><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#</span>
+<span class="token keyword">def</span> <span class="token function">letterbox</span><span class="token punctuation">(</span>img<span class="token punctuation">,</span> height<span class="token operator">=</span><span class="token number">416</span><span class="token punctuation">,</span> augment<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">127.5</span><span class="token punctuation">,</span> <span class="token number">127.5</span><span class="token punctuation">,</span> <span class="token number">127.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    保持图片的长宽比例，剩下的部分采用灰色填充，获取一个输入到网络中的正方形图片
+    :param img: 要处理的图像
+    :param height: 正方形图像的高
+    :param augment: 是否进行图像增强
+    :param color: pad部分使用其进行填充
+    :return:
+    """</span>
+    <span class="token comment" spellcheck="true"># shape = [height, width]，要处理图像的高宽</span>
+    shape <span class="token operator">=</span> img<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span>
+    <span class="token comment" spellcheck="true"># ratio  = old / new 缩放的比例</span>
+    ratio <span class="token operator">=</span> float<span class="token punctuation">(</span>height<span class="token punctuation">)</span> <span class="token operator">/</span> max<span class="token punctuation">(</span>shape<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># resize后图像的大小</span>
+    new_shape <span class="token operator">=</span> <span class="token punctuation">(</span>round<span class="token punctuation">(</span>shape<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">*</span> ratio<span class="token punctuation">)</span><span class="token punctuation">,</span> round<span class="token punctuation">(</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> ratio<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 宽pad的大小</span>
+    dw <span class="token operator">=</span> <span class="token punctuation">(</span>height <span class="token operator">-</span> new_shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span>
+    <span class="token comment" spellcheck="true"># 高pad的大小</span>
+    dh <span class="token operator">=</span> <span class="token punctuation">(</span>height <span class="token operator">-</span> new_shape<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span>
+    <span class="token comment" spellcheck="true"># 获取周围pad的大小</span>
+    top<span class="token punctuation">,</span> bottom <span class="token operator">=</span> round<span class="token punctuation">(</span>dh <span class="token operator">-</span> <span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> round<span class="token punctuation">(</span>dh <span class="token operator">+</span> <span class="token number">0.1</span><span class="token punctuation">)</span>
+    left<span class="token punctuation">,</span> right <span class="token operator">=</span> round<span class="token punctuation">(</span>dw <span class="token operator">-</span> <span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> round<span class="token punctuation">(</span>dw <span class="token operator">+</span> <span class="token number">0.1</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 是否增强</span>
+    <span class="token keyword">if</span> augment<span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 随机选择插值方式,choice:随机选取一条数据</span>
+        interpolation <span class="token operator">=</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span><span class="token punctuation">[</span>None<span class="token punctuation">,</span> cv2<span class="token punctuation">.</span>INTER_NEAREST<span class="token punctuation">,</span> cv2<span class="token punctuation">.</span>INTER_LINEAR<span class="token punctuation">,</span>
+                                          None<span class="token punctuation">,</span> cv2<span class="token punctuation">.</span>INTER_NEAREST<span class="token punctuation">,</span> cv2<span class="token punctuation">.</span>INTER_LINEAR<span class="token punctuation">,</span>
+                                          cv2<span class="token punctuation">.</span>INTER_AREA<span class="token punctuation">,</span> cv2<span class="token punctuation">.</span>INTER_CUBIC<span class="token punctuation">,</span> cv2<span class="token punctuation">.</span>INTER_LANCZOS4<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 若为None按默认方式增强，否则按随机选择的方式进行增强</span>
+        <span class="token keyword">if</span> interpolation <span class="token keyword">is</span> None<span class="token punctuation">:</span>
+            img <span class="token operator">=</span> cv2<span class="token punctuation">.</span>resize<span class="token punctuation">(</span>img<span class="token punctuation">,</span> new_shape<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            img <span class="token operator">=</span> cv2<span class="token punctuation">.</span>resize<span class="token punctuation">(</span>img<span class="token punctuation">,</span> new_shape<span class="token punctuation">,</span> interpolation<span class="token operator">=</span>interpolation<span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 若不增强，按近邻方式进行增强</span>
+        img <span class="token operator">=</span> cv2<span class="token punctuation">.</span>resize<span class="token punctuation">(</span>img<span class="token punctuation">,</span> new_shape<span class="token punctuation">,</span> interpolation<span class="token operator">=</span>cv2<span class="token punctuation">.</span>INTER_NEAREST<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 将padding的填充在图像的周围，获取方形的结果</span>
+    img <span class="token operator">=</span> cv2<span class="token punctuation">.</span>copyMakeBorder<span class="token punctuation">(</span>img<span class="token punctuation">,</span> top<span class="token punctuation">,</span> bottom<span class="token punctuation">,</span> left<span class="token punctuation">,</span> right<span class="token punctuation">,</span> cv2<span class="token punctuation">.</span>BORDER_CONSTANT<span class="token punctuation">,</span> value<span class="token operator">=</span>color<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 返回图像，缩放比例，padding大小</span>
+    <span class="token keyword">return</span> img<span class="token punctuation">,</span> ratio<span class="token punctuation">,</span> dw<span class="token punctuation">,</span> dh
+</code></pre>
+<h4 id="2-5：仿射变换的增强"><a href="#2-5：仿射变换的增强" class="headerlink" title="2.5：仿射变换的增强"></a>2.5：仿射变换的增强</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">random_affine</span><span class="token punctuation">(</span>img<span class="token punctuation">,</span> targets<span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> degrees<span class="token operator">=</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> translate<span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> scale<span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">1.1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> shear<span class="token operator">=</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                  borderValue<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">127.5</span><span class="token punctuation">,</span> <span class="token number">127.5</span><span class="token punctuation">,</span> <span class="token number">127.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># torchvision.transforms.RandomAffine(degrees=(-10, 10), translate=(.1, .1), scale=(.9, 1.1), shear=(-10, 10))</span>
+    <span class="token triple-quoted-string string">"""
+
+    :param img:
+    :param targets:
+    :param degrees: 旋转角度
+    :param translate: 水平或者垂直移动的范围
+    :param scale: 放缩尺度因子
+    :param shear: 错切
+    :param borderValue: 填充空白区域的颜色
+    :return:
+    """</span>
+    <span class="token keyword">if</span> targets <span class="token keyword">is</span> None<span class="token punctuation">:</span>
+        targets <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    border <span class="token operator">=</span> <span class="token number">0</span>  <span class="token comment" spellcheck="true"># 添加邊框的寬度 (optional)</span>
+    height <span class="token operator">=</span> max<span class="token punctuation">(</span>img<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> img<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> border <span class="token operator">*</span> <span class="token number">2</span>
+
+    <span class="token comment" spellcheck="true"># 旋轉和縮放</span>
+    R <span class="token operator">=</span> np<span class="token punctuation">.</span>eye<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+    a <span class="token operator">=</span> random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>degrees<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> degrees<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> degrees<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    <span class="token comment" spellcheck="true"># a += random.choice([-180, -90, 0, 90])  # 90deg rotations added to small rotations</span>
+    s <span class="token operator">=</span> random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>scale<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> scale<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> scale<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+
+    <span class="token comment" spellcheck="true">#图片的旋转，angle：旋转角度，center：缩放比例</span>
+    R<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> cv2<span class="token punctuation">.</span>getRotationMatrix2D<span class="token punctuation">(</span>angle<span class="token operator">=</span>a<span class="token punctuation">,</span> center<span class="token operator">=</span><span class="token punctuation">(</span>img<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">,</span> img<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> scale<span class="token operator">=</span>s<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># Translation</span>
+    T <span class="token operator">=</span> np<span class="token punctuation">.</span>eye<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+    T<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> translate<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> img<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> border  <span class="token comment" spellcheck="true"># x translation (pixels)</span>
+    T<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> translate<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">*</span> img<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> border  <span class="token comment" spellcheck="true"># y translation (pixels)</span>
+
+    <span class="token comment" spellcheck="true"># Shear</span>
+    S <span class="token operator">=</span> np<span class="token punctuation">.</span>eye<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+    S<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> math<span class="token punctuation">.</span>tan<span class="token punctuation">(</span><span class="token punctuation">(</span>random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>shear<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> shear<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> shear<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">*</span> math<span class="token punctuation">.</span>pi <span class="token operator">/</span> <span class="token number">180</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># x shear (deg)</span>
+    S<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> math<span class="token punctuation">.</span>tan<span class="token punctuation">(</span><span class="token punctuation">(</span>random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>shear<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> shear<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> shear<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">*</span> math<span class="token punctuation">.</span>pi <span class="token operator">/</span> <span class="token number">180</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># y shear (deg)</span>
+
+    M <span class="token operator">=</span> S @ T @ R  <span class="token comment" spellcheck="true"># 組合旋轉矩陣。</span>
+
+    <span class="token comment" spellcheck="true"># 进行透射变换</span>
+    imw <span class="token operator">=</span> cv2<span class="token punctuation">.</span>warpPerspective<span class="token punctuation">(</span>img<span class="token punctuation">,</span> M<span class="token punctuation">,</span> dsize<span class="token operator">=</span><span class="token punctuation">(</span>height<span class="token punctuation">,</span> height<span class="token punctuation">)</span><span class="token punctuation">,</span> flags<span class="token operator">=</span>cv2<span class="token punctuation">.</span>INTER_LINEAR<span class="token punctuation">,</span>
+                              borderValue<span class="token operator">=</span>borderValue<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># BGR order borderValue</span>
+
+    <span class="token comment" spellcheck="true"># 返回翘曲点</span>
+    <span class="token keyword">if</span> len<span class="token punctuation">(</span>targets<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
+        n <span class="token operator">=</span> targets<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        points <span class="token operator">=</span> targets<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        area0 <span class="token operator">=</span> <span class="token punctuation">(</span>points<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">-</span> points<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>points<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">-</span> points<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># warp points</span>
+        xy <span class="token operator">=</span> np<span class="token punctuation">.</span>ones<span class="token punctuation">(</span><span class="token punctuation">(</span>n <span class="token operator">*</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#创建全为1的2维数组</span>
+        xy<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> points<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span>n <span class="token operator">*</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># x1y1, x2y2, x1y2, x2y1</span>
+        xy <span class="token operator">=</span> <span class="token punctuation">(</span>xy @ M<span class="token punctuation">.</span>T<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span>n<span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true">#  创建 boxes</span>
+        x <span class="token operator">=</span> xy<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+        y <span class="token operator">=</span> xy<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+        xy <span class="token operator">=</span> np<span class="token punctuation">.</span>concatenate<span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>min<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> y<span class="token punctuation">.</span>min<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> x<span class="token punctuation">.</span>max<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> y<span class="token punctuation">.</span>max<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">.</span>T
+
+        <span class="token comment" spellcheck="true"># 应用基于角度的边界框缩减</span>
+        radians <span class="token operator">=</span> a <span class="token operator">*</span> math<span class="token punctuation">.</span>pi <span class="token operator">/</span> <span class="token number">180</span>
+        reduction <span class="token operator">=</span> max<span class="token punctuation">(</span>abs<span class="token punctuation">(</span>math<span class="token punctuation">.</span>sin<span class="token punctuation">(</span>radians<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> abs<span class="token punctuation">(</span>math<span class="token punctuation">.</span>cos<span class="token punctuation">(</span>radians<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">0.5</span>
+        x <span class="token operator">=</span> <span class="token punctuation">(</span>xy<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">+</span> xy<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span>
+        y <span class="token operator">=</span> <span class="token punctuation">(</span>xy<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">+</span> xy<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span>
+        w <span class="token operator">=</span> <span class="token punctuation">(</span>xy<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">-</span> xy<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">*</span> reduction
+        h <span class="token operator">=</span> <span class="token punctuation">(</span>xy<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">-</span> xy<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">*</span> reduction
+        xy <span class="token operator">=</span> np<span class="token punctuation">.</span>concatenate<span class="token punctuation">(</span><span class="token punctuation">(</span>x <span class="token operator">-</span> w <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">,</span> y <span class="token operator">-</span> h <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">,</span> x <span class="token operator">+</span> w <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">,</span> y <span class="token operator">+</span> h <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">.</span>T
+
+        <span class="token comment" spellcheck="true"># reject warped points outside of image</span>
+        np<span class="token punctuation">.</span>clip<span class="token punctuation">(</span>xy<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> height<span class="token punctuation">,</span> out<span class="token operator">=</span>xy<span class="token punctuation">)</span>
+        w <span class="token operator">=</span> xy<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">-</span> xy<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span>
+        h <span class="token operator">=</span> xy<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">-</span> xy<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
+        area <span class="token operator">=</span> w <span class="token operator">*</span> h
+        ar <span class="token operator">=</span> np<span class="token punctuation">.</span>maximum<span class="token punctuation">(</span>w <span class="token operator">/</span> <span class="token punctuation">(</span>h <span class="token operator">+</span> <span class="token number">1e</span><span class="token operator">-</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">,</span> h <span class="token operator">/</span> <span class="token punctuation">(</span>w <span class="token operator">+</span> <span class="token number">1e</span><span class="token operator">-</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        i <span class="token operator">=</span> <span class="token punctuation">(</span>w <span class="token operator">></span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token punctuation">(</span>h <span class="token operator">></span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token punctuation">(</span>area <span class="token operator">/</span> <span class="token punctuation">(</span>area0 <span class="token operator">+</span> <span class="token number">1e</span><span class="token operator">-</span><span class="token number">16</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0.1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token punctuation">(</span>ar <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span>
+
+        targets <span class="token operator">=</span> targets<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+        targets<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">=</span> xy<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true">#返回透射变换后的</span>
+    <span class="token keyword">return</span> imw<span class="token punctuation">,</span> targets
+</code></pre>
+<h4 id="2-5：打印输出进行测试"><a href="#2-5：打印输出进行测试" class="headerlink" title="2.5：打印输出进行测试"></a>2.5：打印输出进行测试</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    train_path <span class="token operator">=</span>r<span class="token string">'.\train.txt'</span>
+    batch_size <span class="token operator">=</span> <span class="token number">1</span>
+    img_size <span class="token operator">=</span> <span class="token number">416</span>
+    root_path <span class="token operator">=</span> r<span class="token string">'.\datasets'</span>
+    num_workers <span class="token operator">=</span> <span class="token number">2</span>
+    <span class="token comment" spellcheck="true"># 用之前创建好的Dataset类去创建数据对象</span>
+    dataset <span class="token operator">=</span> LoadImagesAndLabels<span class="token punctuation">(</span>train_path<span class="token punctuation">,</span> batch_size<span class="token operator">=</span>batch_size<span class="token punctuation">,</span> img_size<span class="token operator">=</span>img_size<span class="token punctuation">,</span> augment<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+                                  multi_scale<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> root_path<span class="token operator">=</span>root_path<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'--------------->>> imge num : '</span><span class="token punctuation">,</span> dataset<span class="token punctuation">.</span>__len__<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 利用dataloader读取我们的数据对象，并设定batch-size，使用dataloader进行模型训练</span>
+    dataloader <span class="token operator">=</span> DataLoader<span class="token punctuation">(</span>dataset<span class="token punctuation">,</span>
+                            batch_size<span class="token operator">=</span>batch_size<span class="token punctuation">,</span>
+                            num_workers<span class="token operator">=</span>num_workers<span class="token punctuation">,</span>
+                            shuffle<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+                            pin_memory<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>
+                            drop_last<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>
+                            collate_fn<span class="token operator">=</span>dataset<span class="token punctuation">.</span>collate_fn<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i<span class="token punctuation">,</span> <span class="token punctuation">(</span>imgs<span class="token punctuation">,</span> targets<span class="token punctuation">,</span> img_path_<span class="token punctuation">,</span> _<span class="token punctuation">)</span> <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>dataloader<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 将信息标注在图像上</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>targets<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>img_path_<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 标注的图像写入的文件路径</span>
+        out_path <span class="token operator">=</span> img_path_<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">"anno"</span><span class="token punctuation">,</span> <span class="token string">"results"</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>out_path<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 将图像写入</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>imgs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>imgs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>permute<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>imgs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>permute<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        cv2<span class="token punctuation">.</span>imwrite<span class="token punctuation">(</span>out_path<span class="token punctuation">,</span> np<span class="token punctuation">.</span>uint8<span class="token punctuation">(</span>imgs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>permute<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">255.0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">continue</span>
+</code></pre>
 
                 
             </div>
@@ -758,7 +915,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://xiaoyvlongoing.github.io/2020/02/10/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/">https://xiaoyvlongoing.github.io/2020/02/10/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/</a>
+                    <a href="https://xiaoyvlongoing.github.io/2020/06/10/%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9A%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">https://xiaoyvlongoing.github.io/2020/06/10/%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9A%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -969,18 +1126,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/02/10/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/">
+                <a href="/2020/06/10/%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%EF%BC%8C%E6%A8%A1%E5%9E%8B%E8%BF%9B%E8%A1%8C%E6%9E%84%E5%BB%BA/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="人脸识别">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="人脸识别：第二章">
                         
-                        <span class="card-title">人脸识别</span>
+                        <span class="card-title">人脸识别：第二章</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -990,9 +1146,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-10
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-10
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1005,7 +1161,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1264,7 +1419,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total Words:&nbsp;<span
-                        class="white-color">22.7k</span>
+                        class="white-color">25.6k</span>
             
             
             
