@@ -1,0 +1,1610 @@
+<!DOCTYPE HTML>
+<html lang="Html">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="机器学习，神经网络上, 小龙播客">
+    <meta name="description" content="家里蹲大学">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>机器学习，神经网络上 | 小龙播客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="小龙播客" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">小龙播客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">小龙播客</div>
+        <div class="logo-desc">
+            
+            家里蹲大学
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">机器学习，神经网络上</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%8C%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">机器学习，神经网络</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%8C%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="post-category">
+                                机器学习，神经网络
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2020-02-10
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2021-06-25
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    5.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    19 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="什么是机器学习"><a href="#什么是机器学习" class="headerlink" title="什么是机器学习"></a>什么是机器学习</h2><p>——-先观察后照做<br> ——-机器学习算法都试图以某种它可以的方式来模拟两个数据之间存在的模式，从而做到用一个数据集来预测另一个数据集<br> ——-机器学习的大部分工作都是训练某种监督分类器</p>
+<ul>
+<li>机器学习：<br> 机器学习是计算机科学的的一个分支，机器学习观察某个任务中存在的模式，并试图以某种直接或者间接的方式模仿它。</li>
+</ul>
+<h2 id="机器学习理论基础"><a href="#机器学习理论基础" class="headerlink" title="机器学习理论基础"></a>机器学习理论基础</h2><p><strong>机器学习工作流程的总结</strong></p>
+<ul>
+<li><p>获取数据集：<br> 要有多少的样本每个样本的特征，根据特征再进行归类成相应的目标值</p>
+<pre><code> 1：数据要有代表性，否者会过拟合，（数据集尽量差异大，提取会更好）。
+ 2：对数据的分类问题，数据偏斜不能过严重，不同类别的数据数量不要有数量级的差距。
+ 3：对数据集的量级做一个评估，多少个样本，多少个特征，可以估算出内存的消耗，
+     太大放不下就要考虑改进算法和做一些降维的技巧，如果数据集太大，就要考虑做分布式的处理方式。
+</code></pre>
+</li>
+<li><p>数据集的基本处理：</p>
+<pre><code> 1：数据的清洗很关键的一步，能够使算法效果和性能显著的提高：
+     如归一化，离散化，因子化，缺失值的处理，去除共线性等，数据的挖掘过程就花在他们上面。
+ 2：数据的增强操作：翻转。
+</code></pre>
+</li>
+<li><p>特征工程的提取：</p>
+<pre><code> 1：良好的数据能过提取良好的特征才能发挥作用。
+ 2：筛选出显著的特征，放弃非显著的特征，非常简单的算法也能有不错的结果。
+ 3：需要运用有效性的分析相关的技术，相关的系数，卡方检验，平均互信息，条件熵，后验概率，逻辑回归权重等方法。
+</code></pre>
+</li>
+<li><p>机器学习（构建模型训练）：<br> 训练的数据（70%-80%）测试数据集（20%-30%）</p>
+<pre><code> 1：怎样才能把这些算法的（超参数）使得变得更加优良，理解越深才能更有效的提出优化的方案。
+</code></pre>
+</li>
+<li><p>模型的评估：</p>
+<pre><code> 没有达到要求，从新上面的步骤
+ 达到一定的要求，上线服务
+</code></pre>
+</li>
+</ul>
+<h2 id="机器学习的算法分类"><a href="#机器学习的算法分类" class="headerlink" title="机器学习的算法分类"></a>机器学习的算法分类</h2><p><strong>两种机器学习的主要类型：</strong><br> 数据集的组成不同，算法就有所不同</p>
+<pre><code>    监督和无监督主要关注被学习的模式的类型
+    无监督学习和监督学习都是将一个数据集转化为另一个数据集
+</code></pre>
+<ul>
+<li><p>监督学习：你知道的—–》监督学习—-》你想知道的</p>
+</li>
+<li><p>监督机器学习：创建能接收可观察，可记录的，输入数据的方法，他能将转换为所需要再进行逻辑分析的有价值的输出数据。</p>
+<pre><code> 他可以直接模仿两个数据集之间的模式，尝试获取一个输入数据集并将其转换为    
+ 对应的输出数据集：如使用像素来检测猫存在与否
+</code></pre>
+</li>
+<li><p>监督学习对数据集进行转换</p>
+</li>
+<li><p>监督学习是一种将一个数据集转换为另一个数据集的方法</p>
+<pre><code> 1：输入数据是由输入特征和目标值所组成的：
+      （一）：函数的输出可以是一个连续的值（称为回归）
+      （二）：或是输出是个有限的离散值（称为分类）
+</code></pre>
+</li>
+<li><p>无监督学习：一系列的数据点—–》无监督学习—–》一系列的数据聚类标签。</p>
+</li>
+<li><p>将数据集进行聚类就是一种无监督学习： 聚类算法：将一系列数据点转换为对应的一系列类别的标签。</p>
+</li>
+<li><p>无监督学习对数据集进行分组</p>
+<pre><code> 1：输入数据是由输入特征值组成，没有目标值：
+     （一）：输入数据没有被标记，也没有确定的结果，数据类别未知
+     （二）：需要根据样本间的相似性对样本进行类别的分类
+</code></pre>
+</li>
+<li><p>半监督学习</p>
+<pre><code> 1：训练集同时含有标记的数据和未标记的数据样本
+</code></pre>
+</li>
+<li><p>强化学习：</p>
+<pre><code> 1：实质是make decisions 问题，即自动进行决策，并且可以做练习决策
+   （一）：五个元素：代理品，行动，奖励，环境，观察情况
+   （二）：强化学习目标是获取最多的累计奖励
+</code></pre>
+<h2 id="四种不同类型的算法：监督或者无监督，参数或者无参数"><a href="#四种不同类型的算法：监督或者无监督，参数或者无参数" class="headerlink" title="四种不同类型的算法：监督或者无监督，参数或者无参数"></a>四种不同类型的算法：监督或者无监督，参数或者无参数</h2></li>
+<li><p>监督和无监督的特性是：主要关注被学习的模式的类型</p>
+</li>
+<li><p>参数和非参数类型：主要关注存储学习参数的方式</p>
+<h1 id="参数学习和非参数学习"><a href="#参数学习和非参数学习" class="headerlink" title="参数学习和非参数学习"></a>参数学习和非参数学习</h1></li>
+<li><p>参数学习和非参数学习：试错学习和计数和概率<br> 参数是一种通用的术语，所指的仅是用于识别模式的-组数字–并不影响限制我们我们第一这些数字的正常使用，<br> 技术的参数权重是参数</p>
+<pre><code> 主要关注存储学习参数的方式，更进一步说是关注学习的方法
+ 参数模型的特征是具有固定的数量的参数，而非参数的参数数量是无限的（由数据决定）
+     1：参数模型倾向于试错法
+     2：非参数模型倾向于计数法
+</code></pre>
+<h2 id="监督学习和强化学习的对比"><a href="#监督学习和强化学习的对比" class="headerlink" title="监督学习和强化学习的对比"></a>监督学习和强化学习的对比</h2><pre><code> 反馈映射:     
+     监督学习：输出的是之间的关系，可以告诉算法什么样的输入对应着什么样的输出。     
+     强化学习：输出的是给机器的反馈 reward function，即用来判断这个行为是好是坏。
+ 反馈时间     
+     监督学习：做了比较坏的选择会立刻反馈给算法。     
+     强化学习：结果反馈有延时，有时候可能需要走了很多步以后才知道以前的某一步的选择是好还是坏。
+ 输入特征     
+     监督学习：输入是独立同分布的。     
+     强化学习：面对的输入总是在变化，每当算法做出一个行为，它影响下一次决策的输入，一直在变化的
+ 
+ 拓展概念：什么是独立同分布：
+</code></pre>
+</li>
+</ul>
+<h2 id="监督参数学习：使用旋钮进行试错学习"><a href="#监督参数学习：使用旋钮进行试错学习" class="headerlink" title="监督参数学习：使用旋钮进行试错学习"></a>监督参数学习：使用旋钮进行试错学习</h2><ul>
+<li>机器根据旋钮的角度对输入数据进行处理，并转换为预测结果</li>
+</ul>
+<p>预测—与真值进行比较—-学习模式<br> 通过调节参数来达到最好的预判结果</p>
+<h2 id="无监督参数学习"><a href="#无监督参数学习" class="headerlink" title="无监督参数学习"></a>无监督参数学习</h2><p>无监督参数学习就是就是使用旋钮对数据经行分组，每个类别都设置了几个旋钮，每个旋钮都反映了输入数据到那个特等类别的相似度</p>
+<h2 id="非参数学习：基于计数的方法"><a href="#非参数学习：基于计数的方法" class="headerlink" title="非参数学习：基于计数的方法"></a>非参数学习：基于计数的方法</h2><ul>
+<li>参数算法有固定数量的参数，而非参数算法会根据数据集调整参数个数</li>
+</ul>
+<h2 id="神经网络：它将输入乘以权重，将输入“缩放”一定比例"><a href="#神经网络：它将输入乘以权重，将输入“缩放”一定比例" class="headerlink" title="神经网络：它将输入乘以权重，将输入“缩放”一定比例"></a>神经网络：它将输入乘以权重，将输入“缩放”一定比例</h2><p><strong>数据——-机器——预测</strong><br> <strong>预测——比较——学习—&gt;模式</strong><br> 神经网络做了：</p>
+<pre><code> 将输入乘于权重
+ 将输入缩放一定比例
+</code></pre>
+<p><strong>神经网络的交互：</strong></p>
+<pre><code>  接受输入变量，作为信息来源， 
+  拥有权重变量，以此作为知识，
+  然后融入信息和知识，输出预测结果
+</code></pre>
+<p><strong>理解神经网络权重：</strong></p>
+<pre><code>是将它作为网络的输入和预测之间敏感度的度量，
+
+权重非常的高，即使最小的输入也会对预测结果产生非常大的影响，权重非常小时再大的输入也只能对预测产生很小的扰动
+</code></pre>
+<p><strong>多种输入</strong></p>
+<pre><code>将三个输入或更多输入乘于三项权重，并使他们求和得到加权后的权和
+</code></pre>
+<p><strong>加权和（点积）</strong></p>
+<pre><code>将每个输入乘于其各自的权重，然后对所有的局部预测结果进行求和则成为输入的加权和，简称点积
+</code></pre>
+<p><strong>点积</strong></p>
+<pre><code> 点积让你了解两个向量之间的相似性，
+ 最大的加权和：出现在完全相同的向量之间
+ 向量之间没有重合的权重，点积为0
+ 重合的权重值为负数，这个会抵消掉他们之间的正相似性
+</code></pre>
+<p><strong>点积的属性</strong></p>
+<pre><code>点积的属性类比作逻辑上的AND（与）操作，向量中没有相同的，最终得分为0
+负权重值往往意味着逻辑上的NOT（非）运算符，因为任何正权值与负权值配对都会导致得分下降，两个为负的就会得正值
+</code></pre>
+<p>OR（或）如果任何一行的权重不为0，分数就会受到影响</p>
+<p><strong>简单的神经网络</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np存储的维度元素数组
+weights <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0.1</span><span class="token punctuation">,</span><span class="token number">0.2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#数值为权重</span>
+<span class="token comment" spellcheck="true">#array:为NP中的存储元组的维度</span>
+<span class="token keyword">def</span> <span class="token function">neural_network</span><span class="token punctuation">(</span>input<span class="token punctuation">,</span>weights<span class="token punctuation">)</span>
+    pred <span class="token operator">=</span> input<span class="token punctuation">.</span>dot<span class="token punctuation">(</span>weights<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#dot:为Numpy中的乘</span>
+    returu pred
+toes <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">8.5</span><span class="token punctuation">,</span><span class="token number">9.5</span><span class="token punctuation">,</span><span class="token number">9.9</span><span class="token punctuation">,</span><span class="token number">9.0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#数值为输入信息数据</span>
+wlrec <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0.65</span><span class="token punctuation">,</span><span class="token number">0.8</span><span class="token punctuation">,</span><span class="token number">0.8</span><span class="token punctuation">,</span><span class="token number">0.9</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+nfans <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1.2</span><span class="token punctuation">,</span><span class="token number">1.3</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">,</span><span class="token number">1.0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+input <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>toes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>wlerc<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>nfans<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+pred <span class="token operator">=</span> neural_network<span class="token punctuation">(</span>input<span class="token punctuation">,</span>weights<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>pred<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="误差"><a href="#误差" class="headerlink" title="误差"></a>误差</h2><p>预测出来的结果与实际中的结果存在着多少的误差</p>
+<ul>
+<li>均方误差：是评估神经网络准确性的众多方法之一</li>
+<li>比较是在逻辑上的输出是“冷/热”这一类信号</li>
+<li>提升权重：up_prediction = input*(weight+step_amount)#step_amount=0.001(增加权重值)</li>
+</ul>
+<h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><ul>
+<li><strong>学习</strong>：就是告诉权重应该如何改变以及降低误差，深度学习最流行的方法为：梯度下降，在预测步骤结束时：学习这一步会为每项权重计算一个数字，这个数字告诉我们，减少误差，权重应该向那个方向变化，然后，我们根据这个数字对权重做出相应的调节，直到达到目的。</li>
+<li><strong>学习</strong>：学习就是调整权重，将误差减小到0</li>
+</ul>
+<h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><p>这一步会让你知道自己的模型错了多少</p>
+<ul>
+<li>比较：你是的神经网络是否做好的预测</li>
+</ul>
+<h2 id="测量误差"><a href="#测量误差" class="headerlink" title="测量误差"></a>测量误差</h2><ul>
+<li>训练神经网络的目的是做出正确的预测</li>
+<li>纯误差：（（权重<em>输入数据）-  真实数据） -均方误差：（（权重</em>输入数据）-  真实数据）**2 将误差进行平方，进负数的误差进行正值，和将更大的误差更大，更小的误差更小（小于1的数更小，大于1的数更大）</li>
+<li>冷热学习：就是通过扰动权重从新确定向那个方向调整可以使得误差的降低幅度最大，基于此将权重值向那个方向移动<br> 权重实际进行调节取决于那个方向所得到的误差更小</li>
+<li>执行缩放，负值翻转和停止调节对纯误差进行修正以及更新权重（（权重*输入）- 真实数据）× 输入数据</li>
+<li>缩放，停止，负值反转：三个属性作用进纯误差转换为我们需要的权重调节的绝对幅度</li>
+</ul>
+<pre class=" language-python"><code class="language-python">weight <span class="token operator">=</span> <span class="token number">0.5</span><span class="token comment" spellcheck="true">#权重</span>
+input <span class="token operator">=</span> <span class="token number">0.5</span><span class="token comment" spellcheck="true">#数据</span>
+goal_prediction <span class="token operator">=</span> <span class="token number">0.8</span><span class="token comment" spellcheck="true">#真实的值（goal_pred:真值）</span>
+step_amount <span class="token operator">=</span> <span class="token number">0.001</span><span class="token comment" spellcheck="true">#权重增加的值</span>
+<span class="token keyword">for</span> iteration <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1101</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment" spellcheck="true">#循环迭代预测</span>
+predidction <span class="token operator">=</span> input <span class="token operator">*</span> weight <span class="token comment" spellcheck="true">#预测出来的值</span>
+weight_delta<span class="token punctuation">(</span>误差增量就是你的导数<span class="token punctuation">)</span>
+error <span class="token operator">=</span> <span class="token punctuation">(</span>predidction <span class="token operator">-</span> goal_prediction<span class="token punctuation">)</span><span class="token operator">**</span><span class="token number">2</span><span class="token comment" spellcheck="true">#误差值进行平方</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Error:"</span><span class="token operator">+</span> str<span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"predidction:"</span> <span class="token operator">+</span> str<span class="token punctuation">(</span>predidction<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#</span>
+up_prediction <span class="token operator">=</span> input <span class="token operator">*</span> <span class="token punctuation">(</span>weight <span class="token operator">+</span> srep_amount<span class="token punctuation">)</span>
+up_error <span class="token operator">=</span> goal_prediction <span class="token operator">-</span> up_prediction<span class="token punctuation">)</span><span class="token operator">**</span><span class="token number">2</span>
+down_predicton <span class="token operator">=</span> input <span class="token operator">*</span> <span class="token punctuation">(</span>weight <span class="token operator">-</span> dtep_amount<span class="token punctuation">)</span>
+down_error <span class="token operator">=</span><span class="token punctuation">(</span>goal_prediction <span class="token operator">-</span> down_prediction<span class="token punctuation">)</span><span class="token operator">**</span><span class="token number">2</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>down_error <span class="token operator">&lt;</span> up_error<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    weight <span class="token operator">=</span> weight <span class="token operator">-</span> step_amount
+<span class="token keyword">if</span> <span class="token punctuation">(</span>down_error <span class="token operator">></span> up_error<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    weight <span class="token operator">=</span> weight <span class="token operator">+</span> step_amount
+</code></pre>
+<h2 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降:"></a>梯度下降:</h2><h3 id="更新出来的新权重的值-weight-：（（（权重-×-输入）-真实数据）×-输入）×-训练之前确定的权重增量的值（alpha）"><a href="#更新出来的新权重的值-weight-：（（（权重-×-输入）-真实数据）×-输入）×-训练之前确定的权重增量的值（alpha）" class="headerlink" title="**更新出来的新权重的值(weight)**：（（（权重 × 输入）- 真实数据）× 输入）× 训练之前确定的权重增量的值（alpha）"></a>**更新出来的新权重的值(weight)**：（（（权重 × 输入）- 真实数据）× 输入）× 训练之前确定的权重增量的值（alpha）</h3><p><strong>alpha</strong>：调节控制网络学习的速度。<br> 测量误差，找出权重调节的方向和幅度，对方向和幅度的计算，对权重进行调整以减少错误<br> direction_and_amount = (pred - goal_pred) * input<br> #纯误差，<br> #与输入相乘，用于执行缩放，负值反转和停止调节，对纯误差进行修正以更新权重</p>
+<ul>
+<li><strong>预测的数据（pred）</strong>：权重*输入</li>
+<li><strong>输出节点（delta）</strong>：（权重*输入）- 真实数据（delta）<br> ：当前节点的变化以便完美第预测结果</li>
+<li><strong>误差的增量（weight_delta</strong>）：（（权重*输入）- 真实数据）× 输入数据：将权重的输出节点增加（delta）乘以权重的输入，进行权重缩放操作<br> ：基于导数对权重移动的方向和数量的估计</li>
+<li>原始权重 - 权重的增量</li>
+<li>**更新出来的新权重的值(weight)*<em>：（（（权重</em>输入）- 真实数据）× 输入）× 训练之前确定的权重增量的值（alpha）<br> <strong>纯误差</strong>：预测值和真实值的差值，表示当前的错误的原始方向和幅度，如果是一个正值，那么预测就太高了，反之亦然，如果很大的数字那么就错了很多<br> <strong>停止调节</strong>：例子CD碟片插入立体播放机，把音量调到最大，但是CD播放器是关着的，就是输入为0时，模型就不会进行学习，所有的权重值都会产生相同的误差，对其进行调节没有什么区别，预测的一直为0，<br> <strong>负值翻转</strong>：当输入为负值时纯误差也为负值，再进与输入相乘，权重向着正值方向前进<br> <strong>缩放</strong>：是对纯误差进行第三项修正，是输入引起，如果输入很大，则权重更新也会变得更大，就相当于副作用，进程可能失去控制，<br> <strong>权重修改</strong>：权重的修改，能够使预测的值之间的误差逐渐接近于0，达到预测值和真实值无限接近</li>
+</ul>
+<pre class=" language-python"><code class="language-python">weight<span class="token punctuation">,</span>goal_pred<span class="token punctuation">,</span>input <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">,</span><span class="token number">0.8</span><span class="token punctuation">,</span><span class="token number">1.1</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#权重， 真实值，  输入</span>
+<span class="token keyword">for</span> iteration <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"----\nWeight:"</span> <span class="token operator">+</span> str<span class="token punctuation">(</span>weight<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    pred <span class="token operator">=</span> input<span class="token operator">*</span>weight  <span class="token comment" spellcheck="true">#输入乘权重预测值</span>
+    error <span class="token operator">=</span> <span class="token punctuation">(</span>pred <span class="token operator">-</span> goal_pred<span class="token punctuation">)</span><span class="token operator">**</span><span class="token number">2</span><span class="token comment" spellcheck="true">#预测值-真实值的平方：均方误差</span>
+    delta <span class="token operator">=</span> pred <span class="token operator">-</span> goal_pred<span class="token comment" spellcheck="true">#纯误差</span>
+    weight_delta <span class="token operator">=</span> delta <span class="token operator">*</span> input<span class="token comment" spellcheck="true">#反转预测后的值数</span>
+    weight <span class="token operator">=</span> weight <span class="token operator">-</span> weight_delta<span class="token comment" spellcheck="true">#节点delta值，实际误差与反转后判定的进行相互补</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Error:"</span><span class="token operator">+</span>str<span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"prediction:"</span><span class="token operator">+</span>str<span class="token punctuation">(</span>pred<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"delta:"</span><span class="token operator">+</span>str<span class="token punctuation">(</span>delta<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"weight delta:"</span><span class="token operator">+</span>str<span class="token punctuation">(</span>weight_delta<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="误差减小"><a href="#误差减小" class="headerlink" title="误差减小"></a>误差减小</h2><p>为了使误差减小，我们尽力去寻求权重应该变化的方向和幅度，导数给出了函数中任意两个变量之间的关系，我们可以用导数来确定权重和误差之间的关系，然后把权重的值向导数的反方向移动，就能得到使误差更小的权重值。</p>
+<h2 id="学习就是减少误差"><a href="#学习就是减少误差" class="headerlink" title="学习就是减少误差"></a>学习就是减少误差</h2><ol>
+<li>可以修改权重减少误差：就是找到正确的方向和幅度来改变权重，使误差减小</li>
+<li>原始权重 - 权重的增量</li>
+<li>用斜率来帮助神经网络减少的误差：不管你在碗型曲线的那个位置，斜率都指向碗的底部（此时误差最小）</li>
+</ol>
+<h2 id="学习就是调整权重将误差减小到0"><a href="#学习就是调整权重将误差减小到0" class="headerlink" title="学习就是调整权重将误差减小到0"></a>学习就是调整权重将误差减小到0</h2><ol>
+<li>改变权重值误差的变化就是变化量</li>
+<li>给定一个函数，如果你改变其中一个变量，则它的导数代表了另一个变量发生变化的方向和幅度</li>
+<li>导数是直线或者曲线上的一点斜率</li>
+<li>画出U型曲线：曲线的斜率是正值，这个点就在右边，曲线的斜率为负值</li>
+<li>斜率的符号表示方向，斜率的坡度表示量你可以使这两个方法来帮助我们找到目标权重</li>
+<li>导数代表着，某个函数中两个变量之间的关系</li>
+<li>误差的增量就是你的导数（weight_delta*<em>）：（（权重</em>输入）- 真实数据）× 输入数据：将权重的输出节点增加（delta）乘以权重的输入，进行权重缩放操作，</li>
+<li>画出来的虚色直线是斜率，也是导数，当改变权重时误差会跟着变化多少，如果方向是朝下的，也就说斜率就是负的</li>
+<li>直线或曲线的斜率总是与error最低点的方向相反，所以斜率是负的就增加weight寻求最小的error</li>
+</ol>
+<h2 id="深度学习的目标"><a href="#深度学习的目标" class="headerlink" title="深度学习的目标"></a>深度学习的目标</h2><ol>
+<li>就是误差的减小，尽力寻求权重应该变化的方向和幅度，可以用导数来确定权重和误差之间的关系，然后再把权重的值再向导数的反方向移动，就能得到使误差更小的权重值</li>
+</ol>
+<h2 id="引用α"><a href="#引用α" class="headerlink" title="引用α"></a>引用α</h2><ol>
+<li>α又名alpha：能够减少权重的增量，取值范围0到1之间<br> 把 weight_delta 变量名替换成derivative<br> 2.*更新出来的新权重的值： weight  = weight - (alpha * derivative)</li>
+</ol>
+<p><strong>引用α变量</strong></p>
+<pre class=" language-bash"><code class="language-bash">weight <span class="token operator">=</span> 0.5<span class="token comment" spellcheck="true">#权重</span>
+goal_pred <span class="token operator">=</span> 0.8<span class="token comment" spellcheck="true">#真实值</span>
+input <span class="token operator">=</span> 2.0<span class="token comment" spellcheck="true">#输入值</span>
+alpha <span class="token operator">=</span> 0.1<span class="token comment" spellcheck="true">#α值</span>
+<span class="token keyword">for</span> iteration <span class="token keyword">in</span> range<span class="token punctuation">(</span>20<span class="token punctuation">)</span>:
+    pred <span class="token operator">=</span> input * weight<span class="token comment" spellcheck="true">#预测值</span>
+    error <span class="token operator">=</span> <span class="token punctuation">(</span>pred - goal_pred<span class="token punctuation">)</span>**2<span class="token comment" spellcheck="true">#误差值（均方误差）</span>
+    derivative <span class="token operator">=</span> input * <span class="token punctuation">(</span>pred - goal_pred<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#误差增量:输入数据乘（预测值减去真实值）</span>
+    weight <span class="token operator">=</span> weight - <span class="token punctuation">(</span>alpha * derivative <span class="token punctuation">)</span><span class="token comment" spellcheck="true">#更新后的权重：权重值减去（误差增量乘a值）</span>
+    print<span class="token punctuation">(</span><span class="token string">"Error:"</span> +str<span class="token punctuation">(</span>error<span class="token punctuation">)</span> + <span class="token string">"Predicton:"</span> + str<span class="token punctuation">(</span>pred<span class="token punctuation">))</span>
+</code></pre>
+<h2 id="一直更新的权重值"><a href="#一直更新的权重值" class="headerlink" title="一直更新的权重值"></a>一直更新的权重值</h2><p>weight（一直更新权重值） =初始权重值   – [ {（【<strong>预测值：</strong>（输入值×权重值）】减去–【真实值】）×【输入值】} × 【α】]</p>
+<ol>
+<li>预测值 = 输入值×权重值</li>
+<li>误差增量 = （预测值 – 真实值）× 输入值</li>
+<li>更新权重值 = 权重值 - （α × 误差增量）</li>
+</ol>
+<pre class=" language-bash"><code class="language-bash">def w_sum<span class="token punctuation">(</span>a,b<span class="token punctuation">)</span>:
+    assert <span class="token punctuation">(</span>len<span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">==</span> len<span class="token punctuation">(</span>b<span class="token punctuation">))</span><span class="token comment" spellcheck="true">#断言:assert:如不相等则抛出异常</span>
+    output <span class="token operator">=</span> 0<span class="token comment" spellcheck="true">#建立一个空变量</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>a<span class="token punctuation">))</span>:
+        output +<span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> * b <span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#权重与输入的数据</span>
+        <span class="token keyword">return</span> output
+weights <span class="token operator">=</span> <span class="token punctuation">[</span>0.1,0.2,-1<span class="token punctuation">]</span><span class="token comment" spellcheck="true">#权重a</span>
+
+
+def neural_network<span class="token punctuation">(</span>input,weights<span class="token punctuation">)</span>:
+    pred <span class="token operator">=</span> w_sum<span class="token punctuation">(</span>input,weights<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#调用了上例的方法</span>
+    <span class="token keyword">return</span> pred<span class="token comment" spellcheck="true">#返回了预测的值</span>
+
+<span class="token comment" spellcheck="true">#预测和比较：做出预测，计算误差和增量</span>
+toes <span class="token operator">=</span> <span class="token punctuation">[</span>8.5,9.5,9.9,9.0<span class="token punctuation">]</span><span class="token comment" spellcheck="true">#踢进去的球</span>
+wlrec <span class="token operator">=</span> <span class="token punctuation">[</span>0.65,0.8,0.8,0.9<span class="token punctuation">]</span><span class="token comment" spellcheck="true">#胜率的百分比</span>
+nfans <span class="token operator">=</span> <span class="token punctuation">[</span>1.2,1.3,0.5,1.0<span class="token punctuation">]</span><span class="token comment" spellcheck="true">#粉丝的数量</span>
+win_or_lose_binary <span class="token operator">=</span> <span class="token punctuation">[</span>1,1,0,1<span class="token punctuation">]</span><span class="token comment" spellcheck="true">#四队的真实值</span>
+<span class="token boolean">true</span> <span class="token operator">=</span> win_or_lose_binary<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token comment" spellcheck="true">#遍历调用列表值</span>
+input <span class="token operator">=</span> <span class="token punctuation">[</span>toes<span class="token punctuation">[</span>0<span class="token punctuation">]</span>,wlrec<span class="token punctuation">[</span>0<span class="token punctuation">]</span>,nfans<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token comment" spellcheck="true">#输入遍历的值</span>
+pred <span class="token operator">=</span>neural_network<span class="token punctuation">(</span>input,weights<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#调用方法</span>
+error <span class="token operator">=</span> <span class="token punctuation">(</span>pred - true<span class="token punctuation">)</span> ** 2<span class="token comment" spellcheck="true">#误差值</span>
+delta <span class="token operator">=</span> pred - <span class="token boolean">true</span><span class="token comment" spellcheck="true">#纯误差，预测值-真实值</span>
+
+<span class="token comment" spellcheck="true">#学习计算权重增量，将它应用对应的权重上</span>
+
+def ele_mul<span class="token punctuation">(</span>number,vector<span class="token punctuation">)</span>:<span class="token comment" spellcheck="true">#误差的增量，权重误差乘于输入值</span>
+    output <span class="token operator">=</span> <span class="token punctuation">[</span>0,0,0<span class="token punctuation">]</span><span class="token comment" spellcheck="true">#值的增量</span>
+    assert <span class="token punctuation">(</span>len<span class="token punctuation">(</span>output<span class="token punctuation">)</span> <span class="token operator">==</span> len<span class="token punctuation">(</span>vector<span class="token punctuation">))</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>output<span class="token punctuation">))</span>:
+        output<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> number * vector<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token comment" spellcheck="true">#更新权重的误差值，纯误差乘于输入值</span>
+    <span class="token keyword">return</span> output
+
+input <span class="token operator">=</span> <span class="token punctuation">[</span>toes<span class="token punctuation">[</span>0<span class="token punctuation">]</span>,wlrec<span class="token punctuation">[</span>0<span class="token punctuation">]</span>,nfans<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token comment" spellcheck="true">#输入值</span>
+pred <span class="token operator">=</span><span class="token punctuation">(</span>pred - true<span class="token punctuation">)</span> ** 2<span class="token comment" spellcheck="true">#均方误差</span>
+delta <span class="token operator">=</span> pred - <span class="token boolean">true</span><span class="token comment" spellcheck="true">#纯误差</span>
+weight_deltas <span class="token operator">=</span> ele_mul<span class="token punctuation">(</span>delta,input<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#调用方法</span>
+
+<span class="token comment" spellcheck="true">#学习:更新权重</span>
+
+input <span class="token operator">=</span> <span class="token punctuation">[</span>toes<span class="token punctuation">[</span>0<span class="token punctuation">]</span>,wlrec<span class="token punctuation">[</span>0<span class="token punctuation">]</span>,nfans<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token punctuation">]</span>
+pred <span class="token operator">=</span> neural_network<span class="token variable"><span class="token punctuation">((</span>input<span class="token punctuation">,</span>weights<span class="token punctuation">))</span></span>
+error <span class="token operator">=</span> <span class="token punctuation">(</span>pred - true<span class="token punctuation">)</span> ** 2
+delta <span class="token operator">=</span> pred - <span class="token boolean">true</span>
+weight_deltas <span class="token operator">=</span> ele_mul<span class="token punctuation">(</span>delta,input<span class="token punctuation">)</span>
+alpha <span class="token operator">=</span> 0.1<span class="token comment" spellcheck="true">#alpha防止权重过度修正</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>weights<span class="token punctuation">))</span>:
+    weights<span class="token punctuation">[</span>i<span class="token punctuation">]</span> -<span class="token operator">=</span> alpha*weight_deltas<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+    print<span class="token punctuation">(</span><span class="token string">"weights:"</span>+str<span class="token punctuation">(</span>weights<span class="token punctuation">))</span>
+    print<span class="token punctuation">(</span><span class="token string">"weights Deltas:"</span>+str<span class="token punctuation">(</span>weight_deltas<span class="token punctuation">))</span>
+<span class="token comment" spellcheck="true">#先用方法构成预测数值</span>
+def neursl_network<span class="token punctuation">(</span>input,weights<span class="token punctuation">)</span>:
+    out <span class="token operator">=</span> 0
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>input<span class="token punctuation">))</span>:
+        out +<span class="token operator">=</span> <span class="token punctuation">(</span>input<span class="token punctuation">[</span>i<span class="token punctuation">]</span>*weights<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#预测的值</span>
+    <span class="token keyword">return</span> out
+
+<span class="token comment" spellcheck="true">#预测值乘于输入值，</span>
+def ele_mul<span class="token punctuation">(</span>scalar,vector<span class="token punctuation">)</span>:
+    out <span class="token operator">=</span> <span class="token punctuation">[</span>0,0,0<span class="token punctuation">]</span><span class="token comment" spellcheck="true">#有4队但是只有测出来的三个类型</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>out<span class="token punctuation">))</span>:
+        out<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> vector<span class="token punctuation">[</span>i<span class="token punctuation">]</span> * scalar
+    <span class="token keyword">return</span> out
+
+<span class="token comment" spellcheck="true"># 输入数据</span>
+toes <span class="token operator">=</span> <span class="token punctuation">[</span>8.5,9.5,9.9,9.0<span class="token punctuation">]</span>
+wlrec <span class="token operator">=</span> <span class="token punctuation">[</span>0.65,0.8,0.8,0.9<span class="token punctuation">]</span>
+nfans <span class="token operator">=</span> <span class="token punctuation">[</span>1.2,1.3,0.5,1.0<span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true"># 真实数据</span>
+win_or_lose_binary <span class="token operator">=</span> <span class="token punctuation">[</span>1,1,0,1<span class="token punctuation">]</span>
+
+<span class="token boolean">true</span> <span class="token operator">=</span> win_or_lose_binary <span class="token punctuation">[</span>0<span class="token punctuation">]</span>
+alpha <span class="token operator">=</span> 0.01
+weights <span class="token operator">=</span> <span class="token punctuation">[</span>0.1,0.2,-0.1<span class="token punctuation">]</span><span class="token comment" spellcheck="true">#权重值</span>
+input <span class="token operator">=</span> <span class="token punctuation">[</span>toes<span class="token punctuation">[</span>0<span class="token punctuation">]</span>,wlrec<span class="token punctuation">[</span>0<span class="token punctuation">]</span>,nfans<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+<span class="token keyword">for</span> iter <span class="token keyword">in</span> range<span class="token punctuation">(</span>3<span class="token punctuation">)</span>:
+    pred <span class="token operator">=</span> neursl_network<span class="token punctuation">(</span>input,weights<span class="token punctuation">)</span>
+    error <span class="token operator">=</span> <span class="token punctuation">(</span>pred - true<span class="token punctuation">)</span>**2<span class="token comment" spellcheck="true">#均方误差值</span>
+    delta <span class="token operator">=</span> pred - <span class="token boolean">true</span><span class="token comment" spellcheck="true">#纯误差值</span>
+    weight_deltas <span class="token operator">=</span> ele_mul<span class="token punctuation">(</span>delta,input<span class="token punctuation">)</span>
+    print<span class="token punctuation">(</span><span class="token string">"Iteration:"</span> + str<span class="token punctuation">(</span>iter+1<span class="token punctuation">))</span>
+    print<span class="token punctuation">(</span><span class="token string">"pred:"</span>+ str<span class="token punctuation">(</span>pred<span class="token punctuation">))</span>
+    print<span class="token punctuation">(</span><span class="token string">"eeore"</span>+ str<span class="token punctuation">(</span>error<span class="token punctuation">))</span>
+    print<span class="token punctuation">(</span><span class="token string">"delta:"</span>+ str<span class="token punctuation">(</span>delta<span class="token punctuation">))</span>
+    print<span class="token punctuation">(</span><span class="token string">"weights:"</span>,str<span class="token punctuation">(</span>weights<span class="token punctuation">))</span>
+    print<span class="token punctuation">(</span><span class="token string">"weight_deltas"</span>,weight_deltas<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true">#更新权重值</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>weights<span class="token punctuation">))</span>:
+        weights<span class="token punctuation">[</span>i<span class="token punctuation">]</span> -<span class="token operator">=</span> alpha*weight_deltas<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+</code></pre>
+<h2 id="具有多个输入和输出的梯度下降"><a href="#具有多个输入和输出的梯度下降" class="headerlink" title="具有多个输入和输出的梯度下降"></a>具有多个输入和输出的梯度下降</h2><h3 id="一次学习多个权重值"><a href="#一次学习多个权重值" class="headerlink" title="一次学习多个权重值"></a>一次学习多个权重值</h3><p>每个单独权重对于全局误差所产生的影响的度量，因此，因为误差是共享的，当一项权重达到U型曲线的底部时，所有的权重都会达到U型的底部</p>
+<p>权重A可能对应着重要的数据，对预测有着举足轻重的影响，但如果网络在训练中意外的找到一种不需要它也可能准确推断预测的情况，那么权重A则不将对预测结果产生任何影响。</p>
+<p>误差由训练数据决定，任何网络的权重都可以任意取值，但给定任意特定权重的设置后，则误差值百分百由数据决定。</p>
+<h2 id="具有多输入的梯度下降学习"><a href="#具有多输入的梯度下降学习" class="headerlink" title="具有多输入的梯度下降学习"></a>具有多输入的梯度下降学习</h2><p><strong>神经网络也可以用一个输入做多个预测</strong></p>
+<p>一张图片（28×28）的像素矩阵输入到一维的神经网络中—-》把图片的压成一个1×784的向量，抽出第一行的像素值，再首尾相连，得到一个一维的像素列表（784像素长）</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">小龙</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://xiaoyvlongoing.github.io/2020/02/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA%E4%B8%8A/">https://xiaoyvlongoing.github.io/2020/02/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA%E4%B8%8A/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint policy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">小龙</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%8C%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">机器学习，神经网络</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2020/02/10/pytorch%E5%9F%BA%E7%A1%80/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="pytorch架构基础">
+                        
+                        <span class="card-title">pytorch架构基础</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-10
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/pytorch/" class="post-category">
+                                    pytorch
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/pytorch/">
+                        <span class="chip bg-color">pytorch</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/02/10/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8BTC/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="网络编程">
+                        
+                        <span class="card-title">网络编程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/python%E9%AB%98%E7%BA%A7/" class="post-category">
+                                    python高级
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/python%E9%AB%98%E7%BA%A7/">
+                        <span class="chip bg-color">python高级</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2021</span>
+            
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">小龙</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total Words:&nbsp;<span
+                        class="white-color">35k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;Total visits:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;Total visitors:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1458562363@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1458562363" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1458562363" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+</html>

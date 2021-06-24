@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="newpage, 小龙播客">
+    <meta name="keywords" content="Matplotlib基础, 小龙播客">
     <meta name="description" content="家里蹲大学">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>newpage | 小龙播客</title>
+    <title>Matplotlib基础 | 小龙播客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">newpage</h1>
+                    <h1 class="description center-align post-title">Matplotlib基础</h1>
                 </div>
             </div>
         </div>
@@ -430,12 +430,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Matplotlib/">
+                                <span class="chip bg-color">Matplotlib</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Matplotlib/" class="post-category">
+                                Matplotlib
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -444,28 +457,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-05-23
+                    2020-02-10
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-05-23
+                    2021-06-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    98
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    4 Min
                 </div>
                 
 
@@ -485,13 +498,213 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>1.2.4.1 post</strong></p>
-<p>当你每一次使用代码</p>
-<p>它其实默认使用的是<code>post</code>这个布局，也就是在<code>source</code>文件夹下的<code>_post</code>里面。</p>
-<p><code>Hexo</code>有三种默认布局：<code>post</code>、<code>page</code>和<code>draft</code>，它们分别对应不同的路径，而您自定义的其他布局和<code>post</code>相同，都将储存到<code>source/_posts</code>文件夹。</p>
-<p>而new这个命令其实是：</p>
-<pre class=" language-bash"><code class="language-bash">hexo new XXX
+                <h2 id="Matplotlib基本操作："><a href="#Matplotlib基本操作：" class="headerlink" title="Matplotlib基本操作："></a>Matplotlib基本操作：</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数的用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>import matplotlib.pyplot as plt</td>
+<td>导入包</td>
+</tr>
+<tr>
+<td>from pylab import mpl</td>
+<td>导入中文字体包</td>
+</tr>
+<tr>
+<td>plt.figure(figsize=(10,10),dpi=100)</td>
+<td>创建画布，画布的范围和画布的大小</td>
+</tr>
+<tr>
+<td>plt.plot()</td>
+<td>添加图形的数据</td>
+</tr>
+<tr>
+<td>plt.plot(x, y_beijing, color=’r’, linestyle=’–’, label=”北京”)</td>
+<td>可以填加多个数据，“r”为红色，“–”虚线表示，右上角显示</td>
+</tr>
+<tr>
+<td>plt.xticks(x[::5],x_tick[::5])</td>
+<td>添加x轴的名字</td>
+</tr>
+<tr>
+<td>plt.yticks(y_ticks[::5])</td>
+<td>添加y轴的名字</td>
+</tr>
+<tr>
+<td>plt.grid(True,linestyle=”–”,alpha=20)</td>
+<td>添加网格线</td>
+</tr>
+<tr>
+<td>plt.xlabel(“时间”)</td>
+<td>添加描述信息</td>
+</tr>
+<tr>
+<td>plt.ylabel(“温度”)</td>
+<td>添加描述信息</td>
+</tr>
+<tr>
+<td>plt.title(“”)</td>
+<td>添加标题描述信息</td>
+</tr>
+<tr>
+<td>plt.savefig(“./test.png”)</td>
+<td>图像的保存</td>
+</tr>
+<tr>
+<td>plt.legend(loc=0)</td>
+<td>添加图例，右上角会显示：北京或者上海</td>
+</tr>
+<tr>
+<td>plt.show()</td>
+<td>图像的显示</td>
+</tr>
+<tr>
+<td>mpl.rcParams[“font.sans-serif”] = [“SimHei”]</td>
+<td>设置显示中文字体</td>
+</tr>
+<tr>
+<td>mpl.rcParams[“axes.unicode_minus”] = False</td>
+<td>设置正常显示符号</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>plt.imshow(x,<strong>cmap</strong>)</td>
+<td>图片显示:                                                                                                  <strong>x</strong>：图片                                                                                               <strong>cmap</strong>：默认：“绿色”</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>fig,axes=plt.<strong>subplots</strong>(nrows=1,ncols=2,figsize=(10,8),dpi=100)</td>
+<td>其中参数1和2分别代表子图的行数和列数,</td>
+</tr>
+<tr>
+<td>.set_title</td>
+<td>设置的图像的标题</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>plt.<strong>subplot</strong>（nrows, ncols, index, **kwargs）</td>
+<td><strong>在循环中使用创建多少行多少列图</strong>                                                              nrows：生成多少行图，                                                          ncols：生成多少个列图，                                                         index：在第几个图生成对应的图</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>**plt.函数名()<strong>相当于面向过程的画图方法，</strong>axes.set_方法名()**相当于面向对象的画图方法。</p>
+<h2 id="创建多个图像"><a href="#创建多个图像" class="headerlink" title="创建多个图像"></a>创建多个图像</h2><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 0.准备数据</span>
+x <span class="token operator">=</span> range<span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">)</span>
+y_shanghai <span class="token operator">=</span> <span class="token punctuation">[</span>random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> x<span class="token punctuation">]</span>
+y_beijing <span class="token operator">=</span> <span class="token punctuation">[</span>random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> x<span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true"># 1.创建画布</span>
+<span class="token comment" spellcheck="true"># plt.figure(figsize=(20, 8), dpi=100)</span>
+fig<span class="token punctuation">,</span> axes <span class="token operator">=</span> plt<span class="token punctuation">.</span>subplots<span class="token punctuation">(</span>nrows<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> ncols<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">,</span> dpi<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#plt.subplots：拆分页面，多图展示</span>
+
+
+<span class="token comment" spellcheck="true"># 2.绘制图像</span>
+<span class="token comment" spellcheck="true"># plt.plot(x, y_shanghai, label="上海")</span>
+<span class="token comment" spellcheck="true"># plt.plot(x, y_beijing, color="r", linestyle="--", label="北京")</span>
+axes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y_shanghai<span class="token punctuation">,</span> label<span class="token operator">=</span><span class="token string">"上海"</span><span class="token punctuation">)</span>
+axes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y_beijing<span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">"r"</span><span class="token punctuation">,</span> linestyle<span class="token operator">=</span><span class="token string">"--"</span><span class="token punctuation">,</span> label<span class="token operator">=</span><span class="token string">"北京"</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 2.1 添加x,y轴刻度</span>
+<span class="token comment" spellcheck="true"># 构造x,y轴刻度标签</span>
+x_ticks_label <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"11点&amp;#123;&amp;#125;分"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> x<span class="token punctuation">]</span>
+y_ticks <span class="token operator">=</span> range<span class="token punctuation">(</span><span class="token number">40</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 刻度显示</span>
+<span class="token comment" spellcheck="true"># plt.xticks(x[::5], x_ticks_label[::5])</span>
+<span class="token comment" spellcheck="true"># plt.yticks(y_ticks[::5])</span>
+axes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_xticks<span class="token punctuation">(</span>x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+axes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_yticks<span class="token punctuation">(</span>y_ticks<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+axes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_xticklabels<span class="token punctuation">(</span>x_ticks_label<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+axes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_xticks<span class="token punctuation">(</span>x<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+axes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_yticks<span class="token punctuation">(</span>y_ticks<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+axes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_xticklabels<span class="token punctuation">(</span>x_ticks_label<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 2.2 添加网格显示</span>
+<span class="token comment" spellcheck="true"># plt.grid(True, linestyle="--", alpha=0.5)</span>
+axes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>grid<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">,</span> linestyle<span class="token operator">=</span><span class="token string">"--"</span><span class="token punctuation">,</span> alpha<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+axes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>grid<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">,</span> linestyle<span class="token operator">=</span><span class="token string">"--"</span><span class="token punctuation">,</span> alpha<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 2.3 添加描述信息</span>
+<span class="token comment" spellcheck="true"># plt.xlabel("时间")</span>
+<span class="token comment" spellcheck="true"># plt.ylabel("温度")</span>
+<span class="token comment" spellcheck="true"># plt.title("中午11点--12点某城市温度变化图", fontsize=20)</span>
+axes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_xlabel<span class="token punctuation">(</span><span class="token string">"时间"</span><span class="token punctuation">)</span>
+axes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_ylabel<span class="token punctuation">(</span><span class="token string">"温度"</span><span class="token punctuation">)</span>
+axes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_title<span class="token punctuation">(</span><span class="token string">"中午11点--12点某城市温度变化图"</span><span class="token punctuation">,</span> fontsize<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">)</span>
+axes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_xlabel<span class="token punctuation">(</span><span class="token string">"时间"</span><span class="token punctuation">)</span>
+axes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_ylabel<span class="token punctuation">(</span><span class="token string">"温度"</span><span class="token punctuation">)</span>
+axes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_title<span class="token punctuation">(</span><span class="token string">"中午11点--12点某城市温度变化图"</span><span class="token punctuation">,</span> fontsize<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># # 2.4 图像保存</span>
+plt<span class="token punctuation">.</span>savefig<span class="token punctuation">(</span><span class="token string">"./test.png"</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># # 2.5 添加图例</span>
+<span class="token comment" spellcheck="true"># plt.legend(loc=0)</span>
+axes<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>legend<span class="token punctuation">(</span>loc<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+axes<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>legend<span class="token punctuation">(</span>loc<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 3.图像显示</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
+<h2 id="创建其他图像的api"><a href="#创建其他图像的api" class="headerlink" title="创建其他图像的api"></a>创建其他图像的api</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数的定义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>plt.plot(x, y)</td>
+<td>创建折线图</td>
+</tr>
+<tr>
+<td>plt.scatter(x, y)</td>
+<td><strong>散点图</strong></td>
+</tr>
+<tr>
+<td>plt.bar(x, width, align=’center’, **kwargs)</td>
+<td><strong>柱状图</strong>：x : 需要传递的数据，width : 柱状图的宽度，align : 每个柱状图的位置对齐方式，**kwargs : color=:选择柱状图的颜色</td>
+</tr>
+<tr>
+<td>matplotlib.pyplot.hist(x, bins=None)</td>
+<td>直方图 ：    x : 需要传递的数据 ，bins : 组距</td>
+</tr>
+<tr>
+<td>api：plt.pie(x, labels=,autopct=,colors)</td>
+<td>饼图：  x:数量，自动算百分比， labels:每部分名称可以写成名字或者数据 的变量，autopct:占比显示指定%1.2f%% ，colors:每部分颜色</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>形成柱状图</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>plt.text(x, y, s, fontdict=None, withdash=False, **kwargs）</td>
+<td><strong>x</strong>，<strong>y</strong>：显示内容的坐标位置                                                   <strong>s</strong> ：显示内容                                                                   <strong>fontdict</strong>：一个定义s格式的dict                                   <strong>fontsize</strong>：字体大小                                                             <strong>color</strong>：str or tuple, 设置字体颜色 ,单个字符候选项{‘b’, ‘g’, ‘r’, ‘c’, ‘m’, ‘y’, ‘k’, ‘w’}，也可以’black’,’red’等，tuple时用[0,1]之间的浮点型数据，RGB或者RGBA, 如: (0.1, 0.2, 0.5)、(0.1, 0.2, 0.5, 0.3)等                                                    <strong>backgroundcolor</strong>：字体背景颜色<strong>horizontalalignment</strong>(ha)：设置垂直对齐方式，可选参数：left,right,center            <strong>verticalalignment</strong>(va)：设置水平对齐方式 ，可选参数 ： ‘center’ , ‘top’ , ‘bottom’ ,‘baseline’      <strong>rotation</strong>(旋转角度)：可选参数为:vertical,horizontal 也可以为数字                            <strong>alpha</strong>：透明度，参数值0至1之间</td>
+</tr>
+</tbody></table>
 
                 
             </div>
@@ -518,7 +731,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://xiaoyvlongoing.github.io/newpage/index.html">https://xiaoyvlongoing.github.io/newpage/index.html</a>
+                    <a href="https://xiaoyvlongoing.github.io/2020/02/10/Matplotlib%E5%9F%BA%E7%A1%80%EF%BC%9A/">https://xiaoyvlongoing.github.io/2020/02/10/Matplotlib%E5%9F%BA%E7%A1%80%EF%BC%9A/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -555,7 +768,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/Matplotlib/">
+                                    <span class="chip bg-color">Matplotlib</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -730,13 +947,13 @@
                 <i class="far fa-dot-circle"></i>&nbsp;Current
             </div>
             <div class="card">
-                <a href="/newpage/index.html">
+                <a href="/2020/02/10/Matplotlib%E5%9F%BA%E7%A1%80%EF%BC%9A/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="newpage">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Matplotlib基础">
                         
-                        <span class="card-title">newpage</span>
+                        <span class="card-title">Matplotlib基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -747,17 +964,29 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-10
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            小龙
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Matplotlib/" class="post-category">
+                                    Matplotlib
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Matplotlib/">
+                        <span class="chip bg-color">Matplotlib</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -765,16 +994,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/newpage/index.html">
+                <a href="/2020/02/10/Numpy%E5%9F%BA%E7%A1%80/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="newpage">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Numpy基础">
                         
-                        <span class="card-title">newpage</span>
+                        <span class="card-title">Numpy基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -785,17 +1014,28 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-10
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            小龙
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Numpy/" class="post-category">
+                                    Numpy
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Numpy/">
+                        <span class="chip bg-color">Numpy</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
