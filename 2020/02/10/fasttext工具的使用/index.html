@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="线程任务, 小龙播客">
+    <meta name="keywords" content="fasttext工具, 小龙播客">
     <meta name="description" content="家里蹲大学">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>线程任务 | 小龙播客</title>
+    <title>fasttext工具 | 小龙播客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">线程任务</h1>
+                    <h1 class="description center-align post-title">fasttext工具</h1>
                 </div>
             </div>
         </div>
@@ -432,8 +432,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/python%E9%AB%98%E7%BA%A7/">
-                                <span class="chip bg-color">python高级</span>
+                            <a href="/tags/NLP/">
+                                <span class="chip bg-color">NLP</span>
                             </a>
                         
                     </div>
@@ -444,8 +444,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/python%E9%AB%98%E7%BA%A7/" class="post-category">
-                                python高级
+                            <a href="/categories/NLP/" class="post-category">
+                                NLP
                             </a>
                         
                     </div>
@@ -471,14 +471,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.4k
+                    820
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    5 Min
+                    3 Min
                 </div>
                 
 
@@ -498,160 +498,169 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="多线程任务"><a href="#多线程任务" class="headerlink" title="多线程任务"></a>多线程任务</h2><h3 id="一：多线程"><a href="#一：多线程" class="headerlink" title="一：多线程"></a>一：多线程</h3><table>
+                <h1 id="fasttext工具的使用"><a href="#fasttext工具的使用" class="headerlink" title="fasttext工具的使用"></a>fasttext工具的使用</h1><p>作为NLP工程领域常用的工具包, fasttext有两大作用:</p>
+<ul>
+<li>进行文本分类</li>
+<li>训练词向量</li>
+<li></li>
+</ul>
+<h3 id="使用fasttext工具进行文本分类的过程"><a href="#使用fasttext工具进行文本分类的过程" class="headerlink" title="使用fasttext工具进行文本分类的过程"></a>使用fasttext工具进行文本分类的过程</h3><ul>
+<li>第一步: 获取数据</li>
+<li>第二步: 训练集与验证集的划分</li>
+<li>第三步: 训练模型</li>
+<li>第四步: 使用模型进行预测并评估</li>
+<li>第五步: 模型调优</li>
+<li>第六步: 模型保存与重加载 </li>
+</ul>
+<hr>
+<table>
 <thead>
 <tr>
-<th>函数名</th>
-<th>使用的方法</th>
+<th>函数</th>
+<th>函数性质</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>导入的函数包import multiprocessing</td>
-<td>创建的进程导入的包名</td>
+<td>import fasttext</td>
+<td>构建fasttext工具包</td>
 </tr>
 <tr>
-<td>multiprocessing.Process([group [, target [, name [, args：传入指定形参 [, kwargs：以字典的类型进行传参]]]]])</td>
-<td>导入进程函数说明</td>
+<td></td>
+<td></td>
 </tr>
 <tr>
-<td>target=方法名</td>
-<td>执行的目标任务名（函数名，线程名）</td>
+<td>model=fasttext.<strong>train_supervised</strong>（(input=文件名，epoch=数值轮数表示，wordNgrams=关联，loss=’hs’，“ova”）</td>
+<td>使用fasttext的train_supervised方法<strong>进行文本分类模型</strong>的训练，                                                                                <strong>wordNgrams</strong>：设置为2意味着添加2-gram特征, 这些特征帮助模型捕捉前后词汇之间的关联, 更好的提取分类规则用于模型分类, 当然这也会增加模型训时练占用的资源和时间，<strong>loss</strong>：来修改损失计算方式(等效于输出层的结构), 默认是softmax层结构，设置为’hs’, 代表层次softmax结构, 意味着输出层的结构(计算方式)发生了变化, 将以一种更低复杂度的方式来计算损失，“ova”：标签多分类问题的损失计算方式，</td>
 </tr>
 <tr>
-<td>name=进程的名字</td>
-<td>进程名字</td>
+<td></td>
+<td></td>
 </tr>
 <tr>
-<td>对象名=multiprocessing.Process(target=方法名)</td>
-<td>启动进程的方法</td>
+<td>model.predict(“一句话”)</td>
+<td>模型进行预测并评估</td>
 </tr>
 <tr>
-<td>子进程对象.start()</td>
-<td>对象.start（）：启动子进程实例（创建子进程）</td>
+<td>model.test（“需要评估的数据集”）</td>
+<td>为了评估模型到底表现如何,元组中的每项分别代表, 验证集样本数量, 精度以及召回率</td>
 </tr>
 <tr>
-<td>os.getpid</td>
-<td>print(os.getpid)查看子进程编号</td>
+<td></td>
+<td></td>
 </tr>
 <tr>
-<td>os.getppid</td>
-<td>print(os.getppid)查看父进程编号</td>
+<td>model.predict（“一句话”，k=-1, threshold=0.5）</td>
+<td>模型进行预测并评估，k=-1：尽可能输出多个标签，threshold：阈值</td>
 </tr>
 <tr>
-<td>multiprocessing.current_process().name进程名字</td>
-<td>查看当前进程编号</td>
+<td></td>
+<td></td>
 </tr>
 <tr>
-<td>子进程对象.join()</td>
-<td>加入jojn后主线程会等待子线程执行后再结束主线程，让线程可以形成串行，形成有顺序的，线性和进程的也可进行串行，结束前一个，进行下一个执行</td>
+<td>model.save_model(“./模型名字.bin”)</td>
+<td>保存模型</td>
 </tr>
 <tr>
-<td>子进程对象.terminate()</td>
-<td>不管任务是否完成，立即终止子进程</td>
+<td></td>
+<td></td>
 </tr>
 <tr>
-<td>子进程对象.daemom = True</td>
-<td>不管任务是否完成，立即终止子进程</td>
+<td>model = fasttext.load_model(“./模型名字.bin”)</td>
+<td>模型重加载</td>
 </tr>
 <tr>
-<td>进程在ubuntu中 ps -aux|grep 要查找的线程的名字</td>
-<td>过滤需要的进程来查看ID</td>
-</tr>
-<tr>
-<td>os.kill(os.getpid(),9)  进程的id</td>
-<td>强制杀死进程</td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td></td>
 <td></td>
 </tr>
 </tbody></table>
-<p>1：进程是操作系统资源分配的最小单位</p>
-<p>2：进程之间执行也是无序的，它是由操作系统调度决定的，操作系统调度哪个进程，哪个进程就先执行，没有调度的进程不能执行</p>
-<p>3：进程不共享全局变量</p>
-<h3 id="二：线程和进程有什么区别："><a href="#二：线程和进程有什么区别：" class="headerlink" title="二：线程和进程有什么区别："></a>二：线程和进程有什么区别：</h3><p>1：进程是操作系统资源分配的最小单位，线程是cpu调度的最小单位</p>
-<p>2：线程依附于进程，没有进程就没有线程，一个进程默认创造一个主线程，一个进程可以创造多个线程</p>
-<p>3：进程不共享全局变量，而同一个进程的线程可以共享进程的全局变量</p>
-<p>4：进程开销比较大，可以利用多核（并行），线程开销比较小不能利用多核（并发）</p>
-<h3 id="三：什么是主进程："><a href="#三：什么是主进程：" class="headerlink" title="三：什么是主进程："></a>三：什么是主进程：</h3><p>主进程是：程序执行的入口，一个进程里默认带一个线程，主进程可以创建多个子线程，</p>
-<h3 id="四：写出创造进程的步骤："><a href="#四：写出创造进程的步骤：" class="headerlink" title="四：写出创造进程的步骤："></a>四：写出创造进程的步骤：</h3><pre class=" language-python"><code class="language-python"><span class="token number">1</span>：导入进程包：
-
-​        <span class="token keyword">import</span>  multiprocessing
-
-<span class="token number">2</span>：创建进程函数（方法）
-
-​        <span class="token keyword">def</span> num（）：
-
-​                <span class="token keyword">pass</span>
-
-<span class="token number">3</span>：创建进程，调用进程函数（方法）
-
-​        变量 <span class="token operator">=</span> multiprocessing<span class="token punctuation">.</span>Process<span class="token punctuation">(</span>target <span class="token operator">=</span> num<span class="token punctuation">)</span>
-
-<span class="token number">4</span><span class="token punctuation">:</span>启动进程
-
-        变量<span class="token punctuation">.</span>start（）
-
-</code></pre>
-<h3 id="五：怎么获得进程的pid"><a href="#五：怎么获得进程的pid" class="headerlink" title="五：怎么获得进程的pid"></a>五：怎么获得进程的pid</h3><pre class=" language-python"><code class="language-python"><span class="token number">1</span>：improre  os 
-
-<span class="token number">2</span>：os<span class="token punctuation">.</span>getppid <span class="token punctuation">:</span>   <span class="token keyword">print</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>getppid<span class="token punctuation">)</span>查看父进程id编号
-
-<span class="token number">3</span>：os<span class="token punctuation">.</span>getpid  ：   <span class="token keyword">print</span>（os<span class="token punctuation">.</span>getpid）查看当前进程id编号
-
-<span class="token number">4</span>：multiprocessing<span class="token punctuation">.</span>current_process<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>name进程（线程）名字   ：查看当前进程（线程）的id编号    
-</code></pre>
-<h3 id="六：怎么给进程函数传递参数："><a href="#六：怎么给进程函数传递参数：" class="headerlink" title="六：怎么给进程函数传递参数："></a>六：怎么给进程函数传递参数：</h3><p>1：通过元组进程传递参数</p>
-<pre><code>multiprocessing.Process(target = coding , args = （参数，）)
-传入的是一个元组需要加上，传入的参数要保持一致
-</code></pre>
-<h3 id="2：通过字典进程传参："><a href="#2：通过字典进程传参：" class="headerlink" title="2：通过字典进程传参："></a>2：通过字典进程传参：</h3><pre><code>multiprocessing.Process(target = coding , kwargs = &#123;传递的进程变量名：传入的参数&#125;)
-因为用的是字典的要与进程参数对住
-</code></pre>
-<h3 id="七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行"><a href="#七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行" class="headerlink" title="七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行"></a>七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行</h3><p>1：把join加入到子进程中，子进程变量.join，形成串联运行完子进程在运行主线线程</p>
-<p>八：Process创建的实例对象的常用的方法有什么？</p>
-<p>1：start（）：启动子进程实例（创建子进程）</p>
-<p>2：join（）：等待子进程执行结束，形成串联</p>
-<p>3：terminate（）：不管任务是否完成，立即终止子进程</p>
-<p>八《一》：    Process常用的属性：</p>
-<p>1：name：当前进程的别名，默认为Process - n ，n为从1开始递增的整数</p>
-<p>2：pid：当前进程的id</p>
-<p>九：编写一个程序，实现创建一个子进程，子进程每一秒打印一次：这是子进程，循环的第n次，打印 的次数是由主进程传递给子进程。</p>
-<pre><code>1：#利用args和kwargs传参
-import multiprocessing
-import time
-def ness(num):
-    for i in range(num):
-        time.sleep(1)
-        print(&quot;这个是一个线程&quot;)
-if __name__ == &#39;__main__&#39;:
-    # mues = multiprocessing.Process(target= ness,args=(6,))
-    mues = multiprocessing.Process(target=ness, kwargs=&#123;&quot;num&quot;:6&#125;)
-    mues.start()
-
-2：#利用类方法实现线程
-import multiprocessing
-import time
-class nees():
-    def __init__(self,name):
-        super(nees, self).__init__()
-        self.name = name
-    def num(self):
-        for i in range(self.name):
-            time.sleep(1)
-            print(&quot;这个是一个子进程&quot;)
-if __name__ == &#39;__main__&#39;:
-    num_process = multiprocessing.Process(target=nees)
-    A=nees(3)
-    A.num()
-</code></pre>
-<p>：线程资源竞争问题：</p>
-<p>1：100万次加法，线程1和线程2谁先执行完</p>
-<p>2：线程1计算的结果一定比线程2小吗？</p>
-<p>3：某个线程计算的结果有没有可能小于100万？为什么：</p>
-<p>​            1：不一定谁先执行完，因为线程是由cpu进行调度的，没有执行顺序那个先执行完都是不一定的</p>
-<p>​            2：不一定，因为没办法知道那个线程能先执行完，所有没有办法知道执行的时间，没有办法知道执行的大小</p>
-<p>​            3：有的，因为多线程共享全局变量，再赋予全局变量的时候，线程一和线程二计算的先后没有办法确定下来，当线程一计算的多时，线程二计算的少时，线程一又把线程二中的值共享过来这时就不安之前的顺序的，会小于100万</p>
+<h3 id="训练词向量"><a href="#训练词向量" class="headerlink" title="训练词向量"></a>训练词向量</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>fasttext.<strong>train_unsupervised</strong>（数据文件）</td>
+<td>使用fasttext的train_unsupervised(无监督训练方法)进行词向量的训练 # 它的参数是数据集的持久化文件路径’data/fil9’</td>
+</tr>
+<tr>
+<td>model.get_word_vector（“一个词”）</td>
+<td>过get_word_vector方法来获得指定词汇的词向量</td>
+</tr>
+<tr>
+<td>model = fasttext.train_unsupervised(‘文件名地址’, “cbow”, dim=300, epoch=1, lr=0.1, thread=8)</td>
+<td><strong>无监督训练模式</strong>: ‘skipgram’ 或者 ‘cbow’, 默认为’skipgram’, 在实践中，skipgram模式在利用子词方面比cbow更好，<strong>dim：</strong>词嵌入维度，默认为100, 但随着语料库的增大, 词嵌入的维度往往也要更大。<strong>epoch：</strong>数据循环次数，默认为5, 但当你的数据集足够大, 可能不需要那么多次.<strong>lr</strong>：学习率，建议选择[0.01，1]范围内。<strong>thread：</strong>使用的线程数，默认为12个线程, 一般建议和你的cpu核数相同.</td>
+</tr>
+<tr>
+<td>model.get_nearest_neighbors(‘词’)</td>
+<td>查找”运动”的邻近单词, 我们可以发现”体育网”, “运动汽车”, “运动服”等</td>
+</tr>
+<tr>
+<td>model.save_model(“模型名字.bin”)</td>
+<td>使用save_model保存模型</td>
+</tr>
+<tr>
+<td>model = fasttext.load_model（”模型名字.bin”）</td>
+<td>使用fasttext.load_model加载模型</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="词向量迁移"><a href="#词向量迁移" class="headerlink" title="词向量迁移"></a>词向量迁移</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>model = fasttext.load_model(“模型名字.bin”)</td>
+<td>加载模型</td>
+</tr>
+<tr>
+<td>model.words【：100】</td>
+<td>查看前100个词汇(这里的词汇是广义的, 可以是中文符号或汉字))</td>
+</tr>
+<tr>
+<td>model.get_word_vector（“词名”）</td>
+<td>使用模型获得’词名’这个名词的词向量</td>
+</tr>
+<tr>
+<td>model.get_nearest_neighbors（“词名”）</td>
+<td>以’音乐’为例, 返回的邻近词基本上与音乐都有关系, 如乐曲, 音乐会, 声乐等.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
 
                 
             </div>
@@ -678,7 +687,7 @@ if __name__ == &#39;__main__&#39;:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://xiaoyvlongoing.github.io/2020/02/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%9A%E6%97%A0%E5%BA%8F%E6%89%A7%E8%A1%8C/">https://xiaoyvlongoing.github.io/2020/02/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%9A%E6%97%A0%E5%BA%8F%E6%89%A7%E8%A1%8C/</a>
+                    <a href="https://xiaoyvlongoing.github.io/2020/02/10/fasttext%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/">https://xiaoyvlongoing.github.io/2020/02/10/fasttext%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -716,8 +725,8 @@ if __name__ == &#39;__main__&#39;:
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/python%E9%AB%98%E7%BA%A7/">
-                                    <span class="chip bg-color">python高级</span>
+                                <a href="/tags/NLP/">
+                                    <span class="chip bg-color">NLP</span>
                                 </a>
                             
                         </div>
@@ -893,13 +902,13 @@ if __name__ == &#39;__main__&#39;:
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/02/10/fasttext%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/">
+                <a href="/2020/02/10/Numpy%E5%9F%BA%E7%A1%80/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="fasttext工具">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Numpy基础">
                         
-                        <span class="card-title">fasttext工具</span>
+                        <span class="card-title">Numpy基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -916,8 +925,8 @@ if __name__ == &#39;__main__&#39;:
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/NLP/" class="post-category">
-                                    NLP
+                            <a href="/categories/Numpy/" class="post-category">
+                                    Numpy
                                 </a>
                             
                             
@@ -927,8 +936,8 @@ if __name__ == &#39;__main__&#39;:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/NLP/">
-                        <span class="chip bg-color">NLP</span>
+                    <a href="/tags/Numpy/">
+                        <span class="chip bg-color">Numpy</span>
                     </a>
                     
                 </div>
@@ -942,13 +951,13 @@ if __name__ == &#39;__main__&#39;:
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/10/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%8C%AB%E7%8B%97%E5%88%86%E7%B1%BB/">
+                <a href="/2020/02/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%9A%E6%97%A0%E5%BA%8F%E6%89%A7%E8%A1%8C/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="神经网络--猫狗分类">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="线程任务">
                         
-                        <span class="card-title">神经网络--猫狗分类</span>
+                        <span class="card-title">线程任务</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -965,8 +974,8 @@ if __name__ == &#39;__main__&#39;:
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A1%88%E4%BE%8B/" class="post-category">
-                                    神经网络案例
+                            <a href="/categories/python%E9%AB%98%E7%BA%A7/" class="post-category">
+                                    python高级
                                 </a>
                             
                             
@@ -976,8 +985,8 @@ if __name__ == &#39;__main__&#39;:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%8C%AB%E7%8B%97%E5%88%86%E7%B1%BB/">
-                        <span class="chip bg-color">猫狗分类</span>
+                    <a href="/tags/python%E9%AB%98%E7%BA%A7/">
+                        <span class="chip bg-color">python高级</span>
                     </a>
                     
                 </div>

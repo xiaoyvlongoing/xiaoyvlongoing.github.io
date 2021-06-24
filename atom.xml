@@ -41,6 +41,30 @@
   </entry>
   
   <entry>
+    <title>fasttext工具</title>
+    <link href="https://xiaoyvlongoing.github.io/2020/02/10/fasttext%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://xiaoyvlongoing.github.io/2020/02/10/fasttext%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
+    <published>2020-02-10T06:47:40.000Z</published>
+    <updated>2021-06-24T17:08:55.917Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="fasttext工具的使用"><a href="#fasttext工具的使用" class="headerlink" title="fasttext工具的使用"></a>fasttext工具的使用</h1><p>作为NLP工程领域常用的工具包, fasttext有两大作用:</p><ul><li>进行文本分类</li><li>训练词向量</li><li></li></ul><h3 id="使用fasttext工具进行文本分类的过程"><a href="#使用fasttext工具进行文本分类的过程" class="headerlink" title="使用fasttext工具进行文本分类的过程"></a>使用fasttext工具进行文本分类的过程</h3><ul><li>第一步: 获取数据</li><li>第二步: 训练集与验证集的划分</li><li>第三步: 训练模型</li><li>第四步: 使用模型进行预测并评估</li><li>第五步: 模型调优</li><li>第六步: 模型保存与重加载 </li></ul><hr><table><thead><tr><th>函数</th><th>函数性质</th></tr></thead><tbody><tr><td>import fasttext</td><td>构建fasttext工具包</td></tr><tr><td></td><td></td></tr><tr><td>model=fasttext.<strong>train_supervised</strong>（(input=文件名，epoch=数值轮数表示，wordNgrams=关联，loss=’hs’，“ova”）</td><td>使用fasttext的train_supervised方法<strong>进行文本分类模型</strong>的训练，                                                                                <strong>wordNgrams</strong>：设置为2意味着添加2-gram特征, 这些特征帮助模型捕捉前后词汇之间的关联, 更好的提取分类规则用于模型分类, 当然这也会增加模型训时练占用的资源和时间，<strong>loss</strong>：来修改损失计算方式(等效于输出层的结构), 默认是softmax层结构，设置为’hs’, 代表层次softmax结构, 意味着输出层的结构(计算方式)发生了变化, 将以一种更低复杂度的方式来计算损失，“ova”：标签多分类问题的损失计算方式，</td></tr><tr><td></td><td></td></tr><tr><td>model.predict(“一句话”)</td><td>模型进行预测并评估</td></tr><tr><td>model.test（“需要评估的数据集”）</td><td>为了评估模型到底表现如何,元组中的每项分别代表, 验证集样本数量, 精度以及召回率</td></tr><tr><td></td><td></td></tr><tr><td>model.predict（“一句话”，k=-1, threshold=0.5）</td><td>模型进行预测并评估，k=-1：尽可能输出多个标签，threshold：阈值</td></tr><tr><td></td><td></td></tr><tr><td>model.save_model(“./模型名字.bin”)</td><td>保存模型</td></tr><tr><td></td><td></td></tr><tr><td>model = fasttext.load_model(“./模型名字.bin”)</td><td>模型重加载</td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table><h3 id="训练词向量"><a href="#训练词向量" class="headerlink" title="训练词向量"></a>训练词向量</h3><table><thead><tr><th>函数</th><th>函数性质</th></tr></thead><tbody><tr><td>fasttext.<strong>train_unsupervised</strong>（数据文件）</td><td>使用fasttext的train_unsupervised(无监督训练方法)进行词向量的训练 # 它的参数是数据集的持久化文件路径’data/fil9’</td></tr><tr><td>model.get_word_vector（“一个词”）</td><td>过get_word_vector方法来获得指定词汇的词向量</td></tr><tr><td>model = fasttext.train_unsupervised(‘文件名地址’, “cbow”, dim=300, epoch=1, lr=0.1, thread=8)</td><td><strong>无监督训练模式</strong>: ‘skipgram’ 或者 ‘cbow’, 默认为’skipgram’, 在实践中，skipgram模式在利用子词方面比cbow更好，<strong>dim：</strong>词嵌入维度，默认为100, 但随着语料库的增大, 词嵌入的维度往往也要更大。<strong>epoch：</strong>数据循环次数，默认为5, 但当你的数据集足够大, 可能不需要那么多次.<strong>lr</strong>：学习率，建议选择[0.01，1]范围内。<strong>thread：</strong>使用的线程数，默认为12个线程, 一般建议和你的cpu核数相同.</td></tr><tr><td>model.get_nearest_neighbors(‘词’)</td><td>查找”运动”的邻近单词, 我们可以发现”体育网”, “运动汽车”, “运动服”等</td></tr><tr><td>model.save_model(“模型名字.bin”)</td><td>使用save_model保存模型</td></tr><tr><td>model = fasttext.load_model（”模型名字.bin”）</td><td>使用fasttext.load_model加载模型</td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table><h2 id="词向量迁移"><a href="#词向量迁移" class="headerlink" title="词向量迁移"></a>词向量迁移</h2><table><thead><tr><th>函数</th><th>函数性质</th></tr></thead><tbody><tr><td>model = fasttext.load_model(“模型名字.bin”)</td><td>加载模型</td></tr><tr><td>model.words【：100】</td><td>查看前100个词汇(这里的词汇是广义的, 可以是中文符号或汉字))</td></tr><tr><td>model.get_word_vector（“词名”）</td><td>使用模型获得’词名’这个名词的词向量</td></tr><tr><td>model.get_nearest_neighbors（“词名”）</td><td>以’音乐’为例, 返回的邻近词基本上与音乐都有关系, 如乐曲, 音乐会, 声乐等.</td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;fasttext工具的使用&quot;&gt;&lt;a href=&quot;#fasttext工具的使用&quot; class=&quot;headerlink&quot; title=&quot;fasttext工具的使用&quot;&gt;&lt;/a&gt;fasttext工具的使用&lt;/h1&gt;&lt;p&gt;作为NLP工程领域常用的工具包, fasttext有</summary>
+      
+    
+    
+    
+    <category term="NLP" scheme="https://xiaoyvlongoing.github.io/categories/NLP/"/>
+    
+    
+    <category term="NLP" scheme="https://xiaoyvlongoing.github.io/tags/NLP/"/>
+    
+  </entry>
+  
+  <entry>
     <title>线程任务</title>
     <link href="https://xiaoyvlongoing.github.io/2020/02/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%9A%E6%97%A0%E5%BA%8F%E6%89%A7%E8%A1%8C/"/>
     <id>https://xiaoyvlongoing.github.io/2020/02/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%9A%E6%97%A0%E5%BA%8F%E6%89%A7%E8%A1%8C/</id>
