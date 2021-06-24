@@ -471,7 +471,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    430
+                    536
                 </div>
                 
 
@@ -567,13 +567,29 @@
 <td>model = fasttext.load_model(“./模型名字.bin”)</td>
 <td>模型重加载</td>
 </tr>
+</tbody></table>
+<h2 id="词向量迁移"><a href="#词向量迁移" class="headerlink" title="词向量迁移"></a>词向量迁移</h2><table>
+<thead>
 <tr>
-<td></td>
-<td></td>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>model = fasttext.load_model(“模型名字.bin”)</td>
+<td>加载模型</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
+<td>model.words【：100】</td>
+<td>查看前100个词汇(这里的词汇是广义的, 可以是中文符号或汉字))</td>
+</tr>
+<tr>
+<td>model.get_word_vector（“词名”）</td>
+<td>使用模型获得’词名’这个名词的词向量</td>
+</tr>
+<tr>
+<td>model.get_nearest_neighbors（“词名”）</td>
+<td>以’音乐’为例, 返回的邻近词基本上与音乐都有关系, 如乐曲, 音乐会, 声乐等.</td>
 </tr>
 </tbody></table>
 
@@ -817,55 +833,6 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/02/10/Matplotlib%E5%9F%BA%E7%A1%80/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Matplotlib基础">
-                        
-                        <span class="card-title">Matplotlib基础</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-10
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Matplotlib/" class="post-category">
-                                    Matplotlib
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Matplotlib/">
-                        <span class="chip bg-color">Matplotlib</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/2020/02/10/Numpy%E5%9F%BA%E7%A1%80/">
                     <div class="card-image">
                         
@@ -882,9 +849,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-10
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-10
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -902,6 +869,55 @@
                     
                     <a href="/tags/Numpy/">
                         <span class="chip bg-color">Numpy</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/02/10/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%8C%AB%E7%8B%97%E5%88%86%E7%B1%BB/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="神经网络--猫狗分类">
+                        
+                        <span class="card-title">神经网络--猫狗分类</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A1%88%E4%BE%8B/" class="post-category">
+                                    神经网络案例
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%8C%AB%E7%8B%97%E5%88%86%E7%B1%BB/">
+                        <span class="chip bg-color">猫狗分类</span>
                     </a>
                     
                 </div>
@@ -1106,7 +1122,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total Words:&nbsp;<span
-                        class="white-color">34.6k</span>
+                        class="white-color">34.7k</span>
             
             
             
