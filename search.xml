@@ -729,171 +729,6 @@ array<span class="token punctuation">(</span><span class="token punctuation">[</
       </tags>
   </entry>
   <entry>
-    <title>线程任务</title>
-    <url>/2020/02/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%9A%E6%97%A0%E5%BA%8F%E6%89%A7%E8%A1%8C/</url>
-    <content><![CDATA[<h2 id="多线程任务"><a href="#多线程任务" class="headerlink" title="多线程任务"></a>多线程任务</h2><h3 id="一：多线程"><a href="#一：多线程" class="headerlink" title="一：多线程"></a>一：多线程</h3><table>
-<thead>
-<tr>
-<th>函数名</th>
-<th>使用的方法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>导入的函数包import multiprocessing</td>
-<td>创建的进程导入的包名</td>
-</tr>
-<tr>
-<td>multiprocessing.Process([group [, target [, name [, args：传入指定形参 [, kwargs：以字典的类型进行传参]]]]])</td>
-<td>导入进程函数说明</td>
-</tr>
-<tr>
-<td>target=方法名</td>
-<td>执行的目标任务名（函数名，线程名）</td>
-</tr>
-<tr>
-<td>name=进程的名字</td>
-<td>进程名字</td>
-</tr>
-<tr>
-<td>对象名=multiprocessing.Process(target=方法名)</td>
-<td>启动进程的方法</td>
-</tr>
-<tr>
-<td>子进程对象.start()</td>
-<td>对象.start（）：启动子进程实例（创建子进程）</td>
-</tr>
-<tr>
-<td>os.getpid</td>
-<td>print(os.getpid)查看子进程编号</td>
-</tr>
-<tr>
-<td>os.getppid</td>
-<td>print(os.getppid)查看父进程编号</td>
-</tr>
-<tr>
-<td>multiprocessing.current_process().name进程名字</td>
-<td>查看当前进程编号</td>
-</tr>
-<tr>
-<td>子进程对象.join()</td>
-<td>加入jojn后主线程会等待子线程执行后再结束主线程，让线程可以形成串行，形成有顺序的，线性和进程的也可进行串行，结束前一个，进行下一个执行</td>
-</tr>
-<tr>
-<td>子进程对象.terminate()</td>
-<td>不管任务是否完成，立即终止子进程</td>
-</tr>
-<tr>
-<td>子进程对象.daemom = True</td>
-<td>不管任务是否完成，立即终止子进程</td>
-</tr>
-<tr>
-<td>进程在ubuntu中 ps -aux|grep 要查找的线程的名字</td>
-<td>过滤需要的进程来查看ID</td>
-</tr>
-<tr>
-<td>os.kill(os.getpid(),9)  进程的id</td>
-<td>强制杀死进程</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p>1：进程是操作系统资源分配的最小单位</p>
-<p>2：进程之间执行也是无序的，它是由操作系统调度决定的，操作系统调度哪个进程，哪个进程就先执行，没有调度的进程不能执行</p>
-<p>3：进程不共享全局变量</p>
-<h3 id="二：线程和进程有什么区别："><a href="#二：线程和进程有什么区别：" class="headerlink" title="二：线程和进程有什么区别："></a>二：线程和进程有什么区别：</h3><p>1：进程是操作系统资源分配的最小单位，线程是cpu调度的最小单位</p>
-<p>2：线程依附于进程，没有进程就没有线程，一个进程默认创造一个主线程，一个进程可以创造多个线程</p>
-<p>3：进程不共享全局变量，而同一个进程的线程可以共享进程的全局变量</p>
-<p>4：进程开销比较大，可以利用多核（并行），线程开销比较小不能利用多核（并发）</p>
-<h3 id="三：什么是主进程："><a href="#三：什么是主进程：" class="headerlink" title="三：什么是主进程："></a>三：什么是主进程：</h3><p>主进程是：程序执行的入口，一个进程里默认带一个线程，主进程可以创建多个子线程，</p>
-<h3 id="四：写出创造进程的步骤："><a href="#四：写出创造进程的步骤：" class="headerlink" title="四：写出创造进程的步骤："></a>四：写出创造进程的步骤：</h3><pre class=" language-python"><code class="language-python"><span class="token number">1</span>：导入进程包：
-
-​        <span class="token keyword">import</span>  multiprocessing
-
-<span class="token number">2</span>：创建进程函数（方法）
-
-​        <span class="token keyword">def</span> num（）：
-
-​                <span class="token keyword">pass</span>
-
-<span class="token number">3</span>：创建进程，调用进程函数（方法）
-
-​        变量 <span class="token operator">=</span> multiprocessing<span class="token punctuation">.</span>Process<span class="token punctuation">(</span>target <span class="token operator">=</span> num<span class="token punctuation">)</span>
-
-<span class="token number">4</span><span class="token punctuation">:</span>启动进程
-
-        变量<span class="token punctuation">.</span>start（）
-
-</code></pre>
-<h3 id="五：怎么获得进程的pid"><a href="#五：怎么获得进程的pid" class="headerlink" title="五：怎么获得进程的pid"></a>五：怎么获得进程的pid</h3><pre class=" language-python"><code class="language-python"><span class="token number">1</span>：improre  os 
-
-<span class="token number">2</span>：os<span class="token punctuation">.</span>getppid <span class="token punctuation">:</span>   <span class="token keyword">print</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>getppid<span class="token punctuation">)</span>查看父进程id编号
-
-<span class="token number">3</span>：os<span class="token punctuation">.</span>getpid  ：   <span class="token keyword">print</span>（os<span class="token punctuation">.</span>getpid）查看当前进程id编号
-
-<span class="token number">4</span>：multiprocessing<span class="token punctuation">.</span>current_process<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>name进程（线程）名字   ：查看当前进程（线程）的id编号    
-</code></pre>
-<h3 id="六：怎么给进程函数传递参数："><a href="#六：怎么给进程函数传递参数：" class="headerlink" title="六：怎么给进程函数传递参数："></a>六：怎么给进程函数传递参数：</h3><p>1：通过元组进程传递参数</p>
-<pre><code>multiprocessing.Process(target = coding , args = （参数，）)
-传入的是一个元组需要加上，传入的参数要保持一致
-</code></pre>
-<h3 id="2：通过字典进程传参："><a href="#2：通过字典进程传参：" class="headerlink" title="2：通过字典进程传参："></a>2：通过字典进程传参：</h3><pre><code>multiprocessing.Process(target = coding , kwargs = &#123;传递的进程变量名：传入的参数&#125;)
-因为用的是字典的要与进程参数对住
-</code></pre>
-<h3 id="七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行"><a href="#七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行" class="headerlink" title="七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行"></a>七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行</h3><p>1：把join加入到子进程中，子进程变量.join，形成串联运行完子进程在运行主线线程</p>
-<p>八：Process创建的实例对象的常用的方法有什么？</p>
-<p>1：start（）：启动子进程实例（创建子进程）</p>
-<p>2：join（）：等待子进程执行结束，形成串联</p>
-<p>3：terminate（）：不管任务是否完成，立即终止子进程</p>
-<p>八《一》：    Process常用的属性：</p>
-<p>1：name：当前进程的别名，默认为Process - n ，n为从1开始递增的整数</p>
-<p>2：pid：当前进程的id</p>
-<p>九：编写一个程序，实现创建一个子进程，子进程每一秒打印一次：这是子进程，循环的第n次，打印 的次数是由主进程传递给子进程。</p>
-<pre><code>1：#利用args和kwargs传参
-import multiprocessing
-import time
-def ness(num):
-    for i in range(num):
-        time.sleep(1)
-        print(&quot;这个是一个线程&quot;)
-if __name__ == &#39;__main__&#39;:
-    # mues = multiprocessing.Process(target= ness,args=(6,))
-    mues = multiprocessing.Process(target=ness, kwargs=&#123;&quot;num&quot;:6&#125;)
-    mues.start()
-
-2：#利用类方法实现线程
-import multiprocessing
-import time
-class nees():
-    def __init__(self,name):
-        super(nees, self).__init__()
-        self.name = name
-    def num(self):
-        for i in range(self.name):
-            time.sleep(1)
-            print(&quot;这个是一个子进程&quot;)
-if __name__ == &#39;__main__&#39;:
-    num_process = multiprocessing.Process(target=nees)
-    A=nees(3)
-    A.num()
-</code></pre>
-<p>：线程资源竞争问题：</p>
-<p>1：100万次加法，线程1和线程2谁先执行完</p>
-<p>2：线程1计算的结果一定比线程2小吗？</p>
-<p>3：某个线程计算的结果有没有可能小于100万？为什么：</p>
-<p>​            1：不一定谁先执行完，因为线程是由cpu进行调度的，没有执行顺序那个先执行完都是不一定的</p>
-<p>​            2：不一定，因为没办法知道那个线程能先执行完，所有没有办法知道执行的时间，没有办法知道执行的大小</p>
-<p>​            3：有的，因为多线程共享全局变量，再赋予全局变量的时候，线程一和线程二计算的先后没有办法确定下来，当线程一计算的多时，线程二计算的少时，线程一又把线程二中的值共享过来这时就不安之前的顺序的，会小于100万</p>
-]]></content>
-      <categories>
-        <category>python高级</category>
-      </categories>
-      <tags>
-        <tag>python高级</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>神经网络--猫狗分类</title>
     <url>/2020/02/10/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%8C%AB%E7%8B%97%E5%88%86%E7%B1%BB/</url>
     <content><![CDATA[<h2 id="读取猫狗的图片矩阵数据，自实现神经元神经网络进行二分类"><a href="#读取猫狗的图片矩阵数据，自实现神经元神经网络进行二分类" class="headerlink" title="读取猫狗的图片矩阵数据，自实现神经元神经网络进行二分类"></a>读取猫狗的图片矩阵数据，自实现神经元神经网络进行二分类</h2><p>1：读取数据集<br>2：实现前向传播与反向传播<br>3：模型预测函数实现</p>
@@ -1197,6 +1032,171 @@ test_x形状<span class="token punctuation">:</span>  <span class="token punctua
       </categories>
       <tags>
         <tag>猫狗分类</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>线程任务</title>
+    <url>/2020/02/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%9A%E6%97%A0%E5%BA%8F%E6%89%A7%E8%A1%8C/</url>
+    <content><![CDATA[<h2 id="多线程任务"><a href="#多线程任务" class="headerlink" title="多线程任务"></a>多线程任务</h2><h3 id="一：多线程"><a href="#一：多线程" class="headerlink" title="一：多线程"></a>一：多线程</h3><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>使用的方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>导入的函数包import multiprocessing</td>
+<td>创建的进程导入的包名</td>
+</tr>
+<tr>
+<td>multiprocessing.Process([group [, target [, name [, args：传入指定形参 [, kwargs：以字典的类型进行传参]]]]])</td>
+<td>导入进程函数说明</td>
+</tr>
+<tr>
+<td>target=方法名</td>
+<td>执行的目标任务名（函数名，线程名）</td>
+</tr>
+<tr>
+<td>name=进程的名字</td>
+<td>进程名字</td>
+</tr>
+<tr>
+<td>对象名=multiprocessing.Process(target=方法名)</td>
+<td>启动进程的方法</td>
+</tr>
+<tr>
+<td>子进程对象.start()</td>
+<td>对象.start（）：启动子进程实例（创建子进程）</td>
+</tr>
+<tr>
+<td>os.getpid</td>
+<td>print(os.getpid)查看子进程编号</td>
+</tr>
+<tr>
+<td>os.getppid</td>
+<td>print(os.getppid)查看父进程编号</td>
+</tr>
+<tr>
+<td>multiprocessing.current_process().name进程名字</td>
+<td>查看当前进程编号</td>
+</tr>
+<tr>
+<td>子进程对象.join()</td>
+<td>加入jojn后主线程会等待子线程执行后再结束主线程，让线程可以形成串行，形成有顺序的，线性和进程的也可进行串行，结束前一个，进行下一个执行</td>
+</tr>
+<tr>
+<td>子进程对象.terminate()</td>
+<td>不管任务是否完成，立即终止子进程</td>
+</tr>
+<tr>
+<td>子进程对象.daemom = True</td>
+<td>不管任务是否完成，立即终止子进程</td>
+</tr>
+<tr>
+<td>进程在ubuntu中 ps -aux|grep 要查找的线程的名字</td>
+<td>过滤需要的进程来查看ID</td>
+</tr>
+<tr>
+<td>os.kill(os.getpid(),9)  进程的id</td>
+<td>强制杀死进程</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>1：进程是操作系统资源分配的最小单位</p>
+<p>2：进程之间执行也是无序的，它是由操作系统调度决定的，操作系统调度哪个进程，哪个进程就先执行，没有调度的进程不能执行</p>
+<p>3：进程不共享全局变量</p>
+<h3 id="二：线程和进程有什么区别："><a href="#二：线程和进程有什么区别：" class="headerlink" title="二：线程和进程有什么区别："></a>二：线程和进程有什么区别：</h3><p>1：进程是操作系统资源分配的最小单位，线程是cpu调度的最小单位</p>
+<p>2：线程依附于进程，没有进程就没有线程，一个进程默认创造一个主线程，一个进程可以创造多个线程</p>
+<p>3：进程不共享全局变量，而同一个进程的线程可以共享进程的全局变量</p>
+<p>4：进程开销比较大，可以利用多核（并行），线程开销比较小不能利用多核（并发）</p>
+<h3 id="三：什么是主进程："><a href="#三：什么是主进程：" class="headerlink" title="三：什么是主进程："></a>三：什么是主进程：</h3><p>主进程是：程序执行的入口，一个进程里默认带一个线程，主进程可以创建多个子线程，</p>
+<h3 id="四：写出创造进程的步骤："><a href="#四：写出创造进程的步骤：" class="headerlink" title="四：写出创造进程的步骤："></a>四：写出创造进程的步骤：</h3><pre class=" language-python"><code class="language-python"><span class="token number">1</span>：导入进程包：
+
+​        <span class="token keyword">import</span>  multiprocessing
+
+<span class="token number">2</span>：创建进程函数（方法）
+
+​        <span class="token keyword">def</span> num（）：
+
+​                <span class="token keyword">pass</span>
+
+<span class="token number">3</span>：创建进程，调用进程函数（方法）
+
+​        变量 <span class="token operator">=</span> multiprocessing<span class="token punctuation">.</span>Process<span class="token punctuation">(</span>target <span class="token operator">=</span> num<span class="token punctuation">)</span>
+
+<span class="token number">4</span><span class="token punctuation">:</span>启动进程
+
+        变量<span class="token punctuation">.</span>start（）
+
+</code></pre>
+<h3 id="五：怎么获得进程的pid"><a href="#五：怎么获得进程的pid" class="headerlink" title="五：怎么获得进程的pid"></a>五：怎么获得进程的pid</h3><pre class=" language-python"><code class="language-python"><span class="token number">1</span>：improre  os 
+
+<span class="token number">2</span>：os<span class="token punctuation">.</span>getppid <span class="token punctuation">:</span>   <span class="token keyword">print</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>getppid<span class="token punctuation">)</span>查看父进程id编号
+
+<span class="token number">3</span>：os<span class="token punctuation">.</span>getpid  ：   <span class="token keyword">print</span>（os<span class="token punctuation">.</span>getpid）查看当前进程id编号
+
+<span class="token number">4</span>：multiprocessing<span class="token punctuation">.</span>current_process<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>name进程（线程）名字   ：查看当前进程（线程）的id编号    
+</code></pre>
+<h3 id="六：怎么给进程函数传递参数："><a href="#六：怎么给进程函数传递参数：" class="headerlink" title="六：怎么给进程函数传递参数："></a>六：怎么给进程函数传递参数：</h3><p>1：通过元组进程传递参数</p>
+<pre><code>multiprocessing.Process(target = coding , args = （参数，）)
+传入的是一个元组需要加上，传入的参数要保持一致
+</code></pre>
+<h3 id="2：通过字典进程传参："><a href="#2：通过字典进程传参：" class="headerlink" title="2：通过字典进程传参："></a>2：通过字典进程传参：</h3><pre><code>multiprocessing.Process(target = coding , kwargs = &#123;传递的进程变量名：传入的参数&#125;)
+因为用的是字典的要与进程参数对住
+</code></pre>
+<h3 id="七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行"><a href="#七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行" class="headerlink" title="七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行"></a>七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行</h3><p>1：把join加入到子进程中，子进程变量.join，形成串联运行完子进程在运行主线线程</p>
+<p>八：Process创建的实例对象的常用的方法有什么？</p>
+<p>1：start（）：启动子进程实例（创建子进程）</p>
+<p>2：join（）：等待子进程执行结束，形成串联</p>
+<p>3：terminate（）：不管任务是否完成，立即终止子进程</p>
+<p>八《一》：    Process常用的属性：</p>
+<p>1：name：当前进程的别名，默认为Process - n ，n为从1开始递增的整数</p>
+<p>2：pid：当前进程的id</p>
+<p>九：编写一个程序，实现创建一个子进程，子进程每一秒打印一次：这是子进程，循环的第n次，打印 的次数是由主进程传递给子进程。</p>
+<pre><code>1：#利用args和kwargs传参
+import multiprocessing
+import time
+def ness(num):
+    for i in range(num):
+        time.sleep(1)
+        print(&quot;这个是一个线程&quot;)
+if __name__ == &#39;__main__&#39;:
+    # mues = multiprocessing.Process(target= ness,args=(6,))
+    mues = multiprocessing.Process(target=ness, kwargs=&#123;&quot;num&quot;:6&#125;)
+    mues.start()
+
+2：#利用类方法实现线程
+import multiprocessing
+import time
+class nees():
+    def __init__(self,name):
+        super(nees, self).__init__()
+        self.name = name
+    def num(self):
+        for i in range(self.name):
+            time.sleep(1)
+            print(&quot;这个是一个子进程&quot;)
+if __name__ == &#39;__main__&#39;:
+    num_process = multiprocessing.Process(target=nees)
+    A=nees(3)
+    A.num()
+</code></pre>
+<p>：线程资源竞争问题：</p>
+<p>1：100万次加法，线程1和线程2谁先执行完</p>
+<p>2：线程1计算的结果一定比线程2小吗？</p>
+<p>3：某个线程计算的结果有没有可能小于100万？为什么：</p>
+<p>​            1：不一定谁先执行完，因为线程是由cpu进行调度的，没有执行顺序那个先执行完都是不一定的</p>
+<p>​            2：不一定，因为没办法知道那个线程能先执行完，所有没有办法知道执行的时间，没有办法知道执行的大小</p>
+<p>​            3：有的，因为多线程共享全局变量，再赋予全局变量的时候，线程一和线程二计算的先后没有办法确定下来，当线程一计算的多时，线程二计算的少时，线程一又把线程二中的值共享过来这时就不安之前的顺序的，会小于100万</p>
+]]></content>
+      <categories>
+        <category>python高级</category>
+      </categories>
+      <tags>
+        <tag>python高级</tag>
       </tags>
   </entry>
   <entry>
@@ -2051,8 +2051,8 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
       </tags>
   </entry>
   <entry>
-    <title>机器学习，神经网络 (上)</title>
-    <url>/2020/02/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA%E4%B8%8A/</url>
+    <title>机器学习，神经网络 -- 上</title>
+    <url>/2020/02/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA--%E4%B8%8A/</url>
     <content><![CDATA[<h2 id="什么是机器学习"><a href="#什么是机器学习" class="headerlink" title="什么是机器学习"></a>什么是机器学习</h2><p>——-先观察后照做<br> ——-机器学习算法都试图以某种它可以的方式来模拟两个数据之间存在的模式，从而做到用一个数据集来预测另一个数据集<br> ——-机器学习的大部分工作都是训练某种监督分类器</p>
 <ul>
 <li>机器学习：<br> 机器学习是计算机科学的的一个分支，机器学习观察某个任务中存在的模式，并试图以某种直接或者间接的方式模仿它。</li>
