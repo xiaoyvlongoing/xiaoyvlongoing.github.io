@@ -464,7 +464,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-06-12
+                    2021-06-28
                 </div>
                 
 
@@ -478,7 +478,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    71 Min
+                    70 Min
                 </div>
                 
 
@@ -2202,9 +2202,9 @@ sys<span class="token punctuation">.</span>path<span class="token punctuation">.
     <span class="token comment" spellcheck="true"># 将封装好的数据集和次数返回</span>
     <span class="token keyword">return</span> dataset<span class="token punctuation">,</span> steps_per_epoch
 </code></pre>
-<h5 id="打印-3"><a href="#打印-3" class="headerlink" title="打印"></a>打印</h5><pre class=" language-python"><code class="language-python">F<span class="token punctuation">:</span>\人工智能<span class="token number">7</span>期NLP分享\NLP\NLPAI项目AI第<span class="token number">7</span>期BT同步资料\文本摘要项目\day01\数据集
+<h5 id="打印-3"><a href="#打印-3" class="headerlink" title="打印"></a>打印</h5><pre class=" language-python"><code class="language-python">
 Building prefix dict <span class="token keyword">from</span> the default dictionary <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-Loading model <span class="token keyword">from</span> cache C<span class="token punctuation">:</span>\Users\<span class="token number">86176</span>\AppData\Local\Temp\jieba<span class="token punctuation">.</span>cache
+Loading model <span class="token keyword">from</span> cache 
 Loading model cost <span class="token number">0.829</span> seconds<span class="token punctuation">.</span>
 Prefix dict has been built successfully<span class="token punctuation">.</span>
 stop_words<span class="token punctuation">:</span>  <span class="token punctuation">[</span><span class="token string">':'</span><span class="token punctuation">,</span> <span class="token string">'：'</span><span class="token punctuation">,</span> <span class="token string">'———'</span><span class="token punctuation">,</span> <span class="token string">'》），'</span><span class="token punctuation">,</span> <span class="token string">'）÷（１－'</span><span class="token punctuation">,</span> <span class="token string">'”，'</span><span class="token punctuation">,</span> <span class="token string">'）、'</span><span class="token punctuation">,</span> <span class="token string">'＝（'</span><span class="token punctuation">,</span> <span class="token string">'→'</span><span class="token punctuation">,</span> <span class="token string">'℃'</span><span class="token punctuation">,</span> <span class="token string">'&amp;'</span><span class="token punctuation">,</span> <span class="token string">'*'</span><span class="token punctuation">,</span> <span class="token string">'一一'</span><span class="token punctuation">,</span> <span class="token string">'~~~~'</span><span class="token punctuation">,</span> <span class="token string">'『'</span><span class="token punctuation">,</span> <span class="token string">'.一'</span><span class="token punctuation">,</span> <span class="token string">'./'</span><span class="token punctuation">,</span> <span class="token string">'--'</span><span class="token punctuation">,</span> <span class="token string">'』'</span><span class="token punctuation">,</span> <span class="token string">'＝″'</span><span class="token punctuation">]</span>
@@ -2369,7 +2369,7 @@ sys<span class="token punctuation">.</span>path<span class="token punctuation">.
         <span class="token keyword">return</span> torch<span class="token punctuation">.</span>stack<span class="token punctuation">(</span>predictions<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> dec_hidden
 <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
     <span class="token comment" spellcheck="true"># word_to_id, id_to_word = get_vocab_from_model(vocab_path, reverse_vocab_path)</span>
-    word_to_id <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">"F:/人工智能7期NLP分享/NLP/NLPAI项目AI第7期BT同步资料/文本摘要项目/day01/数据集/data/wv/vocab.txt"</span><span class="token punctuation">)</span>
+    word_to_id <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span>
     vocab_size <span class="token operator">=</span> len<span class="token punctuation">(</span>word_to_id<span class="token punctuation">)</span>
     batch_size <span class="token operator">=</span> <span class="token number">64</span>
     input_seq_len <span class="token operator">=</span> <span class="token number">300</span>
@@ -2960,7 +2960,7 @@ Process finished <span class="token keyword">with</span> exit code <span class="
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total Words:&nbsp;<span
-                        class="white-color">34.7k</span>
+                        class="white-color">36.2k</span>
             
             
             

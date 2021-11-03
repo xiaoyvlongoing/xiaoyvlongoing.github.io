@@ -1,6 +1,503 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>SQL数据类型</title>
+    <url>/2020/02/10/SQL%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><p>数据库：就是以一定格式进行组织的数据集合</p>
+<p>关系是用表格存储的，二维表格存储</p>
+<p>非关系是用字典类型存储的</p>
+<p>数据库管理系统：DBMS</p>
+<ul>
+<li>数据库文件集合：主要一系列的数据文件，作用存储数据</li>
+</ul>
+<p>SQL语句：结构化查询语言</p>
+<p>数据库文件一般都是.db后缀名</p>
+<ol>
+<li>取数据与数据库交流</li>
+<li></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>SQL语句</th>
+<th>语句的性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sudo apt-get install mysql-server</td>
+<td>安装服务端</td>
+</tr>
+<tr>
+<td>sudo apt-get install mysql-client</td>
+<td>安装客户端</td>
+</tr>
+<tr>
+<td>sudo service mysql start</td>
+<td>启动服务端</td>
+</tr>
+<tr>
+<td>ps -ajx|grep mysql：就像是任务管理器</td>
+<td>查看服务器是否开启，就像是任务管理器</td>
+</tr>
+<tr>
+<td>mysql -uroot -pmysql</td>
+<td>mysql -u用户名-pmysql登录：可以增删改查，创建表格</td>
+</tr>
+<tr>
+<td>sudo service mysql stop</td>
+<td>停止服务端</td>
+</tr>
+<tr>
+<td>exit /quit/ctrl+d</td>
+<td>退出</td>
+</tr>
+<tr>
+<td>/etc/mysql/mysql.conf.d/mysqld.cnf</td>
+<td>配置文件路径为</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>select now();</td>
+<td>查看时间</td>
+</tr>
+<tr>
+<td>select version();</td>
+<td>查看版本信息</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>sudo service mysql restart</td>
+<td><strong>重启MySQL服务</strong></td>
+</tr>
+</tbody></table>
+<p>客户端Navicat使用</p>
+<h2 id="SQL数据类型"><a href="#SQL数据类型" class="headerlink" title="SQL数据类型"></a>SQL数据类型</h2><table>
+<thead>
+<tr>
+<th><strong>类型</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>字符串：</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>char：定长字符串：最多255</td>
+<td>名字不管多次都占10个字节（知道固定长度的字节）</td>
+</tr>
+<tr>
+<td>varchar：变字符串最多65535</td>
+<td>节省空间（适合经常变化的）（存多少占多数）</td>
+</tr>
+<tr>
+<td>text</td>
+<td>字符串 text 表示存储大文本，当字符大于 4000 时推荐使用</td>
+</tr>
+<tr>
+<td>字段就是最上面的属性名.enum：枚举类型</td>
+<td>列举出一些类型，只能在这些列举的范围选择</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>年月日类型：</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>date</td>
+<td>年，月，日</td>
+</tr>
+<tr>
+<td>datetime</td>
+<td>年，月，日，时分秒</td>
+</tr>
+<tr>
+<td>decimal：定点数</td>
+<td>（5,2）共代表5个</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>整型</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>TINYINT：</td>
+<td></td>
+</tr>
+<tr>
+<td>SMALLINT</td>
+<td></td>
+</tr>
+<tr>
+<td>singned:有符号</td>
+<td></td>
+</tr>
+<tr>
+<td>unsingned：无符号</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>小数类型</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>float：小数类型</td>
+<td></td>
+</tr>
+<tr>
+<td>decimal表示浮点数</td>
+<td>如 decimal(5, 2) 表示共存5位数，小数占 2 位.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="数据完整性和约束"><a href="#数据完整性和约束" class="headerlink" title="数据完整性和约束"></a>数据完整性和约束</h3><h6 id="参照完整性，就是增删改查中：要保证数据的正确性，"><a href="#参照完整性，就是增删改查中：要保证数据的正确性，" class="headerlink" title="参照完整性，就是增删改查中：要保证数据的正确性，"></a>参照完整性，就是增删改查中：要保证数据的正确性，</h6><h5 id="约束：删除的时候不让删"><a href="#约束：删除的时候不让删" class="headerlink" title="约束：删除的时候不让删"></a>约束：删除的时候不让删</h5><p>保证数据的独一性</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NOT NULL</td>
+<td>非空约束</td>
+</tr>
+<tr>
+<td>PRMARY KEY</td>
+<td>主键约束</td>
+</tr>
+<tr>
+<td>UNIQUE KE</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>数据库基本操作</p>
+<table>
+<thead>
+<tr>
+<th>数据表库的命令</th>
+<th>使用的功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>show databases;</td>
+<td>查看所有数据库</td>
+</tr>
+<tr>
+<td>select database();</td>
+<td>查看当前使用的数据库</td>
+</tr>
+<tr>
+<td>create database (数据库名字)  charset=utf8;</td>
+<td>创建数据库</td>
+</tr>
+<tr>
+<td>show  create database （数据库的名字）；</td>
+<td>创建数据库查看数据库的字符集</td>
+</tr>
+<tr>
+<td>drop database （数据库名称）;</td>
+<td>删除数据表</td>
+</tr>
+<tr>
+<td>数据表名.drop(数据表名[数据表名[对应的异常值这些异常值写出了T] == T].index,inplace = T)</td>
+<td>对表里面的一些异常数据进行删除</td>
+</tr>
+<tr>
+<td>use (数据库名称);   返回上一层服务器 use mysql</td>
+<td>使用数据表进入指定的数据库</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>create database 数据库的名字</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="查看表结构命令："><a href="#查看表结构命令：" class="headerlink" title="查看表结构命令："></a>查看表结构命令：</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>命令介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>show tables;</td>
+<td>产看数据库的所有表</td>
+</tr>
+<tr>
+<td>desc 表名;</td>
+<td>查看表里面的内容</td>
+</tr>
+<tr>
+<td>show create table 表名;</td>
+<td>查看数据表</td>
+</tr>
+<tr>
+<td>select * from students;</td>
+<td>查看添加的文档</td>
+</tr>
+</tbody></table>
+<h2 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h2><pre><code>crea table 表名 （字段   类型    约束    【字段   类型     约束】）；
+
+crea table xxx(id int unsigned primary key auto_increment not null,name varchar(20));
+
+
+create table创建students 表（id ，name ，age， high， （decimal），gender（enum），cls_id）
+</code></pre>
+<h6 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h6><pre class=" language-python"><code class="language-python">create table 列表名<span class="token punctuation">(</span>
+
+id int unsigned（无符号<span class="token number">0</span><span class="token operator">-</span><span class="token number">255</span>）  primary key（主键） auto_increment（自动增加） <span class="token operator">not</span> null（不能为空）<span class="token punctuation">,</span>
+
+name varchar<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>（上限为<span class="token number">20</span>个字符） <span class="token operator">not</span> null<span class="token punctuation">,</span>
+
+age tinyint unsigned default  <span class="token number">0</span>（缺省值自动填充为<span class="token number">0</span>）<span class="token punctuation">,</span>
+
+height decimal<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>（一共有<span class="token number">5</span>位数，有小数点是有两位）
+
+gender enum<span class="token punctuation">(</span><span class="token string">"男"</span><span class="token punctuation">,</span>“女”<span class="token punctuation">,</span><span class="token string">"人妖"</span><span class="token punctuation">,</span><span class="token string">"保密"</span><span class="token punctuation">)</span>（枚举），
+
+time date default <span class="token string">"2020-01-01"</span>
+
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<pre><code>create table classes(
+id int unsigned  primary key auto_increment not null,
+name varchar(20） not null,
+id_age tinyint unsigned default  0
+);
+</code></pre>
+<h2 id="列子"><a href="#列子" class="headerlink" title="列子"></a>列子</h2><pre class=" language-python"><code class="language-python">create table students<span class="token punctuation">(</span>
+
+id int unsigned primary key  auto_increment <span class="token operator">not</span> null<span class="token punctuation">,</span>
+
+name varchar<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">not</span> null<span class="token punctuation">,</span>
+
+age tinyint unsigned default  <span class="token number">0</span><span class="token punctuation">,</span>
+
+height decimal<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+gender enum<span class="token punctuation">(</span><span class="token string">"男"</span><span class="token punctuation">,</span><span class="token string">"女"</span><span class="token punctuation">,</span><span class="token string">"人妖"</span><span class="token punctuation">,</span><span class="token string">"保密"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+time date default  <span class="token string">"2020-01-01"</span>
+
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><img src="./SQL%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/1611042404103.png" alt="SQL数据类型"></p>
+<ul>
+<li>Field：创建的字段</li>
+<li>Type：属性的性质，和约束，枚举</li>
+<li>Null：表示字段为空，yes表示可以为空</li>
+<li>Key：唯一标识</li>
+<li>Default：，默认值，如果字段被设计时，如果允许默认条件下，用户会进行数据的插入，那么就可以用事先准备好的数据来填充通常填充的是NULL</li>
+<li>Extre：表示id可以顺序下去，</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>alter table 表名 drop 列名;</th>
+<th>删除字段</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>drop table 表名;</td>
+<td>删除表</td>
+</tr>
+<tr>
+<td>delete from  表名 where id =数字几;</td>
+<td>物理删除行</td>
+</tr>
+<tr>
+<td>alter table   表名 add is_delete bit default 0;</td>
+<td>逻辑增添</td>
+</tr>
+<tr>
+<td>update 表名 set is_delete =1 where name = “行名”</td>
+<td>逻辑删除</td>
+</tr>
+</tbody></table>
+<h2 id="创建数据库和增删改查流程"><a href="#创建数据库和增删改查流程" class="headerlink" title="创建数据库和增删改查流程"></a>创建数据库和增删改查流程</h2><table>
+<thead>
+<tr>
+<th>创建数据库命令</th>
+<th>命令的作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mysql -uroot -pmysql;</td>
+<td>登录数据库</td>
+</tr>
+<tr>
+<td>quit、exit，</td>
+<td>退出数据库</td>
+</tr>
+<tr>
+<td>show databases;</td>
+<td>查看所有的数据库</td>
+</tr>
+<tr>
+<td>create database  数据库名称    charset=utf8;</td>
+<td>创建数据库</td>
+</tr>
+<tr>
+<td>select database();</td>
+<td>查看当前使用数据库</td>
+</tr>
+<tr>
+<td>use 数据库名称;</td>
+<td>使用数据库</td>
+</tr>
+<tr>
+<td>show tables；</td>
+<td>查看当前数据库中所有的表</td>
+</tr>
+<tr>
+<td>create table students(id  int  数据表名   primary  key  auto_increment  not mull,name varchar(20)  not  null, age tinyint unsigned default0,height decimal(5,2),gender enum(“男”，“女”));</td>
+<td>创建表</td>
+</tr>
+<tr>
+<td>alter table 表名 add 列名 类型   约束;</td>
+<td>添加字段</td>
+</tr>
+<tr>
+<td>alter table 表名 modify 列名 类型 约束;         例:alter table students modify birthday date not null;</td>
+<td>修改字段类型及约束</td>
+</tr>
+<tr>
+<td>alter table 表名 drop 列名</td>
+<td>修改字段</td>
+</tr>
+<tr>
+<td>show create table  表名;</td>
+<td>查看数据表的类型，约束</td>
+</tr>
+<tr>
+<td>show create database  数据库名;</td>
+<td>查看数据库的类型</td>
+</tr>
+<tr>
+<td>drop table 表名;</td>
+<td>删除表</td>
+</tr>
+<tr>
+<td><strong>增添数据</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>insert into 表名  values(…..);：添加数据</td>
+<td>添加数据值，对应着字段名字</td>
+</tr>
+<tr>
+<td>insert into 表名 （列1.。。）values(值1，。。。);       insert into students (name,age,height,gender,time) values(“姓名”,18,180.22,”男”,”2020-07-08”);</td>
+<td>部分的插入，对应的字段和插入的内容</td>
+</tr>
+<tr>
+<td>insert into 表名 values（，，，），（。。。）。。;</td>
+<td>全列多行插入</td>
+</tr>
+<tr>
+<td>insert into 表名 （列1，。。。） values（值1，。。。），（值1.。）;</td>
+<td>部分列多行插入</td>
+</tr>
+<tr>
+<td>select * from 表名;</td>
+<td>查看表的内容</td>
+</tr>
+<tr>
+<td>select 列1 ，列2 。。。from 表名;</td>
+<td>查看指定字段的内容</td>
+</tr>
+<tr>
+<td>update 表名 set 列1 = 值1，列2=值2.。。where  条件;    列如:update students set age = 18, gender = ‘女’ where id = 6;</td>
+<td>修改的数据</td>
+</tr>
+<tr>
+<td>delete from 表名 where 条件;    列如:delete from students where id = 3;</td>
+<td>删除数据（物理删除）</td>
+</tr>
+<tr>
+<td>alter table   表名 add is_delete bit default 0;</td>
+<td>逻辑的添加</td>
+</tr>
+<tr>
+<td>update 表名 set is_delete =1 where name = “行名”</td>
+<td>逻辑的删除，要先增添，才能删除</td>
+</tr>
+<tr>
+<td>drop database 数据库名称;</td>
+<td>删除数据库</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>SQL</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Matplotlib基础</title>
     <url>/2020/02/10/Matplotlib%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h2 id="Matplotlib基本操作："><a href="#Matplotlib基本操作：" class="headerlink" title="Matplotlib基本操作："></a>Matplotlib基本操作：</h2><table>
@@ -216,6 +713,111 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
       </categories>
       <tags>
         <tag>Matplotlib</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>fasttext工具</title>
+    <url>/2020/02/10/fasttext%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="fasttext工具的使用"><a href="#fasttext工具的使用" class="headerlink" title="fasttext工具的使用"></a>fasttext工具的使用</h1><p>作为NLP工程领域常用的工具包, fasttext有两大作用:</p>
+<ul>
+<li>进行文本分类</li>
+<li>训练词向量</li>
+</ul>
+<h3 id="使用fasttext工具进行文本分类的过程"><a href="#使用fasttext工具进行文本分类的过程" class="headerlink" title="使用fasttext工具进行文本分类的过程"></a>使用fasttext工具进行文本分类的过程</h3><ul>
+<li>第一步: 获取数据</li>
+<li>第二步: 训练集与验证集的划分</li>
+<li>第三步: 训练模型</li>
+<li>第四步: 使用模型进行预测并评估</li>
+<li>第五步: 模型调优</li>
+<li>第六步: 模型保存与重加载 </li>
+</ul>
+<hr>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>import fasttext</td>
+<td>构建fasttext工具包</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>model=fasttext.<strong>train_supervised</strong>（(input=文件名，epoch=数值轮数表示，wordNgrams=关联，loss=’hs’，“ova”）</td>
+<td>使用fasttext的train_supervised方法<strong>进行文本分类模型</strong>的训练，                                                                                <strong>wordNgrams</strong>：设置为2意味着添加2-gram特征, 这些特征帮助模型捕捉前后词汇之间的关联, 更好的提取分类规则用于模型分类, 当然这也会增加模型训时练占用的资源和时间，<strong>loss</strong>：来修改损失计算方式(等效于输出层的结构), 默认是softmax层结构，设置为’hs’, 代表层次softmax结构, 意味着输出层的结构(计算方式)发生了变化, 将以一种更低复杂度的方式来计算损失，“ova”：标签多分类问题的损失计算方式，</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>model.predict(“一句话”)</td>
+<td>模型进行预测并评估</td>
+</tr>
+<tr>
+<td>model.test（“需要评估的数据集”）</td>
+<td>为了评估模型到底表现如何,元组中的每项分别代表, 验证集样本数量, 精度以及召回率</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>model.predict（“一句话”，k=-1, threshold=0.5）</td>
+<td>模型进行预测并评估，k=-1：尽可能输出多个标签，threshold：阈值</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>model.save_model(“./模型名字.bin”)</td>
+<td>保存模型</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>model = fasttext.load_model(“./模型名字.bin”)</td>
+<td>模型重加载</td>
+</tr>
+</tbody></table>
+<h2 id="词向量迁移"><a href="#词向量迁移" class="headerlink" title="词向量迁移"></a>词向量迁移</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>model = fasttext.load_model(“模型名字.bin”)</td>
+<td>加载模型</td>
+</tr>
+<tr>
+<td>model.words[：100]</td>
+<td>查看前100个词汇(这里的词汇是广义的, 可以是中文符号或汉字))</td>
+</tr>
+<tr>
+<td>model.get_word_vector（“词名”）</td>
+<td>使用模型获得’词名’这个名词的词向量</td>
+</tr>
+<tr>
+<td>model.get_nearest_neighbors（“词名”）</td>
+<td>以’音乐’为例, 返回的邻近词基本上与音乐都有关系, 如乐曲, 音乐会, 声乐等.</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>NLP</category>
+      </categories>
+      <tags>
+        <tag>NLP</tag>
       </tags>
   </entry>
   <entry>
@@ -549,12 +1151,9 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
 <p><strong>是否能相加</strong>：要从两个数组的后缘维度（从末尾开始算起的维度）的轴长度相符</p>
 <p><strong>怎么查看维度</strong>：第一个是最外面的中括号有几个元素，后面进行递减查看</p>
 <p><strong>矩阵的乘法遵循法则</strong>：第一横行乘于第一竖列再进行相加得出第一个相乘的数</p>
-<p><img src="C:\Users\86176\AppData\Roaming\Typora\typora-user-images\1612282931805.png" alt="1612282931805"></p>
-<h3 id="单位矩阵，逆，转置"><a href="#单位矩阵，逆，转置" class="headerlink" title="单位矩阵，逆，转置"></a><strong>单位矩阵</strong>，<strong>逆</strong>，<strong>转置</strong></h3><h6 id="单位矩阵：从-左上角到右下角的对角线（称为主对角线）上的元素均为-1-以外全都为-0"><a href="#单位矩阵：从-左上角到右下角的对角线（称为主对角线）上的元素均为-1-以外全都为-0" class="headerlink" title="单位矩阵：从 左上角到右下角的对角线（称为主对角线）上的元素均为 1 以外全都为 0"></a><strong>单位矩阵</strong>：<strong>从 左上角到右下角的对角线（称为主对角线）上的元素均为 1 以外全都为 0</strong></h6><p><img src="C:\Users\86176\AppData\Roaming\Typora\typora-user-images\1612283139947.png" alt="1612283139947"></p>
-<p><strong>逆</strong>：两个数组相乘，称为了单位矩阵就算是一个数组是另一个数组的逆</p>
+<h3 id="单位矩阵，逆，转置"><a href="#单位矩阵，逆，转置" class="headerlink" title="单位矩阵，逆，转置"></a><strong>单位矩阵</strong>，<strong>逆</strong>，<strong>转置</strong></h3><h6 id="单位矩阵：从-左上角到右下角的对角线（称为主对角线）上的元素均为-1-以外全都为-0"><a href="#单位矩阵：从-左上角到右下角的对角线（称为主对角线）上的元素均为-1-以外全都为-0" class="headerlink" title="单位矩阵：从 左上角到右下角的对角线（称为主对角线）上的元素均为 1 以外全都为 0"></a><strong>单位矩阵</strong>：<strong>从 左上角到右下角的对角线（称为主对角线）上的元素均为 1 以外全都为 0</strong></h6><p><strong>逆</strong>：两个数组相乘，称为了单位矩阵就算是一个数组是另一个数组的逆</p>
 <p><strong>转置</strong>：行与列的互换</p>
-<h2 id="NP的矩阵乘法要遵循下面的公式，也可以进过转至进行运算"><a href="#NP的矩阵乘法要遵循下面的公式，也可以进过转至进行运算" class="headerlink" title="NP的矩阵乘法要遵循下面的公式，也可以进过转至进行运算"></a>NP的矩阵乘法要遵循下面的公式，也可以进过转至进行运算</h2><p><img src="C:\Users\86176\AppData\Roaming\Typora\typora-user-images\1616318766379.png" alt="1616318766379"></p>
-<table>
+<h2 id="NP的矩阵乘法要遵循下面的公式，也可以进过转至进行运算"><a href="#NP的矩阵乘法要遵循下面的公式，也可以进过转至进行运算" class="headerlink" title="NP的矩阵乘法要遵循下面的公式，也可以进过转至进行运算"></a>NP的矩阵乘法要遵循下面的公式，也可以进过转至进行运算</h2><table>
 <thead>
 <tr>
 <th>函数</th>
@@ -624,108 +1223,168 @@ array<span class="token punctuation">(</span><span class="token punctuation">[</
       </tags>
   </entry>
   <entry>
-    <title>fasttext工具</title>
-    <url>/2020/02/10/fasttext%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="fasttext工具的使用"><a href="#fasttext工具的使用" class="headerlink" title="fasttext工具的使用"></a>fasttext工具的使用</h1><p>作为NLP工程领域常用的工具包, fasttext有两大作用:</p>
-<ul>
-<li>进行文本分类</li>
-<li>训练词向量</li>
-</ul>
-<h3 id="使用fasttext工具进行文本分类的过程"><a href="#使用fasttext工具进行文本分类的过程" class="headerlink" title="使用fasttext工具进行文本分类的过程"></a>使用fasttext工具进行文本分类的过程</h3><ul>
-<li>第一步: 获取数据</li>
-<li>第二步: 训练集与验证集的划分</li>
-<li>第三步: 训练模型</li>
-<li>第四步: 使用模型进行预测并评估</li>
-<li>第五步: 模型调优</li>
-<li>第六步: 模型保存与重加载 </li>
-</ul>
-<hr>
-<table>
+    <title>线程任务</title>
+    <url>/2020/02/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</url>
+    <content><![CDATA[<h2 id="多线程任务"><a href="#多线程任务" class="headerlink" title="多线程任务"></a>多线程任务</h2><h3 id="一：多线程"><a href="#一：多线程" class="headerlink" title="一：多线程"></a>一：多线程</h3><table>
 <thead>
 <tr>
-<th>函数</th>
-<th>函数性质</th>
+<th>函数名</th>
+<th>使用的方法</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>import fasttext</td>
-<td>构建fasttext工具包</td>
+<td>导入的函数包import multiprocessing</td>
+<td>创建的进程导入的包名</td>
+</tr>
+<tr>
+<td>multiprocessing.Process([group [, target [, name [, args：传入指定形参 [, kwargs：以字典的类型进行传参]]]]])</td>
+<td>导入进程函数说明</td>
+</tr>
+<tr>
+<td>target=方法名</td>
+<td>执行的目标任务名（函数名，线程名）</td>
+</tr>
+<tr>
+<td>name=进程的名字</td>
+<td>进程名字</td>
+</tr>
+<tr>
+<td>对象名=multiprocessing.Process(target=方法名)</td>
+<td>启动进程的方法</td>
+</tr>
+<tr>
+<td>子进程对象.start()</td>
+<td>对象.start（）：启动子进程实例（创建子进程）</td>
+</tr>
+<tr>
+<td>os.getpid</td>
+<td>print(os.getpid)查看子进程编号</td>
+</tr>
+<tr>
+<td>os.getppid</td>
+<td>print(os.getppid)查看父进程编号</td>
+</tr>
+<tr>
+<td>multiprocessing.current_process().name进程名字</td>
+<td>查看当前进程编号</td>
+</tr>
+<tr>
+<td>子进程对象.join()</td>
+<td>加入jojn后主线程会等待子线程执行后再结束主线程，让线程可以形成串行，形成有顺序的，线性和进程的也可进行串行，结束前一个，进行下一个执行</td>
+</tr>
+<tr>
+<td>子进程对象.terminate()</td>
+<td>不管任务是否完成，立即终止子进程</td>
+</tr>
+<tr>
+<td>子进程对象.daemom = True</td>
+<td>不管任务是否完成，立即终止子进程</td>
+</tr>
+<tr>
+<td>进程在ubuntu中 ps -aux|grep 要查找的线程的名字</td>
+<td>过滤需要的进程来查看ID</td>
+</tr>
+<tr>
+<td>os.kill(os.getpid(),9)  进程的id</td>
+<td>强制杀死进程</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td>model=fasttext.<strong>train_supervised</strong>（(input=文件名，epoch=数值轮数表示，wordNgrams=关联，loss=’hs’，“ova”）</td>
-<td>使用fasttext的train_supervised方法<strong>进行文本分类模型</strong>的训练，                                                                                <strong>wordNgrams</strong>：设置为2意味着添加2-gram特征, 这些特征帮助模型捕捉前后词汇之间的关联, 更好的提取分类规则用于模型分类, 当然这也会增加模型训时练占用的资源和时间，<strong>loss</strong>：来修改损失计算方式(等效于输出层的结构), 默认是softmax层结构，设置为’hs’, 代表层次softmax结构, 意味着输出层的结构(计算方式)发生了变化, 将以一种更低复杂度的方式来计算损失，“ova”：标签多分类问题的损失计算方式，</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>model.predict(“一句话”)</td>
-<td>模型进行预测并评估</td>
-</tr>
-<tr>
-<td>model.test（“需要评估的数据集”）</td>
-<td>为了评估模型到底表现如何,元组中的每项分别代表, 验证集样本数量, 精度以及召回率</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>model.predict（“一句话”，k=-1, threshold=0.5）</td>
-<td>模型进行预测并评估，k=-1：尽可能输出多个标签，threshold：阈值</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>model.save_model(“./模型名字.bin”)</td>
-<td>保存模型</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>model = fasttext.load_model(“./模型名字.bin”)</td>
-<td>模型重加载</td>
 </tr>
 </tbody></table>
-<h2 id="词向量迁移"><a href="#词向量迁移" class="headerlink" title="词向量迁移"></a>词向量迁移</h2><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>函数性质</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>model = fasttext.load_model(“模型名字.bin”)</td>
-<td>加载模型</td>
-</tr>
-<tr>
-<td>model.words[：100]</td>
-<td>查看前100个词汇(这里的词汇是广义的, 可以是中文符号或汉字))</td>
-</tr>
-<tr>
-<td>model.get_word_vector（“词名”）</td>
-<td>使用模型获得’词名’这个名词的词向量</td>
-</tr>
-<tr>
-<td>model.get_nearest_neighbors（“词名”）</td>
-<td>以’音乐’为例, 返回的邻近词基本上与音乐都有关系, 如乐曲, 音乐会, 声乐等.</td>
-</tr>
-</tbody></table>
+<p>1：进程是操作系统资源分配的最小单位</p>
+<p>2：进程之间执行也是无序的，它是由操作系统调度决定的，操作系统调度哪个进程，哪个进程就先执行，没有调度的进程不能执行</p>
+<p>3：进程不共享全局变量</p>
+<h3 id="二：线程和进程有什么区别："><a href="#二：线程和进程有什么区别：" class="headerlink" title="二：线程和进程有什么区别："></a>二：线程和进程有什么区别：</h3><p>1：进程是操作系统资源分配的最小单位，线程是cpu调度的最小单位</p>
+<p>2：线程依附于进程，没有进程就没有线程，一个进程默认创造一个主线程，一个进程可以创造多个线程</p>
+<p>3：进程不共享全局变量，而同一个进程的线程可以共享进程的全局变量</p>
+<p>4：进程开销比较大，可以利用多核（并行），线程开销比较小不能利用多核（并发）</p>
+<h3 id="三：什么是主进程："><a href="#三：什么是主进程：" class="headerlink" title="三：什么是主进程："></a>三：什么是主进程：</h3><p>主进程是：程序执行的入口，一个进程里默认带一个线程，主进程可以创建多个子线程，</p>
+<h3 id="四：写出创造进程的步骤："><a href="#四：写出创造进程的步骤：" class="headerlink" title="四：写出创造进程的步骤："></a>四：写出创造进程的步骤：</h3><pre class=" language-python"><code class="language-python"><span class="token number">1</span>：导入进程包：
+
+​        <span class="token keyword">import</span>  multiprocessing
+
+<span class="token number">2</span>：创建进程函数（方法）
+
+​        <span class="token keyword">def</span> num（）：
+
+​                <span class="token keyword">pass</span>
+
+<span class="token number">3</span>：创建进程，调用进程函数（方法）
+
+​        变量 <span class="token operator">=</span> multiprocessing<span class="token punctuation">.</span>Process<span class="token punctuation">(</span>target <span class="token operator">=</span> num<span class="token punctuation">)</span>
+
+<span class="token number">4</span><span class="token punctuation">:</span>启动进程
+
+        变量<span class="token punctuation">.</span>start（）
+
+</code></pre>
+<h3 id="五：怎么获得进程的pid"><a href="#五：怎么获得进程的pid" class="headerlink" title="五：怎么获得进程的pid"></a>五：怎么获得进程的pid</h3><pre class=" language-python"><code class="language-python"><span class="token number">1</span>：improre  os 
+
+<span class="token number">2</span>：os<span class="token punctuation">.</span>getppid <span class="token punctuation">:</span>   <span class="token keyword">print</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>getppid<span class="token punctuation">)</span>查看父进程id编号
+
+<span class="token number">3</span>：os<span class="token punctuation">.</span>getpid  ：   <span class="token keyword">print</span>（os<span class="token punctuation">.</span>getpid）查看当前进程id编号
+
+<span class="token number">4</span>：multiprocessing<span class="token punctuation">.</span>current_process<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>name进程（线程）名字   ：查看当前进程（线程）的id编号    
+</code></pre>
+<h3 id="六：怎么给进程函数传递参数："><a href="#六：怎么给进程函数传递参数：" class="headerlink" title="六：怎么给进程函数传递参数："></a>六：怎么给进程函数传递参数：</h3><p>1：通过元组进程传递参数</p>
+<pre><code>multiprocessing.Process(target = coding , args = （参数，）)
+传入的是一个元组需要加上，传入的参数要保持一致
+</code></pre>
+<h3 id="2：通过字典进程传参："><a href="#2：通过字典进程传参：" class="headerlink" title="2：通过字典进程传参："></a>2：通过字典进程传参：</h3><pre><code>multiprocessing.Process(target = coding , kwargs = &#123;传递的进程变量名：传入的参数&#125;)
+因为用的是字典的要与进程参数对住
+</code></pre>
+<h3 id="七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行"><a href="#七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行" class="headerlink" title="七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行"></a>七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行</h3><p>1：把join加入到子进程中，子进程变量.join，形成串联运行完子进程在运行主线线程</p>
+<p>八：Process创建的实例对象的常用的方法有什么？</p>
+<p>1：start（）：启动子进程实例（创建子进程）</p>
+<p>2：join（）：等待子进程执行结束，形成串联</p>
+<p>3：terminate（）：不管任务是否完成，立即终止子进程</p>
+<p>八《一》：    Process常用的属性：</p>
+<p>1：name：当前进程的别名，默认为Process - n ，n为从1开始递增的整数</p>
+<p>2：pid：当前进程的id</p>
+<p>九：编写一个程序，实现创建一个子进程，子进程每一秒打印一次：这是子进程，循环的第n次，打印 的次数是由主进程传递给子进程。</p>
+<pre><code>1：#利用args和kwargs传参
+import multiprocessing
+import time
+def ness(num):
+    for i in range(num):
+        time.sleep(1)
+        print(&quot;这个是一个线程&quot;)
+if __name__ == &#39;__main__&#39;:
+    # mues = multiprocessing.Process(target= ness,args=(6,))
+    mues = multiprocessing.Process(target=ness, kwargs=&#123;&quot;num&quot;:6&#125;)
+    mues.start()
+
+2：#利用类方法实现线程
+import multiprocessing
+import time
+class nees():
+    def __init__(self,name):
+        super(nees, self).__init__()
+        self.name = name
+    def num(self):
+        for i in range(self.name):
+            time.sleep(1)
+            print(&quot;这个是一个子进程&quot;)
+if __name__ == &#39;__main__&#39;:
+    num_process = multiprocessing.Process(target=nees)
+    A=nees(3)
+    A.num()
+</code></pre>
+<p>：线程资源竞争问题：</p>
+<p>1：100万次加法，线程1和线程2谁先执行完</p>
+<p>2：线程1计算的结果一定比线程2小吗？</p>
+<p>3：某个线程计算的结果有没有可能小于100万？为什么：</p>
+<p>​            1：不一定谁先执行完，因为线程是由cpu进行调度的，没有执行顺序那个先执行完都是不一定的</p>
+<p>​            2：不一定，因为没办法知道那个线程能先执行完，所有没有办法知道执行的时间，没有办法知道执行的大小</p>
+<p>​            3：有的，因为多线程共享全局变量，再赋予全局变量的时候，线程一和线程二计算的先后没有办法确定下来，当线程一计算的多时，线程二计算的少时，线程一又把线程二中的值共享过来这时就不安之前的顺序的，会小于100万</p>
 ]]></content>
       <categories>
-        <category>NLP</category>
+        <category>python高级</category>
       </categories>
       <tags>
-        <tag>NLP</tag>
+        <tag>python高级</tag>
       </tags>
   </entry>
   <entry>
@@ -1032,171 +1691,6 @@ test_x形状<span class="token punctuation">:</span>  <span class="token punctua
       </categories>
       <tags>
         <tag>猫狗分类</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>线程任务</title>
-    <url>/2020/02/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%9A%E6%97%A0%E5%BA%8F%E6%89%A7%E8%A1%8C/</url>
-    <content><![CDATA[<h2 id="多线程任务"><a href="#多线程任务" class="headerlink" title="多线程任务"></a>多线程任务</h2><h3 id="一：多线程"><a href="#一：多线程" class="headerlink" title="一：多线程"></a>一：多线程</h3><table>
-<thead>
-<tr>
-<th>函数名</th>
-<th>使用的方法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>导入的函数包import multiprocessing</td>
-<td>创建的进程导入的包名</td>
-</tr>
-<tr>
-<td>multiprocessing.Process([group [, target [, name [, args：传入指定形参 [, kwargs：以字典的类型进行传参]]]]])</td>
-<td>导入进程函数说明</td>
-</tr>
-<tr>
-<td>target=方法名</td>
-<td>执行的目标任务名（函数名，线程名）</td>
-</tr>
-<tr>
-<td>name=进程的名字</td>
-<td>进程名字</td>
-</tr>
-<tr>
-<td>对象名=multiprocessing.Process(target=方法名)</td>
-<td>启动进程的方法</td>
-</tr>
-<tr>
-<td>子进程对象.start()</td>
-<td>对象.start（）：启动子进程实例（创建子进程）</td>
-</tr>
-<tr>
-<td>os.getpid</td>
-<td>print(os.getpid)查看子进程编号</td>
-</tr>
-<tr>
-<td>os.getppid</td>
-<td>print(os.getppid)查看父进程编号</td>
-</tr>
-<tr>
-<td>multiprocessing.current_process().name进程名字</td>
-<td>查看当前进程编号</td>
-</tr>
-<tr>
-<td>子进程对象.join()</td>
-<td>加入jojn后主线程会等待子线程执行后再结束主线程，让线程可以形成串行，形成有顺序的，线性和进程的也可进行串行，结束前一个，进行下一个执行</td>
-</tr>
-<tr>
-<td>子进程对象.terminate()</td>
-<td>不管任务是否完成，立即终止子进程</td>
-</tr>
-<tr>
-<td>子进程对象.daemom = True</td>
-<td>不管任务是否完成，立即终止子进程</td>
-</tr>
-<tr>
-<td>进程在ubuntu中 ps -aux|grep 要查找的线程的名字</td>
-<td>过滤需要的进程来查看ID</td>
-</tr>
-<tr>
-<td>os.kill(os.getpid(),9)  进程的id</td>
-<td>强制杀死进程</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p>1：进程是操作系统资源分配的最小单位</p>
-<p>2：进程之间执行也是无序的，它是由操作系统调度决定的，操作系统调度哪个进程，哪个进程就先执行，没有调度的进程不能执行</p>
-<p>3：进程不共享全局变量</p>
-<h3 id="二：线程和进程有什么区别："><a href="#二：线程和进程有什么区别：" class="headerlink" title="二：线程和进程有什么区别："></a>二：线程和进程有什么区别：</h3><p>1：进程是操作系统资源分配的最小单位，线程是cpu调度的最小单位</p>
-<p>2：线程依附于进程，没有进程就没有线程，一个进程默认创造一个主线程，一个进程可以创造多个线程</p>
-<p>3：进程不共享全局变量，而同一个进程的线程可以共享进程的全局变量</p>
-<p>4：进程开销比较大，可以利用多核（并行），线程开销比较小不能利用多核（并发）</p>
-<h3 id="三：什么是主进程："><a href="#三：什么是主进程：" class="headerlink" title="三：什么是主进程："></a>三：什么是主进程：</h3><p>主进程是：程序执行的入口，一个进程里默认带一个线程，主进程可以创建多个子线程，</p>
-<h3 id="四：写出创造进程的步骤："><a href="#四：写出创造进程的步骤：" class="headerlink" title="四：写出创造进程的步骤："></a>四：写出创造进程的步骤：</h3><pre class=" language-python"><code class="language-python"><span class="token number">1</span>：导入进程包：
-
-​        <span class="token keyword">import</span>  multiprocessing
-
-<span class="token number">2</span>：创建进程函数（方法）
-
-​        <span class="token keyword">def</span> num（）：
-
-​                <span class="token keyword">pass</span>
-
-<span class="token number">3</span>：创建进程，调用进程函数（方法）
-
-​        变量 <span class="token operator">=</span> multiprocessing<span class="token punctuation">.</span>Process<span class="token punctuation">(</span>target <span class="token operator">=</span> num<span class="token punctuation">)</span>
-
-<span class="token number">4</span><span class="token punctuation">:</span>启动进程
-
-        变量<span class="token punctuation">.</span>start（）
-
-</code></pre>
-<h3 id="五：怎么获得进程的pid"><a href="#五：怎么获得进程的pid" class="headerlink" title="五：怎么获得进程的pid"></a>五：怎么获得进程的pid</h3><pre class=" language-python"><code class="language-python"><span class="token number">1</span>：improre  os 
-
-<span class="token number">2</span>：os<span class="token punctuation">.</span>getppid <span class="token punctuation">:</span>   <span class="token keyword">print</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>getppid<span class="token punctuation">)</span>查看父进程id编号
-
-<span class="token number">3</span>：os<span class="token punctuation">.</span>getpid  ：   <span class="token keyword">print</span>（os<span class="token punctuation">.</span>getpid）查看当前进程id编号
-
-<span class="token number">4</span>：multiprocessing<span class="token punctuation">.</span>current_process<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>name进程（线程）名字   ：查看当前进程（线程）的id编号    
-</code></pre>
-<h3 id="六：怎么给进程函数传递参数："><a href="#六：怎么给进程函数传递参数：" class="headerlink" title="六：怎么给进程函数传递参数："></a>六：怎么给进程函数传递参数：</h3><p>1：通过元组进程传递参数</p>
-<pre><code>multiprocessing.Process(target = coding , args = （参数，）)
-传入的是一个元组需要加上，传入的参数要保持一致
-</code></pre>
-<h3 id="2：通过字典进程传参："><a href="#2：通过字典进程传参：" class="headerlink" title="2：通过字典进程传参："></a>2：通过字典进程传参：</h3><pre><code>multiprocessing.Process(target = coding , kwargs = &#123;传递的进程变量名：传入的参数&#125;)
-因为用的是字典的要与进程参数对住
-</code></pre>
-<h3 id="七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行"><a href="#七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行" class="headerlink" title="七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行"></a>七：在主进程中，怎么堵塞等待子进程完成后，才能继续运行</h3><p>1：把join加入到子进程中，子进程变量.join，形成串联运行完子进程在运行主线线程</p>
-<p>八：Process创建的实例对象的常用的方法有什么？</p>
-<p>1：start（）：启动子进程实例（创建子进程）</p>
-<p>2：join（）：等待子进程执行结束，形成串联</p>
-<p>3：terminate（）：不管任务是否完成，立即终止子进程</p>
-<p>八《一》：    Process常用的属性：</p>
-<p>1：name：当前进程的别名，默认为Process - n ，n为从1开始递增的整数</p>
-<p>2：pid：当前进程的id</p>
-<p>九：编写一个程序，实现创建一个子进程，子进程每一秒打印一次：这是子进程，循环的第n次，打印 的次数是由主进程传递给子进程。</p>
-<pre><code>1：#利用args和kwargs传参
-import multiprocessing
-import time
-def ness(num):
-    for i in range(num):
-        time.sleep(1)
-        print(&quot;这个是一个线程&quot;)
-if __name__ == &#39;__main__&#39;:
-    # mues = multiprocessing.Process(target= ness,args=(6,))
-    mues = multiprocessing.Process(target=ness, kwargs=&#123;&quot;num&quot;:6&#125;)
-    mues.start()
-
-2：#利用类方法实现线程
-import multiprocessing
-import time
-class nees():
-    def __init__(self,name):
-        super(nees, self).__init__()
-        self.name = name
-    def num(self):
-        for i in range(self.name):
-            time.sleep(1)
-            print(&quot;这个是一个子进程&quot;)
-if __name__ == &#39;__main__&#39;:
-    num_process = multiprocessing.Process(target=nees)
-    A=nees(3)
-    A.num()
-</code></pre>
-<p>：线程资源竞争问题：</p>
-<p>1：100万次加法，线程1和线程2谁先执行完</p>
-<p>2：线程1计算的结果一定比线程2小吗？</p>
-<p>3：某个线程计算的结果有没有可能小于100万？为什么：</p>
-<p>​            1：不一定谁先执行完，因为线程是由cpu进行调度的，没有执行顺序那个先执行完都是不一定的</p>
-<p>​            2：不一定，因为没办法知道那个线程能先执行完，所有没有办法知道执行的时间，没有办法知道执行的大小</p>
-<p>​            3：有的，因为多线程共享全局变量，再赋予全局变量的时候，线程一和线程二计算的先后没有办法确定下来，当线程一计算的多时，线程二计算的少时，线程一又把线程二中的值共享过来这时就不安之前的顺序的，会小于100万</p>
-]]></content>
-      <categories>
-        <category>python高级</category>
-      </categories>
-      <tags>
-        <tag>python高级</tag>
       </tags>
   </entry>
   <entry>
@@ -1994,7 +2488,6 @@ optimizer<span class="token punctuation">.</span>step<span class="token punctuat
 <td>view()函数作用是将一个多行的Tensor,拼接成一行。返回一个有相同数据但大小不同的tensor。返回的tensor必须有与原tensor相同的数据和相同数目的元素，但可以有不同的大小。一个tensor必须是连续的<code>contiguous()</code>才能被查看。</td>
 </tr>
 </tbody></table>
-<p><img src="C:\Users\86176\AppData\Roaming\Typora\typora-user-images\1617945645061.png" alt="1617945645061"></p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> torch
 <span class="token keyword">from</span> torch <span class="token keyword">import</span> nn
 <span class="token keyword">from</span> torch <span class="token keyword">import</span> optim
@@ -4544,9 +5037,9 @@ sys<span class="token punctuation">.</span>path<span class="token punctuation">.
     <span class="token comment" spellcheck="true"># 将封装好的数据集和次数返回</span>
     <span class="token keyword">return</span> dataset<span class="token punctuation">,</span> steps_per_epoch
 </code></pre>
-<h5 id="打印-3"><a href="#打印-3" class="headerlink" title="打印"></a>打印</h5><pre class=" language-python"><code class="language-python">F<span class="token punctuation">:</span>\人工智能<span class="token number">7</span>期NLP分享\NLP\NLPAI项目AI第<span class="token number">7</span>期BT同步资料\文本摘要项目\day01\数据集
+<h5 id="打印-3"><a href="#打印-3" class="headerlink" title="打印"></a>打印</h5><pre class=" language-python"><code class="language-python">
 Building prefix dict <span class="token keyword">from</span> the default dictionary <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-Loading model <span class="token keyword">from</span> cache C<span class="token punctuation">:</span>\Users\<span class="token number">86176</span>\AppData\Local\Temp\jieba<span class="token punctuation">.</span>cache
+Loading model <span class="token keyword">from</span> cache 
 Loading model cost <span class="token number">0.829</span> seconds<span class="token punctuation">.</span>
 Prefix dict has been built successfully<span class="token punctuation">.</span>
 stop_words<span class="token punctuation">:</span>  <span class="token punctuation">[</span><span class="token string">':'</span><span class="token punctuation">,</span> <span class="token string">'：'</span><span class="token punctuation">,</span> <span class="token string">'———'</span><span class="token punctuation">,</span> <span class="token string">'》），'</span><span class="token punctuation">,</span> <span class="token string">'）÷（１－'</span><span class="token punctuation">,</span> <span class="token string">'”，'</span><span class="token punctuation">,</span> <span class="token string">'）、'</span><span class="token punctuation">,</span> <span class="token string">'＝（'</span><span class="token punctuation">,</span> <span class="token string">'→'</span><span class="token punctuation">,</span> <span class="token string">'℃'</span><span class="token punctuation">,</span> <span class="token string">'&amp;'</span><span class="token punctuation">,</span> <span class="token string">'*'</span><span class="token punctuation">,</span> <span class="token string">'一一'</span><span class="token punctuation">,</span> <span class="token string">'~~~~'</span><span class="token punctuation">,</span> <span class="token string">'『'</span><span class="token punctuation">,</span> <span class="token string">'.一'</span><span class="token punctuation">,</span> <span class="token string">'./'</span><span class="token punctuation">,</span> <span class="token string">'--'</span><span class="token punctuation">,</span> <span class="token string">'』'</span><span class="token punctuation">,</span> <span class="token string">'＝″'</span><span class="token punctuation">]</span>
@@ -4711,7 +5204,7 @@ sys<span class="token punctuation">.</span>path<span class="token punctuation">.
         <span class="token keyword">return</span> torch<span class="token punctuation">.</span>stack<span class="token punctuation">(</span>predictions<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> dec_hidden
 <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
     <span class="token comment" spellcheck="true"># word_to_id, id_to_word = get_vocab_from_model(vocab_path, reverse_vocab_path)</span>
-    word_to_id <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">"F:/人工智能7期NLP分享/NLP/NLPAI项目AI第7期BT同步资料/文本摘要项目/day01/数据集/data/wv/vocab.txt"</span><span class="token punctuation">)</span>
+    word_to_id <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span>
     vocab_size <span class="token operator">=</span> len<span class="token punctuation">(</span>word_to_id<span class="token punctuation">)</span>
     batch_size <span class="token operator">=</span> <span class="token number">64</span>
     input_seq_len <span class="token operator">=</span> <span class="token number">300</span>

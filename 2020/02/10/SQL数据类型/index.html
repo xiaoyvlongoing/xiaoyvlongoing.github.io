@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Numpy基础, 小龙播客">
+    <meta name="keywords" content="SQL数据类型, 小龙播客">
     <meta name="description" content="家里蹲大学">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Numpy基础 | 小龙播客</title>
+    <title>SQL数据类型 | 小龙播客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Numpy基础</h1>
+                    <h1 class="description center-align post-title">SQL数据类型</h1>
                 </div>
             </div>
         </div>
@@ -432,8 +432,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Numpy/">
-                                <span class="chip bg-color">Numpy</span>
+                            <a href="/tags/SQL/">
+                                <span class="chip bg-color">SQL</span>
                             </a>
                         
                     </div>
@@ -444,8 +444,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Numpy/" class="post-category">
-                                Numpy
+                            <a href="/categories/SQL/" class="post-category">
+                                SQL
                             </a>
                         
                     </div>
@@ -464,21 +464,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-06-28
+                    2021-07-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.9k
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    7 Min
+                    6 Min
                 </div>
                 
 
@@ -498,195 +498,174 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="numpy数组"><a href="#numpy数组" class="headerlink" title="numpy数组"></a>numpy数组</h2><h4 id="numpy夹角运算"><a href="#numpy夹角运算" class="headerlink" title="numpy夹角运算"></a>numpy夹角运算</h4><table>
+                <h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><p>数据库：就是以一定格式进行组织的数据集合</p>
+<p>关系是用表格存储的，二维表格存储</p>
+<p>非关系是用字典类型存储的</p>
+<p>数据库管理系统：DBMS</p>
+<ul>
+<li>数据库文件集合：主要一系列的数据文件，作用存储数据</li>
+</ul>
+<p>SQL语句：结构化查询语言</p>
+<p>数据库文件一般都是.db后缀名</p>
+<ol>
+<li>取数据与数据库交流</li>
+<li></li>
+</ol>
+<table>
 <thead>
 <tr>
-<th>函数</th>
-<th>函数性质</th>
+<th>SQL语句</th>
+<th>语句的性质</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>umpy.arctan2(<em>x1</em>, <em>x2</em>)</td>
-<td>对应的可以算数夹角</td>
+<td>sudo apt-get install mysql-server</td>
+<td>安装服务端</td>
+</tr>
+<tr>
+<td>sudo apt-get install mysql-client</td>
+<td>安装客户端</td>
+</tr>
+<tr>
+<td>sudo service mysql start</td>
+<td>启动服务端</td>
+</tr>
+<tr>
+<td>ps -ajx|grep mysql：就像是任务管理器</td>
+<td>查看服务器是否开启，就像是任务管理器</td>
+</tr>
+<tr>
+<td>mysql -uroot -pmysql</td>
+<td>mysql -u用户名-pmysql登录：可以增删改查，创建表格</td>
+</tr>
+<tr>
+<td>sudo service mysql stop</td>
+<td>停止服务端</td>
+</tr>
+<tr>
+<td>exit /quit/ctrl+d</td>
+<td>退出</td>
+</tr>
+<tr>
+<td>/etc/mysql/mysql.conf.d/mysqld.cnf</td>
+<td>配置文件路径为</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
+</tr>
+<tr>
+<td>select now();</td>
+<td>查看时间</td>
+</tr>
+<tr>
+<td>select version();</td>
+<td>查看版本信息</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>sudo service mysql restart</td>
+<td><strong>重启MySQL服务</strong></td>
+</tr>
+</tbody></table>
+<p>客户端Navicat使用</p>
+<h2 id="SQL数据类型"><a href="#SQL数据类型" class="headerlink" title="SQL数据类型"></a>SQL数据类型</h2><table>
+<thead>
+<tr>
+<th><strong>类型</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>字符串：</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>char：定长字符串：最多255</td>
+<td>名字不管多次都占10个字节（知道固定长度的字节）</td>
+</tr>
+<tr>
+<td>varchar：变字符串最多65535</td>
+<td>节省空间（适合经常变化的）（存多少占多数）</td>
+</tr>
+<tr>
+<td>text</td>
+<td>字符串 text 表示存储大文本，当字符大于 4000 时推荐使用</td>
+</tr>
+<tr>
+<td>字段就是最上面的属性名.enum：枚举类型</td>
+<td>列举出一些类型，只能在这些列举的范围选择</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>年月日类型：</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>date</td>
+<td>年，月，日</td>
+</tr>
+<tr>
+<td>datetime</td>
+<td>年，月，日，时分秒</td>
+</tr>
+<tr>
+<td>decimal：定点数</td>
+<td>（5,2）共代表5个</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>整型</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>TINYINT：</td>
+<td></td>
+</tr>
+<tr>
+<td>SMALLINT</td>
+<td></td>
+</tr>
+<tr>
+<td>singned:有符号</td>
+<td></td>
+</tr>
+<tr>
+<td>unsingned：无符号</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>小数类型</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>float：小数类型</td>
+<td></td>
+</tr>
+<tr>
+<td>decimal表示浮点数</td>
+<td>如 decimal(5, 2) 表示共存5位数，小数占 2 位.</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
 </tr>
 </tbody></table>
-<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>函数性质</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>numpy.clip( <em>a</em> , <em>a_min</em> , <em>a_max</em> , <em>out=None</em> , **<em>kwargs</em> )</td>
-<td>给定一个区间，区间之外的值被 裁剪 为 <br/>区间边。 例如，如果间隔为 <code>[0, 1]</code>指定，小于 0 的值变为 0，而大于 0 的值<br/>比 1 变成 1。</td>
-</tr>
-<tr>
-<td>例如</td>
-<td>np.clip(a, 3, 6, out=a)                                                                                      array([3, 3, 3, 3, 4, 5, 6, 6, 6, 6])</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html?highlight=clip#numpy.clip">https://numpy.org/doc/stable/reference/generated/numpy.clip.html?highlight=clip#numpy.clip</a></td>
-<td></td>
-</tr>
-</tbody></table>
-<h4 id="查看数组基本操作"><a href="#查看数组基本操作" class="headerlink" title="查看数组基本操作"></a>查看数组基本操作</h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>函数定义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>np.array（【】，dtype=np.数组类型）</td>
-<td>进行数据的存储的容器</td>
-</tr>
-<tr>
-<td>存储数据容器的变量.shape</td>
-<td>产看数组维度的元组，几行几列用（）写出</td>
-</tr>
-<tr>
-<td>存储数据容器的变量.ndim</td>
-<td>查看是几维的数组</td>
-</tr>
-<tr>
-<td>存储数据容器的变量.size</td>
-<td>查看数组里面有多少元素</td>
-</tr>
-<tr>
-<td>存储数据容器的变量.itemsize</td>
-<td>一个数组元素的长度（字节大小）</td>
-</tr>
-<tr>
-<td>存储数据容器的变量.dtype</td>
-<td>数组元素的类型</td>
-</tr>
-<tr>
-<td>np.<strong>sum</strong>()</td>
-<td>求和</td>
-</tr>
-<tr>
-<td>np.<strong>polyfit</strong>（）</td>
-<td>多项式拟合</td>
-</tr>
-</tbody></table>
-<h4 id="生成创建数组的方法"><a href="#生成创建数组的方法" class="headerlink" title="生成创建数组的方法"></a>生成创建数组的方法</h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>函数使用方法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>np.ones([])</td>
-<td>创建里面都是1的二维数组，【】写上几行几列用逗号隔开</td>
-</tr>
-<tr>
-<td>np.ones_like(存储数据容器的变量)</td>
-<td>创建里面都是1的二维数组</td>
-</tr>
-<tr>
-<td>np.zeros([])</td>
-<td>创建里面都是0的二维数组，【】写上几行几列用逗号隔开</td>
-</tr>
-<tr>
-<td>np.zeros_like(存储数据容器的变量)</td>
-<td>创建里面都是0的二维数组</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>np.array(存储数据容器的变量)</td>
-<td>对存储数据容器的变量的深拷贝</td>
-</tr>
-<tr>
-<td>np.asarray(存储数据容器的变量)</td>
-<td>对存储数据容器的变量的浅拷贝</td>
-</tr>
-<tr>
-<td><strong>创建等比等差数列的数组</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>np.linspace(start,stop,num,endpoint)</td>
-<td>创建等差数组 — 指定数量 参数:                                                     start:序列的起始值                                                                                    stop:序列的终止值                                                                                               num:要生成的等间隔样例数量，默认为50                                             endpoint:序列中是否包含stop值，默认为ture</td>
-</tr>
-<tr>
-<td>np.arange(start,stop,step,dtype)</td>
-<td>创建等差数组 — 指定步长                                                                                   参数start:为开头，                                                                                                                   stop：为结尾                                                                                                       step:步长,默认值为1</td>
-</tr>
-<tr>
-<td>np.logspace(start,stop,num)</td>
-<td>创建等比数列 参数:                                                                                          start:表示用几位数开头，                                                                                stop：表示用几位数结束                                                                               num:要生成的等比数列数量的元素，默认为50</td>
-</tr>
-<tr>
-<td><strong>正态分布</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>np.random.normal（<strong>loc=0.0, scale=1.0, size=None</strong>）</td>
-<td>生成正态分布的随机数，                                                                                loc：float 此概率分布的<strong>均值</strong>（对应着整个分布的中心centre）scale：float：此概率分布的<strong>标准差</strong>（对应于分布的宽度，scale越大越矮胖，scale越小，越瘦高）                                                              size：可以创建一个维度的多少数，也几行几列二维的随机数</td>
-</tr>
-<tr>
-<td><strong>np.random.uniform(low=0.0, high=1.0, size=None)</strong></td>
-<td>low: 采样下界，float类型，默认值为0；                                                              high: 采样上界，float类型，默认值为1；                                                                  size: 输出样本数目，为int或元组(tuple)类型，例如，size=(m,n,k), 则输出m<em>n</em>k个样本，缺省时输出1个值。</td>
-</tr>
-</tbody></table>
-<h4 id="数组的索引，切片，形状改变"><a href="#数组的索引，切片，形状改变" class="headerlink" title="数组的索引，切片，形状改变"></a>数组的索引，切片，形状改变</h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>函数定义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>存储数据容器的变量【】</td>
-<td>要分清维度，想要几维的用逗号隔开，在想要的维度再用《：》提取</td>
-</tr>
-<tr>
-<td>存储数据容器的变量.reshape([])</td>
-<td>改变想要的几行几列，但是要与原来的总元素量相匹配，是用成法得到总元素相同</td>
-</tr>
-<tr>
-<td>存储数据容器的变量.reshape(-1,1)</td>
-<td>把每一个元素都形成一个维</td>
-</tr>
-<tr>
-<td>存储数据容器的变量.resize([])</td>
-<td></td>
-</tr>
-<tr>
-<td>存储数据容器的变量.T</td>
-<td>进行行与列进行互换</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>折叠成一维的数组</td>
-<td></td>
-</tr>
-<tr>
-<td>变量.<strong>flatten</strong>()</td>
-<td>返回一个折叠成一维的数组。但是该函数只能适用于numpy对象，即array或者mat，普通的list列表是不行的。</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h4 id="数组的修改"><a href="#数组的修改" class="headerlink" title="数组的修改"></a>数组的修改</h4><table>
+<h3 id="数据完整性和约束"><a href="#数据完整性和约束" class="headerlink" title="数据完整性和约束"></a>数据完整性和约束</h3><h6 id="参照完整性，就是增删改查中：要保证数据的正确性，"><a href="#参照完整性，就是增删改查中：要保证数据的正确性，" class="headerlink" title="参照完整性，就是增删改查中：要保证数据的正确性，"></a>参照完整性，就是增删改查中：要保证数据的正确性，</h6><h5 id="约束：删除的时候不让删"><a href="#约束：删除的时候不让删" class="headerlink" title="约束：删除的时候不让删"></a>约束：删除的时候不让删</h5><p>保证数据的独一性</p>
+<table>
 <thead>
 <tr>
 <th></th>
@@ -694,11 +673,15 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>stock_change.astype(np.int32)</td>
-<td>数组的修类型</td>
+<td>NOT NULL</td>
+<td>非空约束</td>
 </tr>
 <tr>
-<td>ndarray.tostring([order])</td>
+<td>PRMARY KEY</td>
+<td>主键约束</td>
+</tr>
+<tr>
+<td>UNIQUE KE</td>
 <td></td>
 </tr>
 <tr>
@@ -706,104 +689,57 @@
 <td></td>
 </tr>
 <tr>
-<td>np.unique(存储数据容器的变量)</td>
-<td>数组的去重</td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td></td>
 <td></td>
 </tr>
 </tbody></table>
-<h3 id="ndarray运算（逻辑）"><a href="#ndarray运算（逻辑）" class="headerlink" title="ndarray运算（逻辑）"></a>ndarray运算（逻辑）</h3><table>
+<p>数据库基本操作</p>
+<table>
 <thead>
 <tr>
-<th>函数</th>
-<th>函数定义</th>
+<th>数据表库的命令</th>
+<th>使用的功能</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>np.random.seed()</td>
-<td>确定随机数生成种子，用它后每次生成的数都是一样的</td>
+<td>show databases;</td>
+<td>查看所有数据库</td>
 </tr>
 <tr>
-<td>np.random.randn(几行，几列)</td>
-<td>创建0到1之间的随机数</td>
+<td>select database();</td>
+<td>查看当前使用的数据库</td>
 </tr>
 <tr>
-<td>np.random.randit(开头,结尾,(几行,几列))</td>
-<td>随机创建数组</td>
+<td>create database (数据库名字)  charset=utf8;</td>
+<td>创建数据库</td>
 </tr>
 <tr>
-<td>np.all(存储数据容器的变量[取值范围]&gt;条件判断)</td>
-<td>符合条件为True，不符合为：False,判断给定轴向上的所有元素是否都为True</td>
+<td>show  create database （数据库的名字）；</td>
+<td>创建数据库查看数据库的字符集</td>
 </tr>
 <tr>
-<td>np.any()</td>
-<td>判断给定轴向上是否有一个元素为True</td>
+<td>drop database （数据库名称）;</td>
+<td>删除数据表</td>
 </tr>
 <tr>
-<td>np.where(存储数据容器的变量[取值范围]&gt;条件判断,1,0)</td>
-<td>符合条件为1，不符合为0</td>
+<td>数据表名.drop(数据表名[数据表名[对应的异常值这些异常值写出了T] == T].index,inplace = T)</td>
+<td>对表里面的一些异常数据进行删除</td>
 </tr>
 <tr>
-<td>np.where(np.logical_and(temp &gt; 60,temp&lt;90),1,0)</td>
-<td>np.logical_and:符合条件为1，不符合为0，</td>
-</tr>
-<tr>
-<td>np.where(np.logical_or(temp &gt; 90, temp &lt; 60), 1, 0)</td>
-<td>np.logical_or：大于90或小于60的换为1，否则为0</td>
+<td>use (数据库名称);   返回上一层服务器 use mysql</td>
+<td>使用数据表进入指定的数据库</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td><strong>统计函数</strong></td>
+<td>create database 数据库的名字</td>
 <td></td>
-</tr>
-<tr>
-<td>np.max(存储数据容器的变量,axis=0或者1)</td>
-<td>按照列（0）或者行（1）进行提取，</td>
-</tr>
-<tr>
-<td>np.min(存储数据容器的变量,axis=0或者1)</td>
-<td>按照列（0）或者行（1）进行提取，</td>
-</tr>
-<tr>
-<td>np.median()</td>
-<td>先排序在找中位数</td>
-</tr>
-<tr>
-<td>np.mean()</td>
-<td>均差</td>
-</tr>
-<tr>
-<td>np.std()</td>
-<td>标准差</td>
-</tr>
-<tr>
-<td>np.var()</td>
-<td>求解方差</td>
-</tr>
-<tr>
-<td>np.argmax(axis=)</td>
-<td>最大元素对应的下标</td>
-</tr>
-<tr>
-<td>np.argmin(axis=)</td>
-<td>最小元素对应的下标</td>
-</tr>
-<tr>
-<td>axis(“off”)</td>
-<td>不按行或列</td>
-</tr>
-<tr>
-<td>np.square</td>
-<td>每个元素的经行平方</td>
-</tr>
-<tr>
-<td><strong>sqrt()</strong></td>
-<td>方法返回数字x的平方根</td>
 </tr>
 <tr>
 <td></td>
@@ -814,81 +750,240 @@
 <td></td>
 </tr>
 <tr>
-<td>np.maximum（【】，【】）</td>
-<td>能选取最大的列表（向量）</td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td></td>
 <td></td>
 </tr>
 </tbody></table>
-<h2 id="广播机制：一个数组与另一个数组是否能不能运算"><a href="#广播机制：一个数组与另一个数组是否能不能运算" class="headerlink" title="广播机制：一个数组与另一个数组是否能不能运算"></a>广播机制：一个数组与另一个数组是否能不能运算</h2><p>横着为行。竖着为列，</p>
-<p><strong>是否能相加</strong>：要从两个数组的后缘维度（从末尾开始算起的维度）的轴长度相符</p>
-<p><strong>怎么查看维度</strong>：第一个是最外面的中括号有几个元素，后面进行递减查看</p>
-<p><strong>矩阵的乘法遵循法则</strong>：第一横行乘于第一竖列再进行相加得出第一个相乘的数</p>
-<h3 id="单位矩阵，逆，转置"><a href="#单位矩阵，逆，转置" class="headerlink" title="单位矩阵，逆，转置"></a><strong>单位矩阵</strong>，<strong>逆</strong>，<strong>转置</strong></h3><h6 id="单位矩阵：从-左上角到右下角的对角线（称为主对角线）上的元素均为-1-以外全都为-0"><a href="#单位矩阵：从-左上角到右下角的对角线（称为主对角线）上的元素均为-1-以外全都为-0" class="headerlink" title="单位矩阵：从 左上角到右下角的对角线（称为主对角线）上的元素均为 1 以外全都为 0"></a><strong>单位矩阵</strong>：<strong>从 左上角到右下角的对角线（称为主对角线）上的元素均为 1 以外全都为 0</strong></h6><p><strong>逆</strong>：两个数组相乘，称为了单位矩阵就算是一个数组是另一个数组的逆</p>
-<p><strong>转置</strong>：行与列的互换</p>
-<h2 id="NP的矩阵乘法要遵循下面的公式，也可以进过转至进行运算"><a href="#NP的矩阵乘法要遵循下面的公式，也可以进过转至进行运算" class="headerlink" title="NP的矩阵乘法要遵循下面的公式，也可以进过转至进行运算"></a>NP的矩阵乘法要遵循下面的公式，也可以进过转至进行运算</h2><table>
+<h2 id="查看表结构命令："><a href="#查看表结构命令：" class="headerlink" title="查看表结构命令："></a>查看表结构命令：</h2><table>
 <thead>
 <tr>
-<th>函数</th>
-<th>函数定义</th>
+<th>命令</th>
+<th>命令介绍</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>np.dot</td>
-<td>矩阵进行相乘</td>
+<td>show tables;</td>
+<td>产看数据库的所有表</td>
 </tr>
 <tr>
-<td>np.matmul</td>
-<td>矩阵进行相乘，单是不能矩阵与标量（一维）的相乘</td>
+<td>desc 表名;</td>
+<td>查看表里面的内容</td>
 </tr>
 <tr>
-<td>.set_printoptions(<em>precision=None</em>, <em>threshold=None</em>, <em>edgeitems=None</em>, <em>linewidth=None</em>, <em>suppress=None</em>, <em>nanstr=None</em>, <em>infstr=None</em>, <em>formatter=None</em>, <em>sign=None</em>, <em>floatmode=None</em>, ***, <em>legacy=None</em>)</td>
-<td><strong>precision</strong>：浮点精度可以设置，<strong>threshold</strong>：长数组可以总结为，<strong>suppress=True</strong>小结果可以被抑制，<strong>formatter={}<strong>自定义格式化程序可用于根据需要显示数组元素，</strong>要放回默认选项</strong>，可以使用(edgeitems=3, infstr=’inf’, linewidth=75, nanstr=’nan’, precision=8, suppress=False, threshold=1000, formatter=None)</td>
+<td>show create table 表名;</td>
+<td>查看数据表</td>
+</tr>
+<tr>
+<td>select * from students;</td>
+<td>查看添加的文档</td>
 </tr>
 </tbody></table>
-<h3 id="按元素减去参数。"><a href="#按元素减去参数。" class="headerlink" title="按元素减去参数。"></a>按元素减去参数。</h3><h4 id="numpy-subtract"><a href="#numpy-subtract" class="headerlink" title="numpy.subtract"></a>numpy.subtract</h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>函数性质</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>numpy.subtract</code>(<em>x1</em>, <em>x2</em>, <em>/</em>, <em>out=None</em>, ***, <em>where=True</em>, <em>casting=’same_kind’</em>, <em>order=’K’</em>, <em>dtype=None</em>, <em>subok=True</em>[, <em>signature</em>, <em>extobj</em>])</td>
-<td>参数 ：                                                                                                                                  <strong>x1, x2</strong>：要彼此相减的数组。如果 <code>x1.shape != x2.shape</code>，它们必须可以广播到一个普通的形状（将成为输出的形状，                                                                                          <strong>out</strong>：结果存储的位置。  如果提供，它必须具有输入广播到的形状。  如果未提供或没有，返回一个新分配的数组。  元组（只能作为关键字参数）的长度必须等于输出的数量</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h3><pre class=" language-python"><code class="language-python">np<span class="token punctuation">.</span>subtract<span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">4.0</span><span class="token punctuation">)</span>
-<span class="token operator">-</span><span class="token number">3.0</span>
+<h2 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h2><pre><code>crea table 表名 （字段   类型    约束    【字段   类型     约束】）；
+
+crea table xxx(id int unsigned primary key auto_increment not null,name varchar(20));
 
 
-
-x1 <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">9.0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-x2 <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">3.0</span><span class="token punctuation">)</span>
-np<span class="token punctuation">.</span>subtract<span class="token punctuation">(</span>x1<span class="token punctuation">,</span> x2<span class="token punctuation">)</span>
-array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-       <span class="token punctuation">[</span> <span class="token number">3</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">3</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">3</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-       <span class="token punctuation">[</span> <span class="token number">6</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">6</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">6</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true">#这 -运算符可以用作 np.subtract上 数组。 </span>
-
-x1 <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">9.0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-x2 <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">3.0</span><span class="token punctuation">)</span>
-x1 <span class="token operator">-</span> x2
-array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-       <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-       <span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+create table创建students 表（id ，name ，age， high， （decimal），gender（enum），cls_id）
 </code></pre>
+<h6 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h6><pre class=" language-python"><code class="language-python">create table 列表名<span class="token punctuation">(</span>
+
+id int unsigned（无符号<span class="token number">0</span><span class="token operator">-</span><span class="token number">255</span>）  primary key（主键） auto_increment（自动增加） <span class="token operator">not</span> null（不能为空）<span class="token punctuation">,</span>
+
+name varchar<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>（上限为<span class="token number">20</span>个字符） <span class="token operator">not</span> null<span class="token punctuation">,</span>
+
+age tinyint unsigned default  <span class="token number">0</span>（缺省值自动填充为<span class="token number">0</span>）<span class="token punctuation">,</span>
+
+height decimal<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>（一共有<span class="token number">5</span>位数，有小数点是有两位）
+
+gender enum<span class="token punctuation">(</span><span class="token string">"男"</span><span class="token punctuation">,</span>“女”<span class="token punctuation">,</span><span class="token string">"人妖"</span><span class="token punctuation">,</span><span class="token string">"保密"</span><span class="token punctuation">)</span>（枚举），
+
+time date default <span class="token string">"2020-01-01"</span>
+
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<pre><code>create table classes(
+id int unsigned  primary key auto_increment not null,
+name varchar(20） not null,
+id_age tinyint unsigned default  0
+);
+</code></pre>
+<h2 id="列子"><a href="#列子" class="headerlink" title="列子"></a>列子</h2><pre class=" language-python"><code class="language-python">create table students<span class="token punctuation">(</span>
+
+id int unsigned primary key  auto_increment <span class="token operator">not</span> null<span class="token punctuation">,</span>
+
+name varchar<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">not</span> null<span class="token punctuation">,</span>
+
+age tinyint unsigned default  <span class="token number">0</span><span class="token punctuation">,</span>
+
+height decimal<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+gender enum<span class="token punctuation">(</span><span class="token string">"男"</span><span class="token punctuation">,</span><span class="token string">"女"</span><span class="token punctuation">,</span><span class="token string">"人妖"</span><span class="token punctuation">,</span><span class="token string">"保密"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+time date default  <span class="token string">"2020-01-01"</span>
+
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><img src="./SQL%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/1611042404103.png" alt="SQL数据类型"></p>
+<ul>
+<li>Field：创建的字段</li>
+<li>Type：属性的性质，和约束，枚举</li>
+<li>Null：表示字段为空，yes表示可以为空</li>
+<li>Key：唯一标识</li>
+<li>Default：，默认值，如果字段被设计时，如果允许默认条件下，用户会进行数据的插入，那么就可以用事先准备好的数据来填充通常填充的是NULL</li>
+<li>Extre：表示id可以顺序下去，</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>alter table 表名 drop 列名;</th>
+<th>删除字段</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>drop table 表名;</td>
+<td>删除表</td>
+</tr>
+<tr>
+<td>delete from  表名 where id =数字几;</td>
+<td>物理删除行</td>
+</tr>
+<tr>
+<td>alter table   表名 add is_delete bit default 0;</td>
+<td>逻辑增添</td>
+</tr>
+<tr>
+<td>update 表名 set is_delete =1 where name = “行名”</td>
+<td>逻辑删除</td>
+</tr>
+</tbody></table>
+<h2 id="创建数据库和增删改查流程"><a href="#创建数据库和增删改查流程" class="headerlink" title="创建数据库和增删改查流程"></a>创建数据库和增删改查流程</h2><table>
+<thead>
+<tr>
+<th>创建数据库命令</th>
+<th>命令的作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mysql -uroot -pmysql;</td>
+<td>登录数据库</td>
+</tr>
+<tr>
+<td>quit、exit，</td>
+<td>退出数据库</td>
+</tr>
+<tr>
+<td>show databases;</td>
+<td>查看所有的数据库</td>
+</tr>
+<tr>
+<td>create database  数据库名称    charset=utf8;</td>
+<td>创建数据库</td>
+</tr>
+<tr>
+<td>select database();</td>
+<td>查看当前使用数据库</td>
+</tr>
+<tr>
+<td>use 数据库名称;</td>
+<td>使用数据库</td>
+</tr>
+<tr>
+<td>show tables；</td>
+<td>查看当前数据库中所有的表</td>
+</tr>
+<tr>
+<td>create table students(id  int  数据表名   primary  key  auto_increment  not mull,name varchar(20)  not  null, age tinyint unsigned default0,height decimal(5,2),gender enum(“男”，“女”));</td>
+<td>创建表</td>
+</tr>
+<tr>
+<td>alter table 表名 add 列名 类型   约束;</td>
+<td>添加字段</td>
+</tr>
+<tr>
+<td>alter table 表名 modify 列名 类型 约束;         例:alter table students modify birthday date not null;</td>
+<td>修改字段类型及约束</td>
+</tr>
+<tr>
+<td>alter table 表名 drop 列名</td>
+<td>修改字段</td>
+</tr>
+<tr>
+<td>show create table  表名;</td>
+<td>查看数据表的类型，约束</td>
+</tr>
+<tr>
+<td>show create database  数据库名;</td>
+<td>查看数据库的类型</td>
+</tr>
+<tr>
+<td>drop table 表名;</td>
+<td>删除表</td>
+</tr>
+<tr>
+<td><strong>增添数据</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>insert into 表名  values(…..);：添加数据</td>
+<td>添加数据值，对应着字段名字</td>
+</tr>
+<tr>
+<td>insert into 表名 （列1.。。）values(值1，。。。);       insert into students (name,age,height,gender,time) values(“姓名”,18,180.22,”男”,”2020-07-08”);</td>
+<td>部分的插入，对应的字段和插入的内容</td>
+</tr>
+<tr>
+<td>insert into 表名 values（，，，），（。。。）。。;</td>
+<td>全列多行插入</td>
+</tr>
+<tr>
+<td>insert into 表名 （列1，。。。） values（值1，。。。），（值1.。）;</td>
+<td>部分列多行插入</td>
+</tr>
+<tr>
+<td>select * from 表名;</td>
+<td>查看表的内容</td>
+</tr>
+<tr>
+<td>select 列1 ，列2 。。。from 表名;</td>
+<td>查看指定字段的内容</td>
+</tr>
+<tr>
+<td>update 表名 set 列1 = 值1，列2=值2.。。where  条件;    列如:update students set age = 18, gender = ‘女’ where id = 6;</td>
+<td>修改的数据</td>
+</tr>
+<tr>
+<td>delete from 表名 where 条件;    列如:delete from students where id = 3;</td>
+<td>删除数据（物理删除）</td>
+</tr>
+<tr>
+<td>alter table   表名 add is_delete bit default 0;</td>
+<td>逻辑的添加</td>
+</tr>
+<tr>
+<td>update 表名 set is_delete =1 where name = “行名”</td>
+<td>逻辑的删除，要先增添，才能删除</td>
+</tr>
+<tr>
+<td>drop database 数据库名称;</td>
+<td>删除数据库</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
 
                 
             </div>
@@ -915,7 +1010,7 @@ array<span class="token punctuation">(</span><span class="token punctuation">[</
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://xiaoyvlongoing.github.io/2020/02/10/Numpy%E5%9F%BA%E7%A1%80/">https://xiaoyvlongoing.github.io/2020/02/10/Numpy%E5%9F%BA%E7%A1%80/</a>
+                    <a href="https://xiaoyvlongoing.github.io/2020/02/10/SQL%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">https://xiaoyvlongoing.github.io/2020/02/10/SQL%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -953,8 +1048,8 @@ array<span class="token punctuation">(</span><span class="token punctuation">[</
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Numpy/">
-                                    <span class="chip bg-color">Numpy</span>
+                                <a href="/tags/SQL/">
+                                    <span class="chip bg-color">SQL</span>
                                 </a>
                             
                         </div>
@@ -1126,66 +1221,18 @@ array<span class="token punctuation">(</span><span class="token punctuation">[</
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2020/02/10/fasttext%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/">
+                <a href="/2020/02/10/SQL%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="fasttext工具">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="SQL数据类型">
                         
-                        <span class="card-title">fasttext工具</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-10
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/NLP/" class="post-category">
-                                    NLP
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/NLP/">
-                        <span class="chip bg-color">NLP</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/02/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="线程任务">
-                        
-                        <span class="card-title">线程任务</span>
+                        <span class="card-title">SQL数据类型</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1202,8 +1249,58 @@ array<span class="token punctuation">(</span><span class="token punctuation">[</
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python%E9%AB%98%E7%BA%A7/" class="post-category">
-                                    python高级
+                            <a href="/categories/SQL/" class="post-category">
+                                    SQL
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/SQL/">
+                        <span class="chip bg-color">SQL</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/02/10/Matplotlib%E5%9F%BA%E7%A1%80/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Matplotlib基础">
+                        
+                        <span class="card-title">Matplotlib基础</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Matplotlib/" class="post-category">
+                                    Matplotlib
                                 </a>
                             
                             
@@ -1213,8 +1310,8 @@ array<span class="token punctuation">(</span><span class="token punctuation">[</
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python%E9%AB%98%E7%BA%A7/">
-                        <span class="chip bg-color">python高级</span>
+                    <a href="/tags/Matplotlib/">
+                        <span class="chip bg-color">Matplotlib</span>
                     </a>
                     
                 </div>
