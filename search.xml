@@ -1,503 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>SQL数据类型</title>
-    <url>/2020/02/10/SQL%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
-    <content><![CDATA[<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><p>数据库：就是以一定格式进行组织的数据集合</p>
-<p>关系是用表格存储的，二维表格存储</p>
-<p>非关系是用字典类型存储的</p>
-<p>数据库管理系统：DBMS</p>
-<ul>
-<li>数据库文件集合：主要一系列的数据文件，作用存储数据</li>
-</ul>
-<p>SQL语句：结构化查询语言</p>
-<p>数据库文件一般都是.db后缀名</p>
-<ol>
-<li>取数据与数据库交流</li>
-<li></li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>SQL语句</th>
-<th>语句的性质</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>sudo apt-get install mysql-server</td>
-<td>安装服务端</td>
-</tr>
-<tr>
-<td>sudo apt-get install mysql-client</td>
-<td>安装客户端</td>
-</tr>
-<tr>
-<td>sudo service mysql start</td>
-<td>启动服务端</td>
-</tr>
-<tr>
-<td>ps -ajx|grep mysql：就像是任务管理器</td>
-<td>查看服务器是否开启，就像是任务管理器</td>
-</tr>
-<tr>
-<td>mysql -uroot -pmysql</td>
-<td>mysql -u用户名-pmysql登录：可以增删改查，创建表格</td>
-</tr>
-<tr>
-<td>sudo service mysql stop</td>
-<td>停止服务端</td>
-</tr>
-<tr>
-<td>exit /quit/ctrl+d</td>
-<td>退出</td>
-</tr>
-<tr>
-<td>/etc/mysql/mysql.conf.d/mysqld.cnf</td>
-<td>配置文件路径为</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>select now();</td>
-<td>查看时间</td>
-</tr>
-<tr>
-<td>select version();</td>
-<td>查看版本信息</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>sudo service mysql restart</td>
-<td><strong>重启MySQL服务</strong></td>
-</tr>
-</tbody></table>
-<p>客户端Navicat使用</p>
-<h2 id="SQL数据类型"><a href="#SQL数据类型" class="headerlink" title="SQL数据类型"></a>SQL数据类型</h2><table>
-<thead>
-<tr>
-<th><strong>类型</strong></th>
-<th><strong>功能</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>字符串：</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>char：定长字符串：最多255</td>
-<td>名字不管多次都占10个字节（知道固定长度的字节）</td>
-</tr>
-<tr>
-<td>varchar：变字符串最多65535</td>
-<td>节省空间（适合经常变化的）（存多少占多数）</td>
-</tr>
-<tr>
-<td>text</td>
-<td>字符串 text 表示存储大文本，当字符大于 4000 时推荐使用</td>
-</tr>
-<tr>
-<td>字段就是最上面的属性名.enum：枚举类型</td>
-<td>列举出一些类型，只能在这些列举的范围选择</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>年月日类型：</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>date</td>
-<td>年，月，日</td>
-</tr>
-<tr>
-<td>datetime</td>
-<td>年，月，日，时分秒</td>
-</tr>
-<tr>
-<td>decimal：定点数</td>
-<td>（5,2）共代表5个</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>整型</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>TINYINT：</td>
-<td></td>
-</tr>
-<tr>
-<td>SMALLINT</td>
-<td></td>
-</tr>
-<tr>
-<td>singned:有符号</td>
-<td></td>
-</tr>
-<tr>
-<td>unsingned：无符号</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>小数类型</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>float：小数类型</td>
-<td></td>
-</tr>
-<tr>
-<td>decimal表示浮点数</td>
-<td>如 decimal(5, 2) 表示共存5位数，小数占 2 位.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="数据完整性和约束"><a href="#数据完整性和约束" class="headerlink" title="数据完整性和约束"></a>数据完整性和约束</h3><h6 id="参照完整性，就是增删改查中：要保证数据的正确性，"><a href="#参照完整性，就是增删改查中：要保证数据的正确性，" class="headerlink" title="参照完整性，就是增删改查中：要保证数据的正确性，"></a>参照完整性，就是增删改查中：要保证数据的正确性，</h6><h5 id="约束：删除的时候不让删"><a href="#约束：删除的时候不让删" class="headerlink" title="约束：删除的时候不让删"></a>约束：删除的时候不让删</h5><p>保证数据的独一性</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>NOT NULL</td>
-<td>非空约束</td>
-</tr>
-<tr>
-<td>PRMARY KEY</td>
-<td>主键约束</td>
-</tr>
-<tr>
-<td>UNIQUE KE</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p>数据库基本操作</p>
-<table>
-<thead>
-<tr>
-<th>数据表库的命令</th>
-<th>使用的功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>show databases;</td>
-<td>查看所有数据库</td>
-</tr>
-<tr>
-<td>select database();</td>
-<td>查看当前使用的数据库</td>
-</tr>
-<tr>
-<td>create database (数据库名字)  charset=utf8;</td>
-<td>创建数据库</td>
-</tr>
-<tr>
-<td>show  create database （数据库的名字）；</td>
-<td>创建数据库查看数据库的字符集</td>
-</tr>
-<tr>
-<td>drop database （数据库名称）;</td>
-<td>删除数据表</td>
-</tr>
-<tr>
-<td>数据表名.drop(数据表名[数据表名[对应的异常值这些异常值写出了T] == T].index,inplace = T)</td>
-<td>对表里面的一些异常数据进行删除</td>
-</tr>
-<tr>
-<td>use (数据库名称);   返回上一层服务器 use mysql</td>
-<td>使用数据表进入指定的数据库</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>create database 数据库的名字</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="查看表结构命令："><a href="#查看表结构命令：" class="headerlink" title="查看表结构命令："></a>查看表结构命令：</h2><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>命令介绍</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>show tables;</td>
-<td>产看数据库的所有表</td>
-</tr>
-<tr>
-<td>desc 表名;</td>
-<td>查看表里面的内容</td>
-</tr>
-<tr>
-<td>show create table 表名;</td>
-<td>查看数据表</td>
-</tr>
-<tr>
-<td>select * from students;</td>
-<td>查看添加的文档</td>
-</tr>
-</tbody></table>
-<h2 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h2><pre><code>crea table 表名 （字段   类型    约束    【字段   类型     约束】）；
-
-crea table xxx(id int unsigned primary key auto_increment not null,name varchar(20));
-
-
-create table创建students 表（id ，name ，age， high， （decimal），gender（enum），cls_id）
-</code></pre>
-<h6 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h6><pre class=" language-python"><code class="language-python">create table 列表名<span class="token punctuation">(</span>
-
-id int unsigned（无符号<span class="token number">0</span><span class="token operator">-</span><span class="token number">255</span>）  primary key（主键） auto_increment（自动增加） <span class="token operator">not</span> null（不能为空）<span class="token punctuation">,</span>
-
-name varchar<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>（上限为<span class="token number">20</span>个字符） <span class="token operator">not</span> null<span class="token punctuation">,</span>
-
-age tinyint unsigned default  <span class="token number">0</span>（缺省值自动填充为<span class="token number">0</span>）<span class="token punctuation">,</span>
-
-height decimal<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>（一共有<span class="token number">5</span>位数，有小数点是有两位）
-
-gender enum<span class="token punctuation">(</span><span class="token string">"男"</span><span class="token punctuation">,</span>“女”<span class="token punctuation">,</span><span class="token string">"人妖"</span><span class="token punctuation">,</span><span class="token string">"保密"</span><span class="token punctuation">)</span>（枚举），
-
-time date default <span class="token string">"2020-01-01"</span>
-
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<pre><code>create table classes(
-id int unsigned  primary key auto_increment not null,
-name varchar(20） not null,
-id_age tinyint unsigned default  0
-);
-</code></pre>
-<h2 id="列子"><a href="#列子" class="headerlink" title="列子"></a>列子</h2><pre class=" language-python"><code class="language-python">create table students<span class="token punctuation">(</span>
-
-id int unsigned primary key  auto_increment <span class="token operator">not</span> null<span class="token punctuation">,</span>
-
-name varchar<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">not</span> null<span class="token punctuation">,</span>
-
-age tinyint unsigned default  <span class="token number">0</span><span class="token punctuation">,</span>
-
-height decimal<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-
-gender enum<span class="token punctuation">(</span><span class="token string">"男"</span><span class="token punctuation">,</span><span class="token string">"女"</span><span class="token punctuation">,</span><span class="token string">"人妖"</span><span class="token punctuation">,</span><span class="token string">"保密"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-
-time date default  <span class="token string">"2020-01-01"</span>
-
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p><img src="./SQL%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/1611042404103.png" alt="SQL数据类型"></p>
-<ul>
-<li>Field：创建的字段</li>
-<li>Type：属性的性质，和约束，枚举</li>
-<li>Null：表示字段为空，yes表示可以为空</li>
-<li>Key：唯一标识</li>
-<li>Default：，默认值，如果字段被设计时，如果允许默认条件下，用户会进行数据的插入，那么就可以用事先准备好的数据来填充通常填充的是NULL</li>
-<li>Extre：表示id可以顺序下去，</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>alter table 表名 drop 列名;</th>
-<th>删除字段</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>drop table 表名;</td>
-<td>删除表</td>
-</tr>
-<tr>
-<td>delete from  表名 where id =数字几;</td>
-<td>物理删除行</td>
-</tr>
-<tr>
-<td>alter table   表名 add is_delete bit default 0;</td>
-<td>逻辑增添</td>
-</tr>
-<tr>
-<td>update 表名 set is_delete =1 where name = “行名”</td>
-<td>逻辑删除</td>
-</tr>
-</tbody></table>
-<h2 id="创建数据库和增删改查流程"><a href="#创建数据库和增删改查流程" class="headerlink" title="创建数据库和增删改查流程"></a>创建数据库和增删改查流程</h2><table>
-<thead>
-<tr>
-<th>创建数据库命令</th>
-<th>命令的作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>mysql -uroot -pmysql;</td>
-<td>登录数据库</td>
-</tr>
-<tr>
-<td>quit、exit，</td>
-<td>退出数据库</td>
-</tr>
-<tr>
-<td>show databases;</td>
-<td>查看所有的数据库</td>
-</tr>
-<tr>
-<td>create database  数据库名称    charset=utf8;</td>
-<td>创建数据库</td>
-</tr>
-<tr>
-<td>select database();</td>
-<td>查看当前使用数据库</td>
-</tr>
-<tr>
-<td>use 数据库名称;</td>
-<td>使用数据库</td>
-</tr>
-<tr>
-<td>show tables；</td>
-<td>查看当前数据库中所有的表</td>
-</tr>
-<tr>
-<td>create table students(id  int  数据表名   primary  key  auto_increment  not mull,name varchar(20)  not  null, age tinyint unsigned default0,height decimal(5,2),gender enum(“男”，“女”));</td>
-<td>创建表</td>
-</tr>
-<tr>
-<td>alter table 表名 add 列名 类型   约束;</td>
-<td>添加字段</td>
-</tr>
-<tr>
-<td>alter table 表名 modify 列名 类型 约束;         例:alter table students modify birthday date not null;</td>
-<td>修改字段类型及约束</td>
-</tr>
-<tr>
-<td>alter table 表名 drop 列名</td>
-<td>修改字段</td>
-</tr>
-<tr>
-<td>show create table  表名;</td>
-<td>查看数据表的类型，约束</td>
-</tr>
-<tr>
-<td>show create database  数据库名;</td>
-<td>查看数据库的类型</td>
-</tr>
-<tr>
-<td>drop table 表名;</td>
-<td>删除表</td>
-</tr>
-<tr>
-<td><strong>增添数据</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>insert into 表名  values(…..);：添加数据</td>
-<td>添加数据值，对应着字段名字</td>
-</tr>
-<tr>
-<td>insert into 表名 （列1.。。）values(值1，。。。);       insert into students (name,age,height,gender,time) values(“姓名”,18,180.22,”男”,”2020-07-08”);</td>
-<td>部分的插入，对应的字段和插入的内容</td>
-</tr>
-<tr>
-<td>insert into 表名 values（，，，），（。。。）。。;</td>
-<td>全列多行插入</td>
-</tr>
-<tr>
-<td>insert into 表名 （列1，。。。） values（值1，。。。），（值1.。）;</td>
-<td>部分列多行插入</td>
-</tr>
-<tr>
-<td>select * from 表名;</td>
-<td>查看表的内容</td>
-</tr>
-<tr>
-<td>select 列1 ，列2 。。。from 表名;</td>
-<td>查看指定字段的内容</td>
-</tr>
-<tr>
-<td>update 表名 set 列1 = 值1，列2=值2.。。where  条件;    列如:update students set age = 18, gender = ‘女’ where id = 6;</td>
-<td>修改的数据</td>
-</tr>
-<tr>
-<td>delete from 表名 where 条件;    列如:delete from students where id = 3;</td>
-<td>删除数据（物理删除）</td>
-</tr>
-<tr>
-<td>alter table   表名 add is_delete bit default 0;</td>
-<td>逻辑的添加</td>
-</tr>
-<tr>
-<td>update 表名 set is_delete =1 where name = “行名”</td>
-<td>逻辑的删除，要先增添，才能删除</td>
-</tr>
-<tr>
-<td>drop database 数据库名称;</td>
-<td>删除数据库</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>SQL</category>
-      </categories>
-      <tags>
-        <tag>SQL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Matplotlib基础</title>
     <url>/2020/02/10/Matplotlib%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h2 id="Matplotlib基本操作："><a href="#Matplotlib基本操作：" class="headerlink" title="Matplotlib基本操作："></a>Matplotlib基本操作：</h2><table>
@@ -713,111 +216,6 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
       </categories>
       <tags>
         <tag>Matplotlib</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>fasttext工具</title>
-    <url>/2020/02/10/fasttext%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="fasttext工具的使用"><a href="#fasttext工具的使用" class="headerlink" title="fasttext工具的使用"></a>fasttext工具的使用</h1><p>作为NLP工程领域常用的工具包, fasttext有两大作用:</p>
-<ul>
-<li>进行文本分类</li>
-<li>训练词向量</li>
-</ul>
-<h3 id="使用fasttext工具进行文本分类的过程"><a href="#使用fasttext工具进行文本分类的过程" class="headerlink" title="使用fasttext工具进行文本分类的过程"></a>使用fasttext工具进行文本分类的过程</h3><ul>
-<li>第一步: 获取数据</li>
-<li>第二步: 训练集与验证集的划分</li>
-<li>第三步: 训练模型</li>
-<li>第四步: 使用模型进行预测并评估</li>
-<li>第五步: 模型调优</li>
-<li>第六步: 模型保存与重加载 </li>
-</ul>
-<hr>
-<table>
-<thead>
-<tr>
-<th>函数</th>
-<th>函数性质</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>import fasttext</td>
-<td>构建fasttext工具包</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>model=fasttext.<strong>train_supervised</strong>（(input=文件名，epoch=数值轮数表示，wordNgrams=关联，loss=’hs’，“ova”）</td>
-<td>使用fasttext的train_supervised方法<strong>进行文本分类模型</strong>的训练，                                                                                <strong>wordNgrams</strong>：设置为2意味着添加2-gram特征, 这些特征帮助模型捕捉前后词汇之间的关联, 更好的提取分类规则用于模型分类, 当然这也会增加模型训时练占用的资源和时间，<strong>loss</strong>：来修改损失计算方式(等效于输出层的结构), 默认是softmax层结构，设置为’hs’, 代表层次softmax结构, 意味着输出层的结构(计算方式)发生了变化, 将以一种更低复杂度的方式来计算损失，“ova”：标签多分类问题的损失计算方式，</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>model.predict(“一句话”)</td>
-<td>模型进行预测并评估</td>
-</tr>
-<tr>
-<td>model.test（“需要评估的数据集”）</td>
-<td>为了评估模型到底表现如何,元组中的每项分别代表, 验证集样本数量, 精度以及召回率</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>model.predict（“一句话”，k=-1, threshold=0.5）</td>
-<td>模型进行预测并评估，k=-1：尽可能输出多个标签，threshold：阈值</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>model.save_model(“./模型名字.bin”)</td>
-<td>保存模型</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>model = fasttext.load_model(“./模型名字.bin”)</td>
-<td>模型重加载</td>
-</tr>
-</tbody></table>
-<h2 id="词向量迁移"><a href="#词向量迁移" class="headerlink" title="词向量迁移"></a>词向量迁移</h2><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>函数性质</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>model = fasttext.load_model(“模型名字.bin”)</td>
-<td>加载模型</td>
-</tr>
-<tr>
-<td>model.words[：100]</td>
-<td>查看前100个词汇(这里的词汇是广义的, 可以是中文符号或汉字))</td>
-</tr>
-<tr>
-<td>model.get_word_vector（“词名”）</td>
-<td>使用模型获得’词名’这个名词的词向量</td>
-</tr>
-<tr>
-<td>model.get_nearest_neighbors（“词名”）</td>
-<td>以’音乐’为例, 返回的邻近词基本上与音乐都有关系, 如乐曲, 音乐会, 声乐等.</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>NLP</category>
-      </categories>
-      <tags>
-        <tag>NLP</tag>
       </tags>
   </entry>
   <entry>
@@ -1223,6 +621,845 @@ array<span class="token punctuation">(</span><span class="token punctuation">[</
       </tags>
   </entry>
   <entry>
+    <title>SQL数据类型</title>
+    <url>/2020/02/10/SQL%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<img src='https://suncos-01-1254144885.cos.ap-shanghai.myqcloud.com/Hexo/S.png' height=400px >
+
+
+
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><p>数据库：就是以一定格式进行组织的数据集合</p>
+<p>关系是用表格存储的，二维表格存储</p>
+<p>非关系是用字典类型存储的</p>
+<p>数据库管理系统：DBMS</p>
+<ul>
+<li>数据库文件集合：主要一系列的数据文件，作用存储数据</li>
+</ul>
+<p>SQL语句：结构化查询语言</p>
+<p>数据库文件一般都是.db后缀名</p>
+<ol>
+<li>取数据与数据库交流</li>
+<li></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>SQL语句</th>
+<th>语句的性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sudo apt-get install mysql-server</td>
+<td>安装服务端</td>
+</tr>
+<tr>
+<td>sudo apt-get install mysql-client</td>
+<td>安装客户端</td>
+</tr>
+<tr>
+<td>sudo service mysql start</td>
+<td>启动服务端</td>
+</tr>
+<tr>
+<td>ps -ajx|grep mysql：就像是任务管理器</td>
+<td>查看服务器是否开启，就像是任务管理器</td>
+</tr>
+<tr>
+<td>mysql -uroot -pmysql</td>
+<td>mysql -u用户名-pmysql登录：可以增删改查，创建表格</td>
+</tr>
+<tr>
+<td>sudo service mysql stop</td>
+<td>停止服务端</td>
+</tr>
+<tr>
+<td>exit /quit/ctrl+d</td>
+<td>退出</td>
+</tr>
+<tr>
+<td>/etc/mysql/mysql.conf.d/mysqld.cnf</td>
+<td>配置文件路径为</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>select now();</td>
+<td>查看时间</td>
+</tr>
+<tr>
+<td>select version();</td>
+<td>查看版本信息</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>sudo service mysql restart</td>
+<td><strong>重启MySQL服务</strong></td>
+</tr>
+</tbody></table>
+<p>客户端Navicat使用</p>
+<h2 id="SQL数据类型"><a href="#SQL数据类型" class="headerlink" title="SQL数据类型"></a>SQL数据类型</h2><table>
+<thead>
+<tr>
+<th><strong>类型</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>字符串：</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>char：定长字符串：最多255</td>
+<td>名字不管多次都占10个字节（知道固定长度的字节）</td>
+</tr>
+<tr>
+<td>varchar：变字符串最多65535</td>
+<td>节省空间（适合经常变化的）（存多少占多数）</td>
+</tr>
+<tr>
+<td>text</td>
+<td>字符串 text 表示存储大文本，当字符大于 4000 时推荐使用</td>
+</tr>
+<tr>
+<td>字段就是最上面的属性名.enum：枚举类型</td>
+<td>列举出一些类型，只能在这些列举的范围选择</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>年月日类型：</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>date</td>
+<td>年，月，日</td>
+</tr>
+<tr>
+<td>datetime</td>
+<td>年，月，日，时分秒</td>
+</tr>
+<tr>
+<td>decimal：定点数</td>
+<td>（5,2）共代表5个</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>整型</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>TINYINT：</td>
+<td></td>
+</tr>
+<tr>
+<td>SMALLINT</td>
+<td></td>
+</tr>
+<tr>
+<td>singned:有符号</td>
+<td></td>
+</tr>
+<tr>
+<td>unsingned：无符号</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>小数类型</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>float：小数类型</td>
+<td></td>
+</tr>
+<tr>
+<td>decimal表示浮点数</td>
+<td>如 decimal(5, 2) 表示共存5位数，小数占 2 位.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="数据完整性和约束"><a href="#数据完整性和约束" class="headerlink" title="数据完整性和约束"></a>数据完整性和约束</h3><h6 id="参照完整性，就是增删改查中：要保证数据的正确性，"><a href="#参照完整性，就是增删改查中：要保证数据的正确性，" class="headerlink" title="参照完整性，就是增删改查中：要保证数据的正确性，"></a>参照完整性，就是增删改查中：要保证数据的正确性，</h6><h5 id="约束：删除的时候不让删"><a href="#约束：删除的时候不让删" class="headerlink" title="约束：删除的时候不让删"></a>约束：删除的时候不让删</h5><p>保证数据的独一性</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NOT NULL</td>
+<td>非空约束</td>
+</tr>
+<tr>
+<td>PRMARY KEY</td>
+<td>主键约束</td>
+</tr>
+<tr>
+<td>UNIQUE KE</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>数据库基本操作</p>
+<table>
+<thead>
+<tr>
+<th>数据表库的命令</th>
+<th>使用的功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>show databases;</td>
+<td>查看所有数据库</td>
+</tr>
+<tr>
+<td>select database();</td>
+<td>查看当前使用的数据库</td>
+</tr>
+<tr>
+<td>create database (数据库名字)  charset=utf8;</td>
+<td>创建数据库</td>
+</tr>
+<tr>
+<td>show  create database （数据库的名字）；</td>
+<td>创建数据库查看数据库的字符集</td>
+</tr>
+<tr>
+<td>drop database （数据库名称）;</td>
+<td>删除数据表</td>
+</tr>
+<tr>
+<td>数据表名.drop(数据表名[数据表名[对应的异常值这些异常值写出了T] == T].index,inplace = T)</td>
+<td>对表里面的一些异常数据进行删除</td>
+</tr>
+<tr>
+<td>use (数据库名称);   返回上一层服务器 use mysql</td>
+<td>使用数据表进入指定的数据库</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>create database 数据库的名字</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="查看表结构命令："><a href="#查看表结构命令：" class="headerlink" title="查看表结构命令："></a>查看表结构命令：</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>命令介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>show tables;</td>
+<td>产看数据库的所有表</td>
+</tr>
+<tr>
+<td>desc 表名;</td>
+<td>查看表里面的内容</td>
+</tr>
+<tr>
+<td>show create table 表名;</td>
+<td>查看数据表</td>
+</tr>
+<tr>
+<td>select * from students;</td>
+<td>查看添加的文档</td>
+</tr>
+</tbody></table>
+<h2 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h2><pre><code>crea table 表名 （字段   类型    约束    【字段   类型     约束】）；
+
+crea table xxx(id int unsigned primary key auto_increment not null,name varchar(20));
+
+
+create table创建students 表（id ，name ，age， high， （decimal），gender（enum），cls_id）
+</code></pre>
+<h6 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h6><pre class=" language-python"><code class="language-python">create table 列表名<span class="token punctuation">(</span>
+
+id int unsigned（无符号<span class="token number">0</span><span class="token operator">-</span><span class="token number">255</span>）  primary key（主键） auto_increment（自动增加） <span class="token operator">not</span> null（不能为空）<span class="token punctuation">,</span>
+
+name varchar<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>（上限为<span class="token number">20</span>个字符） <span class="token operator">not</span> null<span class="token punctuation">,</span>
+
+age tinyint unsigned default  <span class="token number">0</span>（缺省值自动填充为<span class="token number">0</span>）<span class="token punctuation">,</span>
+
+height decimal<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>（一共有<span class="token number">5</span>位数，有小数点是有两位）
+
+gender enum<span class="token punctuation">(</span><span class="token string">"男"</span><span class="token punctuation">,</span>“女”<span class="token punctuation">,</span><span class="token string">"人妖"</span><span class="token punctuation">,</span><span class="token string">"保密"</span><span class="token punctuation">)</span>（枚举），
+
+time date default <span class="token string">"2020-01-01"</span>
+
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<pre><code>create table classes(
+id int unsigned  primary key auto_increment not null,
+name varchar(20） not null,
+id_age tinyint unsigned default  0
+);
+</code></pre>
+<pre class=" language-python"><code class="language-python">create table students<span class="token punctuation">(</span>
+
+id int unsigned primary key  auto_increment <span class="token operator">not</span> null<span class="token punctuation">,</span>
+
+name varchar<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">not</span> null<span class="token punctuation">,</span>
+
+age tinyint unsigned default  <span class="token number">0</span><span class="token punctuation">,</span>
+
+height decimal<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+gender enum<span class="token punctuation">(</span><span class="token string">"男"</span><span class="token punctuation">,</span><span class="token string">"女"</span><span class="token punctuation">,</span><span class="token string">"人妖"</span><span class="token punctuation">,</span><span class="token string">"保密"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+time date default  <span class="token string">"2020-01-01"</span>
+
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/1611042404103.png' height=px >
+
+
+
+<ul>
+<li>Field：创建的字段</li>
+<li>Type：属性的性质，和约束，枚举</li>
+<li>Null：表示字段为空，yes表示可以为空</li>
+<li>Key：唯一标识</li>
+<li>Default：，默认值，如果字段被设计时，如果允许默认条件下，用户会进行数据的插入，那么就可以用事先准备好的数据来填充通常填充的是NULL</li>
+<li>Extre：表示id可以顺序下去，</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>alter table 表名 drop 列名;</th>
+<th>删除字段</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>drop table 表名;</td>
+<td>删除表</td>
+</tr>
+<tr>
+<td>delete from  表名 where id =数字几;</td>
+<td>物理删除行</td>
+</tr>
+<tr>
+<td>alter table   表名 add is_delete bit default 0;</td>
+<td>逻辑增添</td>
+</tr>
+<tr>
+<td>update 表名 set is_delete =1 where name = “行名”</td>
+<td>逻辑删除</td>
+</tr>
+</tbody></table>
+<h2 id="创建数据库和增删改查流程"><a href="#创建数据库和增删改查流程" class="headerlink" title="创建数据库和增删改查流程"></a>创建数据库和增删改查流程</h2><table>
+<thead>
+<tr>
+<th>创建数据库命令</th>
+<th>命令的作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mysql -uroot -pmysql;</td>
+<td>登录数据库</td>
+</tr>
+<tr>
+<td>quit、exit，</td>
+<td>退出数据库</td>
+</tr>
+<tr>
+<td>show databases;</td>
+<td>查看所有的数据库</td>
+</tr>
+<tr>
+<td>create database  数据库名称    charset=utf8;</td>
+<td>创建数据库</td>
+</tr>
+<tr>
+<td>select database();</td>
+<td>查看当前使用数据库</td>
+</tr>
+<tr>
+<td>use 数据库名称;</td>
+<td>使用数据库</td>
+</tr>
+<tr>
+<td>show tables；</td>
+<td>查看当前数据库中所有的表</td>
+</tr>
+<tr>
+<td>create table students(id  int  数据表名   primary  key  auto_increment  not mull,name varchar(20)  not  null, age tinyint unsigned default0,height decimal(5,2),gender enum(“男”，“女”));</td>
+<td>创建表</td>
+</tr>
+<tr>
+<td>alter table 表名 add 列名 类型   约束;</td>
+<td>添加字段</td>
+</tr>
+<tr>
+<td>alter table 表名 modify 列名 类型 约束;         例:alter table students modify birthday date not null;</td>
+<td>修改字段类型及约束</td>
+</tr>
+<tr>
+<td>alter table 表名 drop 列名</td>
+<td>修改字段</td>
+</tr>
+<tr>
+<td>show create table  表名;</td>
+<td>查看数据表的类型，约束</td>
+</tr>
+<tr>
+<td>show create database  数据库名;</td>
+<td>查看数据库的类型</td>
+</tr>
+<tr>
+<td>drop table 表名;</td>
+<td>删除表</td>
+</tr>
+<tr>
+<td><strong>增添数据</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>insert into 表名  values(…..);：添加数据</td>
+<td>添加数据值，对应着字段名字</td>
+</tr>
+<tr>
+<td>insert into 表名 （列1.。。）values(值1，。。。);       insert into students (name,age,height,gender,time) values(“姓名”,18,180.22,”男”,”2020-07-08”);</td>
+<td>部分的插入，对应的字段和插入的内容</td>
+</tr>
+<tr>
+<td>insert into 表名 values（，，，），（。。。）。。;</td>
+<td>全列多行插入</td>
+</tr>
+<tr>
+<td>insert into 表名 （列1，。。。） values（值1，。。。），（值1.。）;</td>
+<td>部分列多行插入</td>
+</tr>
+<tr>
+<td>select * from 表名;</td>
+<td>查看表的内容</td>
+</tr>
+<tr>
+<td>select 列1 ，列2 。。。from 表名;</td>
+<td>查看指定字段的内容</td>
+</tr>
+<tr>
+<td>update 表名 set 列1 = 值1，列2=值2.。。where  条件;    列如:update students set age = 18, gender = ‘女’ where id = 6;</td>
+<td>修改的数据</td>
+</tr>
+<tr>
+<td>delete from 表名 where 条件;    列如:delete from students where id = 3;</td>
+<td>删除数据（物理删除）</td>
+</tr>
+<tr>
+<td>alter table   表名 add is_delete bit default 0;</td>
+<td>逻辑的添加</td>
+</tr>
+<tr>
+<td>update 表名 set is_delete =1 where name = “行名”</td>
+<td>逻辑的删除，要先增添，才能删除</td>
+</tr>
+<tr>
+<td>drop database 数据库名称;</td>
+<td>删除数据库</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>SQL</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>fasttext工具</title>
+    <url>/2020/02/10/fasttext%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<img src='https://github.com/xiaoyvlongoing/xiaoyvlongoing.github.io/blob/main/favicon.png' height=400px >
+
+
+
+
+
+
+
+
+
+<h1 id="fasttext工具的使用"><a href="#fasttext工具的使用" class="headerlink" title="fasttext工具的使用"></a>fasttext工具的使用</h1><p>作为NLP工程领域常用的工具包, fasttext有两大作用:</p>
+<ul>
+<li>进行文本分类</li>
+<li>训练词向量</li>
+</ul>
+<h3 id="使用fasttext工具进行文本分类的过程"><a href="#使用fasttext工具进行文本分类的过程" class="headerlink" title="使用fasttext工具进行文本分类的过程"></a>使用fasttext工具进行文本分类的过程</h3><ul>
+<li>第一步: 获取数据</li>
+<li>第二步: 训练集与验证集的划分</li>
+<li>第三步: 训练模型</li>
+<li>第四步: 使用模型进行预测并评估</li>
+<li>第五步: 模型调优</li>
+<li>第六步: 模型保存与重加载 </li>
+</ul>
+<hr>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>import fasttext</td>
+<td>构建fasttext工具包</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>model=fasttext.<strong>train_supervised</strong>（(input=文件名，epoch=数值轮数表示，wordNgrams=关联，loss=’hs’，“ova”）</td>
+<td>使用fasttext的train_supervised方法<strong>进行文本分类模型</strong>的训练，                                                                                <strong>wordNgrams</strong>：设置为2意味着添加2-gram特征, 这些特征帮助模型捕捉前后词汇之间的关联, 更好的提取分类规则用于模型分类, 当然这也会增加模型训时练占用的资源和时间，<strong>loss</strong>：来修改损失计算方式(等效于输出层的结构), 默认是softmax层结构，设置为’hs’, 代表层次softmax结构, 意味着输出层的结构(计算方式)发生了变化, 将以一种更低复杂度的方式来计算损失，“ova”：标签多分类问题的损失计算方式，</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>model.predict(“一句话”)</td>
+<td>模型进行预测并评估</td>
+</tr>
+<tr>
+<td>model.test（“需要评估的数据集”）</td>
+<td>为了评估模型到底表现如何,元组中的每项分别代表, 验证集样本数量, 精度以及召回率</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>model.predict（“一句话”，k=-1, threshold=0.5）</td>
+<td>模型进行预测并评估，k=-1：尽可能输出多个标签，threshold：阈值</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>model.save_model(“./模型名字.bin”)</td>
+<td>保存模型</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>model = fasttext.load_model(“./模型名字.bin”)</td>
+<td>模型重加载</td>
+</tr>
+</tbody></table>
+<h2 id="词向量迁移"><a href="#词向量迁移" class="headerlink" title="词向量迁移"></a>词向量迁移</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>model = fasttext.load_model(“模型名字.bin”)</td>
+<td>加载模型</td>
+</tr>
+<tr>
+<td>model.words[：100]</td>
+<td>查看前100个词汇(这里的词汇是广义的, 可以是中文符号或汉字))</td>
+</tr>
+<tr>
+<td>model.get_word_vector（“词名”）</td>
+<td>使用模型获得’词名’这个名词的词向量</td>
+</tr>
+<tr>
+<td>model.get_nearest_neighbors（“词名”）</td>
+<td>以’音乐’为例, 返回的邻近词基本上与音乐都有关系, 如乐曲, 音乐会, 声乐等.</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>NLP</category>
+      </categories>
+      <tags>
+        <tag>NLP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>二分查找</title>
+    <url>/2020/02/10/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</url>
+    <content><![CDATA[<h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><ol>
+<li><h5 id="二分查找要求是有序，是为了索引快速查找到中间值"><a href="#二分查找要求是有序，是为了索引快速查找到中间值" class="headerlink" title="二分查找要求是有序，是为了索引快速查找到中间值"></a>二分查找要求是有序，是为了索引快速查找到中间值</h5></li>
+<li><h5 id="二分查找要求是顺序存储的"><a href="#二分查找要求是顺序存储的" class="headerlink" title="二分查找要求是顺序存储的"></a>二分查找要求是顺序存储的</h5></li>
+<li><h5 id="二分查找是从中间开始查找的"><a href="#二分查找是从中间开始查找的" class="headerlink" title="二分查找是从中间开始查找的"></a>二分查找是从中间开始查找的</h5></li>
+<li><h5 id="时间复杂度最好O（1），最坏O（logn）"><a href="#时间复杂度最好O（1），最坏O（logn）" class="headerlink" title="时间复杂度最好O（1），最坏O（logn）"></a>时间复杂度最好O（1），最坏O（logn）</h5></li>
+</ol>
+<h2 id="递归版本"><a href="#递归版本" class="headerlink" title="递归版本"></a>递归版本</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">binary_search</span><span class="token punctuation">(</span>alist<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> len<span class="token punctuation">(</span>alist<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token boolean">False</span>
+    n <span class="token operator">=</span> len<span class="token punctuation">(</span>alist<span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">2</span>
+    <span class="token keyword">if</span> item <span class="token operator">==</span> alist<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+    <span class="token keyword">elif</span> item <span class="token operator">&lt;</span> alist<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> binary_search<span class="token punctuation">(</span>alist<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span>n<span class="token punctuation">]</span><span class="token punctuation">,</span>item<span class="token punctuation">)</span>
+
+    <span class="token keyword">elif</span> item <span class="token operator">></span> alist<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span>  binary_search<span class="token punctuation">(</span>alist<span class="token punctuation">[</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">,</span>item<span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    alist <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">]</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>binary_search<span class="token punctuation">(</span>alist<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>binary_search<span class="token punctuation">(</span>alist<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="非递归版本"><a href="#非递归版本" class="headerlink" title="非递归版本"></a>非递归版本</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">binary_search</span><span class="token punctuation">(</span>alist<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    start <span class="token operator">=</span> <span class="token number">0</span>
+    end <span class="token operator">=</span> len<span class="token punctuation">(</span>alist<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>
+    <span class="token keyword">while</span> start <span class="token operator">&lt;=</span> end<span class="token punctuation">:</span>
+        mid <span class="token operator">=</span><span class="token punctuation">(</span>start<span class="token operator">+</span>end<span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span>
+        <span class="token keyword">if</span> item <span class="token operator">==</span> alist<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token boolean">True</span><span class="token comment" spellcheck="true">#要是找到数值的下标的话返回mid</span>
+        <span class="token keyword">elif</span> item <span class="token operator">&lt;</span> alist<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            end <span class="token operator">=</span> mid <span class="token operator">-</span><span class="token number">1</span>
+        <span class="token keyword">elif</span> item <span class="token operator">></span> alist<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            start <span class="token operator">=</span> mid <span class="token operator">+</span><span class="token number">1</span>
+    <span class="token keyword">return</span> <span class="token boolean">False</span>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    alist <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>binary_search<span class="token punctuation">(</span>alist<span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="查找3的第一个数"><a href="#查找3的第一个数" class="headerlink" title="查找3的第一个数"></a>查找3的第一个数</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">binary_search</span><span class="token punctuation">(</span>alist<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    start <span class="token operator">=</span> <span class="token number">0</span>
+    end <span class="token operator">=</span> len<span class="token punctuation">(</span>alist<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>
+
+    <span class="token keyword">while</span> start <span class="token operator">&lt;=</span> end<span class="token punctuation">:</span>
+        mid <span class="token operator">=</span><span class="token punctuation">(</span>start<span class="token operator">+</span>end<span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span>
+        <span class="token keyword">if</span> item <span class="token operator">==</span> alist<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> mid <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">or</span> alist<span class="token punctuation">[</span>mid<span class="token number">-1</span><span class="token punctuation">]</span> <span class="token operator">!=</span>item<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> mid
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                end <span class="token operator">=</span> mid <span class="token operator">-</span><span class="token number">1</span>
+        <span class="token keyword">elif</span> item <span class="token operator">&lt;</span> alist<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            end <span class="token operator">=</span> mid <span class="token operator">-</span><span class="token number">1</span>
+        <span class="token keyword">elif</span> item <span class="token operator">></span> alist<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            start <span class="token operator">=</span> mid <span class="token operator">+</span><span class="token number">1</span>
+    <span class="token keyword">return</span> <span class="token boolean">False</span>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    alist <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>binary_search<span class="token punctuation">(</span>alist<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="线性结构：就是一对一的关系"><a href="#线性结构：就是一对一的关系" class="headerlink" title="线性结构：就是一对一的关系"></a>线性结构：就是一对一的关系</h3><h3 id="非线性结构：一个节点可能对应着前驱后继的多个节点"><a href="#非线性结构：一个节点可能对应着前驱后继的多个节点" class="headerlink" title="非线性结构：一个节点可能对应着前驱后继的多个节点"></a>非线性结构：一个节点可能对应着前驱后继的多个节点</h3><h2 id="树：非线性"><a href="#树：非线性" class="headerlink" title="树：非线性"></a>树：非线性</h2><ol>
+<li><h5 id="有序树，二叉树：每个节点最多含有二个子树为二叉树"><a href="#有序树，二叉树：每个节点最多含有二个子树为二叉树" class="headerlink" title="有序树，二叉树：每个节点最多含有二个子树为二叉树"></a>有序树，二叉树：每个节点最多含有二个子树为二叉树</h5></li>
+<li><h5 id="完全二叉树，除了最后一层节点除外，其他的节点都满了为完全二叉树，最后一层还是紧密排序的"><a href="#完全二叉树，除了最后一层节点除外，其他的节点都满了为完全二叉树，最后一层还是紧密排序的" class="headerlink" title="完全二叉树，除了最后一层节点除外，其他的节点都满了为完全二叉树，最后一层还是紧密排序的"></a>完全二叉树，除了最后一层节点除外，其他的节点都满了为完全二叉树，最后一层还是紧密排序的</h5></li>
+<li><h5 id="满二叉树：所有节点都满了没有一个空的为满二叉树"><a href="#满二叉树：所有节点都满了没有一个空的为满二叉树" class="headerlink" title="满二叉树：所有节点都满了没有一个空的为满二叉树"></a>满二叉树：所有节点都满了没有一个空的为满二叉树</h5></li>
+<li><h5 id="平衡二叉树：当且仅当任何节点的两棵子树的高度差不大于1的二叉树"><a href="#平衡二叉树：当且仅当任何节点的两棵子树的高度差不大于1的二叉树" class="headerlink" title="平衡二叉树：当且仅当任何节点的两棵子树的高度差不大于1的二叉树"></a>平衡二叉树：当且仅当任何节点的两棵子树的高度差不大于1的二叉树</h5></li>
+<li><h5 id="排序二叉树："><a href="#排序二叉树：" class="headerlink" title="排序二叉树："></a>排序二叉树：</h5><h6 id="1：若左子树不为空，则左子树所有节点的值均小于它的根节点"><a href="#1：若左子树不为空，则左子树所有节点的值均小于它的根节点" class="headerlink" title="1：若左子树不为空，则左子树所有节点的值均小于它的根节点"></a>1：若左子树不为空，则左子树所有节点的值均小于它的根节点</h6><h6 id="2：若右子树不为空，则右子树所有节点的值均大于它的根节点"><a href="#2：若右子树不为空，则右子树所有节点的值均大于它的根节点" class="headerlink" title="2：若右子树不为空，则右子树所有节点的值均大于它的根节点"></a>2：若右子树不为空，则右子树所有节点的值均大于它的根节点</h6><h6 id="3：子节点的树左右也为排序"><a href="#3：子节点的树左右也为排序" class="headerlink" title="3：子节点的树左右也为排序"></a>3：子节点的树左右也为排序</h6></li>
+</ol>
+<p>​    </p>
+<h2 id="链表二叉树"><a href="#链表二叉树" class="headerlink" title="链表二叉树"></a>链表二叉树</h2><ol>
+<li><h5 id="二叉树的第i层至多有2-i-1节点"><a href="#二叉树的第i层至多有2-i-1节点" class="headerlink" title="二叉树的第i层至多有2^i-1节点"></a>二叉树的第i层至多有2^i-1节点</h5></li>
+<li><h5 id="深度为k的二叉树至多与2-k-1个节点"><a href="#深度为k的二叉树至多与2-k-1个节点" class="headerlink" title="深度为k的二叉树至多与2^k-1个节点"></a>深度为k的二叉树至多与2^k-1个节点</h5></li>
+</ol>
+<h2 id="二叉树的广度优先遍历"><a href="#二叉树的广度优先遍历" class="headerlink" title="二叉树的广度优先遍历"></a>二叉树的广度优先遍历</h2><h5 id="深度优先：深度优先，选择一个路直达找到终点"><a href="#深度优先：深度优先，选择一个路直达找到终点" class="headerlink" title="深度优先：深度优先，选择一个路直达找到终点"></a>深度优先：深度优先，选择一个路直达找到终点</h5><h5 id="广度优先：可以找到最短的路径，先选择一条路找一层，没有再选择一条路径进行找，这一层没有就要从新选路走两层，再换直达找到。"><a href="#广度优先：可以找到最短的路径，先选择一条路找一层，没有再选择一条路径进行找，这一层没有就要从新选路走两层，再换直达找到。" class="headerlink" title="广度优先：可以找到最短的路径，先选择一条路找一层，没有再选择一条路径进行找，这一层没有就要从新选路走两层，再换直达找到。"></a>广度优先：可以找到最短的路径，先选择一条路找一层，没有再选择一条路径进行找，这一层没有就要从新选路走两层，再换直达找到。</h5><h2 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h2><h5 id="先序遍历：根左右，先写根，然后再靠左边的数值都写出来，写到底，然后在写最后叶节点的右边"><a href="#先序遍历：根左右，先写根，然后再靠左边的数值都写出来，写到底，然后在写最后叶节点的右边" class="headerlink" title="先序遍历：根左右，先写根，然后再靠左边的数值都写出来，写到底，然后在写最后叶节点的右边"></a>先序遍历：根左右，先写根，然后再靠左边的数值都写出来，写到底，然后在写最后叶节点的右边</h5><h5 id="中序遍历：左根右，左边开始，要从最左边的叶节点开始写"><a href="#中序遍历：左根右，左边开始，要从最左边的叶节点开始写" class="headerlink" title="中序遍历：左根右，左边开始，要从最左边的叶节点开始写"></a>中序遍历：左根右，左边开始，要从最左边的叶节点开始写</h5><h5 id="后序遍历：左右根，从叶节点开始先左右再跟"><a href="#后序遍历：左右根，从叶节点开始先左右再跟" class="headerlink" title="后序遍历：左右根，从叶节点开始先左右再跟"></a>后序遍历：左右根，从叶节点开始先左右再跟</h5><h2 id="遍历的结果反推处理二叉树的是什么结构"><a href="#遍历的结果反推处理二叉树的是什么结构" class="headerlink" title="遍历的结果反推处理二叉树的是什么结构"></a>遍历的结果反推处理二叉树的是什么结构</h2><h5 id="知道中序遍历，和先序遍历就可以找到规律"><a href="#知道中序遍历，和先序遍历就可以找到规律" class="headerlink" title="知道中序遍历，和先序遍历就可以找到规律"></a>知道中序遍历，和先序遍历就可以找到规律</h5>]]></content>
+      <categories>
+        <category>算法，树</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>再议分割</title>
+    <url>/2019/01/04/%E5%86%8D%E8%AE%AE%E5%88%86%E5%89%B2/</url>
+    <content><![CDATA[<h1 id="1：再议分割"><a href="#1：再议分割" class="headerlink" title="1：再议分割"></a>1：再议分割</h1><h3 id="方法的使用：数据量多的时候运用留出法，数据量中等：交叉验证法，数据量小时：运用自助法"><a href="#方法的使用：数据量多的时候运用留出法，数据量中等：交叉验证法，数据量小时：运用自助法" class="headerlink" title="方法的使用：数据量多的时候运用留出法，数据量中等：交叉验证法，数据量小时：运用自助法"></a>方法的使用：数据量多的时候运用留出法，数据量中等：交叉验证法，数据量小时：运用自助法</h3><ul>
+<li>当我们<strong>数据量足够</strong>时，选择<strong>留出法</strong>简单省时，在牺牲很小的准确度的情况下，换取计算的简便；</li>
+<li>当我们的<strong>数据量较小</strong>时，我们应该选择<strong>交叉验证法</strong>，因为此时划分样本集将会使训练数据过少；<ul>
+<li>当我们的<strong>数据量特别少</strong>的时候，我们可以考虑<strong>留一法</strong>。</li>
+</ul>
+</li>
+</ul>
+<h4 id="分层采样：保留类别比例的采样方式通常称为“分层采样，确保训练集，测试集中，各类别样本的比例是和原始数据集中的一致"><a href="#分层采样：保留类别比例的采样方式通常称为“分层采样，确保训练集，测试集中，各类别样本的比例是和原始数据集中的一致" class="headerlink" title="分层采样：保留类别比例的采样方式通常称为“分层采样，确保训练集，测试集中，各类别样本的比例是和原始数据集中的一致"></a><strong>分层采样</strong>：保留类别比例的采样方式通常称为<strong>“分层采样</strong>，确保训练集，测试集中，各类别样本的比例是和原始数据集中的一致</h4><h2 id="1-1：留出法"><a href="#1-1：留出法" class="headerlink" title="1.1：留出法"></a>1.1：留出法</h2><h4 id="留出法训练和测试集：将数据集随机划分成两个互斥的集合，训练-测试集的划分要尽可能保持数据分布的一致性，避免因数据划分过程引入额外的偏差而对最终结果产生影响，重复进行实验评估后取平均值作为留出法的评估结果。"><a href="#留出法训练和测试集：将数据集随机划分成两个互斥的集合，训练-测试集的划分要尽可能保持数据分布的一致性，避免因数据划分过程引入额外的偏差而对最终结果产生影响，重复进行实验评估后取平均值作为留出法的评估结果。" class="headerlink" title="留出法训练和测试集：将数据集随机划分成两个互斥的集合，训练/测试集的划分要尽可能保持数据分布的一致性，避免因数据划分过程引入额外的偏差而对最终结果产生影响，重复进行实验评估后取平均值作为留出法的评估结果。"></a>留出法训练和测试集：将数据集随机划分成两个互斥的集合，<strong>训练/测试集的划分要尽可能保持数据分布的一致性，避免因数据划分过程引入额外的偏差而对最终结果产生影响</strong>，<strong>重复进行实验评估后取平均值作为留出法的评估结果。</strong></h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>from sklearn.model_selection import   <strong>train_test_split</strong>（）</td>
+<td><strong>留出法：数据量最大的时候选用</strong>                                                                   <strong>划分数据集</strong>，划分训练集和测试集</td>
+</tr>
+<tr>
+<td><strong>train_test_split</strong>(train_data,train_target,test_size=,random_state=)</td>
+<td><strong>train_data</strong>：待划分样本数据<strong>train_target</strong>：待划分样本数据的结果（标签）                              <strong>test_size</strong>：测试数据占样本数据的比例，若整数则样本数量<strong>random_state</strong>：<strong>设置随机数种子</strong>，保证每次都是同一个随机数。若为0或不填，则每次得到数据都不一样</td>
+</tr>
+<tr>
+<td><strong>留一法每次去一个样本作为测试集，不受随机样本划分的影响</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>from sklearn.model_selection import <strong>LeaveOneOut</strong></td>
+<td><strong>留一法：</strong> <strong>适合小数据的放法</strong>：每次抽取一个样本做为测试集。                          显然，留一法不受随机样本划分方式的影响，因为m个样本只有唯一的方式划分为m个子集一每个子集包含个样本；</td>
+</tr>
+<tr>
+<td>承接留一法的变量.split（数据变量）</td>
+<td>可以的得出：train, test</td>
+</tr>
+<tr>
+<td><strong>split()</strong></td>
+<td>通过指定分隔符对字符串进行切片，如果参数 num 有指定值，则分隔 num+1 个子字符串</td>
+</tr>
+</tbody></table>
+<h3 id="留一法优缺点："><a href="#留一法优缺点：" class="headerlink" title="留一法优缺点："></a>留一法优缺点：</h3><p><strong>优点</strong>：</p>
+<ul>
+<li>留一法使用的训练集与初始数据集相比只少了一个样本，这就使得在绝大多数情况下，留一法中被实际评估的模型与期望评估的用D训练出的模型很相似。因此，<strong>留一法的评估结果往往被认为比较准确</strong>。</li>
+</ul>
+<p><strong>缺点</strong>：</p>
+<ul>
+<li>留一法也有其缺陷:在数据集比较大时，训练m个模型的计算开销可能是难以忍受的(例如数据集包含1百万个样本，则需训练1百万个模型，而这还是在未考虑算法调参的情况下。</li>
+</ul>
+<h2 id="1-2：交叉验证法"><a href="#1-2：交叉验证法" class="headerlink" title="1.2：交叉验证法"></a>1.2：交叉验证法</h2><h4 id="去分训练集和测试集：每次用k-1个子集的并集作为训练集，余下的那个子集作为测试集；从而可进行k次训练和测试，最终返回的是这k个测试结果的均值。"><a href="#去分训练集和测试集：每次用k-1个子集的并集作为训练集，余下的那个子集作为测试集；从而可进行k次训练和测试，最终返回的是这k个测试结果的均值。" class="headerlink" title="去分训练集和测试集：每次用k-1个子集的并集作为训练集，余下的那个子集作为测试集；从而可进行k次训练和测试，最终返回的是这k个测试结果的均值。"></a><strong>去分训练集和测试集</strong>：每次用k-1个子集的并集作为训练集，余下的那个子集作为测试集；从而可进行k次训练和测试，最终返回的是这k个测试结果的均值。</h4><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E5%86%8D%E8%AE%AE%E5%88%86%E5%89%B2/1613894405417.png' height=px >
+
+<h3 id="KFold，StratifiedKFold-：两种不同性质的交叉验证分类法，优先使用：StratifiedKFold"><a href="#KFold，StratifiedKFold-：两种不同性质的交叉验证分类法，优先使用：StratifiedKFold" class="headerlink" title="KFold，StratifiedKFold ：两种不同性质的交叉验证分类法，优先使用：StratifiedKFold"></a>KFold，StratifiedKFold ：两种不同性质的交叉验证分类法，优先使用：StratifiedKFold</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>from sklearn.model_selection import <strong>KFold</strong>,<strong>StratifiedKFold，</strong> <strong>StratifiedShuffleSplit（这个是有放回的采样形成了随机）</strong></td>
+<td><strong>交叉验证法：</strong>将训练/测试数据集划分n_splits个互斥子集，每次用其中一个子集当作验证集，剩下的n_splits-1个作为训练集，进行n_splits次训练和测试，得到n_splits个结果</td>
+</tr>
+<tr>
+<td><strong>KFold</strong>：当Y值同种类别连续分到一起时候，同种类别没有进行分开，把同种类别都提取成的验证集，其他的称为了训练集，导致类别分配平衡了，样本正负类别的分布不均匀，</td>
+<td>没有分层（有可能分到了同种的类型）,没有关注标签值</td>
+</tr>
+<tr>
+<td><strong>KFold：</strong>（n_splits= ,random_state = ,shuffle=）</td>
+<td><strong>n_splits</strong>=数值：表示划分几等份                       <strong>random_state</strong>=数值：表示分割类别的间隔数                                                               <strong>shuffle=T（一般为T）或F：</strong>等于F：表示不按照random_state进行间隔取值进行分割重写洗牌，T相反</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>StratifiedKFold：</strong>自动查找到不同的类别进行分配，达到测试集平衡分配，样本正负类别分到测试集中的分布的均衡；数据大循环<strong>标签值不会重复</strong></td>
+<td>关注了标签值了：经行的分层（可以抽样分层了不同的类型，达到了平衡的分配）</td>
+</tr>
+<tr>
+<td><strong>StratifiedKFold</strong>（n_splits= ,random_state = ,shuffle=）</td>
+<td><strong>n_splits</strong>=数值：表示划分几等份                       <strong>random_state</strong>=数值：表示分割类别的间隔数                                                                  <strong>shuffle=T（一般为T）或F：</strong>等于F：表示不按照random_state进行间隔取值进行分割重写洗牌数据打乱，T相反</td>
+</tr>
+<tr>
+<td><strong>KFold,</strong> <strong>StratifiedKFold</strong></td>
+<td><strong>StratifiedKFold</strong>的用法和<strong>KFold</strong>的区别是：SKFold是分层采样，确保训练集，测试集中，各类别样本的比例是和原始数据集中的一致。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>from sklearn.model_selection import <strong>StratifiedShuffleSplit</strong>（(test_size=分的占比这个要传入进去小数生成）标签值有放回的抽样（中等偏小的时候选用）</td>
+<td>关注到了标签值没有把相同标签（同属性如1,1）分到一起                                           可以做到严格的数据形成1:1                                                    提供分层抽样功能，确保每个标签对应的样本的比例，</td>
+</tr>
+</tbody></table>
+<h2 id="1-3：自助法：0-368的未被采集"><a href="#1-3：自助法：0-368的未被采集" class="headerlink" title="1.3：自助法：0.368的未被采集"></a>1.3：自助法：0.368的未被采集</h2><p><strong>自助法</strong>：随机采取又有放回的方法，经过的m次有随机采出又放回的，最终有0.368的未被采集，于是将这0.368的数据作为测试集</p>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E5%86%8D%E8%AE%AE%E5%88%86%E5%89%B2/2.png' height=px >
+
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>优点</strong>：<ul>
+<li>自助法在<strong>数据集较小</strong>、难以有效划分训练/测试集时很有用；</li>
+<li>此外，自助法能从初始数据集中产生多个不同的训练集，这对<strong>集成学习</strong>等方法有很大的好处。</li>
+</ul>
+</li>
+<li><strong>缺点</strong>：<ul>
+<li>自助法产生的数据集改变了初始数据集的分布，这会引入估计偏差。因此，在初始数据量足够时；留出法和交叉验证法更常用一些。</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>机器学习，算法</category>
+      </categories>
+      <tags>
+        <tag>机器学习，算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>线程任务</title>
     <url>/2020/02/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</url>
     <content><![CDATA[<h2 id="多线程任务"><a href="#多线程任务" class="headerlink" title="多线程任务"></a>多线程任务</h2><h3 id="一：多线程"><a href="#一：多线程" class="headerlink" title="一：多线程"></a>一：多线程</h3><table>
@@ -1385,6 +1622,342 @@ if __name__ == &#39;__main__&#39;:
       </categories>
       <tags>
         <tag>python高级</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>支持向量机SVM</title>
+    <url>/2019/06/26/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/</url>
+    <content><![CDATA[<h2 id="SVM：可以用于分类（二分类，多分类），也可以用于回归和异常检测值，检测"><a href="#SVM：可以用于分类（二分类，多分类），也可以用于回归和异常检测值，检测" class="headerlink" title="SVM：可以用于分类（二分类，多分类），也可以用于回归和异常检测值，检测"></a>SVM：可以用于分类（二分类，多分类），也可以用于回归和异常检测值，检测</h2><h4 id="支持向量机分类有三个方法：SVC，NuSVC，LinearSVC"><a href="#支持向量机分类有三个方法：SVC，NuSVC，LinearSVC" class="headerlink" title="支持向量机分类有三个方法：SVC，NuSVC，LinearSVC"></a>支持向量机分类有三个方法：SVC，NuSVC，LinearSVC</h4><h4 id="支持向量机回归的三个方法：SVR，NuSVR，LinearSVR"><a href="#支持向量机回归的三个方法：SVR，NuSVR，LinearSVR" class="headerlink" title="支持向量机回归的三个方法：SVR，NuSVR，LinearSVR"></a>支持向量机回归的三个方法：SVR，NuSVR，LinearSVR</h4><h4 id="支持向量机（SVM）：即寻找到一个超平面使样本分成两类，并且间隔最大。"><a href="#支持向量机（SVM）：即寻找到一个超平面使样本分成两类，并且间隔最大。" class="headerlink" title="支持向量机（SVM）：即寻找到一个超平面使样本分成两类，并且间隔最大。"></a>支持向量机（SVM）：<strong>即寻找到一个超平面使样本分成两类，并且间隔最大。</strong></h4><h3 id="作用：能够执行线性或非线性分类、回归，甚至是异常值检测任务，适用于中小型复杂数据集的分类。"><a href="#作用：能够执行线性或非线性分类、回归，甚至是异常值检测任务，适用于中小型复杂数据集的分类。" class="headerlink" title="作用：能够执行线性或非线性分类、回归，甚至是异常值检测任务，适用于中小型复杂数据集的分类。"></a>作用：能够执行线性或非线性分类、回归，甚至是异常值检测任务，适用于中小型复杂数据集的分类。</h3><h3 id="支持向量机作用：SVM就是试图分来的最佳位置，试图让两边的的间隙更大。"><a href="#支持向量机作用：SVM就是试图分来的最佳位置，试图让两边的的间隙更大。" class="headerlink" title="支持向量机作用：SVM就是试图分来的最佳位置，试图让两边的的间隙更大。"></a>支持向量机作用：<strong>SVM就是试图分来的最佳位置，试图让两边的的间隙更大。</strong></h3><ul>
+<li>SVM的优点：<ul>
+<li>在高维空间中非常高效；</li>
+<li>即使在数据维度比样本数量大的情况下仍然有效；</li>
+<li>在决策函数（称为支持向量）中使用训练集的子集,因此它也是高效利用内存的；</li>
+<li>通用性：不同的核函数与特定的决策函数一一对应；</li>
+</ul>
+</li>
+<li>SVM的缺点：<ul>
+<li>如果特征数量比样本数量大得多，在选择核函数时要避免过拟合；</li>
+<li>对缺失数据敏感;</li>
+<li>对于核函数的高维映射解释力不强</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>from sklearn import <strong>svm</strong></td>
+<td>支持向量机</td>
+</tr>
+<tr>
+<td>svm.SVC()</td>
+<td>运用这个才能构建模型</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="1：支持向量机的分类方法：SVC、NuSVC、LinearSVC"><a href="#1：支持向量机的分类方法：SVC、NuSVC、LinearSVC" class="headerlink" title="1：支持向量机的分类方法：SVC、NuSVC、LinearSVC"></a>1：支持向量机的分类方法：SVC、NuSVC、LinearSVC</h2><ul>
+<li><h3 id="分类型：SVC，NuSVC、LinearSVC："><a href="#分类型：SVC，NuSVC、LinearSVC：" class="headerlink" title="分类型：SVC，NuSVC、LinearSVC："></a>分类型：SVC，NuSVC、LinearSVC：</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>class sklearn.<strong>svm.SVC</strong>(C=1.0, kernel=’rbf’, degree=3,coef0=0.0,random_state=None)</td>
+<td><strong>C</strong>: 惩罚系数，用来控制损失函数的惩罚系数，类似于线性回归中的正则化系数。  C越大，相当于惩罚松弛变量，希望松弛变量接近0，即<strong>对误分类的惩罚增大</strong>，趋向于对训练集全分对的情况，这样会出现训练集测试时准确率很高，但泛化能力弱，容易导致过拟合。  C值小，<strong>对误分类的惩罚减小</strong>，容错能力增强，泛化能力较强，但也可能欠拟合。                                                                                               <strong>kernel</strong>: 算法中采用的核函数类型，核函数是用来将非线性问题转化为线性问题的一种方法。  参数选择有RBF, Linear, Poly, Sigmoid或者自定义一个核函数。  默认的是”RBF”，即径向基核，也就是高斯核函数； 而Linear指的是线性核函数， Poly指的是多项式核， Sigmoid指的是双曲正切函数tanh核；。                                                             <strong>degree:</strong>  当指定kernel为’poly’时，表示选择的多项式的最高次数，默认为三次多项式； 若指定kernel不是’poly’，则忽略，即该参数只对’poly’有用。  多项式核函数是将低维的输入空间映射到高维的特征空间。                             <strong>coef0:</strong> 核函数常数值(y=kx+b中的b值)，  只有‘poly’和‘sigmoid’核函数有，默认值是0。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>NuSVC</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>class sklearn.<strong>svm.NuSVC</strong>(nu=0.5)</td>
+<td><strong>nu：</strong> 训练误差部分的上限和支持向量部分的下限，取值在（0，1）之间，默认是0.5</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>确定要用线性分类就会用到：<strong>LinearSVC</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>class sklearn.<strong>svm.LinearSVC</strong>(penalty=’l2’, loss=’squared_hinge’, dual=True, C=1.0)</td>
+<td><strong>penalty：</strong>正则化参数，  L1和L2两种参数可选，仅LinearSVC有。                                                                           **loss:**损失函数，  有hinge和squared_hinge两种可选，前者又称L1损失，后者称为L2损失，默认是squared_hinge， 其中hinge是SVM的标准损失，squared_hinge是hinge的平方 ，优化的平滑一些       **dual:**是否转化为对偶问题求解，默认是True。                                                                             **C:**惩罚系数，  用来控制损失函数的惩罚系数，类似于线性回归中的正则化系数。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>程序流程：<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/1.png' height=400px ></p>
+<p>球—— <strong>「data」数据</strong></p>
+<p>棍子—— <strong>「classifier」分类</strong></p>
+<p>最大间隙——<strong>「optimization」最优化</strong></p>
+<p>拍桌子——<strong>「kernelling」核方法</strong></p>
+<p>纸——<strong>「hyperplane」超平面</strong></p>
+<h3 id="1-13-硬间隔和软间隔：一个决定分对，一个可以有错误"><a href="#1-13-硬间隔和软间隔：一个决定分对，一个可以有错误" class="headerlink" title="1.13 硬间隔和软间隔：一个决定分对，一个可以有错误"></a>1.13 硬间隔和软间隔：一个决定分对，一个可以有错误</h3><ul>
+<li><h5 id="硬间隔：严格地让所有实例都不在最大间隔之间，并且位于正确的一边，这就是硬间隔分类。"><a href="#硬间隔：严格地让所有实例都不在最大间隔之间，并且位于正确的一边，这就是硬间隔分类。" class="headerlink" title="硬间隔：严格地让所有实例都不在最大间隔之间，并且位于正确的一边，这就是硬间隔分类。"></a>硬间隔：严格地让所有实例都不在最大间隔之间，并且位于正确的一边，这就是硬间隔分类。</h5><ul>
+<li>数据是线性的时候可以有效</li>
+<li>特别受异常值影响</li>
+</ul>
+</li>
+<li><p><strong>软间隔：目标是尽可能在保持最大间隔宽阔和限制间隔违例（即位于最大间隔之上，甚至在错误的一边的实例）之间找到良好的平衡</strong>，这就是软间隔分类，通过c值确定</p>
+<ul>
+<li><h4 id="C：惩罚因子：调节超平面宽度"><a href="#C：惩罚因子：调节超平面宽度" class="headerlink" title="C：惩罚因子：调节超平面宽度"></a>C：惩罚因子：调节超平面宽度</h4><ul>
+<li>c值越小，间隔越大，反之，越大，间隔越小</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-1线性支持向量机公式："><a href="#2-1线性支持向量机公式：" class="headerlink" title="2.1线性支持向量机公式："></a>2.1线性支持向量机公式：</h3><h4 id="支持向量：在虚线上的点就是支持向量"><a href="#支持向量：在虚线上的点就是支持向量" class="headerlink" title="支持向量：在虚线上的点就是支持向量"></a>支持向量：在虚线上的点就是支持向量</h4><h4 id="超平面：的划分是被法向量（w）和位移（b）所确定：记者（w，b）"><a href="#超平面：的划分是被法向量（w）和位移（b）所确定：记者（w，b）" class="headerlink" title="超平面：的划分是被法向量（w）和位移（b）所确定：记者（w，b）"></a>超平面：的划分是被法向量（w）和位移（b）所确定：记者（w，b）</h4><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/2.png' height=400px >
+
+<ul>
+<li><p>上面的公式x（为向量）</p>
+</li>
+<li><h4 id="超平面公式：线性可分训练集，间隔最大得到超平面通过这个式子求出w和b"><a href="#超平面公式：线性可分训练集，间隔最大得到超平面通过这个式子求出w和b" class="headerlink" title="超平面公式：线性可分训练集，间隔最大得到超平面通过这个式子求出w和b"></a><strong>超平面公式</strong>：线性可分训练集，间隔最大得到超平面<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/3.png' height=px >通过这个式子求出w和b</h4><ul>
+<li>x：为样本</li>
+<li>w：为法向量决定超平面的方向，</li>
+<li>b：为位移项，决定了超平面和原点之间的距离。</li>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/4.png' height=px >这个核函数，核方法，这个可以从低维升到高维，达到分割的内容</li>
+</ul>
+</li>
+<li><h4 id="分类的公式：这个进行分类，上面的-1，下面的1"><a href="#分类的公式：这个进行分类，上面的-1，下面的1" class="headerlink" title="分类的公式：这个进行分类，上面的-1，下面的1"></a><strong>分类的公式：</strong><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/5.png' height=px >这个进行分类，上面的-1，下面的1</h4><ul>
+<li><strong>膜</strong>：x样本到超平面的距离：下面为计算公式<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/6.png' height=px ></li>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/7.png' height=px ></li>
+<li>目的：上式进行的判断：让-1的样本都在上边，1的样本都在下边</li>
+<li><strong>上下样本画曲线的距离：</strong>：<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/8.png' height=px >根据上式的yi等于1或-1，就形成这式的分子2</li>
+</ul>
+</li>
+<li><h4 id="要找出最大间隔划分超平面：就是要满足下式的约束的参数w和b，使得γ最大"><a href="#要找出最大间隔划分超平面：就是要满足下式的约束的参数w和b，使得γ最大" class="headerlink" title="要找出最大间隔划分超平面：就是要满足下式的约束的参数w和b，使得γ最大"></a><strong>要找出最大间隔划分超平面</strong>：就是要满足下式的约束的参数w和b，使得γ最大<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/9.png' height=px ></h4><ul>
+<li><strong>目标函数</strong>：上式相乘<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/10.png' height=px >永远大于1，<strong>变形为</strong><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/11.png' height=px >在这个式子大于等于1时能取到<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/12.png' height=px >最大，让这个式子得到了最大，就是要把分子最小，转化为<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/13.png' height=px >这是目标函数但是要被约束<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/14.png' height=px >这样就确定的下来了。</li>
+</ul>
+</li>
+<li><h3 id="有了式求最小值再进行求出w，b数，就要用到拉格朗日和对偶问题："><a href="#有了式求最小值再进行求出w，b数，就要用到拉格朗日和对偶问题：" class="headerlink" title="有了式求最小值再进行求出w，b数，就要用到拉格朗日和对偶问题："></a>有了式求最小值再进行求出w，b数，就要用到拉格朗日和对偶问题：</h3><ul>
+<li><strong>拉格朗日</strong>：就是把上面的目标函数和约束式进行组到一起形成拉格朗日<ul>
+<li>就是形成<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/15.png' height=px ><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/16.png' height=px ></li>
+<li>第一个减：为什么式减是因为求的式最小值，第二节式子最小值也就是0:因为它一直也是大于等于1的<ul>
+<li>把第二的式子为极小中的极大问题，调用对偶来进行求解</li>
+</ul>
+</li>
+<li><strong>对偶问题：</strong>就是一个转化问题，就是要把极大值里面的极小值等价为极小值里面的极大值</li>
+<li>下面推到公式演算</li>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/17.png' height=px ><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/18.png' height=px >这是式子有两个约束的条件：等于0，和ai大于等于0</li>
+<li>上式变成：<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/19.png' height=px >与上式进行去负号就形成的极小值</li>
+<li>求出式子α*代入计算w，b<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/20.png' height=px ><ul>
+<li>求出超平面<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/21.png' height=px ></li>
+<li>求得分类决策函数：<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/22.png' height=px ></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="举个例子："><a href="#举个例子：" class="headerlink" title="举个例子："></a>举个例子：</h3><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/23.png' height=px >
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/24.png' height=px >
+
+
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/25.png' height=px >
+
+<p>![1614779383937]<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/26.png' height=px ></p>
+<h3 id="支持向量机损失函数"><a href="#支持向量机损失函数" class="headerlink" title="支持向量机损失函数"></a>支持向量机损失函数</h3><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/27.png' height=px >
+
+<ul>
+<li><p><strong>0，1损失</strong>：分对了不管多近都是正确的，分错了不管多近就是错误</p>
+</li>
+<li><p><strong>主要为：蓝色：SVM Hinge损失函数</strong>：落在y=1时：误差为0，落在y=0上误差为1，落在上面为负时0.5，误差为1.5</p>
+</li>
+<li><p><strong>红色：Logistic损失函数</strong>别人家的孩子：<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/28.png' height=px >yi=0损失为1，损失过了（0,1）点</p>
+<ul>
+<li>让它越来越好，泛化性就不好了，形成了过拟合、</li>
+</ul>
+<h2 id="3-0：核函数：是将原始输入空间映射到新的特征空间，从而，使得原本线性不可分的样本可能在核空间可分"><a href="#3-0：核函数：是将原始输入空间映射到新的特征空间，从而，使得原本线性不可分的样本可能在核空间可分" class="headerlink" title="3.0：核函数：是将原始输入空间映射到新的特征空间，从而，使得原本线性不可分的样本可能在核空间可分"></a>3.0：核函数：是将原始输入空间映射到新的特征空间，从而，使得原本线性不可分的样本可能在核空间可分</h2></li>
+</ul>
+<p>核函数：把低维的数据映射到高维中把样本分割出来</p>
+<p>核函数作用：一个从低维空间到高维空间的映射，这种映射可以把低维空间中线性不可分的两类点变成线性可分的。</p>
+<p>核函数的转变</p>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/29.png' height=px >
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/30.png' height=px >
+
+<h3 id="3-1常见的核函数："><a href="#3-1常见的核函数：" class="headerlink" title="3.1常见的核函数："></a>3.1常见的核函数：</h3><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/31.png' height=px >
+
+<h4 id="3-12：线性核和多项式核："><a href="#3-12：线性核和多项式核：" class="headerlink" title="3.12：线性核和多项式核："></a>3.12：线性核和多项式核：</h4><h4 id="样本点就是支持向量点就是虚线上的点，这里的该点是虚线外的点"><a href="#样本点就是支持向量点就是虚线上的点，这里的该点是虚线外的点" class="headerlink" title="样本点就是支持向量点就是虚线上的点，这里的该点是虚线外的点"></a>样本点就是支持向量点就是虚线上的点，这里的该点是虚线外的点</h4><p>找最大的距离!<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/32.png' height=px >)</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/33.png' height=px ></h4><ul>
+<li>这两种核的作用也是首先在属性空间中找到一些点，把这些点当做base，核函数的作用就是找与该点距离和角度满足某种关系的样本点。</li>
+<li>样本点与该点的夹角近乎垂直时，欧式长度必须非常长才能保证满足线性核函数大于0，当样本点与base点的方向相同时，长度就不必很长；而当方向相反时，核函数值就是负的，被判为反类。即，它在空间上划分出一个梭形，按照梭形来进行正反类划分</li>
+</ul>
+<h3 id="3-13：最常用RBF核：RBF核参数多，分类结果非常依赖于参数，需要交叉验证或网格搜索最佳参数，比较耗时；"><a href="#3-13：最常用RBF核：RBF核参数多，分类结果非常依赖于参数，需要交叉验证或网格搜索最佳参数，比较耗时；" class="headerlink" title="3.13：最常用RBF核：RBF核参数多，分类结果非常依赖于参数，需要交叉验证或网格搜索最佳参数，比较耗时；"></a>3.13：最常用RBF核：RBF核参数多，分类结果非常依赖于参数，需要交叉验证或网格搜索最佳参数，比较耗时；</h3><ul>
+<li>高斯核函数就是在属性空间中找到一些点，这些点可以是也可以不是样本点，把这些点当做base，以这些base为圆心向外扩展，扩展半径即为带宽，即可划分数据。</li>
+<li>换句话说，在属性空间中找到一些超圆，用这些超圆来判定正反类。</li>
+</ul>
+<h4 id="3-14：sigmoid核："><a href="#3-14：sigmoid核：" class="headerlink" title="3.14：sigmoid核："></a>3.14：sigmoid核：</h4><ul>
+<li>同样地是定义一些base，</li>
+<li>核函数就是将线性核函数经过一个tanh函数进行处理，把值域限制在了-1到1上。</li>
+</ul>
+<p>总之，都是在定义距离，大于该距离，判为正，小于该距离，判为负。至于选择哪一种核函数，要根据具体的样本分布情况来确定。</p>
+<h4 id="核函数的应用"><a href="#核函数的应用" class="headerlink" title="核函数的应用"></a>核函数的应用</h4><table>
+<thead>
+<tr>
+<th></th>
+<th>特征数量少</th>
+<th>特征数一般</th>
+<th><strong>特征数量大</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>**样本少 **</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>样本一般</strong></td>
+<td>选用RBF核；</td>
+<td></td>
+<td>线性可分，这时选用LR或者线性核Linear；</td>
+</tr>
+<tr>
+<td><strong>样本多</strong></td>
+<td>手动添加一些特征，使得线性可分，然后选用LR或者线性核Linear；</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="4：SVM回归：就是让更多的点落在间隔之间：是让尽可能多的实例位于预测线上，同时限制间隔违例"><a href="#4：SVM回归：就是让更多的点落在间隔之间：是让尽可能多的实例位于预测线上，同时限制间隔违例" class="headerlink" title="4：SVM回归：就是让更多的点落在间隔之间：是让尽可能多的实例位于预测线上，同时限制间隔违例"></a>4：SVM回归：就是让更多的点落在间隔之间：是让尽可能多的实例位于预测线上，同时限制间隔违例</h2><p>线距的宽度由超参数ε控制：这个值越大就越宽，越小就越窄</p>
+<h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>朴素贝叶斯算法，拉普拉斯平滑</title>
+    <url>/2020/01/04/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%AE%97%E6%B3%95%EF%BC%8C%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%B9%B3%E6%BB%91/</url>
+    <content><![CDATA[<h2 id="朴素贝叶斯算法：通过概率判断属于哪个类别"><a href="#朴素贝叶斯算法：通过概率判断属于哪个类别" class="headerlink" title="朴素贝叶斯算法：通过概率判断属于哪个类别"></a>朴素贝叶斯算法：通过概率判断属于哪个类别</h2><h4 id="朴素贝叶斯：是生成式模型，逻辑回归是判别模型"><a href="#朴素贝叶斯：是生成式模型，逻辑回归是判别模型" class="headerlink" title="朴素贝叶斯：是生成式模型，逻辑回归是判别模型"></a>朴素贝叶斯：是生成式模型，逻辑回归是判别模型</h4><h4 id="朴素贝叶斯适用于数据集少的情景"><a href="#朴素贝叶斯适用于数据集少的情景" class="headerlink" title="朴素贝叶斯适用于数据集少的情景"></a>朴素贝叶斯适用于数据集少的情景</h4><h4 id="1-2：联合概率，条件概率与相互独立"><a href="#1-2：联合概率，条件概率与相互独立" class="headerlink" title="1.2：联合概率，条件概率与相互独立"></a>1.2：联合概率，条件概率与相互独立</h4><ul>
+<li>联合概率：包含多个条件，且所有相同成立的概率：记作：P(A,B)</li>
+<li>条件概率：就是事件A在另外一个事件B已经发生条件下的发生概率记作：P(A|B)</li>
+<li>相互独立：如果P(A, B) = P(A)P(B)，则称事件A与事件B相互独立。</li>
+<li>朴素贝叶斯，简单理解，就是<strong>假定了特征与特征之间相互独立的贝叶斯公式</strong>。</li>
+<li>也就是说，朴素贝叶斯，<strong>之所以朴素，就在于假定了特征与特征相互独立。</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sklearn.naive_bayes.<strong>MultinomialNB</strong>(alpha = 1.0)</td>
+<td><strong>朴素贝叶斯分类</strong>：                                                    alpha：拉普拉斯平滑系数</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="1-31：如果样本过少的话，没有取到值有可能会有数值为0，可以用拉普拉斯平滑系数解决"><a href="#1-31：如果样本过少的话，没有取到值有可能会有数值为0，可以用拉普拉斯平滑系数解决" class="headerlink" title="1.31：如果样本过少的话，没有取到值有可能会有数值为0，可以用拉普拉斯平滑系数解决"></a>1.31：如果样本过少的话，没有取到值有可能会有数值为0，可以用拉普拉斯平滑系数解决</h4><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%AE%97%E6%B3%95.png' height=px >
+
+
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E5%BC%8F.png' height=px >
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/1614756866727.png' height=px >
+
+<h3 id="1-32：如果运用的是运用的数据类型的案例：计算测试属于哪个类别"><a href="#1-32：如果运用的是运用的数据类型的案例：计算测试属于哪个类别" class="headerlink" title="1.32：如果运用的是运用的数据类型的案例：计算测试属于哪个类别"></a>1.32：如果运用的是运用的数据类型的案例：计算测试属于哪个类别</h3><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E8%AE%A1%E7%AE%97%E6%AD%A5%E9%AA%A4.png' height=px >
+
+
+
+<h3 id="1-4：拉普拉斯平滑系数：系数加上1"><a href="#1-4：拉普拉斯平滑系数：系数加上1" class="headerlink" title="1.4：拉普拉斯平滑系数：系数加上1"></a>1.4：拉普拉斯平滑系数：系数加上1</h3><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E5%B9%B3%E6%BB%91%E5%85%AC%E5%BC%8F.png' height=px >
+
+<h2 id="朴素贝叶斯优缺点"><a href="#朴素贝叶斯优缺点" class="headerlink" title="朴素贝叶斯优缺点"></a>朴素贝叶斯优缺点</h2><ul>
+<li>优点：<ul>
+<li>朴素贝叶斯模型发源于古典数学理论，<strong>有稳定的分类效率</strong></li>
+<li>对<strong>缺失数据不太敏感</strong>，算法也比较简单，<strong>常用于文本分类</strong></li>
+<li>分类准确度高，速度快</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>由于使用了样本属性独立性的假设，所以<strong>如果特征属性有关联时其效果不好</strong></li>
+<li>需要计算先验概率，而先验概率很多时候取决于假设，假设的模型可以有很多种，因此<strong>在某些时候会由于假设的先验模型的原因导致预测效果不佳</strong>；</li>
+</ul>
+</li>
+</ul>
+<h2 id="朴素贝叶斯与逻辑回归的区别？"><a href="#朴素贝叶斯与逻辑回归的区别？" class="headerlink" title="朴素贝叶斯与逻辑回归的区别？"></a><strong>朴素贝叶斯与逻辑回归的区别？</strong></h2><p>朴素贝叶斯是生成模型，</p>
+<ul>
+<li>根据已有样本进行贝叶斯估计学习出先验概率P(Y)和条件概率P(X|Y)，</li>
+<li>进而求出联合分布概率P(XY),</li>
+<li>最后利用贝叶斯定理求解P(Y|X)， </li>
+</ul>
+<p>而逻辑回归是判别模型，</p>
+<ul>
+<li>根据极大化对数似然函数直接求出条件概率P(Y|X)；</li>
+</ul>
+<p><strong>前者是生成式模型，后者是判别式模型</strong>，二者的区别就是生成式模型与判别式模型的区别。</p>
+<ul>
+<li>首先，Navie Bayes通过已知样本求得先验概率P(Y), 及条件概率P(X|Y), 对于给定的实例，计算联合概率，进而求出后验概率。也就是说，它尝试去找到底这个数据是怎么生成的（产生的），然后再进行分类。哪个类别最有可能产生这个信号，就属于那个类别。<ul>
+<li>优点： 样本容量增加时，收敛更快；隐变量存在时也可适用。</li>
+<li>缺点：时间长；需要样本多；浪费计算资源</li>
+</ul>
+</li>
+<li>相比之下，Logistic回归不关心样本中类别的比例及类别下出现特征的概率，它直接给出预测模型的式子。设每个特征都有一个权重，训练样本数据更新权重w，得出最终表达式。</li>
+</ul>
+<img src='' height=px >]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -1691,6 +2264,725 @@ test_x形状<span class="token punctuation">:</span>  <span class="token punctua
       </categories>
       <tags>
         <tag>猫狗分类</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>逻辑回归</title>
+    <url>/2019/07/04/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/</url>
+    <content><![CDATA[<h2 id="1：逻辑回归：属于2分类模型"><a href="#1：逻辑回归：属于2分类模型" class="headerlink" title="1：逻辑回归：属于2分类模型"></a>1：逻辑回归：属于2分类模型</h2><h4 id="1-1：逻辑回归性质：通过属于某个类别的概率值判断是否属于某个类别，1位正例，0为反例"><a href="#1-1：逻辑回归性质：通过属于某个类别的概率值判断是否属于某个类别，1位正例，0为反例" class="headerlink" title="1.1：逻辑回归性质：通过属于某个类别的概率值判断是否属于某个类别，1位正例，0为反例"></a>1.1：逻辑回归性质：通过属于某个类别的概率值判断是否属于某个类别，1位正例，0为反例</h4><h3 id="似然损失的意义：通过对数似然损失来衡量来与真实是进行"><a href="#似然损失的意义：通过对数似然损失来衡量来与真实是进行" class="headerlink" title="似然损失的意义：通过对数似然损失来衡量来与真实是进行"></a>似然损失的意义：通过对数似然损失来衡量来与真实是进行</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>from sklearn.linear_model import  <strong>LogisticRegression</strong></td>
+<td><strong>逻辑回归</strong></td>
+</tr>
+<tr>
+<td><strong>.LogisticRegression</strong>(solver=’liblinear’, penalty=‘l2’, C = 1.0)</td>
+<td><strong>solver</strong>：可选参数:{‘liblinear’, ‘sag’, ‘saga’,’newton-cg’, ‘lbfgs’}，                                        ●默认: ‘liblinear’；用于优化问题的算法。                                                   ●对于小数据集来说，“liblinear”是个不错的选择，而“sag”和’saga’                                                      ●对于大型数据集会更快。 对于多类问题，只有’newton-cg’， ‘sag’， ‘saga’和’lbfgs’可以处理多项损失;“liblinear”仅限于“one-versus-rest”分类。                                                                                          <strong>penalty</strong>：正则化的种类                                                                                              <strong>C</strong>：正则化力度</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>LogisticRegression方法相当于 SGDClassifier(loss=”log”, penalty=” “),SGDClassifier实现了一个普通的随机梯度下降学习。而使用LogisticRegression(实现了SAG)</strong></p>
+<h4 id="1-21：输入公式："><a href="#1-21：输入公式：" class="headerlink" title="1.21：输入公式："></a>1.21：输入公式：</h4><h4 id=""><a href="#" class="headerlink" title=""></a><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/9.png' height=px ></h4><h4 id="1-22：输出：基于阈值进行判断，进行分类"><a href="#1-22：输出：基于阈值进行判断，进行分类" class="headerlink" title="1.22：输出：基于阈值进行判断，进行分类"></a>1.22：输出：基于阈值进行判断，进行分类</h4><h4 id="1-3：激活函数：把上面的公式通过导入激活函数中把数据变成了（0-1）之前的数据形成，大于0-5判断为A类，小于0-5为B类），以0-5为阈值"><a href="#1-3：激活函数：把上面的公式通过导入激活函数中把数据变成了（0-1）之前的数据形成，大于0-5判断为A类，小于0-5为B类），以0-5为阈值" class="headerlink" title="1.3：激活函数：把上面的公式通过导入激活函数中把数据变成了（0,1）之前的数据形成，大于0.5判断为A类，小于0.5为B类），以0.5为阈值"></a>1.3：激活函数：把上面的公式通过导入激活函数中把数据变成了（0,1）之前的数据形成，大于0.5判断为A类，小于0.5为B类），以0.5为阈值</h4><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/1.png' height=px >
+
+<h4 id="1-4：似然损失："><a href="#1-4：似然损失：" class="headerlink" title="1.4：似然损失："></a>1.4：似然损失：</h4><ul>
+<li><p>似然损失的公式：就是用预测值经过激活函数变成（0，1）范围值，当真实函数为0时那么综合函数中的前半部分为0，只计算后半部分中的值，如果为1时，后半部分也为0了，只计算前半部分中的综合值<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/2.png' height=px ></p>
+</li>
+<li><p>无论何时，我们都希望<strong>损失函数值，越小越好</strong></p>
+<p>分情况讨论，对应的损失函数值：</p>
+<ul>
+<li><strong>当y（真实值）=1时，我们希望hθ(x)（预测值）值越大越好；</strong></li>
+<li><strong>当y=0（真实值）时，我们希望hθ(x)（预测值）值越小越好</strong></li>
+</ul>
+</li>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/3.png' height=px ></li>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/4.png' height=px ></li>
+<li><p>，<strong>提升原本属于1类别的概率是1类别的提升log（）里面的数值，降低原本是0类别的概率，减少log（）里面的数值。</strong></p>
+</li>
+</ul>
+<h2 id="2：类别不平衡数据集"><a href="#2：类别不平衡数据集" class="headerlink" title="2：类别不平衡数据集"></a>2：类别不平衡数据集</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>生成不均衡样本数据集</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>from sklearn.datasets import **make_classification **</td>
+<td><strong>生成不均衡样本数据集</strong></td>
+</tr>
+<tr>
+<td><strong>make_classification</strong>()</td>
+<td>X, y = <strong>make_classification</strong>(                                               **n_samples=**数值： 生成多少个数据                                                   <strong>n_features=数值</strong>：生成多少和特征数  # 特征个数= n_informative（） + n_redundant + n_repeated                                                                                      n_informative=2， 多信息特征的个数                                                                     <strong>n_redundant=0</strong>：冗余信息，informative特征的随机线性组合                                                                             <strong>n_repeated=0</strong>,  # 重复信息，随机提取n_informative和n_redundant 特征                                                              **n_classes=**数值： 分类类别数量                                                                                <strong>n_clusters_per_class=1</strong>,  # 某一个类别是由几个cluster构成的                                                                                          <strong>weights=</strong>[0.01, 0.05, 0.94]：列表类型，权重比 相加等于1，这个是3个类别，里面的数值是每一个类别的占比多少                                                                                 <strong>random_state=0</strong>)</td>
+</tr>
+<tr>
+<td><strong>查看数据样本</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>from collections import <strong>Counter</strong></td>
+<td>Counter(y)：查看数据样本</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>解决样本不均衡问题</strong></td>
+<td><strong>过采样方法</strong>，<strong>欠采样方法</strong></td>
+</tr>
+<tr>
+<td><strong>过采样方法</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>from imblearn.over_sampling import <strong>RandomOverSampler</strong></td>
+<td><strong>过采样方法</strong></td>
+</tr>
+<tr>
+<td>用法：<strong>RandomOverSampler</strong>(random_state=0)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>过采样代表性算法-SMOTE</strong></td>
+<td>随机过采样方法</td>
+</tr>
+<tr>
+<td>from imblearn.over_sampling import <strong>SMOTE</strong></td>
+<td>使用<strong>过采样代表性算法-SMOTE</strong>用k近邻中的线随机点</td>
+</tr>
+<tr>
+<td>用法：<strong>SMOTE</strong>().fit_resample(X, y)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>欠采样方法</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>from imblearn.under_sampling import <strong>RandomUnderSampler</strong></td>
+<td>去<strong>除一些多数类中的样本使得正例、反例数目接近，然后再进行学习。</strong></td>
+</tr>
+<tr>
+<td>用法：<strong>RandomUnderSampler</strong>(random_state=0)</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="2-1：解决办法"><a href="#2-1：解决办法" class="headerlink" title="2.1：解决办法"></a>2.1：解决办法</h3><ul>
+<li><h3 id="过采样方法"><a href="#过采样方法" class="headerlink" title="过采样方法"></a>过采样方法</h3><ul>
+<li>增加数量较少那一类样本的数量，使得正负样本比例均衡。</li>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/6.png' height=px ></li>
+<li><strong>缺点</strong>：<ul>
+<li>对于随机过采样，由于需要对少数类样本进行复制来扩大数据集，<strong>造成模型训练复杂度加大</strong>。</li>
+<li>容易<strong>造成模型的过拟合问题</strong>，因为随机过采样是简单的对初始样本进行复制采样，这就使得学习器学得的规则过于具体化，不利于学习器的泛化性能，造成过拟合问题。</li>
+<li><strong>解决随机过采样中造成模型过拟合问题</strong>:<ul>
+<li>过采样法代表性的算法<strong>SMOTE算法</strong>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>SMOTE算法是为了解决随机过采样造成的拟合</strong>：和最近邻中随机一个点进行连线，在连线上在随机选一个点进行提取形成少数类样</li>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/7.png' height=px ></li>
+</ul>
+</li>
+<li><p><strong>欠采样方法</strong>：去<strong>除一些多数类中的样本使得正例、反例数目接近，然后再进行学习。</strong></p>
+<ul>
+<li>减少数量较多那一类样本的数量，使得正负样本比例均衡。</li>
+</ul>
+</li>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/8.png' height=px >
+
+<ul>
+<li><strong>缺点</strong>：<ul>
+<li><strong>多数类样本删除有可能会导致分类器丢失有关多数类的重要信息。</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="3：分类评估方法："><a href="#3：分类评估方法：" class="headerlink" title="3：分类评估方法："></a>3：分类评估方法：</h2><p><strong>准确率</strong>：是指有在所有的判断中有多少判断正确的，即把正的判断为正的，还有把负的判断为负的；总共有 TP + FN + FP + TN 个，所以准确率：Acc = (TP+TN) / (TP+TN+FN+FP)</p>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/5.png' height=px >
+
+<p><strong>准确率</strong>：                                                           （TP+TN）/  (TP+FN+FP+TN),全部的加起来，与预测对的占比了多少</p>
+<p><strong>精确率</strong>   准不准：                                               (TP)  /  (TP+FP),   真正例与伪正例占比</p>
+<p><strong>召回率</strong>（TPR）:预测对的曲线，全不全：      （TP）/  (TP+FN)  真实值里面预测的占比</p>
+<p>FPR <strong>预测错的曲线</strong>                                                FP / (FP + TN):所有真实类别为0的样本中，预测类别为1的比例</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>from  sklearn.metrics  import    <strong>classification_report</strong></td>
+<td><strong>精确率召回率等分类评估</strong></td>
+</tr>
+<tr>
+<td>sklearn.metrics.<strong>classification_report</strong>(y_true, y_pred, labels=[数值，数值], target_names=（“名字1，名字2”） )</td>
+<td><strong>精确率召回率等指标</strong>                                                                             <strong>y_true</strong>：真实目标值                                                                             <strong>y_pred</strong>：估计器预测目标值                                                             <strong>labels</strong>:指定类别对应的数字,目标值里面对应的类别划分 ： 数值（）对应的名字1，数值（）对应的名字2.                                                         <strong>target_names</strong>：目标类别名称，如良品和不良品                                                       <strong>return</strong>：每个类别精确率与召回率</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="AUC评估只能评估二分类问题，遇到不均衡的数据时用这种检测更好："><a href="#AUC评估只能评估二分类问题，遇到不均衡的数据时用这种检测更好：" class="headerlink" title="AUC评估只能评估二分类问题，遇到不均衡的数据时用这种检测更好："></a>AUC评估只能评估二分类问题，遇到不均衡的数据时用这种检测更好：</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>from sklearn.metrics import <strong>roc_auc_score</strong></td>
+<td><strong>AUC</strong>评估：5左右的就是瞎说，没有什么</td>
+</tr>
+<tr>
+<td>klearn.metrics.<strong>roc_auc_score</strong>(y_true, y_score)</td>
+<td>计算ROC曲线面积，即AUC值                                                                                y_true：每个样本的真实类别，必须为0(反例),1(正例)标记                                                                            y_score：预测得分，可以是正类的估计概率、置信值或者分类器方法的返回值</td>
+</tr>
+<tr>
+<td>y_test = np.where(y_test &gt; 2.5, 1, 0)  print(“AUC指标：”, <strong>roc_auc_score</strong>(y_test,预测值)</td>
+<td>先进行分类的转换，转换值与预测值形成AUC指标</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>聚类算法,降维</title>
+    <url>/2020/10/04/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95-%E9%99%8D%E7%BB%B4/</url>
+    <content><![CDATA[<h2 id="聚类算法：使用不同的聚类准则，产生的聚类结果不同"><a href="#聚类算法：使用不同的聚类准则，产生的聚类结果不同" class="headerlink" title="聚类算法：使用不同的聚类准则，产生的聚类结果不同"></a>聚类算法：使用不同的聚类准则，产生的聚类结果不同</h2><h3 id="概念：一种典型的无监督算法，主要用于将相似的样本自动归到一个类别中。"><a href="#概念：一种典型的无监督算法，主要用于将相似的样本自动归到一个类别中。" class="headerlink" title="概念：一种典型的无监督算法，主要用于将相似的样本自动归到一个类别中。"></a>概念：一种典型的无监督算法，主要用于将相似的样本自动归到一个类别中。</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>from sklearn.datasets.samples_generator import <strong>make_blobs</strong></td>
+<td>**生成的聚类的数据集 **                                                                         n_samples:表示数据样本点个数,默认值100  n_features:表示数据的维度，默认值是2  centers:产生数据的中心点，默认值3  cluster_std：数据集的标准差，浮点数或者浮点数序列，默认值1.0  center_box：中心确定之后的数据边界，默认值(-10.0, 10.0)  shuffle ：洗乱，默认值是True  random_state:官网解释是随机生成器的种子</td>
+</tr>
+<tr>
+<td>from sklearn.metrics import <strong>calinski_harabaz_score</strong></td>
+<td><strong>评价聚类效果</strong></td>
+</tr>
+<tr>
+<td>sklearn.cluster.KMeans(n_clusters=8)</td>
+<td><strong>聚类算法模型</strong>：参数:                                                                                                             n_clusters:开始的聚类中心数量  整型，缺省值=8，生成的聚类数，即产生的质心（centroids）数。</td>
+</tr>
+<tr>
+<td>estimator.fit_predict(x)</td>
+<td>计算聚类中心并预测每个样本属于哪个类别,相当于先调用fit(x),然后再调用predict(x)</td>
+</tr>
+<tr>
+<td>estimator.predict(x)</td>
+<td>输出的预测值</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="1-2：k-means："><a href="#1-2：k-means：" class="headerlink" title="1.2：k-means："></a><strong>1.2：k-means：</strong></h3><ul>
+<li><h4 id="K-初始中心点个数（计划聚类数）"><a href="#K-初始中心点个数（计划聚类数）" class="headerlink" title="K : 初始中心点个数（计划聚类数）"></a>K : 初始中心点个数（计划聚类数）</h4></li>
+<li><h4 id="means：求中心点到其他数据点距离的平均值"><a href="#means：求中心点到其他数据点距离的平均值" class="headerlink" title="means：求中心点到其他数据点距离的平均值"></a>means：求中心点到其他数据点距离的平均值</h4></li>
+</ul>
+<h3 id="1-3：模型评估："><a href="#1-3：模型评估：" class="headerlink" title="1.3：模型评估："></a>1.3：模型评估：</h3><h4 id="误差平方和：真实值和预测值的差，再进行平方，一起相加"><a href="#误差平方和：真实值和预测值的差，再进行平方，一起相加" class="headerlink" title="误差平方和：真实值和预测值的差，再进行平方，一起相加"></a>误差平方和：真实值和预测值的差，再进行平方，一起相加</h4><ul>
+<li><h4 id="SSE：误差平方和的值越小越好："><a href="#SSE：误差平方和的值越小越好：" class="headerlink" title="SSE：误差平方和的值越小越好："></a>SSE：误差平方和的值越小越好：</h4></li>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E8%81%9A%E7%B1%BB/1.png' height=px ></li>
+<li><p>ci：不同的族，p真实值：所有值的均值，</p>
+</li>
+<li><p>如果质心的初始值选择不好，sse只会达到局部最优解</p>
+</li>
+</ul>
+<h3 id="2-1肘”方法-Elbow-method-—-K值确定：下降率突然变缓时即认为是最佳的k值。"><a href="#2-1肘”方法-Elbow-method-—-K值确定：下降率突然变缓时即认为是最佳的k值。" class="headerlink" title="2.1肘”方法 (Elbow method) — K值确定：下降率突然变缓时即认为是最佳的k值。"></a><strong>2.1肘”方法 (Elbow method)</strong> — K值确定：<strong>下降率突然变缓时即认为是最佳的k值</strong>。</h3><h4 id="在决定什么时候停止训练时，肘形判据同样有效，数据通常有更多的噪音，在增加分类无法带来更多回报时，我们停止增加类别。"><a href="#在决定什么时候停止训练时，肘形判据同样有效，数据通常有更多的噪音，在增加分类无法带来更多回报时，我们停止增加类别。" class="headerlink" title="在决定什么时候停止训练时，肘形判据同样有效，数据通常有更多的噪音，在增加分类无法带来更多回报时，我们停止增加类别。"></a>在决定什么时候停止训练时，肘形判据同样有效，数据通常有更多的噪音，在<strong>增加分类无法带来更多回报时，我们停止增加类别</strong>。</h4><h2 id="3-1：轮廓系数法：-作用：内部距离最小化，外部距离最大化"><a href="#3-1：轮廓系数法：-作用：内部距离最小化，外部距离最大化" class="headerlink" title="3.1：轮廓系数法：   作用：内部距离最小化，外部距离最大化"></a>3.1：轮廓系数法：   作用：内部距离最小化，外部距离最大化</h2><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E8%81%9A%E7%B1%BB/2.png' height=px >
+
+<p>平均轮廓系数的取值范围为[-1,1]，系数越大，聚类效果越好，但是合理的系数也好，</p>
+<p>簇内样本的距离越近，簇间样本距离越远</p>
+<h2 id="4-1：CH系数：类别内部数据的距离平方和越小越好，类别之间的距离平方和越大越好"><a href="#4-1：CH系数：类别内部数据的距离平方和越小越好，类别之间的距离平方和越大越好" class="headerlink" title="4.1：CH系数：类别内部数据的距离平方和越小越好，类别之间的距离平方和越大越好"></a>4.1：CH系数：类别内部数据的距离平方和越小越好，类别之间的距离平方和越大越好</h2><p><strong>CH：用尽量少的类别聚类尽量多的样本，同时获得较好的聚类效果。</strong></p>
+<hr>
+<ul>
+<li><h3 id="CH系数公式："><a href="#CH系数公式：" class="headerlink" title="CH系数公式："></a>CH系数公式：</h3><ul>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E8%81%9A%E7%B1%BB/3.png' height=px ></li>
+</ul>
+</li>
+<li><p>矩阵的迹：矩阵的对角线可以表示一个物体的相似性，获取矩阵的迹，就可以表示这一块数据的最重要的特征了，这样就可以把很多无关紧要的数据删除掉，达到简化数据，提高处理速度。</p>
+</li>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E8%81%9A%E7%B1%BB/4.png' height=px ></li>
+</ul>
+<h2 id="5：聚类的算法的优化"><a href="#5：聚类的算法的优化" class="headerlink" title="5：聚类的算法的优化"></a>5：聚类的算法的优化</h2><h3 id="5-1：Canopy算法配合初始聚类：算法中-T1、T2的确定问题-，依旧可能落入局部最优解-，"><a href="#5-1：Canopy算法配合初始聚类：算法中-T1、T2的确定问题-，依旧可能落入局部最优解-，" class="headerlink" title="5.1：Canopy算法配合初始聚类：算法中 T1、T2的确定问题 ，依旧可能落入局部最优解 ，"></a>5.1：Canopy算法配合初始聚类：算法中 T1、T2的确定问题 ，依旧可能落入局部最优解 ，</h3><p>通过圆进行找到质心</p>
+<ul>
+<li><h3 id="Canopy粗聚类配合kmeans"><a href="#Canopy粗聚类配合kmeans" class="headerlink" title="Canopy粗聚类配合kmeans"></a>Canopy粗聚类配合kmeans</h3></li>
+<li><p><strong>随机选取1个质心</strong>，以这个为质心进行画圆T1圆，T2圆，分别标注里面圆的颜色。</p>
+</li>
+<li><p>再选择质心点是<strong>尽可能的选择远一点的，在T1,T2圆外</strong>，<strong>半径</strong>是随机指定的，在这些之外再进行画标注颜色，重复进行，所有点包含进去才进行终止</p>
+</li>
+</ul>
+<h3 id="5-2：K-means-：让选择的质心尽可能的分散"><a href="#5-2：K-means-：让选择的质心尽可能的分散" class="headerlink" title="5.2：K-means++：让选择的质心尽可能的分散"></a>5.2：K-means++：让选择的质心尽可能的分散</h3><p>通过距离找到质心</p>
+<h3 id="5-3：二分k-means，所有点作为一个簇，选择能最大限度降低聚类代价函数（也就是误差平方和）的簇划分为两个簇。"><a href="#5-3：二分k-means，所有点作为一个簇，选择能最大限度降低聚类代价函数（也就是误差平方和）的簇划分为两个簇。" class="headerlink" title="5.3：二分k-means，所有点作为一个簇，选择能最大限度降低聚类代价函数（也就是误差平方和）的簇划分为两个簇。"></a>5.3：二分k-means，所有点作为一个簇，选择能最大限度降低聚类代价函数（也就是误差平方和）的簇划分为两个簇。</h3><p>想树的过程</p>
+<ul>
+<li>拆除SSE最大的簇</li>
+</ul>
+<h3 id="5-4：k-medoids：对异常值的处理很好，小样本起作用"><a href="#5-4：k-medoids：对异常值的处理很好，小样本起作用" class="headerlink" title="5.4：k-medoids：对异常值的处理很好，小样本起作用"></a>5.4：k-medoids：对异常值的处理很好，小样本起作用</h3><ul>
+<li><strong>K-medoids中</strong>，将从当前cluster 中选取到其他所有（当前cluster中的）点的距离之和最小的点作为中心点。</li>
+<li><strong>k-medoids</strong>只能对小样本起作用，样本大，速度就太慢了，当样本多的时候，少数几个噪音对k-means的质心影响也没有想象中的那么重，所以k-means的应用明显比k-medoids多。</li>
+</ul>
+<h2 id="进行了解"><a href="#进行了解" class="headerlink" title="进行了解"></a>进行了解</h2><h3 id="5-5：Kernel-k-means：映射到高维空间"><a href="#5-5：Kernel-k-means：映射到高维空间" class="headerlink" title="5.5：Kernel k-means：映射到高维空间"></a>5.5：Kernel k-means：映射到高维空间</h3><h3 id="就是将每个样本进行一个投射到高维空间的处理，然后再将处理后的数据使用普通的k-means算法思想进行聚类。"><a href="#就是将每个样本进行一个投射到高维空间的处理，然后再将处理后的数据使用普通的k-means算法思想进行聚类。" class="headerlink" title="就是将每个样本进行一个投射到高维空间的处理，然后再将处理后的数据使用普通的k-means算法思想进行聚类。"></a>就是将每个样本进行一个投射到高维空间的处理，然后再将处理后的数据使用普通的k-means算法思想进行聚类。</h3><h3 id="5-6：ISODATA：动态聚类，可以更改K值大小"><a href="#5-6：ISODATA：动态聚类，可以更改K值大小" class="headerlink" title="5.6：ISODATA：动态聚类，可以更改K值大小"></a>5.6：ISODATA：动态聚类，可以更改K值大小</h3><ul>
+<li><p>对类别数会进行合并，分裂，</p>
+<p>“合并”：（当聚类结果某一类中样本数太少，或两个类间的距离太近时）</p>
+<p>“分裂”：（当聚类结果中某一类的类内方差太大，将该类进行分裂）</p>
+</li>
+</ul>
+<h3 id="5-7：Mini-Batch-K-Means：大数据集分批聚类"><a href="#5-7：Mini-Batch-K-Means：大数据集分批聚类" class="headerlink" title="5.7：Mini Batch K-Means：大数据集分批聚类"></a>5.7：Mini Batch K-Means：大数据集分批聚类</h3><p>也是可以落到局部最优解的，但是效率是最快的</p>
+<ul>
+<li><p>(1)从数据集中随机抽取一些数据形成小批量，把他们分配给最近的质心</p>
+<p>(2)更新质心</p>
+<p>​        与Kmeans相比，数据的更新在每一个小的样本集上。对于每一个小批量，通过计算平均值得到更新质心，并把小批量里的数据分配给该质心，随着迭代次数的增加，这些质心的变化是逐渐减小的，直到质心稳定或者达到指定的迭代次数，停止计算。</p>
+</li>
+</ul>
+<h2 id="6：特征降维，特征处理"><a href="#6：特征降维，特征处理" class="headerlink" title="6：特征降维，特征处理"></a>6：特征降维，特征处理</h2><h3 id="6-1：降维：是指在某些限定条件下，降低随机变量-特征-个数，得到一组“不相关”主变量的过程"><a href="#6-1：降维：是指在某些限定条件下，降低随机变量-特征-个数，得到一组“不相关”主变量的过程" class="headerlink" title="6.1：降维：是指在某些限定条件下，降低随机变量(特征)个数，得到一组“不相关”主变量的过程"></a>6.1：降维：是指在某些限定条件下，<strong>降低随机变量(特征)个数</strong>，得到<strong>一组“不相关”主变量</strong>的过程</h3><ul>
+<li>降低随机变量个数    </li>
+<li>相关特征(correlated feature)<ul>
+<li>相对湿度与降雨量之间的相关</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-2：降维的两种方式"><a href="#6-2：降维的两种方式" class="headerlink" title="6.2：降维的两种方式"></a>6.2：降维的两种方式</h3><ul>
+<li><h4 id="特征选择：数据中包含冗余或无关变量（或称特征、属性、指标等），旨在从"><a href="#特征选择：数据中包含冗余或无关变量（或称特征、属性、指标等），旨在从" class="headerlink" title="特征选择：数据中包含冗余或无关变量（或称特征、属性、指标等），旨在从"></a>特征选择：数据中包含<strong>冗余或无关变量（或称特征、属性、指标等）</strong>，旨在从</h4><p><strong>原有特征中找出主要特征</strong>。</p>
+<h3 id="低方差过滤的API："><a href="#低方差过滤的API：" class="headerlink" title="低方差过滤的API："></a>低方差过滤的API：</h3></li>
+<li><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sklearn.feature_selection.<strong>VarianceThreshold</strong>(threshold = 0.0)</td>
+<td>**删除所有低方差特征，列的里面的数据删除掉了 **                                                                              <strong>threshold</strong> = 0.0：方差设置的大小</td>
+</tr>
+<tr>
+<td><strong>Variance.fit_transform(X)</strong></td>
+<td><strong>X</strong>:numpy array格式的数据[n_samples,n_features] 返回值：训练集差异低于threshold的特征将被删除。默认值是保留所有非零方差特征，即删除所有样本中具有相同值的特征。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li><h3 id="ilter-过滤式-主要探究特征本身特点-特征与特征和目标值之间关联"><a href="#ilter-过滤式-主要探究特征本身特点-特征与特征和目标值之间关联" class="headerlink" title="ilter(过滤式):主要探究特征本身特点,特征与特征和目标值之间关联"></a>ilter(过滤式):主要探究特征本身特点,特征与特征和目标值之间关联</h3><ul>
+<li><h4 id="方差选择法：低方差特征过滤"><a href="#方差选择法：低方差特征过滤" class="headerlink" title="方差选择法：低方差特征过滤"></a><strong>方差选择法：低方差特征过滤</strong></h4></li>
+<li><p><strong>低方差过滤</strong>：删除低方差的一些特征</p>
+<ul>
+<li><strong>删除特征方差小</strong>：某个特征大多样本的值比较相近</li>
+<li><strong>保留特征方差大</strong>：某个特征很多样本的值都有差别</li>
+</ul>
+</li>
+<li><h3 id="相关系数：让低方差可控制"><a href="#相关系数：让低方差可控制" class="headerlink" title="相关系数：让低方差可控制"></a><strong>相关系数</strong>：让低方差可控制</h3><ul>
+<li><h4 id="皮尔逊相关系数：反映变量之间相关关系密切程度的统计指标"><a href="#皮尔逊相关系数：反映变量之间相关关系密切程度的统计指标" class="headerlink" title="皮尔逊相关系数：反映变量之间相关关系密切程度的统计指标,"></a><strong>皮尔逊相关系数：</strong>反映变量之间相关关系密切程度的统计指标,</h4></li>
+<li><h4 id="通过具体值的大小进行计算"><a href="#通过具体值的大小进行计算" class="headerlink" title="通过具体值的大小进行计算"></a>通过具体值的大小进行计算</h4></li>
+<li><h5 id="特点："><a href="#特点：" class="headerlink" title="特点："></a><strong>特点：</strong></h5><p><strong>相关系数的值介于–1与+1之间，即–1≤ r ≤+1</strong>。其性质如下：</p>
+<ul>
+<li><p><strong>当r&gt;0时，表示两变量正相关，r&lt;0时，两变量为负相关</strong></p>
+</li>
+<li><p>当|r|=1时，表示两变量为完全相关，当r=0时，表示两变量间无相关关系</p>
+</li>
+<li><p><strong>当0&lt;|r|&lt;1时，表示两变量存在一定程度的相关。且|r|越接近1，两变量间线性关系越密切；|r|越接近于0，表示两变量的线性相关越弱</strong></p>
+</li>
+<li><p><strong>一般可按三级划分：|r|&lt;0.4为低度相关；0.4≤|r|&lt;0.7为显著性相关；0.7≤|r|&lt;1为高度线性相关</strong></p>
+</li>
+<li><p><strong>API</strong>：</p>
+<ul>
+<li><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>from scipy.stats import **pearsonr **</td>
+<td><strong>皮尔逊相关系数</strong>：变量之间相关关系密切程度的统计指标                                                                                            x : (N,) array_like                                                                                         y : (N,) array_like Returns: (Pearson’s correlation coefficient, p-value)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>列如：</p>
+</li>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E8%81%9A%E7%B1%BB/5.png' height=px ></li>
+</ul>
+</li>
+<li><h4 id="斯皮尔曼相关系数：反映变量之间相关关系密切程度的统计指标"><a href="#斯皮尔曼相关系数：反映变量之间相关关系密切程度的统计指标" class="headerlink" title="斯皮尔曼相关系数：反映变量之间相关关系密切程度的统计指标"></a><strong>斯皮尔曼相关系数：</strong>反映变量之间相关关系密切程度的统计指标</h4></li>
+<li><p>通过等级差进行计算</p>
+<ul>
+<li><p>特点：相关系数的值介于–1与+1之间，即–1≤ r ≤+1，和上面的一样</p>
+</li>
+<li><p><strong>API</strong></p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>from scipy.stats import <strong>spearmanr</strong></td>
+<td><strong>斯皮尔曼相关系数</strong>：反映变量之间相关关系密切程度的统计指标</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h3 id="Embedded-嵌入式-：算法自动选择特征（特征与目标值之间的关联）"><a href="#Embedded-嵌入式-：算法自动选择特征（特征与目标值之间的关联）" class="headerlink" title="Embedded (嵌入式)：算法自动选择特征（特征与目标值之间的关联）"></a>Embedded (嵌入式)：算法自动选择特征（特征与目标值之间的关联）</h3></li>
+<li><p>以下这些都可以进行降维</p>
+<ul>
+<li><strong>决策树:信息熵、信息增益</strong></li>
+<li><strong>正则化：L1、L2</strong></li>
+<li><strong>深度学习：卷积等</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h4 id="主成分分析（可以理解一种特征提取的方式）"><a href="#主成分分析（可以理解一种特征提取的方式）" class="headerlink" title="主成分分析（可以理解一种特征提取的方式）"></a><strong>主成分分析（可以理解一种特征提取的方式）</strong></h4></li>
+</ul>
+<h2 id="5：主成分分析：高维数据转换为低维数据，然后产生了新的变量"><a href="#5：主成分分析：高维数据转换为低维数据，然后产生了新的变量" class="headerlink" title="5：主成分分析：高维数据转换为低维数据，然后产生了新的变量"></a>5：主成分分析：高维数据转换为低维数据，然后产生了新的变量</h2><ul>
+<li>定义：<strong>高维数据转化为低维数据的过程</strong>，在此过程中<strong>可能会舍弃原有数据、创造新的变量</strong></li>
+<li>作用：<strong>是数据维数压缩，尽可能降低原数据的维数（复杂度），损失少量信息。</strong></li>
+<li>应用：回归分析或者聚类分析当中</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sklearn.decomposition.<strong>PCA</strong>(n_components=None)</td>
+<td><strong>将数据分解为较低维数空间</strong>，                                <strong>n_components:</strong>                                                         <strong>小数：表示保留百分之多少的信息</strong>                                        <strong>整数：降低到几维</strong></td>
+</tr>
+<tr>
+<td>PCA.fit_transform(X) X:numpy array格式的数据[n_samples,n_features]</td>
+<td>返回值：转换后指定维度的array</td>
+</tr>
+<tr>
+<td>pca.explained_variance_ratio_</td>
+<td>每一维元素的表示信息，数据占比的可解释情况</td>
+</tr>
+</tbody></table>
+<h2 id="维度爆炸：当维度太多比特征数还要多的时候就会出现维度爆炸"><a href="#维度爆炸：当维度太多比特征数还要多的时候就会出现维度爆炸" class="headerlink" title="维度爆炸：当维度太多比特征数还要多的时候就会出现维度爆炸"></a>维度爆炸：当维度太多比特征数还要多的时候就会出现维度爆炸</h2>]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>集成学习lightGBM</title>
+    <url>/2021/11/04/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0lightGBM/</url>
+    <content><![CDATA[<h1 id="lightGBM"><a href="#lightGBM" class="headerlink" title="lightGBM"></a>lightGBM</h1><h3 id="1：基于Histogram（直方图）的决策树算法"><a href="#1：基于Histogram（直方图）的决策树算法" class="headerlink" title="1：基于Histogram（直方图）的决策树算法"></a>1：基于Histogram（直方图）的决策树算法</h3><p>优点：<strong>最明显就是内存消耗的降低</strong>，<strong>在计算上的代价也大幅降低，因为普通的每遍历一个特征值就需要计算一次分裂的增益，而lightGBM把连续的浮点特征值离散化成k个整数，只计算k次</strong></p>
+<ul>
+<li>先把连续的浮点特征值离散化成k个整数，同时构造一个宽度为k的直方图。</li>
+<li>在遍历数据的时候，根据离散化后的值作为索引在直方图中累积统计量，当遍历一次数据后，直方图累积了需要的统计量，然后根据直方图的离散值，遍历寻找最优的分割点。</li>
+</ul>
+<h3 id="2-Lightgbm-的Histogram（直方图）做差加速"><a href="#2-Lightgbm-的Histogram（直方图）做差加速" class="headerlink" title="2 Lightgbm 的Histogram（直方图）做差加速"></a>2 Lightgbm 的Histogram（直方图）做差加速</h3><p>一个叶子的直方图：父亲节点的直方图与它兄弟的直方图做差得到。</p>
+<h3 id="3-带深度限制的Leaf-wise的叶子生长策略"><a href="#3-带深度限制的Leaf-wise的叶子生长策略" class="headerlink" title="3 带深度限制的Leaf-wise的叶子生长策略"></a>3 带深度限制的Leaf-wise的叶子生长策略</h3><p><strong>Level-wise</strong>便利一次数据可以同时分裂同一层的叶子，容易进行多线程优化，也好控制模型复杂度，不容易过拟合。</p>
+<p><strong>Leaf-wise</strong>则是一种更为高效的策略，每次从当前所有叶子中，找到分裂增益最大的一个叶子，然后分裂，如此循环，只单独可以一个分到底，Leaf-wise之上增加了一个最大深度的限制，在保证高效率的同时防止过拟合。</p>
+<h3 id="4：-直接支持类别特征"><a href="#4：-直接支持类别特征" class="headerlink" title="4： 直接支持类别特征"></a>4： 直接支持类别特征</h3><p>LightGBM优化了对类别特征的支持，可以直接输入类别特征，不需要额外的0/1展开。并在决策树算法上增加了类别特征的决策规则。</p>
+<h3 id="5-直接支持高效并行"><a href="#5-直接支持高效并行" class="headerlink" title="5 直接支持高效并行"></a>5 直接支持高效并行</h3><p>LightGBM原生支持并行学习，目前支持特征并行和数据并行的两种。</p>
+<ul>
+<li>特征并行的主要思想是在不同机器在不同的特征集合上分别寻找最优的分割点，然后在机器间同步最优的分割点。</li>
+<li>数据并行则是让不同的机器先在本地构造直方图，然后进行全局的合并，最后在合并的直方图上面寻找最优分割点。</li>
+<li>**基于投票的数据并行(Voting Parallelization)**则进一步优化数据并行中的通信代价，使通信代价变成常数级别。在数据量很大的时候，使用投票并行可以得到非常好的加速效果。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>import <strong>lightgbm</strong> as lgb</td>
+<td><strong>lightGBM</strong>模型方法</td>
+</tr>
+<tr>
+<td>lgb.LGBMRegressor（objective,）</td>
+<td>生成的模型的方法</td>
+</tr>
+<tr>
+<td>objective [缺省值=reg:linear]</td>
+<td><strong>reg:linear</strong>” – 线性回归                                                                                             “reg:logistic<strong>” – 逻辑回归                                                                           “</strong>binary:logistic<strong>” – 二分类逻辑回归，输出为概率                                                                                        “</strong>multi:softmax<strong>” – 使用softmax的多分类器，返回预测的类别(不是概率)。在这种情况下，你还需要多设一个参数：num_class(类别数目)                                                                        “</strong>multi:softprob**” – 和multi:softmax参数一样，但是返回的是每个数据属于各个类别的概率。</td>
+</tr>
+<tr>
+<td>learning_rate</td>
+<td>学习率</td>
+</tr>
+<tr>
+<td><strong>gbm.fit</strong>(X_train, y_train, eval_set=[(X_test, y_test)], eval_metric=’L1’, early_stopping_rounds=值)</td>
+<td><strong>eval_set</strong>：评价的数据集                                                                             <strong>eval_metric</strong>：依据目标函数选择评估指标这个用上了L1正则化，L1正则化值越小越好：                                                                      <strong>early_stopping_rounds</strong>：激活早停止，当验证的L1的L2中的错误率设置的数值轮数未下降，则停止训练。</td>
+</tr>
+<tr>
+<td>gbm.dest_params_</td>
+<td>c选择出最优的学习率和跌代次数</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>lightGBM：AIP里面的参数</th>
+<th>含义</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>max_depth</td>
+<td>树的最大深度</td>
+<td>当模型过拟合时,可以考虑首先降低 max_depth</td>
+</tr>
+<tr>
+<td>min_data_in_leaf</td>
+<td>叶子可能具有的最小记录数</td>
+<td>默认20，过拟合时用</td>
+</tr>
+<tr>
+<td>feature_fraction</td>
+<td>例如 为0.8时，意味着在每次迭代中随机选择80％的参数来建树</td>
+<td>boosting 为 random forest 时用</td>
+</tr>
+<tr>
+<td>bagging_fraction</td>
+<td>每次迭代时用的数据比例</td>
+<td>用于加快训练速度和减小过拟合</td>
+</tr>
+<tr>
+<td>early_stopping_round</td>
+<td>如果一次验证数据的一个度量在最近的early_stopping_round 回合中没有提高，模型将停止训练</td>
+<td>加速分析，减少过多迭代</td>
+</tr>
+<tr>
+<td>lambda</td>
+<td>指定正则化</td>
+<td>0～1</td>
+</tr>
+<tr>
+<td>min_gain_to_split</td>
+<td>描述分裂的最小 gain</td>
+<td>控制树的有用的分裂</td>
+</tr>
+<tr>
+<td>max_cat_group</td>
+<td>在 group 边界上找到分割点</td>
+<td>当类别数量很多时，找分割点很容易过拟合时</td>
+</tr>
+<tr>
+<td>n_estimators</td>
+<td>最大迭代次数</td>
+<td>最大迭代数不必设置过大，可以在进行一次迭代后，根据最佳迭代数设置</td>
+</tr>
+</tbody></table>
+<h4 id="核心参数，选择的算法"><a href="#核心参数，选择的算法" class="headerlink" title="核心参数，选择的算法"></a>核心参数，选择的算法</h4><table>
+<thead>
+<tr>
+<th>Core Parameters</th>
+<th>含义</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Task</td>
+<td>数据的用途</td>
+<td>选择 train（训练） 或者 predict（预测）</td>
+</tr>
+<tr>
+<td>application</td>
+<td>模型的用途</td>
+<td>选择 regression: 回归时， binary: 二分类时， multiclass: 多分类时</td>
+</tr>
+<tr>
+<td>boosting</td>
+<td>要用的算法</td>
+<td>gbdt，                                                                                              rf: random forest，                                                                                                        dart: Dropouts meet Multiple Additive Regression Trees，                                                                                           goss: Gradient-based One-Side Sampling</td>
+</tr>
+<tr>
+<td>num_boost_round</td>
+<td>迭代次数</td>
+<td>通常 100+</td>
+</tr>
+<tr>
+<td>learning_rate</td>
+<td>学习率</td>
+<td>常用 0.1, 0.001, 0.003…</td>
+</tr>
+<tr>
+<td>num_leaves</td>
+<td>叶子数量</td>
+<td>默认 31</td>
+</tr>
+<tr>
+<td>device</td>
+<td></td>
+<td>cpu 或者 gpu</td>
+</tr>
+<tr>
+<td>metric</td>
+<td></td>
+<td>mae: mean absolute error ，  mse: mean squared error ，  binary_logloss: loss for binary classification ， multi_logloss: loss for multi classification</td>
+</tr>
+</tbody></table>
+<h3 id="保存的方式"><a href="#保存的方式" class="headerlink" title="保存的方式"></a>保存的方式</h3><table>
+<thead>
+<tr>
+<th>IO parameter</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>max_bin</td>
+<td>表示 feature 将存入的 bin 的最大数量</td>
+</tr>
+<tr>
+<td>categorical_feature</td>
+<td>如果 categorical_features = 0,1,2， 则列 0，1，2是 categorical 变量</td>
+</tr>
+<tr>
+<td>ignore_column</td>
+<td>与 categorical_features 类似，只不过不是将特定的列视为categorical，而是完全忽略</td>
+</tr>
+<tr>
+<td>save_binary</td>
+<td>这个参数为 true 时，则数据集被保存为二进制文件，下次读数据时速度会变快</td>
+</tr>
+</tbody></table>
+<h2 id="3-调参建议"><a href="#3-调参建议" class="headerlink" title="3 调参建议"></a>3 调参建议</h2><table>
+<thead>
+<tr>
+<th>IO parameter</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>num_leaves</code></td>
+<td align="left">取值应 &lt;= 2(max_depth)2^{(max_depth)}2(max_depth)， 超过此值会导致过拟合</td>
+</tr>
+<tr>
+<td><code>min_data_in_leaf</code></td>
+<td align="left">将它设置为较大的值可以避免生长太深的树，但可能会导致 underfitting，在大型数据集时就设置为数百或数千</td>
+</tr>
+<tr>
+<td><code>max_depth</code></td>
+<td align="left">这个也是可以限制树的深度（集成学习的时候设置的小些）</td>
+</tr>
+</tbody></table>
+<p>下表对应了 Faster Speed ，better accuracy ，over-fitting 三种目的时，可以调的参数</p>
+<table>
+<thead>
+<tr>
+<th>Faster Speed（设置的快一些）</th>
+<th align="left">better accuracy（更好的准确度）</th>
+<th align="left">over-fitting（过拟合）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>将 <code>max_bin</code> 设置小一些</td>
+<td align="left">用较大的 <code>max_bin</code></td>
+<td align="left"><code>max_bin</code> 小一些</td>
+</tr>
+<tr>
+<td></td>
+<td align="left"><code>num_leaves</code> 大一些</td>
+<td align="left"><code>num_leaves</code> 小一些</td>
+</tr>
+<tr>
+<td>用 <code>feature_fraction</code>来做 <code>sub-sampling</code></td>
+<td align="left"></td>
+<td align="left">用 <code>feature_fraction</code></td>
+</tr>
+<tr>
+<td>用 <code>bagging_fraction 和 bagging_freq</code>【bagging的次数，0表示禁用，bagging，非零表示执行k次bagging】</td>
+<td align="left"></td>
+<td align="left">设定 <code>bagging_fraction 和 bagging_freq</code></td>
+</tr>
+<tr>
+<td></td>
+<td align="left">training data 多一些</td>
+<td align="left">training data 多一些</td>
+</tr>
+<tr>
+<td>用 <code>save_binary</code>来加速数据加载（用二进制能加快一些）</td>
+<td align="left">直接用 categorical feature（0，1,2,3）</td>
+<td align="left">用 <code>gmin_data_in_leaf （叶节点的数据量限制）和 min_sum_hessian_in_leaf</code>（最叶节点的权重值来控制整体内容）【和xgboost中min_child_weight类似】</td>
+</tr>
+<tr>
+<td>用 parallel learning（并行）</td>
+<td align="left">用 dart【DART利用了深度学习中的dropout中的技巧，随机丢弃生成的决策树，然后再从剩下的决策树集中迭代优化提升树】</td>
+<td align="left">用 <code>lambda_l1, lambda_l2 ，min_gain_to_split</code>（信息增益值来做限制） 做正则化</td>
+</tr>
+<tr>
+<td></td>
+<td align="left"><code>num_iterations</code> （迭代次数的大小）大一些，<code>learning_rate</code>小一些</td>
+<td align="left">用 <code>max_depth</code> 控制树的深度</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -2544,6 +3836,314 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
       </tags>
   </entry>
   <entry>
+    <title>决策树</title>
+    <url>/2021/11/04/%E5%86%B3%E7%AD%96%E6%A0%91/</url>
+    <content><![CDATA[<h2 id="1：决策树："><a href="#1：决策树：" class="headerlink" title="1：决策树："></a>1：决策树：</h2><h4 id="计算的步骤：先算出总体的信息熵，再算出部分属性的信息熵，再进行计算信息的增益，再进属性信息度量，再进行信息增益率："><a href="#计算的步骤：先算出总体的信息熵，再算出部分属性的信息熵，再进行计算信息的增益，再进属性信息度量，再进行信息增益率：" class="headerlink" title="计算的步骤：先算出总体的信息熵，再算出部分属性的信息熵，再进行计算信息的增益，再进属性信息度量，再进行信息增益率："></a>计算的步骤：先算出总体的信息熵，再算出部分属性的信息熵，再进行计算信息的增益，再进属性信息度量，再进行信息增益率：</h4><h3 id="共有5个名词："><a href="#共有5个名词：" class="headerlink" title="共有5个名词："></a>共有5个名词：</h3><ol>
+<li>总体的信息熵：总体的与是否形成概率比进行计算</li>
+<li>属性信息熵：    总属性与单属性进行的计算</li>
+<li>信息增益：        总体信息熵  —  属性信息熵，ID3是用信息增益实现的：只能对离散属性数据集构成决策树。</li>
+<li>属性信息度量：总体数与总属性数进行计算</li>
+<li>信息增益率：    信息增益 / 属性信息度量 ，    C4.5是用信息增益率实现的：优化了ID3分支过程中总喜欢偏向选择值较多的属性</li>
+<li>基尼值：       是为了不纯来计算的</li>
+<li>基尼指数（实现2分类的问题）：     CART决策树：可以经行行分类和回归，可以处理离散属性，可以处理连续属性    </li>
+</ol>
+<p>遇到数字型时：要去两个值的中值经行分类</p>
+<h4 id="总体信息熵-—-属性信息熵-信息增益"><a href="#总体信息熵-—-属性信息熵-信息增益" class="headerlink" title="总体信息熵  —    属性信息熵=信息增益"></a>总体信息熵  —    属性信息熵=信息增益</h4><h4 id="信息增益-属性信息度量-信息增益率"><a href="#信息增益-属性信息度量-信息增益率" class="headerlink" title="信息增益 / 属性信息度量 =  信息增益率"></a><strong>信息增益 / 属性信息度量 =  信息增益率</strong></h4><h4 id="性质：分支结构就是if-else结构，利用这类结构分割数据的一种分类学习方法"><a href="#性质：分支结构就是if-else结构，利用这类结构分割数据的一种分类学习方法" class="headerlink" title="性质：分支结构就是if-else结构，利用这类结构分割数据的一种分类学习方法"></a>性质：分支结构就是if-else结构，利用这类结构分割数据的一种分类学习方法</h4><h4 id="后剪枝：后剪枝防止过拟合"><a href="#后剪枝：后剪枝防止过拟合" class="headerlink" title="后剪枝：后剪枝防止过拟合"></a>后剪枝：后剪枝防止过拟合</h4><h3 id="决策树API："><a href="#决策树API：" class="headerlink" title="决策树API："></a>决策树API：</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>class sklearn.tree.<strong>DecisionTreeClassifier</strong>(criterion=’gini’, max_depth=None,random_state=None)</td>
+<td><strong>criterion</strong>：  特征选择标准 “gini”或者”entropy”，前者代表基尼系数，后者代表信息增益。一默认”gini”，即CART算法。 min_samples_split  内部节点再划分所需最小样本数 这个值限制了子树继续划分的条件，如果某节点的样本数少于                               <strong>min_samples_split</strong>：则不会继续再尝试选择最优特征来进行划分。 默认是2.如果样本量不大，不需要管这个值。如果样本量数量级非常大，则推荐增大这个值。我之前的一个项目例子，有大概10万样本，建立决策树时，我选择了min_samples_split=10。可以作为参考。                                                             <strong>min_samples_leaf</strong>  叶子节点最少样本数 这个值限制了叶子节点最少的样本数，如果某叶子节点数目小于样本数，则会和兄弟节点一起被剪枝。 默认是1,可以输入最少的样本数的整数，或者最少样本数占样本总数的百分比。如果样本量不大，不需要管这个值。如果样本量数量级非常大，则推荐增大这个值。之前的10万样本项目使用min_samples_leaf的值为5，仅供参考。                                                                           <strong>max_depth</strong>  ：决策树最大深度 决策树的最大深度，默认可以不输入，如果不输入的话，决策树在建立子树的时候不会限制子树的深度。一般来说，数据少或者特征少的时候可以不管这个值。如果模型样本量多，特征也多的情况下，推荐限制这个最大深度，具体的取值取决于数据的分布。常用的可以取值10-100之间                                                                               <strong>random_state：</strong>  随机数种子</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="1-1：熵：系统越有序，熵值越低；系统越混乱或者分散，熵值越高。"><a href="#1-1：熵：系统越有序，熵值越低；系统越混乱或者分散，熵值越高。" class="headerlink" title="1.1：熵：系统越有序，熵值越低；系统越混乱或者分散，熵值越高。"></a>1.1：熵：<strong>系统越有序，熵值越低；系统越混乱或者分散，熵值越高</strong>。</h3><h4 id="用于处理离散型数据"><a href="#用于处理离散型数据" class="headerlink" title="用于处理离散型数据"></a><strong>用于处理离散型数据</strong></h4><p>熵的描述：是描述信息的混乱程度</p>
+<ul>
+<li><strong>从信息的完整性上进行的描述:</strong><ul>
+<li>当<strong>系统的有序状态一致时</strong>，数据越集中的地方熵值越小，数据越分散的地方熵值越大。</li>
+</ul>
+</li>
+<li><strong>从信息的有序性上进行的描述</strong>:<ul>
+<li>当<strong>数据量一致时</strong>，<strong>系统越有序，熵值越低；系统越混乱或者分散，熵值越高</strong>。</li>
+</ul>
+</li>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E5%86%B3%E7%AD%96%E6%A0%91/1.png' height=px ></li>
+</ul>
+<h3 id="1-2：决策树的划分依据一—-信息增益：最大值划分节点"><a href="#1-2：决策树的划分依据一—-信息增益：最大值划分节点" class="headerlink" title="1.2：决策树的划分依据一—-信息增益：最大值划分节点"></a>1.2：决策树的划分依据一—-信息增益：最大值划分节点</h3><ul>
+<li><p><strong>信息增益：</strong>以某特征划分数据集前后的熵的差值。熵可以表示样本集合的不确定性，熵越大，样本的不确定性就越大。因此可以<strong>使用划分前后集合熵的差值来衡量使用当前特征对于样本集合D划分效果的好坏</strong>。</p>
+</li>
+<li><p><strong>信息增益 =  entroy(前) - entroy(后)</strong></p>
+</li>
+<li><p><strong>信息增益的公式</strong>：信息增益越大优先取最大的进行分支，优先排序：把最大的优先排到前面</p>
+</li>
+<li><p><strong>概率比值</strong>：通过是否进行操作，是否共涉及总数比值是的多少和否的多少，进行比值计算成信息熵</p>
+</li>
+<li><p><strong>计算的步骤</strong>：先算出总体的信息熵，再算出部分属性的信息熵，再进行计算信息的增益率</p>
+<ul>
+<li>分配的概率需要注意一下、</li>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E5%86%B3%E7%AD%96%E6%A0%91/2.png' height=px ></li>
+<li>接触的例子：</li>
+</ul>
+<h3 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h3><ul>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E5%86%B3%E7%AD%96%E6%A0%91/3.png' height=px ></li>
+</ul>
+</li>
+</ul>
+<p>上式中求出的信息增益越大影响越大，相反小影响越小。</p>
+<h3 id="1-3：决策树的划分依据2–信息增益率C4-5：解决过拟合，缺失值"><a href="#1-3：决策树的划分依据2–信息增益率C4-5：解决过拟合，缺失值" class="headerlink" title="1.3：决策树的划分依据2–信息增益率C4.5：解决过拟合，缺失值"></a>1.3：决策树的划分依据2–信息增益率C4.5：解决过拟合，缺失值</h3><ul>
+<li><p><strong>后剪枝：后剪枝防止过拟合</strong></p>
+</li>
+<li><p><strong>对于缺失值的处理</strong></p>
+</li>
+<li><p>公式</p>
+<ul>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E5%86%B3%E7%AD%96%E6%A0%91/4.png' height=px ></li>
+<li>固有值：IV：以某个类别进行计算</li>
+</ul>
+<h3 id="信息增益率"><a href="#信息增益率" class="headerlink" title="信息增益率"></a>信息增益率</h3><ul>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E5%86%B3%E7%AD%96%E6%A0%91/5.png' height=px ></li>
+</ul>
+</li>
+</ul>
+<h3 id="2：基尼值基尼指数-，CART算法：评判分类的更进一步简化，如算法程度"><a href="#2：基尼值基尼指数-，CART算法：评判分类的更进一步简化，如算法程度" class="headerlink" title="2：基尼值基尼指数 ，CART算法：评判分类的更进一步简化，如算法程度"></a>2：基尼值基尼指数 ，CART算法：评判分类的更进一步简化，如算法程度</h3><h3 id="只能进行2分类"><a href="#只能进行2分类" class="headerlink" title="只能进行2分类"></a>只能进行2分类</h3><h4 id="2-1：基尼值：从数据集D中随机抽取两个样本，其类别标记不一致的概率。故，Gini（D）值越小，数据集D的纯度越高。"><a href="#2-1：基尼值：从数据集D中随机抽取两个样本，其类别标记不一致的概率。故，Gini（D）值越小，数据集D的纯度越高。" class="headerlink" title="2.1：基尼值：从数据集D中随机抽取两个样本，其类别标记不一致的概率。故，Gini（D）值越小，数据集D的纯度越高。"></a>2.1：基尼值：从数据集D中随机抽取两个样本，其类别标记不一致的概率。<strong>故，Gini（D）值越小，数据集D的纯度越高。</strong></h4><ul>
+<li><strong>基尼的运算</strong>：用是否的是的数和是否的否的数经行计算，如下案例：</li>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E5%86%B3%E7%AD%96%E6%A0%91/6.png' height=px ></li>
+<li><strong>基尼值案例</strong></li>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E5%86%B3%E7%AD%96%E6%A0%91/7.png' height=px ></li>
+<li></li>
+<li><strong>基尼指数案例每一个属性就是一种基尼指数，基尼指数越小就用它划分结果</strong></li>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E5%86%B3%E7%AD%96%E6%A0%91/8.png' height=px ></li>
+</ul>
+<h3 id="3：预剪枝，后剪枝：剪掉是因为属性太多，形成噪声，错误的属性误导"><a href="#3：预剪枝，后剪枝：剪掉是因为属性太多，形成噪声，错误的属性误导" class="headerlink" title="3：预剪枝，后剪枝：剪掉是因为属性太多，形成噪声，错误的属性误导"></a>3：预剪枝，后剪枝：剪掉是因为属性太多，形成噪声，错误的属性误导</h3><ul>
+<li>**预剪枝(局部最优解)**：是为了不让数据形成过拟合，内存占比较小，通过信息增益率找到影响数据样本的属性，把不能有泛化性的提升的其他的不必要的属性经行剪掉，没有得到提升就没有什么用</li>
+<li><strong>后剪枝（）</strong>：先把整个数据的树形成，从最后的面叶节点上开始经行对比，找到影响较小的属性经行剪掉<ul>
+<li>这个要占空间较大，形成的欠拟合更小一些，</li>
+</ul>
+</li>
+</ul>
+<h3 id="4：特征的提取，特征工程，特征处理："><a href="#4：特征的提取，特征工程，特征处理：" class="headerlink" title="4：特征的提取，特征工程，特征处理："></a>4：特征的提取，特征工程，特征处理：</h3><ul>
+<li>将文本转换成数值</li>
+<li>将类别转换成数值</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sklearn.<strong>feature_extraction</strong></td>
+<td>特征提取等于小数时有百分之几做选择</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="4-1：字典提取：将字符串的类型转换成数值形式，对于特征当中存在类别信息做了one-hot编码处理"><a href="#4-1：字典提取：将字符串的类型转换成数值形式，对于特征当中存在类别信息做了one-hot编码处理" class="headerlink" title="4.1：字典提取：将字符串的类型转换成数值形式，对于特征当中存在类别信息做了one-hot编码处理"></a>4.1：字典提取：将字符串的类型转换成数值形式，<strong>对于特征当中存在类别信息</strong>做了<strong>one-hot编码处理</strong></h4><ul>
+<li>节省空间，读取效率</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sklearn.feature_extraction.<strong>DictVectorizer</strong>(sparse=True,…)</td>
+<td><strong>字典特征提取</strong>：                                                        sparse：直接对应的参数，数值</td>
+</tr>
+<tr>
+<td>DictVectorizer.<strong>fit_transform</strong>(X)</td>
+<td>先拟合数据，在进行标准化，对部分数据先拟合fit，找到该part的整体指标，如均值、方差、最大值最小值等等（根据具体转换的目的），然后对该trainData进行转换transform，从而实现数据的标准化、归一化等等                                                                           X:字典或者包含字典的迭代器返回值 返回sparse矩阵</td>
+</tr>
+<tr>
+<td>DictVectorizer.<strong>get_feature_names</strong>()</td>
+<td>返回类别特征的名称</td>
+</tr>
+<tr>
+<td>x_train和x_test.<strong>to_dict</strong>(orient=”records”)</td>
+<td>数据进行字典类型的转换</td>
+</tr>
+</tbody></table>
+<h4 id="4-2：文本的特征提取，经行英文词的统计的次数"><a href="#4-2：文本的特征提取，经行英文词的统计的次数" class="headerlink" title="4.2：文本的特征提取，经行英文词的统计的次数"></a>4.2：文本的特征提取，经行英文词的统计的次数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>sklearn.feature_extraction.text.CountVectorizer(stop_words=[])</strong></td>
+<td><strong>文本的特征提取</strong>                            stop_words=[]：没有用到词加入到里面就不进行提取</td>
+</tr>
+<tr>
+<td>CountVectorizer.<strong>fit_transform</strong>(X)</td>
+<td>X:文本或者包含文本字符串的可迭代对象  返回值:返回sparse矩阵</td>
+</tr>
+<tr>
+<td>CountVectorizer.<strong>get_feature_names</strong>()</td>
+<td>返回值:单词列表</td>
+</tr>
+<tr>
+<td>已经转换成标准的变量.<strong>toarray</strong>()</td>
+<td>形成可查看的数据形式</td>
+</tr>
+</tbody></table>
+<p>【】里面的是：给出的数据是词频，对应着下边的词：出现一次为：1，出现多次是多个：</p>
+<h4 id="4-3：中文的文本特征提取，统计次数，中文提取是因为经过了空格提取的"><a href="#4-3：中文的文本特征提取，统计次数，中文提取是因为经过了空格提取的" class="headerlink" title="4.3：中文的文本特征提取，统计次数，中文提取是因为经过了空格提取的"></a>4.3：中文的文本特征提取，统计次数，中文提取是因为经过了空格提取的</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>import  jieba</td>
+<td></td>
+</tr>
+<tr>
+<td>jieba.<strong>cut</strong>(变量,cut_all=False)</td>
+<td>中文文本的提取</td>
+</tr>
+<tr>
+<td>text = “ “.join(list(jieba.cut(text)))</td>
+<td>经行从新的进行拼接          cut_all=False：不会对所有的值进行切割</td>
+</tr>
+</tbody></table>
+<h4 id="4-4：Tf-idf文本特征提取个词或短语在一篇文章中出现的概率高，并且在其他文章中很少出现"><a href="#4-4：Tf-idf文本特征提取个词或短语在一篇文章中出现的概率高，并且在其他文章中很少出现" class="headerlink" title="4.4：Tf-idf文本特征提取个词或短语在一篇文章中出现的概率高，并且在其他文章中很少出现"></a>4.4：Tf-idf文本特征提取<strong>个词或短语在一篇文章中出现的概率高，并且在其他文章中很少出现</strong></h4><p><strong>词频概率的公式</strong>：某一个给定的词语在该文件中出现的频率                  出现的次数/总词数</p>
+<p><strong>逆向文档频率</strong>：一个词语普遍重要性的度量                                              lg（总词数/出现的次数）× 词频概率</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>from sklearn.feature_extraction.text import <strong>TfidfVectorizer</strong></td>
+<td><strong>Tf-idf文本特征提取</strong>个词或短语出现的概率</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="4-5：决策树的可视化："><a href="#4-5：决策树的可视化：" class="headerlink" title="4.5：决策树的可视化："></a>4.5：决策树的可视化：</h4><p><strong>可以生成树状图</strong>：形成DOT文件进行打开，复制里面内容，传入网址<a href="http://webgraphviz.com/">http://webgraphviz.com/</a>里面就能生成树</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sklearn.tree.<strong>export_graphviz</strong>()</td>
+<td>该函数能够导出DOT（树图）格式</td>
+</tr>
+<tr>
+<td>tree.<strong>export_graphviz</strong>(estimator,out_file=’tree.dot’,feature_names=[‘’,’’])</td>
+<td><strong>estimator</strong>：那个训练模型，那个估计器                                         <strong>out_file=<strong>“地址.dot”：导入的那个文件夹</strong>feature_names</strong>：选择的特征有哪些名字</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="5：回归决策树：主要用于处理连续型数据。如果是分段处理的时候是用回归决策树，如果是不分段的是用线性回归，通过标签值来使用这两个哪一个"><a href="#5：回归决策树：主要用于处理连续型数据。如果是分段处理的时候是用回归决策树，如果是不分段的是用线性回归，通过标签值来使用这两个哪一个" class="headerlink" title="5：回归决策树：主要用于处理连续型数据。如果是分段处理的时候是用回归决策树，如果是不分段的是用线性回归，通过标签值来使用这两个哪一个"></a>5：回归决策树：<strong>主要用于处理连续型数据。</strong>如果是分段处理的时候是用回归决策树，如果是不分段的是用线性回归，通过标签值来使用这两个哪一个</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>from sklearn.tree import <strong>DecisionTreeRegressor</strong></td>
+<td><strong>max_depth</strong>: 树最大深度,可选，缺省None，                                   <strong>min_samples_split</strong> : 分割内部节点所需最少样本数,可选,缺省2 <strong>min_samples_leaf</strong> : 成为叶子节点所需最少样本, 可选, 缺省1 <strong>max_features</strong> : 寻找最佳分割时考虑的特征数目, 可选, 缺省None: float/比例, ‘sqrt’/sqrt(n_features), ‘log2’/log2(n_features)                   <strong>min_impurity_decrease</strong> : 如果节点分割导致不纯度减少超过此值，将进行分割，可选, 缺省0.0                                                                                            <strong>presort</strong> : 预排序，加速寻找最佳分割，可选，缺省False, 大数据集降低训练过程, 小训练集或受限深度，可加快训练                                             random_state: 缺省None; 若int, 随机数产生器seed, 若RandomStates实例, 随机数产生器, 若None, np.random</td>
+</tr>
+<tr>
+<td><strong>函数调用</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>.fit(X,y)</strong></td>
+<td>调用库函数决策树算法: 分类器y是整数或string;回归器y是浮点数</td>
+</tr>
+<tr>
+<td><strong>.predict(X)</strong></td>
+<td>预测样本类别或回归值，返回shape(n_samples)或(n_samples,n_outputs)</td>
+</tr>
+<tr>
+<td><strong>.decision_path(X)</strong></td>
+<td>返回决策路径，返回shape = [n_samples, n_nodes]</td>
+</tr>
+<tr>
+<td><strong>.score(X_test, y_test)</strong></td>
+<td>返回预测结果的R^2(1-u/v). u=((y_true - y_pred) ** 2).sum()                               v=((y_true - y_true.mean()) ** 2).sum()</td>
+</tr>
+<tr>
+<td><strong>.apply(X</strong>)</td>
+<td>返回每个样本预测为叶子的索引</td>
+</tr>
+<tr>
+<td><strong>.n_features_</strong></td>
+<td>执行’fit’时的特征数</td>
+</tr>
+<tr>
+<td><strong>.n_outputs_</strong></td>
+<td>执行’fit’时的输出数</td>
+</tr>
+<tr>
+<td><strong>.tree_</strong></td>
+<td>树对象</td>
+</tr>
+</tbody></table>
+<h4 id="案例："><a href="#案例：" class="headerlink" title="案例："></a>案例：</h4><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E5%86%B3%E7%AD%96%E6%A0%91/9.png' height=px >
+
+<h4 id="5-1：在源于的数据上进行数据的处理：分成份，取平均"><a href="#5-1：在源于的数据上进行数据的处理：分成份，取平均" class="headerlink" title="5.1：在源于的数据上进行数据的处理：分成份，取平均"></a>5.1：在源于的数据上进行数据的处理：分成份，取平均</h4><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E5%86%B3%E7%AD%96%E6%A0%91/10.png' height=px >
+
+<h4 id="5-2：取得计算取最小的值进行进行分组，下面6-5是最小的数，"><a href="#5-2：取得计算取最小的值进行进行分组，下面6-5是最小的数，" class="headerlink" title="5.2：取得计算取最小的值进行进行分组，下面6.5是最小的数，"></a>5.2：取得计算取最小的值进行进行分组，下面6.5是最小的数，</h4><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E5%86%B3%E7%AD%96%E6%A0%91/11.png' height=px >
+
+<h4 id="5-3：循环进行划分"><a href="#5-3：循环进行划分" class="headerlink" title="5.3：循环进行划分"></a>5.3：循环进行划分</h4><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E5%86%B3%E7%AD%96%E6%A0%91/12.png' height=px >
+
+<h4 id="5-4：形成回归树"><a href="#5-4：形成回归树" class="headerlink" title="5.4：形成回归树"></a>5.4：形成回归树</h4><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E5%86%B3%E7%AD%96%E6%A0%91/13.png' height=px >
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>算法，树</category>
+      </categories>
+      <tags>
+        <tag>算法，树</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>机器学习，神经网络 -- 上</title>
     <url>/2020/02/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA--%E4%B8%8A/</url>
     <content><![CDATA[<h2 id="什么是机器学习"><a href="#什么是机器学习" class="headerlink" title="什么是机器学习"></a>什么是机器学习</h2><p>——-先观察后照做<br> ——-机器学习算法都试图以某种它可以的方式来模拟两个数据之间存在的模式，从而做到用一个数据集来预测另一个数据集<br> ——-机器学习的大部分工作都是训练某种监督分类器</p>
@@ -3328,6 +4928,340 @@ if __name__ == &#39;__main__&#39;:
       </categories>
       <tags>
         <tag>python高级</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>线性回归，逻辑回归</title>
+    <url>/2021/11/04/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%EF%BC%8C%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/</url>
+    <content><![CDATA[<h2 id="1：线性回归：属于预测模型"><a href="#1：线性回归：属于预测模型" class="headerlink" title="1：线性回归：属于预测模型"></a>1：线性回归：属于预测模型</h2><p><strong>评估线性损失的时</strong>：最小二乘法</p>
+<h3 id="1-1：线性回归：是利用一个或者多个特征值（自变量）和目标值（因变量）之间的进行建模的一种分析方式"><a href="#1-1：线性回归：是利用一个或者多个特征值（自变量）和目标值（因变量）之间的进行建模的一种分析方式" class="headerlink" title="1.1：线性回归：是利用一个或者多个特征值（自变量）和目标值（因变量）之间的进行建模的一种分析方式"></a>1.1：线性回归：是利用一个或者多个特征值（自变量）和目标值（因变量）之间的进行建模的一种分析方式</h3><ul>
+<li><h4 id="线性回归：就是利用回归方程（函数）对一个或多个自变量（特征值）和因变量（目标值）之间关系进行建模的一种分析方式"><a href="#线性回归：就是利用回归方程（函数）对一个或多个自变量（特征值）和因变量（目标值）之间关系进行建模的一种分析方式" class="headerlink" title="线性回归：就是利用回归方程（函数）对一个或多个自变量（特征值）和因变量（目标值）之间关系进行建模的一种分析方式"></a>线性回归：就是利用回归方程（函数）对一个或多个自变量（特征值）和因变量（目标值）之间关系进行建模的一种分析方式</h4></li>
+<li><p><strong>特点：</strong>如果自变量只有一个为单变量回归，多个的话为多元回归</p>
+<p>下面公式w为权重值</p>
+</li>
+</ul>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/1.png' height=px >
+
+<h3 id="1-2：非线性关系："><a href="#1-2：非线性关系：" class="headerlink" title="1.2：非线性关系："></a>1.2：非线性关系：</h3><ul>
+<li>下边的公式为非线性关系</li>
+</ul>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/2.png' height=px >
+
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>线性回归函数</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>sklearn.linear_model.<strong>LinearRegression</strong>(fit_intercept=True)</td>
+<td><strong>线性回归</strong>，fit_intercept=True是否计算偏置</td>
+</tr>
+<tr>
+<td>LinearRegression.<strong>coef_</strong></td>
+<td><strong>回归（权重值）系数：</strong>是多少</td>
+</tr>
+<tr>
+<td>estimator.<strong>predict</strong>([[特征值,目标值]])</td>
+<td><strong>形成的模型可以预测的结果：</strong>是多少</td>
+</tr>
+<tr>
+<td>estimator.<strong>intercept_</strong></td>
+<td>线性回规的偏置</td>
+</tr>
+</tbody></table>
+<h3 id="1-3：损失函数：（（权重-输入数据）—-真实数据）-2"><a href="#1-3：损失函数：（（权重-输入数据）—-真实数据）-2" class="headerlink" title="1.3：损失函数：（（权重*输入数据）—  真实数据）**2"></a>1.3：损失函数：（（权重*输入数据）—  真实数据）**2</h3><h3 id="纯误差：-权重-输入数据）—-真实数据"><a href="#纯误差：-权重-输入数据）—-真实数据" class="headerlink" title="纯误差：                              权重*输入数据）—  真实数据"></a>纯误差：                              权重*输入数据）—  真实数据</h3><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/3.png' height=px >
+
+<h3 id="1-4：均方误差"><a href="#1-4：均方误差" class="headerlink" title="1.4：均方误差"></a>1.4：均方误差</h3><ul>
+<li><h4 id="公式："><a href="#公式：" class="headerlink" title="公式："></a>公式：<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/4.png' height=px ></h4></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sklearn.metrics.<strong>mean_squared_error</strong>(y_true, y_pred)</td>
+<td><strong>均方误差回归损失：</strong>                y_true:真实值                             y_pred:预测值                               return:浮点数结果</td>
+</tr>
+<tr>
+<td>mean_absolute_error(y_valid, y_pre)</td>
+<td>平均绝对值误差</td>
+</tr>
+</tbody></table>
+<h2 id="2：-正规方程：直接求出最小值（适合小型数据集）"><a href="#2：-正规方程：直接求出最小值（适合小型数据集）" class="headerlink" title="2： 正规方程：直接求出最小值（适合小型数据集）"></a>2： 正规方程：直接求出最小值（适合小型数据集）</h2><h3 id="正规方程-–-一蹴而就"><a href="#正规方程-–-一蹴而就" class="headerlink" title="正规方程 – 一蹴而就"></a>正规方程 – 一蹴而就</h3><ul>
+<li>利用矩阵的逆,转置进行一步求解</li>
+<li>只是适合样本和特征比较少的情况</li>
+</ul>
+<h3 id="2-1：优化算法公式："><a href="#2-1：优化算法公式：" class="headerlink" title="2.1：优化算法公式："></a>2.1：优化算法公式：</h3><ul>
+<li><h3 id="正规方程：直接求出最小公式"><a href="#正规方程：直接求出最小公式" class="headerlink" title="正规方程：直接求出最小公式"></a>正规方程：直接求出最小公式</h3><ul>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/5.png' height=px ></li>
+</ul>
+</li>
+<li><h3 id="推导公式："><a href="#推导公式：" class="headerlink" title="推导公式："></a>推导公式：</h3><ul>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/6.png' height=px ></li>
+</ul>
+</li>
+</ul>
+<h2 id="3-1：梯度下降（适合大型数据集）"><a href="#3-1：梯度下降（适合大型数据集）" class="headerlink" title="3.1：梯度下降（适合大型数据集）"></a>3.1：梯度下降（适合大型数据集）</h2><h3 id="梯度下降定义："><a href="#梯度下降定义：" class="headerlink" title="梯度下降定义："></a>梯度下降定义：</h3><ul>
+<li><h4 id="在单变量的函数中，代表着函数在某个给定点的切线的斜率；"><a href="#在单变量的函数中，代表着函数在某个给定点的切线的斜率；" class="headerlink" title="在单变量的函数中，代表着函数在某个给定点的切线的斜率；"></a>在单变量的函数中，代表着函数在某个给定点的切线的斜率；</h4></li>
+<li><h4 id="在多变量函数中，梯度是一个向量，向量有方向，梯度的方向就指出了函数在给定点的上升最快的方向；"><a href="#在多变量函数中，梯度是一个向量，向量有方向，梯度的方向就指出了函数在给定点的上升最快的方向；" class="headerlink" title="在多变量函数中，梯度是一个向量，向量有方向，梯度的方向就指出了函数在给定点的上升最快的方向；"></a>在多变量函数中，梯度是一个向量，向量有方向，梯度的方向就指出了函数在给定点的上升最快的方向；</h4></li>
+<li><p><strong>梯度下降的公式：</strong><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/7.png' height=px ></p>
+</li>
+<li><p><strong>α是什么：</strong>在梯度下降中被称为学习率或者是步长，可以通过α来控制每一步走的距离,不能走太快或者走的太慢</p>
+</li>
+<li><p><strong>梯度要乘一个负数</strong>：意味着就是朝着梯度相反的方向前进，降的时候最快</p>
+</li>
+</ul>
+<h2 id="3-2：梯度下降的概念：负梯度就是求导"><a href="#3-2：梯度下降的概念：负梯度就是求导" class="headerlink" title="3.2：梯度下降的概念：负梯度就是求导"></a>3.2：梯度下降的概念：负梯度就是求导</h2><h3 id="3-21：概念性质："><a href="#3-21：概念性质：" class="headerlink" title="3.21：概念性质："></a>3.21：概念性质：</h3><ul>
+<li><h4 id="步长："><a href="#步长：" class="headerlink" title="步长："></a>步长：</h4><ul>
+<li><strong>步长决定了在梯度下降迭代的过程中，每一步沿梯度负方向前进的长度</strong></li>
+</ul>
+</li>
+<li><h4 id="特征："><a href="#特征：" class="headerlink" title="特征："></a>特征：</h4><ul>
+<li><strong>指的是样本中输入部分</strong></li>
+</ul>
+</li>
+<li><h4 id="假设函数："><a href="#假设函数：" class="headerlink" title="假设函数："></a>假设函数：</h4><ul>
+<li><strong>在监督学习中，为了拟合输入样本，而使用的假设函数，记为hθ(x)： hθ(x)=θ0+θ1x</strong>，，，，，，θ0：权重值</li>
+</ul>
+</li>
+<li><h4 id="损失函数-均方误差"><a href="#损失函数-均方误差" class="headerlink" title="损失函数(均方误差):"></a>损失函数(均方误差):</h4><ul>
+<li>为了评估模型拟合的好坏，<strong>通常用损失函数来度量拟合的程度。</strong>损失函数极小化，意味着拟合程度最好，对应的模型参数即为最优参数。</li>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/8.png' height=px ></li>
+</ul>
+</li>
+</ul>
+<h2 id="4：梯度下降的种类："><a href="#4：梯度下降的种类：" class="headerlink" title="4：梯度下降的种类："></a>4：梯度下降的种类：</h2><h3 id="4-1：全梯度下降（FGD）：代入全部样本在运行过程中不能添加新样本"><a href="#4-1：全梯度下降（FGD）：代入全部样本在运行过程中不能添加新样本" class="headerlink" title="4.1：全梯度下降（FGD）：代入全部样本在运行过程中不能添加新样本"></a>4.1：全梯度下降（FGD）：代入全部样本在运行过程中不能添加新样本</h3><h4 id="作法：在进行计算的时候-计算所有样本的误差平均值-作为我的目标函数"><a href="#作法：在进行计算的时候-计算所有样本的误差平均值-作为我的目标函数" class="headerlink" title="作法：在进行计算的时候,计算所有样本的误差平均值,作为我的目标函数"></a><strong>作法：</strong>在进行计算的时候,计算所有样本的误差平均值,作为我的目标函数</h4><p><strong>缺点</strong>：更新一次权重都需要计算所有样本误差，而实际问题中经常有上亿的训练样本，故效率偏低，且容易陷入局部最优解</p>
+<ul>
+<li><strong>批量梯度下降法</strong>，是梯度下降法最常用的形式，<strong>具体做法也就是在更新参数时使用所有的样本来进行更新。</strong> <strong>计算训练集所有样本误差</strong>，<strong>对其求和再取平均值作为目标函数</strong>。</li>
+<li><strong>权重向量</strong>沿其梯度相反的方向移动，从而使当前目标函数减少得最多。</li>
+<li><strong>公式θ为权重值</strong>：<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/9.png' height=px ></li>
+<li><strong>全梯度下降性质：</strong><ul>
+<li>因为在<strong>执行每次更新时</strong>，我们需要在整个数据集上<strong>计算所有的梯度</strong>，所以批梯度下降法的<strong>速度会很慢</strong>，同时，批梯度下降法<strong>无法处理超出内存容量限制的数据集</strong>。</li>
+<li><strong>批梯度下降法同样也不能在线更新模型，即在运行的过程中，不能增加新的样本</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="4-2：-随机梯度下降算法-SGD-：只代入一个样本更新循环重复过程"><a href="#4-2：-随机梯度下降算法-SGD-：只代入一个样本更新循环重复过程" class="headerlink" title="4.2： 随机梯度下降算法(SGD)：只代入一个样本更新循环重复过程"></a>4.2： 随机梯度下降算法(SGD)：只代入一个样本更新循环重复过程</h3><h4 id="作法：每次只选择一个样本进行考核"><a href="#作法：每次只选择一个样本进行考核" class="headerlink" title="作法：每次只选择一个样本进行考核"></a>作法：每次只选择一个样本进行考核</h4><p><strong>缺点</strong>：SG每次只使用一个样本迭代，若遇上噪声则容易陷入局部最优解，而且每一轮的梯度更新都完全与上一轮的数据无关</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数的性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>from   sklearn.linear_model  import   <strong>SGDRegressor</strong>(loss=”squared_loss”, fit_intercept=True,max_iter=， learning_rate                                                            =’invscaling’, eta0=0.01)</td>
+<td><strong>SGDRegressor</strong>类实现了随机梯度下降学习，<strong>loss函数和正则化惩罚项</strong>来拟合线性回归模型：                                                                             <strong>1：loss</strong>:损失类型  <strong>loss=”squared_loss”: 普通最小二乘法</strong>                 <strong>2：fit_intercept</strong>：是否计算偏置                                                             <strong>3：max_iter=数值</strong>：最大迭代次数，又称走了多少步                                                      <strong>4：learning_rate</strong> : string, optional：两个选择                                                              <strong>4.1：学习率填充</strong>                                                                                      **’constant’: eta = eta0 **：常数                                                                           <strong>‘optimal’: eta = 1.0 / (alpha（步长） * (t + t0)) [default]</strong>                                             随着迭代次数进行优化                                                                                   ‘invscaling’: eta = eta0 / pow(t, power_t)                                     <strong>power_t=0.25:存在父类当中</strong>                                                                      <strong>对于一个常数值的学习率来说，可以使用                                      learning_rate=’constant’                                                                              5：并使用eta0来指定学习率。</strong></td>
+</tr>
+<tr>
+<td>SGDRegressor.coef_</td>
+<td>回归系数</td>
+</tr>
+<tr>
+<td>SGDRegressor.intercept_</td>
+<td>偏置</td>
+</tr>
+</tbody></table>
+<ul>
+<li><h4 id="随机梯度下降算法：每次只代入计算一个样本目标函数的梯度来更新权重，再取下一个样本重复此过程，直到损失函数值停止下降或损失函数值小于某个可以容忍的阈值。"><a href="#随机梯度下降算法：每次只代入计算一个样本目标函数的梯度来更新权重，再取下一个样本重复此过程，直到损失函数值停止下降或损失函数值小于某个可以容忍的阈值。" class="headerlink" title="随机梯度下降算法：每次只代入计算一个样本目标函数的梯度来更新权重，再取下一个样本重复此过程，直到损失函数值停止下降或损失函数值小于某个可以容忍的阈值。"></a>随机梯度下降算法：<strong>每次只代入计算一个样本目标函数的梯度来更新权重，再取下一个样本重复此过程，直到损失函数值停止下降或损失函数值小于某个可以容忍的阈值。</strong></h4></li>
+<li><h4 id="公式：-1"><a href="#公式：-1" class="headerlink" title="公式："></a>公式：<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/10.png' height=px ></h4></li>
+</ul>
+<h3 id="4-3：小批量梯度下降算法：每次从训练样本集上随机抽取一个小样本集，在抽出来的小样本集上采用FGD迭代更新权重。"><a href="#4-3：小批量梯度下降算法：每次从训练样本集上随机抽取一个小样本集，在抽出来的小样本集上采用FGD迭代更新权重。" class="headerlink" title="4.3：小批量梯度下降算法：每次从训练样本集上随机抽取一个小样本集，在抽出来的小样本集上采用FGD迭代更新权重。"></a>4.3：小批量梯度下降算法：<strong>每次从训练样本集上随机抽取一个小样本集，在抽出来的小样本集上采用FGD迭代更新权重。</strong></h3><h4 id="作法：选择一部分样本进行考核"><a href="#作法：选择一部分样本进行考核" class="headerlink" title="作法：选择一部分样本进行考核"></a>作法：选择一部分样本进行考核</h4><ul>
+<li><strong>公式：</strong><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/11.png' height=px ></li>
+</ul>
+<h3 id="4-4：-随机平均梯度下降算法-SAG-：在内存中为每一个样本都维护一个旧的梯度，随机选择第i个样本来更新此样本的梯度，其他样本的梯度保持不变，然后求得所有梯度的平均值，进而更新了参数。"><a href="#4-4：-随机平均梯度下降算法-SAG-：在内存中为每一个样本都维护一个旧的梯度，随机选择第i个样本来更新此样本的梯度，其他样本的梯度保持不变，然后求得所有梯度的平均值，进而更新了参数。" class="headerlink" title="4.4： 随机平均梯度下降算法(SAG)：在内存中为每一个样本都维护一个旧的梯度，随机选择第i个样本来更新此样本的梯度，其他样本的梯度保持不变，然后求得所有梯度的平均值，进而更新了参数。"></a>4.4： 随机平均梯度下降算法(SAG)：<strong>在内存中为每一个样本都维护一个旧的梯度，随机选择第i个样本来更新此样本的梯度，其他样本的梯度保持不变，然后求得所有梯度的平均值，进而更新了参数</strong>。</h3><h4 id="作法：会给每个样本都维持一个平均值-后期计算的时候-参考这个平均值"><a href="#作法：会给每个样本都维持一个平均值-后期计算的时候-参考这个平均值" class="headerlink" title="作法：会给每个样本都维持一个平均值,后期计算的时候,参考这个平均值"></a>作法：会给每个样本都维持一个平均值,后期计算的时候,参考这个平均值</h4><ul>
+<li><strong>公式为：</strong><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/12.png' height=px ></li>
+<li><strong>随机平均梯度下降算法(SAG)解释</strong>：我们知道sgd是当前权重减去步长乘以梯度，得到新的权重。sag中的a，就是平均的意思，具体说，就是在第k步迭代的时候，我考虑的这一步和前面n-1个梯度的平均值，当前权重减去步长乘以最近n个梯度的平均值。</li>
+</ul>
+<h2 id="5：欠拟合和过拟合"><a href="#5：欠拟合和过拟合" class="headerlink" title="5：欠拟合和过拟合"></a>5：欠拟合和过拟合</h2><p><strong>如何优化训练数据</strong> —&gt; 主要用于<strong>解决欠拟合问题</strong>—》集成学习中boosting：逐步增强学习</p>
+<p><strong>如何提升泛化性能</strong> —&gt; 主要用于<strong>解决过拟合问题</strong>—》集成学习中Bagging：采样学习集成</p>
+<h4 id="5-1：欠拟合：一个假设在训练数据上不能获得更好的拟合，并且在测试数据集上也不能很好地拟合数据，此时认为这个假设出现了欠拟合的现象。-模型过于简单"><a href="#5-1：欠拟合：一个假设在训练数据上不能获得更好的拟合，并且在测试数据集上也不能很好地拟合数据，此时认为这个假设出现了欠拟合的现象。-模型过于简单" class="headerlink" title="5.1：欠拟合：一个假设在训练数据上不能获得更好的拟合，并且在测试数据集上也不能很好地拟合数据，此时认为这个假设出现了欠拟合的现象。(模型过于简单)"></a>5.1：欠拟合：一个假设<strong>在训练数据上不能获得更好的拟合，并且在测试数据集上也不能很好地拟合数据</strong>，此时认为这个假设出现了欠拟合的现象。(模型过于简单)</h4><ul>
+<li><h4 id="原因：学习到的数据的特征过少"><a href="#原因：学习到的数据的特征过少" class="headerlink" title="原因：学习到的数据的特征过少"></a>原因：学习到的数据的特征过少</h4></li>
+<li><h4 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h4><ul>
+<li>添加其他特征：“组合”、“泛化”、“相关性”三类特征是特征添加的重要手段</li>
+<li>添加多项式特征：将线性模型通过添加二次项或者三次项使模型泛化能力更强。</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-2：过拟合：一个假设在训练数据上能够获得比其他假设更好的拟合，-但是在测试数据集上却不能很好地拟合数据，此时认为这个假设出现了过拟合的现象。-模型过于复杂"><a href="#5-2：过拟合：一个假设在训练数据上能够获得比其他假设更好的拟合，-但是在测试数据集上却不能很好地拟合数据，此时认为这个假设出现了过拟合的现象。-模型过于复杂" class="headerlink" title="5.2：过拟合：一个假设在训练数据上能够获得比其他假设更好的拟合， 但是在测试数据集上却不能很好地拟合数据，此时认为这个假设出现了过拟合的现象。(模型过于复杂)"></a>5.2：过拟合：一个假设<strong>在训练数据上能够获得比其他假设更好的拟合， 但是在测试数据集上却不能很好地拟合数据</strong>，此时认为这个假设出现了过拟合的现象。(模型过于复杂)</h4><ul>
+<li><h4 id="原因：原始特征过多，存在一些嘈杂特征，模型过于复杂，模型尝试去兼顾各个测试点"><a href="#原因：原始特征过多，存在一些嘈杂特征，模型过于复杂，模型尝试去兼顾各个测试点" class="headerlink" title="原因：原始特征过多，存在一些嘈杂特征，模型过于复杂，模型尝试去兼顾各个测试点"></a>原因：原始特征过多，存在一些嘈杂特征，模型过于复杂，模型尝试去兼顾各个测试点</h4></li>
+<li><h4 id="解决办法：-1"><a href="#解决办法：-1" class="headerlink" title="解决办法："></a>解决办法：</h4><ul>
+<li>重新清洗数据：可能数据不存导致</li>
+<li>增大数据的训练量：训练数据占总比太小</li>
+<li>正则化</li>
+<li>减少特征维度，防止维灾难</li>
+</ul>
+</li>
+</ul>
+<h2 id="6：正则化：复杂度或者异常数据点太多减少这个特征的影响"><a href="#6：正则化：复杂度或者异常数据点太多减少这个特征的影响" class="headerlink" title="6：正则化：复杂度或者异常数据点太多减少这个特征的影响"></a>6：正则化：复杂度或者异常数据点太多减少这个特征的影响</h2><ul>
+<li><strong>正则化越大权重值越小</strong></li>
+<li><strong>比如训练集表现很好，测试集表现不好时让正则化惩罚系数变的大一些，限值模型的过拟合</strong></li>
+<li><strong>如果训练和测试集表现的都不错，让正则化惩罚系数小一些</strong></li>
+</ul>
+<h4 id="正则化含义：在学习的时候，数据提供的特征有些影响模型的复杂度或者异常数据点太多在学习的时候应该减少这个特征的影响（甚至去删除某个特征的影响）"><a href="#正则化含义：在学习的时候，数据提供的特征有些影响模型的复杂度或者异常数据点太多在学习的时候应该减少这个特征的影响（甚至去删除某个特征的影响）" class="headerlink" title="正则化含义：在学习的时候，数据提供的特征有些影响模型的复杂度或者异常数据点太多在学习的时候应该减少这个特征的影响（甚至去删除某个特征的影响）"></a>正则化含义：在学习的时候，数据提供的特征有些影响模型的复杂度或者异常数据点太多在学习的时候应该减少这个特征的影响（甚至去删除某个特征的影响）</h4><p>复杂度：是</p>
+<ul>
+<li><strong>L1正则化：</strong><ul>
+<li>作用：可以使得其中一些W的值直接为0，删除这个特征的影响</li>
+<li>LASSO回归</li>
+</ul>
+</li>
+<li><strong>L2正则化：</strong><ul>
+<li>作用：可以使得其中一些W的都很小，都接近于0，削弱某个特征的影响</li>
+<li>优点：越小的参数说明模型越简单，越简单的模型则越不容易产生过拟合现象</li>
+<li>Ridge回归</li>
+</ul>
+</li>
+</ul>
+<h4 id="Ridge-ElasticNet-Lasso的API"><a href="#Ridge-ElasticNet-Lasso的API" class="headerlink" title="Ridge, ElasticNet, Lasso的API"></a><strong>Ridge</strong>, <strong>ElasticNet</strong>, <strong>Lasso的API</strong></h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>from sklearn.linear_model import <strong>Ridge</strong>, <strong>ElasticNet</strong>, <strong>Lasso</strong></td>
+<td><strong>正则化线性模型</strong>：复杂度或者异常数据点太多减少这个特征的影响</td>
+</tr>
+<tr>
+<td>Ridge</td>
+<td><strong>岭回归模型</strong>：                                                                                               达到了在拟合数据的同时，使模型权重尽可能小的目的</td>
+</tr>
+<tr>
+<td>ElasticNet</td>
+<td><strong>弹性网络</strong>：                                                                                                        进行了折中，通过 <strong>混合比(mix ratio) r</strong> 进行控制</td>
+</tr>
+<tr>
+<td>Lasso</td>
+<td><strong>Lasso 回归</strong>：                                                                                                                  能够自动进行特征选择，并输出一个稀疏模型（只有少数特征的权重是非零的）。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="6-0：RidgeCV（）：可以传入多个惩罚系数，还经过交叉验证了"><a href="#6-0：RidgeCV（）：可以传入多个惩罚系数，还经过交叉验证了" class="headerlink" title="6.0：RidgeCV（）：可以传入多个惩罚系数，还经过交叉验证了"></a><strong>6.0：RidgeCV（）：可以传入多个惩罚系数，还经过交叉验证了</strong></h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>**RidgeCV（(alphas=(0.1, 1.0, 10.0：可以传入不同的惩罚力度去最好的)) **</td>
+<td>传入多个惩罚系数                                                                                             具有l2正则化的线性回归，可以进行交叉验证 coef_:回归系数，   这个函数还经过了交叉验证，会让数据集小，数据集小，验证集也会小，会带来一种问题，不一定会比Ridge（）的误差更小</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="6-1正则化线性模型：里面都是防止过拟合的："><a href="#6-1正则化线性模型：里面都是防止过拟合的：" class="headerlink" title="6.1正则化线性模型：里面都是防止过拟合的："></a>6.1正则化线性模型：里面都是防止过拟合的：</h3><h3 id="α-：为正则化惩罚力度"><a href="#α-：为正则化惩罚力度" class="headerlink" title="α ：为正则化惩罚力度"></a>α ：为正则化惩罚力度</h3><h3 id="6-11-Ridge-Regression-岭回归，又名-Tikhonov-regularization-："><a href="#6-11-Ridge-Regression-岭回归，又名-Tikhonov-regularization-：" class="headerlink" title="6.11 Ridge Regression (岭回归，又名 Tikhonov regularization)："></a>6.11 Ridge Regression (岭回归，又名 Tikhonov regularization)：</h3><h4 id="性质：达到了在拟合数据的同时，使模型权重尽可能小的目的"><a href="#性质：达到了在拟合数据的同时，使模型权重尽可能小的目的" class="headerlink" title="性质：达到了在拟合数据的同时，使模型权重尽可能小的目的"></a>性质：达到了在拟合数据的同时，使模型权重尽可能小的目的</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sklearn.linear_model.<strong>Ridge</strong>(alpha=1.0, fit_intercept=True,solver=”auto”, normalize=False)</td>
+<td><strong>岭回归模型：</strong>具有l2正则化的线性回归                                                                   <strong>alpha:正则化力度，也叫 λ</strong>                                                                             ① λ取值：0<del>1 1</del>10    ，值越小惩罚越小，相反值越大惩罚越大                                                                        <strong>solver:会根据数据自动选择优化方法</strong>                                                    ①sag:如果数据集、特征都比较大，选择该随机梯度下降优化 <strong>normalize:数据是否进行标准化，如果标准化过了就不用标准化了</strong>                                                                                  ①normalize=False:可以在fit之前调用preprocessing.StandardScaler标准化数据</td>
+</tr>
+<tr>
+<td>Ridge.coef_</td>
+<td>回归权重</td>
+</tr>
+<tr>
+<td>Ridge.intercept_</td>
+<td>回归偏置</td>
+</tr>
+</tbody></table>
+<ul>
+<li><h5 id="邻回归：在原来的均方误差中添加了正则项"><a href="#邻回归：在原来的均方误差中添加了正则项" class="headerlink" title="邻回归：在原来的均方误差中添加了正则项"></a>邻回归：在原来的均方误差中添加了正则项</h5></li>
+<li><p>α ：为正则化惩罚力度</p>
+</li>
+<li><p>α 大惩罚越大，小惩罚越小</p>
+</li>
+<li><p>正则化力度越大，权重系数值越小</p>
+</li>
+<li><p>正则化力度越小，权重系数值越大</p>
+</li>
+<li><p>合并后的公式当前面的值都是一定时，<strong>后面的α 系数做惩罚系数和权重是此消彼长的形式，当α 大的时候权重小，相反如此</strong></p>
+</li>
+<li><p>L1直接把高次项的系数直接变成了0</p>
+<ul>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/13.png' height=px ></li>
+</ul>
+</li>
+<li><h5 id="合成函数为"><a href="#合成函数为" class="headerlink" title="合成函数为"></a>合成函数为</h5><ul>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/14.png' height=px ></li>
+</ul>
+</li>
+</ul>
+<h3 id="6-2：Lasso-Regression-Lasso-回归-很重要的性质是：倾向于完全消除不重要的权重。"><a href="#6-2：Lasso-Regression-Lasso-回归-很重要的性质是：倾向于完全消除不重要的权重。" class="headerlink" title="6.2：Lasso Regression(Lasso 回归):很重要的性质是：倾向于完全消除不重要的权重。"></a>6.2：Lasso Regression(Lasso 回归):很重要的性质是：倾向于完全消除不重要的权重。</h3><h4 id="性质：当α-取值相对较大时，高阶多项式退化为二次甚至是线性：高阶多项式特征的权重被置为0，也就是说，Lasso-Regression-能够自动进行特征选择，并输出一个稀疏模型（只有少数特征的权重是非零的）。"><a href="#性质：当α-取值相对较大时，高阶多项式退化为二次甚至是线性：高阶多项式特征的权重被置为0，也就是说，Lasso-Regression-能够自动进行特征选择，并输出一个稀疏模型（只有少数特征的权重是非零的）。" class="headerlink" title="性质：当α 取值相对较大时，高阶多项式退化为二次甚至是线性：高阶多项式特征的权重被置为0，也就是说，Lasso Regression 能够自动进行特征选择，并输出一个稀疏模型（只有少数特征的权重是非零的）。"></a>性质：当α 取值相对较大时，高阶多项式退化为二次甚至是线性：高阶多项式特征的权重被置为0，也就是说，Lasso Regression 能够自动进行特征选择，并输出一个稀疏模型（只有少数特征的权重是非零的）。</h4><ul>
+<li><h4 id="Lasso-Regression-的代价函数在-θi-0处是不可导的"><a href="#Lasso-Regression-的代价函数在-θi-0处是不可导的" class="headerlink" title="Lasso Regression 的代价函数在 θi=0处是不可导的."></a>Lasso Regression 的代价函数在 θi=0处是不可导的.</h4></li>
+<li><p>当前面的值都是一定时，<strong>后面的α 系数做惩罚系数和权重是此消彼长的形式，当α 大的时候权重小，相反如此</strong></p>
+</li>
+<li><h4 id="解决方法：在θi-0处用一个次梯度向量-subgradient-vector-代替梯度，运用权重对0做等价值小于0是-1-。。"><a href="#解决方法：在θi-0处用一个次梯度向量-subgradient-vector-代替梯度，运用权重对0做等价值小于0是-1-。。" class="headerlink" title="解决方法：在θi=0处用一个次梯度向量(subgradient vector)代替梯度，运用权重对0做等价值小于0是-1.。。"></a>解决方法：在θi=0处用一个次梯度向量(subgradient vector)代替梯度，运用权重对0做等价值小于0是-1.。。</h4><ul>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/15.png' height=px ></li>
+</ul>
+</li>
+</ul>
+<h3 id="6-3：Elastic-Net-弹性网络-L1和L2进行了合并"><a href="#6-3：Elastic-Net-弹性网络-L1和L2进行了合并" class="headerlink" title="6.3：Elastic Net (弹性网络)L1和L2进行了合并"></a>6.3：Elastic Net (弹性网络)L1和L2进行了合并</h3><h4 id="性质：进行了折中，通过-混合比-mix-ratio-r-进行控制"><a href="#性质：进行了折中，通过-混合比-mix-ratio-r-进行控制" class="headerlink" title="性质：进行了折中，通过 混合比(mix ratio) r 进行控制"></a>性质：进行了折中，通过 <strong>混合比(mix ratio) r</strong> 进行控制</h4><p>前面的权重变大时，把r提高，后面的权重变大，把r减少</p>
+<ul>
+<li>r=0：弹性网络变为岭回归，对应后项式</li>
+<li>r=1：弹性网络便为Lasso回归对应前项式子</li>
+<li>公式：<ul>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/16.png' height=px ></li>
+</ul>
+</li>
+</ul>
+<p>常用：岭回归</p>
+<p>假设只有少部分特征是有用的：</p>
+<ul>
+<li>弹性网络</li>
+<li>Lasso </li>
+<li>一般来说，弹性网络的使用更为广泛。因为在特征维度高于训练样本数，或者特征是强相关的情况下，Lasso回归的表现不太稳定。</li>
+</ul>
+<h2 id="7：模型的保存和加载"><a href="#7：模型的保存和加载" class="headerlink" title="7：模型的保存和加载;"></a>7：模型的保存和加载;</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>from sklearn.externals import <strong>joblib</strong></td>
+<td>模型的保存和加载</td>
+</tr>
+<tr>
+<td>joblib.<strong>dump</strong>(estimator, ‘test.pkl’)</td>
+<td>保存</td>
+</tr>
+<tr>
+<td>变量 = joblib.<strong>load</strong>(‘test.pkl’)</td>
+<td>加载</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
