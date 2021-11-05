@@ -1,0 +1,2941 @@
+<!DOCTYPE HTML>
+<html lang="Html">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="CV深度学习基础一, 小龙播客">
+    <meta name="description" content="家里蹲大学">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>CV深度学习基础一 | 小龙播客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="小龙播客" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">小龙播客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">小龙播客</div>
+        <div class="logo-desc">
+            
+            家里蹲大学
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">CV深度学习基础一</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/CV/">
+                                <span class="chip bg-color">CV</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/CV/" class="post-category">
+                                CV
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2020-11-05
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2021-11-05
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    16.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    61 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="1神经网络运用的"><a href="#1神经网络运用的" class="headerlink" title="1神经网络运用的"></a><strong>1</strong>神经网络运用的</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数表达作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>random.seed(n)</td>
+<td>如果使用相同的n值，则随机数生成函数每次生成的随机数序列都相同</td>
+</tr>
+<tr>
+<td>np.random.seed(n)</td>
+<td>以按顺序产生一组固定的数组，如果使用相同的n值，则每次生成的随机数都相同</td>
+</tr>
+<tr>
+<td>numpy.array([])</td>
+<td>创建一个数组</td>
+</tr>
+<tr>
+<td>relu函数</td>
+<td>激活函数通常指代以<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%96%9C%E5%9D%A1%E5%87%BD%E6%95%B0">斜坡函数</a>及其变种为代表的非线性函数</td>
+</tr>
+<tr>
+<td>dot()</td>
+<td>计算的是我们经常计算的矩阵乘法，设A(2 * 3), B(3 * 4), 那么dot(A, B)就表示两个矩阵相乘，得到的结果是一个2 * 4的矩阵。</td>
+</tr>
+<tr>
+<td>Model（）</td>
+<td><strong>模型：</strong>就是要显示、保存、创建、更新和删除的对象。</td>
+</tr>
+<tr>
+<td>optimize（）</td>
+<td>每一次的w，b更新都通过optimize函数取做</td>
+</tr>
+<tr>
+<td>summary（）</td>
+<td>函数是描述性统计分析，对于连续型变量</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="tf-where使用：检索索引-True元素"><a href="#tf-where使用：检索索引-True元素" class="headerlink" title="tf.where使用：检索索引 True元素"></a>tf.where使用：检索索引 <code>True</code>元素</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tf.where（condition, x=None, y=None, name=None）</td>
+<td></td>
+</tr>
+<tr>
+<td>返回其中的元素 <code>condition</code>是 <code>True</code>（多路复用 <code>x</code>和 <code>y</code>).</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/1.png' height=px >
+
+
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/2.png' height=px >
+
+<h4 id="tf-math-equal：按元素返回-x-y-的真值"><a href="#tf-math-equal：按元素返回-x-y-的真值" class="headerlink" title="tf.math.equal：按元素返回 (x == y) 的真值"></a>tf.math.equal：按元素返回 (x == y) 的真值</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tf.math.equal(     x, y, name=None )</td>
+<td>X，y：一种 <a target="_blank" rel="noopener" href="https://tensorflow.google.cn/api_docs/python/tf/Tensor"><code>tf.Tensor</code></a>或者 <a target="_blank" rel="noopener" href="https://tensorflow.google.cn/api_docs/python/tf/sparse/SparseTensor"><code>tf.sparse.SparseTensor</code></a>或者 [<code>tf.IndexedSlices</code>]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/3.png' height=px >
+
+
+
+<h3 id="tf-compat-v1-scatter-update-：对变量进行更新。"><a href="#tf-compat-v1-scatter-update-：对变量进行更新。" class="headerlink" title="tf.compat.v1.scatter_update ：对变量进行更新。"></a>tf.compat.v1.scatter_update ：对变量进行更新。</h3><h5 id="函数函数信息tf-compat-v1-scatter-update-ref-indices-updates-use-locking-True-name-None"><a href="#函数函数信息tf-compat-v1-scatter-update-ref-indices-updates-use-locking-True-name-None" class="headerlink" title="函数函数信息tf.compat.v1.scatter_update(     ref, indices, updates, use_locking=True, name=None )"></a>函数函数信息tf.compat.v1.scatter_update(     ref, indices, updates, use_locking=True, name=None )</h5><table>
+<thead>
+<tr>
+<th><code>ref</code></th>
+<th>一种 <code>Variable</code>.</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>indices</code></td>
+<td>一种 <code>Tensor</code>.  必须是以下类型之一： <code>int32</code>,  <code>int64</code>.  第一维的索引张量 <code>ref</code>.</td>
+</tr>
+<tr>
+<td><code>updates</code></td>
+<td>一种 <code>Tensor</code>.  必须具有相同的类型 <code>ref</code>.  要存储的更新值的张量 <code>ref</code>.</td>
+</tr>
+<tr>
+<td><code>use_locking</code></td>
+<td>一个可选的 <code>bool</code>.  默认为 <code>True</code>.  如果为 True，则赋值将受锁保护；  否则行为是未定义的，但可能会表现出较少的争用。</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>操作的名称（可选）。</td>
+</tr>
+</tbody></table>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> tensorflow <span class="token keyword">as</span> tf
+<span class="token keyword">import</span> tensorflow<span class="token punctuation">.</span>contrib<span class="token punctuation">.</span>eager <span class="token keyword">as</span> tfe
+
+tf<span class="token punctuation">.</span>enable_eager_execution<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+ref <span class="token operator">=</span> tfe<span class="token punctuation">.</span>Variable<span class="token punctuation">(</span>initial_value<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+indices <span class="token operator">=</span> tf<span class="token punctuation">.</span>constant<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+updates <span class="token operator">=</span> tf<span class="token punctuation">.</span>constant<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">98</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">102</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+update <span class="token operator">=</span> tf<span class="token punctuation">.</span>scatter_update<span class="token punctuation">(</span>ref<span class="token punctuation">,</span> indices<span class="token punctuation">,</span> updates<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>update<span class="token punctuation">)</span>
+
+打印
+
+<span class="token operator">&lt;</span>tf<span class="token punctuation">.</span>Variable <span class="token string">''</span> shape<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span> dtype<span class="token operator">=</span>int32<span class="token punctuation">,</span> numpy<span class="token operator">=</span>
+array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span>  <span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">98</span><span class="token punctuation">,</span>  <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">102</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+       <span class="token punctuation">[</span>  <span class="token number">0</span><span class="token punctuation">,</span>   <span class="token number">0</span><span class="token punctuation">,</span>   <span class="token number">0</span><span class="token punctuation">,</span>   <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">></span>
+</code></pre>
+<h4 id="tf-stop-gradient-：停止梯度计算。"><a href="#tf-stop-gradient-：停止梯度计算。" class="headerlink" title="tf.stop_gradient ：停止梯度计算。"></a>tf.stop_gradient ：停止梯度计算。</h4><pre class=" language-python"><code class="language-python">tf<span class="token punctuation">.</span>stop_gradient<span class="token punctuation">(</span>
+    input<span class="token punctuation">,</span> name<span class="token operator">=</span>None
+<span class="token punctuation">)</span>
+</code></pre>
+<h4 id="tf-ragged-stack：进行拼接成"><a href="#tf-ragged-stack：进行拼接成" class="headerlink" title="tf.ragged.stack：进行拼接成"></a>tf.ragged.stack：进行拼接成</h4><img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/4.png' height=px >
+
+<h2 id="TensorFlow基础函数简介"><a href="#TensorFlow基础函数简介" class="headerlink" title="TensorFlow基础函数简介"></a>TensorFlow基础函数简介</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tf.constant（）</td>
+<td>创建张量</td>
+</tr>
+<tr>
+<td>变量.numpy（），np.array（变量）</td>
+<td>转换成numpy的类型</td>
+</tr>
+<tr>
+<td>tf.Variable（）</td>
+<td>变量是一种特殊的张量，形状是不可变，但可以更改其中的参数</td>
+</tr>
+<tr>
+<td>tf. data.datasets</td>
+<td>对于大型数据集或者要进行跨设备训练时使用来进行数据输入。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>keras.utils.plot_model(model, to_file=’model.png’, show_shapes=False, show_layer_names=True, rankdir=’TB’, expand_nested=False, dpi=96)</td>
+<td>将 Keras 模型转换为 dot 格式并保存到文件中：                                              <strong>参数：</strong>                                                                                                                 <strong>model</strong>: 一个 Keras 模型实例                                                                         <strong>to_file</strong>: 绘制图像的文件名                                                                              <strong>show_shapes</strong>: 是否显示尺寸信息                                             <strong>show_layer_names</strong>: 是否显示层的名称                                                    <strong>rankdir</strong>: 传递给 PyDot 的 <code>rankdir</code> 参数，一个指定绘图格式的字符串：’TB’ 创建一个垂直绘图；’LR’ 创建一个水平绘图                                                         <strong>expand_nested</strong>: 是否扩展嵌套模型为聚类                                                                                                                             <strong>dpi</strong>: 点 DPI</td>
+</tr>
+<tr>
+<td>tf.ones（shape, dtype=tf.dtypes.float32, name=None）</td>
+<td><strong>shape：</strong>整数列表、整数元组或int32类型的一维张量。                                     <strong>dtype ：</strong>结果张量中元素的可选数据类型。默认值为tf.32浮动                           <strong>name：</strong>名字                                                                                                          <strong>案例：</strong>tf.ones([2, 3], tf.int32) ==&gt; [[1, 1, 1], [1, 1, 1]]</td>
+</tr>
+<tr>
+<td>tf.data.Dataset.from_tensor_slices（）</td>
+<td><strong>创建一个数据集</strong>,<strong>其元素是给定张量的片段</strong>.                             <strong>tensors</strong>：张量的一种嵌套结构,在第0维度中各有相同的大小.                                                                                                 <strong>返回</strong>：                                                                                                       返回一个 Dataset.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>torch.utils.data.TensorDataset(data_tensor, target_tensor)</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="神经网络构造代码重要函数："><a href="#神经网络构造代码重要函数：" class="headerlink" title="神经网络构造代码重要函数："></a>神经网络构造代码重要函数：</h1><h3 id="1：导入tf-keras"><a href="#1：导入tf-keras" class="headerlink" title="1：导入tf.keras"></a>1：导入tf.keras</h3><p>使用 <code>tf.keras</code>，首先需要在代码开始时导入<code>tf.keras</code></p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>import tensorflow as tf</td>
+<td></td>
+</tr>
+<tr>
+<td>from tensorflow import keras</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="2-数据输入"><a href="#2-数据输入" class="headerlink" title="2.数据输入"></a>2.数据输入</h3><p>对于小的数据集，可以直接使用numpy格式的数据进行训练、评估模型，对于大型数据集或者要进行跨设备训练时使用tf.data.datasets来进行数据输入。</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tf.data.datasets</td>
+<td>对于大型数据集或者要进行跨设备训练时使用来进行数据输入。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>.to_categorical</strong></td>
+<td>将类向量（整数）转换为二进制类矩阵。</td>
+</tr>
+<tr>
+<td>eras.utils.to_categorical(y, num_classes=None, dtype=’float32’)</td>
+<td><strong>参数</strong>:                                                                                                                                 <strong>y</strong>: 需要转换成矩阵的类矢量(从 0 到 num_classes 的整数                                                                                                                            <strong>num_classes</strong>: 总类别数                                                                                                                           <strong>dtype</strong>: 字符串，输入所期望的数据类型 (<code>float32</code>, <code>float64</code>, <code>int32</code>…)</td>
+</tr>
+<tr>
+<td>返回</td>
+<td>输入的二进制矩阵表示。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>tf.keras.datasets.mnist.load_data(     path=’mnist.npz’ )</td>
+<td>path：本地缓存数据集的路径（相对于~/.keras/datasets）</td>
+</tr>
+</tbody></table>
+<h3 id="3-模型构建-：https-keras-io-zh-getting-started-sequential-model-guide"><a href="#3-模型构建-：https-keras-io-zh-getting-started-sequential-model-guide" class="headerlink" title="3.模型构建    ：https://keras.io/zh/getting-started/sequential-model-guide/"></a>3.模型构建    ：<a target="_blank" rel="noopener" href="https://keras.io/zh/getting-started/sequential-model-guide/">https://keras.io/zh/getting-started/sequential-model-guide/</a></h3><ul>
+<li>简单模型使用Sequential进行构建</li>
+<li>复杂模型使用函数式编程来构建</li>
+<li>自定义layers</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 利用sequential方式构建模型</span>
+model <span class="token operator">=</span> Sequential<span class="token punctuation">(</span><span class="token punctuation">[</span>
+  <span class="token comment" spellcheck="true"># 隐藏层1，激活函数是relu,输入大小有input_shape指定</span>
+  Dense<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">"relu"</span><span class="token punctuation">,</span> input_shape<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  
+  <span class="token comment" spellcheck="true"># 隐藏层2，激活函数是relu</span>
+  Dense<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">"relu"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token comment" spellcheck="true"># 输出层</span>
+  Dense<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span>activation<span class="token operator">=</span><span class="token string">"softmax"</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+
+
+<span class="token comment" spellcheck="true">#通过Sequential构建</span>
+
+<span class="token comment" spellcheck="true"># 导入相关的工具包</span>
+<span class="token keyword">import</span> tensorflow <span class="token keyword">as</span> tf
+<span class="token keyword">from</span> tensorflow <span class="token keyword">import</span> keras
+<span class="token keyword">from</span> tensorflow<span class="token punctuation">.</span>keras <span class="token keyword">import</span> layers
+<span class="token comment" spellcheck="true"># 定义一个Sequential模型，包含3层</span>
+model <span class="token operator">=</span> keras<span class="token punctuation">.</span>Sequential<span class="token punctuation">(</span>
+    <span class="token punctuation">[</span>
+        <span class="token comment" spellcheck="true"># 第一层：激活函数为relu,权重初始化为he_normal</span>
+        layers<span class="token punctuation">.</span>Dense<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">"relu"</span><span class="token punctuation">,</span>
+                     kernel_initializer<span class="token operator">=</span><span class="token string">"he_normal"</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">"layer1"</span><span class="token punctuation">,</span>input_shape<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true"># 第二层：激活函数为relu,权重初始化为he_normal</span>
+        layers<span class="token punctuation">.</span>Dense<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">"relu"</span><span class="token punctuation">,</span>
+                     kernel_initializer<span class="token operator">=</span><span class="token string">"he_normal"</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">"layer2"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true"># 第三层（输出层）：激活函数为sigmoid,权重初始化为he_normal</span>
+        layers<span class="token punctuation">.</span>Dense<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">"sigmoid"</span><span class="token punctuation">,</span>
+                     kernel_initializer<span class="token operator">=</span><span class="token string">"he_normal"</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">"layer3"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    name<span class="token operator">=</span><span class="token string">"my_Sequential"</span>
+<span class="token punctuation">)</span>
+
+
+
+<span class="token comment" spellcheck="true">#function API构建</span>
+
+<span class="token comment" spellcheck="true"># 导入工具包</span>
+<span class="token keyword">import</span> tensorflow <span class="token keyword">as</span> tf
+<span class="token comment" spellcheck="true"># 定义模型的输入</span>
+inputs <span class="token operator">=</span> tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>Input<span class="token punctuation">(</span>shape<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span>name <span class="token operator">=</span> <span class="token string">"input"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 第一层：激活函数为relu，其他默认</span>
+x <span class="token operator">=</span> tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>Dense<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">"relu"</span><span class="token punctuation">,</span>name <span class="token operator">=</span> <span class="token string">"layer1"</span><span class="token punctuation">)</span><span class="token punctuation">(</span>inputs<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 第二层：激活函数为relu，其他默认</span>
+x <span class="token operator">=</span> tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>Dense<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">"relu"</span><span class="token punctuation">,</span>name <span class="token operator">=</span> <span class="token string">"layer2"</span><span class="token punctuation">)</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 第三层（输出层）：激活函数为sigmoid</span>
+outputs <span class="token operator">=</span> tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>Dense<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">"sigmoid"</span><span class="token punctuation">,</span>name <span class="token operator">=</span> <span class="token string">"layer3"</span><span class="token punctuation">)</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 使用Model来创建模型，指明输入和输出</span>
+model <span class="token operator">=</span> tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>Model<span class="token punctuation">(</span>inputs<span class="token operator">=</span>inputs<span class="token punctuation">,</span> outputs<span class="token operator">=</span>outputs<span class="token punctuation">,</span>name<span class="token operator">=</span><span class="token string">"my_model"</span><span class="token punctuation">)</span> 
+
+
+
+
+
+<span class="token comment" spellcheck="true">#model的子类构建</span>
+<span class="token comment" spellcheck="true"># 导入工具包</span>
+<span class="token keyword">import</span> tensorflow <span class="token keyword">as</span> tf
+<span class="token comment" spellcheck="true"># 定义model的子类</span>
+<span class="token keyword">class</span> <span class="token class-name">MyModel</span><span class="token punctuation">(</span>tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 在init方法中定义网络的层结构</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        super<span class="token punctuation">(</span>MyModel<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 第一层：激活函数为relu,权重初始化为he_normal</span>
+        self<span class="token punctuation">.</span>layer1 <span class="token operator">=</span> tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>Dense<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">"relu"</span><span class="token punctuation">,</span>
+                     kernel_initializer<span class="token operator">=</span><span class="token string">"he_normal"</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">"layer1"</span><span class="token punctuation">,</span>input_shape<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 第二层：激活函数为relu,权重初始化为he_normal</span>
+        self<span class="token punctuation">.</span>layer2 <span class="token operator">=</span>tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>Dense<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">"relu"</span><span class="token punctuation">,</span>
+                     kernel_initializer<span class="token operator">=</span><span class="token string">"he_normal"</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">"layer2"</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 第三层（输出层）：激活函数为sigmoid,权重初始化为he_normal</span>
+        self<span class="token punctuation">.</span>layer3 <span class="token operator">=</span>tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>Dense<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">"sigmoid"</span><span class="token punctuation">,</span>
+                     kernel_initializer<span class="token operator">=</span><span class="token string">"he_normal"</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">"layer3"</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 在call方法中万完成前向传播</span>
+    <span class="token keyword">def</span> <span class="token function">call</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> inputs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        x <span class="token operator">=</span> self<span class="token punctuation">.</span>layer1<span class="token punctuation">(</span>inputs<span class="token punctuation">)</span>
+        x <span class="token operator">=</span> self<span class="token punctuation">.</span>layer2<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>layer3<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 实例化模型</span>
+model <span class="token operator">=</span> MyModel<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 设置一个输入，调用模型（否则无法使用summay()）</span>
+x <span class="token operator">=</span> tf<span class="token punctuation">.</span>ones<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> model<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+
+
+
+
+
+</code></pre>
+<table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>函数性质</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>用于配置训练模型</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Sequential():用于配置训练模型</strong></td>
+<td>顺序模型是多个网络层的线性堆叠。                                                            你可以通过将网络层实例的列表传递给 <code>Sequential</code> 的构造器，来创建一个 <code>Sequential</code> 模型：</td>
+</tr>
+<tr>
+<td>model = <strong>Sequential</strong>([     Dense(32, input_shape=(784,)),     Activation(‘relu’),     Dense(10),     Activation(‘softmax’), ])</td>
+<td>([Dense（第一层神经元个数，input_shape：输入指定的大小)，Activation(‘relu’)：激活函数，                                                           Dense（第二层神经元个数，Activation(‘relu’)：激活函数，。。。])</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>模型构建</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>tf.keras.layers.<strong>Dense</strong>(     units, activation=None, use_bias=True, kernel_initializer=’glorot_uniform’,     bias_initializer=’zeros’)</td>
+<td><strong>主要参数</strong>：                                                                                                                      <strong>units</strong>: 当前层中包含的神经元个数                                                                          <strong>Activation</strong>: 激活函数，relu,sigmoid等                                           <strong>use_bias</strong>: 是否使用偏置，默认使用偏置                                                             <strong>Kernel_initializer</strong>: 权重的初始化方式，默认是Xavier初始化<strong>bias_initializer</strong>: 偏置的初始化方式，默认为0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>用Input构建神经网络</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>keras.engine.input_layer.<strong>Input</strong>()</td>
+<td><code>Input()</code> 用于实例化 Keras 张量。Keras 张量是底层后端(Theano, TensorFlow 或 CNTK)的张量对象，我们增加了一些特性，使得能够通过了解模型的输入和输出来构建 Keras 模型。                                            <strong>参数</strong>                                                                                                               <strong>shape</strong>: 一个尺寸元组（整数），不包含批量大小。例如，<code>shape=(32,)</code> 表明期望的输入是按批次的 32 维向量                                    <strong>batch_shape</strong>: 一个尺寸元组（整数），包含批量大小。例如，<code>batch_shape=(10, 32)</code> 表明期望的输入是 10 个 32 维向量。<code>batch_shape=(None, 32)</code> 表明任意批次大小的 32 维向量                                                                      <strong>name</strong>: 一个可选的层的名称的字符串。在一个模型中应该是唯一的（不可以重用一个名字两次）。如未提供，将自动生成                                                                          <strong>dtype</strong>: 输入所期望的数据类型，字符串表示 (<code>float32</code>, <code>float64</code>, <code>int32</code>…)                                                                                                  <strong>sparse</strong>: 一个布尔值，指明需要创建的占位符是否是稀疏的                                     <strong>tensor</strong>: 可选的可封装到 <code>Input</code> 层的现有张量。如果设定了，那么这个层将不会创建占位符张量                                                                         <strong>返回</strong> 一个张量</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>激活函数</strong></td>
+<td>激活函数可决定层中每个节点的输出形状。这些非线性关系很重要，如果没有它们，模型将等同于单个层。激活函数有很多，但隐藏层通常使用</td>
+</tr>
+<tr>
+<td><strong>隐藏层使用最多的激活函数：</strong>ReLU</td>
+<td></td>
+</tr>
+<tr>
+<td>keras.layers.<strong>ReLU</strong>(max_value=None, negative_slope=0.0, threshold=0.0)</td>
+<td>使用默认值时，它返回逐个元素的 <code>max(x，0)</code>。                                                    <strong>否则</strong>                                                                                                                                   如果 <code>x &gt;= max_value</code>，返回 <code>f(x) = max_value</code>，                                         如果 <code>threshold &lt;= x &lt; max_value</code>，返回 <code>f(x) = x</code>,                                  否则，返回 <code>f(x) = negative_slope * (x - threshold)</code>。                                 <strong>参数：</strong>                                                                                                                <strong>max_value</strong>: 浮点数，最大的输出值                                        <strong>negative_slope</strong>: float &gt;= 0. 负斜率系数                                        <strong>threshold</strong>: float。”thresholded activation” 的阈值</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>输出层使用最多的函数：Softmax</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>keras.layers.Softmax(axis=-1)</td>
+<td><strong>axis</strong>: 整数，应用 softmax 标准化的轴。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>模型编译</td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="数据的转换"><a href="#数据的转换" class="headerlink" title="数据的转换"></a>数据的转换</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tf.cast（x, dtype, name=None）</td>
+<td>第一个参数 x:   待转换的数据（张量）                                                                                                      第二个参数 dtype： 目标数据类型                                                                                                           第三个参数 name： 可选参数，定义操作的名称</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="tf-boolean-mask-函数的使用"><a href="#tf-boolean-mask-函数的使用" class="headerlink" title="tf.boolean_mask()函数的使用"></a><strong>tf.boolean_mask()函数的使用</strong></h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数的性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>使用tf.boolean_mask用来过滤概率值比较低的锚盒</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>tf.boolean_mask(<strong>a,b</strong>)</strong></td>
+<td>1：使a (m维)矩阵，仅保留与b中“True”元素同下标的部分，                                  2：一个参数b为滤波器掩模，生成掩模要用到逻辑表达式（&gt;或者&lt;）生成布尔值</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>例子：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> tensorflow <span class="token keyword">as</span> tf
+a <span class="token operator">=</span> tf<span class="token punctuation">.</span>constant<span class="token punctuation">(</span><span class="token punctuation">[</span>
+<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span>tf<span class="token punctuation">.</span>float32<span class="token punctuation">)</span>
+ 
+b <span class="token operator">=</span> tf<span class="token punctuation">.</span>reduce_max<span class="token punctuation">(</span>a<span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+c<span class="token operator">=</span>  a <span class="token operator">></span><span class="token number">2</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"a="</span><span class="token operator">+</span>str<span class="token punctuation">(</span>sess<span class="token punctuation">.</span>run<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"b="</span><span class="token operator">+</span>str<span class="token punctuation">(</span>sess<span class="token punctuation">.</span>run<span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"c="</span><span class="token operator">+</span>str<span class="token punctuation">(</span>sess<span class="token punctuation">.</span>run<span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+d<span class="token operator">=</span>tf<span class="token punctuation">.</span>boolean_mask<span class="token punctuation">(</span>a<span class="token punctuation">,</span>c<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"d="</span><span class="token operator">+</span>str<span class="token punctuation">(</span>d<span class="token punctuation">.</span>eval<span class="token punctuation">(</span>session<span class="token operator">=</span>sess<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>d<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
+</code></pre>
+<p>运行结果如下：</p>
+<pre class=" language-python"><code class="language-python">a<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">.</span> <span class="token number">4</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
+  <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">.</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+ 
+ <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">.</span> <span class="token number">8</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
+  <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">.</span> <span class="token number">1</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+b<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">.</span> <span class="token number">4</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
+ <span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">.</span> <span class="token number">2</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+c<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token boolean">False</span>  <span class="token boolean">True</span><span class="token punctuation">]</span>
+  <span class="token punctuation">[</span> <span class="token boolean">True</span> <span class="token boolean">False</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+ 
+ <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token boolean">True</span>  <span class="token boolean">True</span><span class="token punctuation">]</span>
+  <span class="token punctuation">[</span><span class="token boolean">False</span> <span class="token boolean">False</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+d<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">.</span> <span class="token number">4</span><span class="token punctuation">.</span> <span class="token number">6</span><span class="token punctuation">.</span> <span class="token number">8</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
+</code></pre>
+<h3 id="4-训练与评估"><a href="#4-训练与评估" class="headerlink" title="4.训练与评估"></a>4.训练与评估</h3><ul>
+<li>配置训练过程：</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 配置优化方法，损失函数和评价指标</span>
+model<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>optimizer<span class="token operator">=</span><span class="token string">'adam'</span><span class="token punctuation">,</span>
+              loss<span class="token operator">=</span><span class="token string">'categorical_crossentropy'</span><span class="token punctuation">,</span>
+              metrics<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'accuracy'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数向性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>adam</td>
+<td>优化器。</td>
+</tr>
+<tr>
+<td>keras.optimizers.<strong>Adam</strong>(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)</td>
+<td>**参数 **                                                                                                                                            <strong>lr</strong>: float &gt;= 0. 学习率。                                                                                                           <strong>beta_1</strong>: float, 0 &lt; beta &lt; 1. 通常接近于 1。                                                                      **beta_2**: float, 0 &lt; beta &lt; 1. 通常接近于 1。                                                                                                 **epsilon**: float &gt;= 0. 模糊因子. 若为 <code>None</code>, 默认为 <code>K.epsilon()</code>。                           <strong>decay</strong>: float &gt;= 0. 每次参数更新后学习率衰减值。                                                                                  <strong>amsgrad</strong>: boolean. 是否应用此算法的 AMSGrad 变种，来自论文 “On the Convergence of Adam and Beyond”。</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>lr</strong>: float &gt;= 0. 学习率。 <strong>beta_1</strong>: float, 0 &lt; beta &lt; 1. 通常接近于 1。 **beta_2**: float, 0 &lt; beta &lt; 1. 通常接近于 1。 **epsilon**: float &gt;= 0. 模糊因子. 若为 <code>None</code>, 默认为 <code>K.epsilon()</code>。 <strong>decay</strong>: float &gt;= 0. 每次参数更新后学习率衰减值。 <strong>amsgrad</strong>: boolean. 是否应用此算法的 AMSGrad 变种，来自论文 “On the Convergence of Adam and Beyond”。</td>
+</tr>
+<tr>
+<td><strong>model.compile</strong></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>方法用于在配置训练模型时，告知训练时用的优化器、损失函数和准确率评测标准</strong>：</td>
+</tr>
+<tr>
+<td><strong>model.compile</strong>=(optimizer, loss=None, metrics=None, loss_weights=None, sample_weight_mode=None, weighted_metrics=None, target_tensors=None)</td>
+<td><strong>参数</strong>                                                                                                                <strong>optimizer</strong>: 字符串（优化器名）或者优化器对象。详见 <a target="_blank" rel="noopener" href="https://keras.io/optimizers">optimizers</a>                                                                                       1：“sgd”   或者   tf.optimizers.SGD 梯度优化方法                                                                                         2:“adagrad”  或者  tf.keras.optimizers.Adagrad                                                                     3:”adadelta”  或者  tf.keras.optimizers.Adadelta                                                           4:“adam”  或者  tf.keras.optimizers.Adam                                                                                                                               <strong>loss</strong>: 字符串（目标函数名）或目标函数。详见 <a target="_blank" rel="noopener" href="https://keras.io/losses">losses</a>。如果模型具有多个输出，则可以通过传递损失函数的字典或列表，在每个输出上使用不同的损失。模型将最小化的损失值将是所有单个损失的总和                                                                                                                                1：categorical_crossentropy：交叉熵损失                                                                                                1：”mse” 或者 tf.keras.losses.MeanSquaredError():  均方误差      2：”sparse_categorical_crossentropy”  或者                                                                                              <strong>metrics</strong>: 在训练和测试期间的模型评估标准。通常你会使用 <code>metrics = [&#39;accuracy&#39;]</code>。要为多输出模型的不同输出指定不同的评估标准，还可以传递一个字典，如 <code>metrics = &#123;&#39;output_a&#39;：&#39;accuracy&#39;&#125; </code>                                                                                     <strong>loss_weights</strong>: 指定标量系数（Python浮点数）的可选列表或字典，用于加权不同模型输出的损失贡献。模型将要最小化的损失值将是所有单个损失的加权和，由 <code>loss_weights</code> 系数加权。如果是列表，则期望与模型的输出具有 1:1 映射。如果是张量，则期望将输出名称（字符串）映射到标量系数 。                                                                                                                             <strong>sample_weight_mode</strong>: 如果你需要执行按时间步采样权重（2D 权重），请将其设置为 <code>temporal</code>。默认为 <code>None</code>，为采样权重（1D）。如果模型有多个输出，则可以通过传递 mode 的字典或列表，以在每个输出上使用不同的 <code>sample_weight_mode</code>。                                                                                  <strong>weighted_metrics</strong>: 在训练和测试期间，由 sample_weight 或 class_weight 评估和加权的度量标准列表。                                                <strong>target_tensors</strong>: 默认情况下，Keras 将为模型的目标创建一个占位符，在训练过程中将使用目标数据。相反，如果你想使用自己的目标张量（反过来说，Keras 在训练期间不会载入这些目标张量的外部 Numpy 数据），您可以通过 <code>target_tensors</code> 参数指定它们。它应该是单个张量（对于单输出 Sequential 模型）。                                                                                            *<strong>*kwargs</strong>: 当使用 Theano/CNTK 后端时，这些参数被传入 <code>K.function</code>。当使用 TensorFlow 后端时，这些参数被传递到 <code>tf.Session.run</code></td>
+</tr>
+<tr>
+<td><strong>异常</strong></td>
+<td><strong>ValueError</strong>:  如果 <code>optimizer</code>, <code>loss</code>, <code>metrics</code> 或 <code>sample_weight_mode</code> 这些参数不合法</td>
+</tr>
+</tbody></table>
+<ul>
+<li><h4 id="模型训练"><a href="#模型训练" class="headerlink" title="模型训练"></a>模型训练</h4></li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 指明训练数据集，训练epoch,批次大小和验证集数据</span>
+model<span class="token punctuation">.</span>fit<span class="token operator">/</span>fit_generator<span class="token punctuation">(</span>dataset<span class="token punctuation">,</span> epochs<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> 
+                        batch_size<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span>
+          validation_data<span class="token operator">=</span>val_dataset<span class="token punctuation">,</span>
+          <span class="token punctuation">)</span>
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>model. fit</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>model. fit</strong>(x=None, y=None, batch_size=None, epochs=1, verbose=1, <br/>callbacks=None, validation_split=0.0, validation_data=None, <br/>shuffle=True, class_weight=None, sample_weight=None, initial_epoch=0,                 <br/>steps_per_epoch=None, validation_steps=None)</td>
+<td><strong>以给定数量的轮次（数据集上的迭代）训练模型:</strong>                                                                      <strong>x: 训练数据</strong>的 Numpy 数组（如果模型只有一个输入）， 或者是 Numpy 数组的列表（如果模型有多个输入）。如果模型中的输入层被命名，你也可以传递一个字典，将输入层名称映射到 Numpy 数组。 如果从本地框架张量馈送（例如 TensorFlow 数据张量）数据，x 可以是 None（默认）    。                                                                                                         <strong>y: 目标（训练标签）</strong>数据的 Numpy 数组（如果模型只有一个输出）， 或者是 Numpy 数组的列表（如果模型有多个输出）。如果模型中的输出层被命名，你也可以传递一个字典，将输出层名称映射到 Numpy 数组。 如果从本地框架张量馈送（例如 TensorFlow 数据张量）数据，y 可以是 None（默认）。                                                                                                    <strong>batch_size:</strong> 整数或 None。每次梯度更新的样本数。如果未指定，默认为 32。                                                                                                                                <strong>epochs:</strong> 整数。训练模型迭代轮次。一个轮次是在整个 x 和 y 上的一轮迭代。 请注意，与 initial_epoch 一起，epochs 被理解为 「最终轮次」。模型并不是训练了 epochs 轮，而是到第 epochs 轮停止训练  。                                                                                                               <strong>verbose:</strong> 0, 1 或 2。日志显示模式。 0 = 安静模式, 1 = 进度条, 2 = 每轮一行。                                                                                                                              <strong>callbacks:</strong> 一系列的 <a target="_blank" rel="noopener" href="http://www.zzvips.com/article/76569.html">keras</a>.callbacks.Callback 实例。一系列可以在训练时使用的回调函数。 详见 callbacks。                                                                       <strong>validation_split:</strong> 0 和 1 之间的浮点数。用作验证集的训练数据的比例。 模型将分出一部分不会被训练的验证数据，并将在每一轮结束时评估这些验证数据的误差和任何其他模型指标。 验证数据是混洗之前 x 和y 数据的最后一部分样本中。                                                                                                           <strong>validation_data:</strong> 元组 (x_val，y_val) 或元组 (x_val，y_val，val_sample_weights)，用来评估损失，以及在每轮结束时的任何模型度量指标。 模型将不会在这个数据上进行训练。这个参数会覆盖 validation_split。<strong>shuffle:</strong> 布尔值（是否在每轮迭代之前混洗数据）或者 字符串 (batch)。 batch 是处理 HDF5 数据限制的特殊选项，它对一个 batch 内部的数据进行混洗。 当 steps_per_epoch 非 None 时，这个参数无效。                                       <strong>class_weight:</strong> 可选的字典，用来映射类索引（整数）到权重（浮点）值，用于加权损失函数（仅在训练期间）。 这可能有助于告诉模型 「更多关注」来自代表性不足的类的样本。                                                                             <strong>sample_weight:</strong> 训练样本的可选 Numpy 权重数组，用于对损失函数进行加权（仅在训练期间）。 您可以传递与输入样本长度相同的平坦（1D）Numpy 数组（权重和样本之间的 1:1 映射）， 或者在时序数据的情况下，可以传递尺寸为 (samples, sequence_length) 的 2D 数组，以对每个样本的每个时间步施加不同的权重。 在这种情况下，你应该确保在 compile() 中指定 sample_weight_mode=”temporal”。                                                            <strong>initial_epoch:</strong> 整数。开始训练的轮次（有助于恢复之前的训练）。<strong>steps_per_epoch:</strong> 整数或 None。 在声明一个轮次完成并开始下一个轮次之前的总步数（样品批次）。 使用 TensorFlow 数据张量等输入张量进行训练时，默认值 None 等于数据集中样本的数量除以 batch 的大小，如果无法确定，则为 1。                                                                                                  <strong>validation_steps:</strong> 只有在指定了 steps_per_epoch 时才有用。停止前要验证的总步数（批次样本）。</td>
+</tr>
+<tr>
+<td><strong>返回</strong></td>
+<td><strong>返回：</strong>                                                                                                                                      一个 History 对象。其 History.history 属性是连续 epoch 训练损失和评估值，以及验证集损失和评估值的记录（如果适用）。</td>
+</tr>
+<tr>
+<td><strong>异常</strong></td>
+<td>RuntimeError: 如果模型从未编译。                                                                 ValueError: 在提供的输入数据与模型期望的不匹配的情况下。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>fit_generator</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>model.fit_generator</strong>下面函数解义</td>
+<td>使用 Python 生成器（或 Sequence 实例）逐批生成的数据，按批次训练模型。                                                                                                                                     生成器与模型并行运行，以提高效率。 例如，这可以让你在 CPU 上对图像进行实时数据增强，以在 GPU 上训练模型。                                            keras.utils.Sequence 的使用可以保证数据的顺序， 以及当 use_multiprocessing=True 时 ，保证每个输入在每个 epoch 只使用一次。</td>
+</tr>
+<tr>
+<td><strong>fit_generator</strong>(generator, steps_per_epoch=None, epochs=1, verbose=1, <br/>callbacks=None, validation_data=None, validation_steps=None, <br/>class_weight=None, max_queue_size=10, workers=1, <br/>use_multiprocessing=False, shuffle=True, initial_epoch=0)</td>
+<td><strong>generator:</strong> 一个生成器，或者一个 Sequence (keras.utils.Sequence) 对象的实例， 以在使用多进程时避免数据的重复。 生成器的输出应该为以下之一：一个 (inputs, targets) 元组，一个 (inputs, targets, sample_weights) 元组。这个元组（生成器的单个输出）组成了单个的 batch。 因此，这个元组中的所有数组长度必须相同（与这一个 batch 的大小相等）。 不同的 batch 可能大小不同。 例如，一个 epoch 的最后一个 batch 往往比其他 batch 要小， 如果数据集的尺寸不能被 batchsize 整除。 生成器将无限地在数据集上循环。当运行到第 steps_per_epoch 时，记一个 epoch 结束。<strong>steps_per_epoch:</strong> 在声明一个 epoch 完成并开始下一个 epoch 之前从 generator 产生的总步数（批次样本）。 它通常应该等于你的数据集的样本数量除以批量大小。 对于 Sequence，它是可选的：如果未指定，将使用len(generator) 作为步数。                                                                                <strong>epochs:<strong>整数。训练模型的迭代总轮数。一个 epoch 是对所提供的整个数据的一轮迭代，如 steps_per_epoch 所定义。注意，与 initial_epoch 一起使用，epoch 应被理解为「最后一轮」。模型没有经历由 epochs 给出的多次迭代的训练，而仅仅是直到达到索引 epoch 的轮次。                                              <strong>verbose:</strong> 0, 1 或 2。日志显示模式。 0 = 安静模式, 1 = 进度条, 2 = 每轮一行</strong>callbacks:</strong> keras.callbacks.Callback 实例的列表。在训练时调用的一系列回调函数                                                                                                              <strong>validation_data:</strong> 它可以是以下之一：验证数据的生成器或 Sequence 实例一个 (inputs, targets) 元组一个 (inputs, targets, sample_weights) 元组在每个 epoch 结束时评估损失和任何模型指标。该模型不会对此数据进行训练。<strong>validation_steps:</strong> 仅当 validation_data 是一个生成器时才可用。 在停止前 generator 生成的总步数（样本批数）。 对于 Sequence，它是可选的：如果未指定，将使用 len(generator) 作为步数。                                              <strong>class_weight:</strong> 可选的将类索引（整数）映射到权重（浮点）值的字典，用于加权损失函数（仅在训练期间）。 这可以用来告诉模型「更多地关注」来自代表性不足的类的样本max_queue_size: 整数。生成器队列的最大尺寸。 如未指定，max_queue_size 将默认为 10workers: 整数。使用的最大进程数量，如果使用基于进程的多线程。 如未指定，workers 将默认为 1。如果为 0，将在主线程上执行生成器                                                                  **use_multiprocessing:**布尔值。如果 True，则使用基于进程的多线程。 如未指定， use_multiprocessing 将默认为 False。 请注意，由于此实现依赖于多进程，所以不应将不可传递的参数传递给生成器，因为它们不能被轻易地传递给子进程                                                                                                             <strong>shuffle:</strong> 是否在每轮迭代之前打乱 batch 的顺序。 只能与 Sequence (keras.utils.Sequence) 实例同用                                                                          <strong>initial_epoch:</strong> 开始训练的轮次（有助于恢复之前的训练）</td>
+</tr>
+<tr>
+<td><strong>返回</strong></td>
+<td>一个 History 对象。其 History.history 属性是连续 epoch 训练损失和评估值，以及验证集损失和评估值的记录（如果适用）。</td>
+</tr>
+<tr>
+<td><strong>总结</strong></td>
+<td>在使用fit函数的时候，需要有batch_size，但是在使用fit_generator时需要有steps_per_epoch</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li><h4 id="模型评估"><a href="#模型评估" class="headerlink" title="模型评估"></a>模型评估</h4></li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 指明评估数据集和批次大小</span>
+model<span class="token punctuation">.</span>evaluate<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> batch_size<span class="token operator">=</span><span class="token number">32</span><span class="token punctuation">)</span>
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>model.evaluate</strong></td>
+<td><strong>指明评估数据集和批次大小</strong></td>
+</tr>
+<tr>
+<td><strong>model.evaluate</strong>(x=None, y=None, batch_size=None, verbose=1, sample_weight=None, steps=None)</td>
+<td>**x:**Numpy测试数据数组（如果模型只有一个输入），或者Numpy数组列表（如果模型有多个输入）。如果命名了模型中的输入层，还可以将映射输入名称的字典传递给Numpy数组。如果从框架本机张量（例如，TensorFlow数据张量）馈送，则x可以是None（默认值）。                                                                  <strong>y：</strong>目标（标签）数据的Numpy数组（如果模型有一个输出），或者Numpy数组的列表（如果模型有多个输出）。如果命名了模型中的输出层，还可以将映射输出名称的字典传递给Numpy数组。如果从框架本机张量（例如，TensorFlow数据张量）馈送，则y可以是None（默认值）。                                             <strong>batch_size：</strong>整数或无。每个评估步骤的样本数。如果未指定，批次大小将默认为32。                                                                                                           <strong>verbose：</strong>0或1。详细模式。0=静音，1=进度条。                                                                <strong>sample_weight：</strong>测试样本的可选加权数组，用于加权损失函数。您可以传递一个与输入样本长度相同的平面（1D）Numpy数组（权重和样本之间的1:1映射），或者在时间数据的情况下，可以传递一个具有形状（样本、序列长度）的2D数组，以便对每个样本的每个时间步应用不同的权重。在这种情况下，您应该确保在compile（）中指定sample\u weight\u mode=“temporal”。                                                                               <strong>sample_weight：</strong>整数或无。在声明评估轮已完成之前的总步骤数（批样本）。忽略，默认值为“无”。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li><h4 id="模型预测"><a href="#模型预测" class="headerlink" title="模型预测"></a>模型预测</h4></li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 对新的样本进行预测</span>
+model<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>x<span class="token punctuation">,</span> batch_size<span class="token operator">=</span><span class="token number">32</span><span class="token punctuation">)</span>
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>model.predict</strong></td>
+<td><strong>对新的样本进行预测</strong></td>
+</tr>
+<tr>
+<td><strong>model.predict</strong>(x, batch_size=None, verbose=0, steps=None)</td>
+<td><strong>x</strong>: 输入数据，Numpy 数组（或者 Numpy 数组的列表，如果模型有多个输出）                                                                                                                                             <strong>batch_size</strong>: 整数。如未指定，默认为 32。                                                                                      <strong>verbose</strong>: 日志显示模式，0 或 1。                                                                                                      <strong>steps</strong>: 声明预测结束之前的总步数（批次样本）。默认值 <code>None</code>。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="5-回调函数（callbacks）"><a href="#5-回调函数（callbacks）" class="headerlink" title="5.回调函数（callbacks）"></a>5.回调函数（callbacks）</h3><h4 id="回调函数使用"><a href="#回调函数使用" class="headerlink" title="回调函数使用"></a>回调函数使用</h4><p>回调函数是一个函数的合集，会在训练的阶段中所使用。你可以使用回调函数来查看训练模型的内在状态和统计。你可以传递一个列表的回调函数（作为 <code>callbacks</code> 关键字参数）到 <code>Sequential</code> 或 <code>Model</code> 类型的 <code>.fit()</code> 方法。在训练时，相应的回调函数的方法就会被在各自的阶段被调用。</p>
+<p>回调函数用在模型训练过程中，来控制模型训练行为，可以自定义回调函数，也可使用<strong>tf.keras.callbacks</strong> 内置的 callback ：</p>
+<p><strong>ModelCheckpoint</strong>：定期保存 checkpoints。 <strong>LearningRateScheduler</strong>：动态改变学习速率。 EarlyStopping：当验证集上的性能不再提高时，终止训练。 TensorBoard：使用 TensorBoard 监测模型的状态。</p>
+<table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>函数性质</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>回调函数</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>keras.callbacks.Callback()</strong></td>
+<td><strong>回调函数</strong>：用来组建新的回调函数的抽象基类。</td>
+</tr>
+<tr>
+<td><strong>keras.callbacks.Callback()</strong></td>
+<td><strong>属性</strong>                                                                                      <strong>params</strong>: 字典。训练参数，(例如，verbosity, batch size, number of epochs…)                                                         <strong>model</strong>: <code>keras.models.Model</code> 的实例。指代被训练模型被回调函数作为参数的 <code>logs</code> 字典，它会含有于当前批量或训练轮相关数据的键目前，<code>Sequential</code> 模型类的 <code>.fit()</code> 方法会在传入到回调函数的 <code>logs</code> 里面包含以下的数据                                                                        <strong>on_epoch_end</strong>: 包括 <code>acc</code> 和 <code>loss</code> 的日志， 也可以选择性的包括 <code>val_loss</code>（如果在 <code>fit</code> 中启用验证），和 <code>val_acc</code>（如果启用验证和监测精确值）<strong>on_batch_begin</strong>: 包括 <code>size</code> 的日志，在当前批量内的样本数量<strong>on_batch_end</strong>: 包括 <code>loss</code> 的日志，也可以选择性的包括 <code>acc</code>（如果启用监测精确值）</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>在每个训练期之后保存模型</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ModelCheckpoint：</strong></td>
+<td>在每个训练期之后保存模型。                                                            如果 <strong>filepath</strong><code>是</code>weights.{epoch:02d}-{val_loss:.2f}.hdf5`，<br/>那么模型被保存的的文件名就会有训练轮数和验证损失。</td>
+</tr>
+<tr>
+<td><strong>keras.callbacks.ModelCheckpoint</strong>(filepath, monitor=’val_loss’, verbose=0, save_best_only=False, save_weights_only=False, mode=’auto’, period=1)</td>
+<td><strong>参数：</strong>                                                                                  <strong>filepath</strong>:  字符串，保存模型的路径。                               <strong>monitor</strong>: 被监测的数据。                                                        <strong>verbose</strong>: 详细信息模式，0 或者 1 。     <strong>save_best_only</strong>: 如果 <code>save_best_only=True</code>， 被监测数据的最佳模型就不会被覆盖。                                                                                 <strong>mode</strong>: {auto, min, max} 的其中之一。 如果 <code>save_best_only=True</code>，那么是否覆盖保存文件的决定就取决于被监测数据的最大或者最小值。 对于 <code>val_acc</code>，模式就会是 <code>max</code>，而对于 <code>val_loss</code>，模式就需要是 <code>min</code>，等等。 在 <code>auto</code> 模式中，方向会自动从被监测的数据的名字中判断出来。                                                         <strong>save_weights_only</strong>: 如果 True，那么只有模型的权重会被保存 (<code>model.save_weights(filepath)</code>)， 否则的话，整个模型会被保存 (<code>model.save(filepath)</code>) 。                        <strong>period</strong>: 每个检查点之间的间隔（训练轮数）</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>学习速率定时器。</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>keras.callbacks.LearningRateScheduler</strong>(schedule, verbose=0)</td>
+<td><strong>参数</strong>                                                                       <strong>schedule</strong>: 一个函数，接受轮索引数作为输入（整数，从 0 开始迭代）然后返回一个学习速率作为输出（浮点数）                                                          <strong>verbose</strong>: 整数。 0：安静，1：更新信息</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Tensorboard 基本可视化。提供的一个可视化工具。</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>这个回调函数为 Tensorboard :编写一个日志这样你可以<strong>可视化测试和训练的标准评估的动态图像</strong>，也可以可视化模型中不同层的激活值直方图。</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>keras.callbacks.TensorBoard</strong>(log_dir=’./logs’, histogram_freq=0, batch_size=32, write_graph=True, write_grads=False, write_images=False, embeddings_freq=0, embeddings_layer_names=None, embeddings_metadata=None, embeddings_data=None, update_freq=’epoch’)</td>
+<td><strong>参数:    **                                                                     <strong>log_dir</strong>: 用来保存被 TensorBoard 分析的日志文件的文件名                                                                                                         <strong>histogram_freq</strong>: 对于模型中各个层计算激活值和模型权重直方图的频率（训练轮数中）。如果设置成 0 ，直方图不会被计算。对于直方图可视化的验证数据（或分离数据）一定要明确的指出</strong>write_graph**: 是否在 TensorBoard 中可视化图像。如果 write_graph 被设置为 True，日志文件会变得非常大                                                    <strong>write_grads</strong>: 是否在 TensorBoard  中可视化梯度值直方图。<code>histogram_freq</code> 必须要大于 0 。        <strong>batch_size</strong>: 用以直方图计算的传入神经元网络输入批的大小                                                <strong>write_images</strong>: 是否在 TensorBoard 中将模型权重以图片可视化                                        <strong>embeddings_freq</strong>: 被选中的嵌入层会被保存的频率（在训练轮中）                   <strong>embeddings_layer_names</strong>: 一个列表，会被监测层的名字。如果是 None 或空列表，那么所有的嵌入层都会被监测                               <strong>embeddings_metadata</strong>: 一个字典，对应层的名字到保存有这个嵌入层元数据文件的名字。查看 <a target="_blank" rel="noopener" href="https://www.tensorflow.org/how_tos/embedding_viz/#metadata_optional">详情</a>关于元数据的数据格式。以防同样的元数据被用于所用的嵌入层，字符串可以被传入          <strong>embeddings_data</strong>: 要嵌入在 <code>embeddings_layer_names</code> 指定的层的数据。Numpy 数组（如果模型有单个输入）或 Numpy 数组列表（如果模型有多个输入）。<a target="_blank" rel="noopener" href="https://www.tensorflow.org/programmers_guide/embedding">Learn ore about embeddings</a> 。                                                     <strong>update_freq</strong>: <code>&#39;batch&#39;</code> 或 <code>&#39;epoch&#39;</code> 或 整数。当使用 <code>&#39;batch&#39;</code> 时，在每个 batch 之后将损失和评估值写入到 TensorBoard 中。同样的情况应用到 <code>&#39;epoch&#39;</code> 中。如果使用整数，例如 <code>10000</code>，这个回调会在每 10000 个样本之后将损失和评估值写入到 TensorBoard 中。注意，频繁地写入到 TensorBoard 会减缓你的训练</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="6-模型的保存和恢复：在官方网址上搜索https-keras-io-zh-getting-started-faq-3"><a href="#6-模型的保存和恢复：在官方网址上搜索https-keras-io-zh-getting-started-faq-3" class="headerlink" title="6.模型的保存和恢复：在官方网址上搜索https://keras.io/zh/getting-started/faq/#_3"></a><strong>6.模型的保存和恢复</strong>：在官方网址上搜索<a target="_blank" rel="noopener" href="https://keras.io/zh/getting-started/faq/#_3">https://keras.io/zh/getting-started/faq/#_3</a></h3><ul>
+<li><strong>只保存参数</strong></li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 只保存模型的权重</span>
+model<span class="token punctuation">.</span>save_weights<span class="token punctuation">(</span><span class="token string">'./my_model'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 加载模型的权重</span>
+model<span class="token punctuation">.</span>load_weights<span class="token punctuation">(</span><span class="token string">'my_model'</span><span class="token punctuation">)</span>
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>model.save_weights（” “）</td>
+<td>只保存模型的权重</td>
+</tr>
+<tr>
+<td>model.load_weights(“”)</td>
+<td>加载模型的权重</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>保存整个模型</strong></li>
+</ul>
+<pre><code># 保存模型架构与权重在h5文件中
+model.save(&#39;my_model.h5&#39;)
+# 加载模型：包括架构和对应的权重
+model = keras.models.load_model(&#39;my_model.h5&#39;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>model.save（“.h5”）</td>
+<td>保存模型架构与权重在h5文件中</td>
+</tr>
+<tr>
+<td>keras.models.load_model(“.h5”)</td>
+<td>加载模型：包括架构和对应的权重</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="TensorFlow算数加法"><a href="#TensorFlow算数加法" class="headerlink" title="TensorFlow算数加法"></a><strong>TensorFlow算数加法</strong></h4><table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>函数性质</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>tf.add()</strong></td>
+<td>**张量和 **</td>
+</tr>
+<tr>
+<td><strong>tf.multiply()</strong></td>
+<td><strong>张量的乘法,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 对应元素相乘</strong></td>
+</tr>
+<tr>
+<td><strong>tf.matmul()</strong></td>
+<td><strong>计算乘法，对应的矩阵相乘</strong></td>
+</tr>
+<tr>
+<td><strong>tf.reduce_max()</strong></td>
+<td><strong>最大值</strong></td>
+</tr>
+<tr>
+<td><strong>tf.reduce_sum()  # 求和                                                                                                                                           tf.reduce_mean() # 平均值                                                                                                                          tf.reduce_max()  # 最大值                                                                                                                       tf.reduce_min()  # 最小值                                                                                                                                       tf.argmax() # 最大值的索引                                                                                                                                tf.argmin() # 最小值的索引</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>变量.dtype</strong></td>
+<td><strong>类型</strong></td>
+</tr>
+<tr>
+<td><strong>tf.argmin(变量)</strong></td>
+<td><strong>最小值的索引</strong></td>
+</tr>
+<tr>
+<td><strong>tf.argmax(变量)</strong></td>
+<td><strong>最大值的索引</strong></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="keras："><a href="#keras：" class="headerlink" title="keras："></a><strong>keras：</strong></h3><table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>函数性质</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>activations</strong></td>
+<td><strong>激活函数</strong>：加上点可以调用激活函数</td>
+</tr>
+<tr>
+<td><strong>applications</strong></td>
+<td><strong>预训练网络模块</strong></td>
+</tr>
+<tr>
+<td><strong>Callbacks</strong></td>
+<td><strong>在模型训练期间被调用</strong></td>
+</tr>
+<tr>
+<td><strong>datasets</strong></td>
+<td><strong>tf.keras数据集模块，包括boston_housing，cifar10，fashion_mnist，imdb ，mnist</strong></td>
+</tr>
+<tr>
+<td><strong>ayers</strong></td>
+<td><strong>Keras层API</strong></td>
+</tr>
+<tr>
+<td><strong>losses</strong></td>
+<td><strong>各种损失函数</strong></td>
+</tr>
+<tr>
+<td><strong>metircs</strong></td>
+<td><strong>各种评价指标</strong></td>
+</tr>
+<tr>
+<td><strong>models</strong></td>
+<td><strong>模型创建模块，以及与模型相关的API</strong></td>
+</tr>
+<tr>
+<td><strong>optimizers</strong></td>
+<td><strong>优化方法</strong></td>
+</tr>
+<tr>
+<td><strong>preprocessing</strong></td>
+<td><strong>Keras数据的预处理模块</strong></td>
+</tr>
+<tr>
+<td><strong>regularizers</strong></td>
+<td><strong>正则化，L1,L2等</strong></td>
+</tr>
+<tr>
+<td><strong>utils</strong></td>
+<td><strong>辅助功能实现</strong></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tf.keras.losses</td>
+<td>可以调用下面损失函数</td>
+</tr>
+<tr>
+<td>CategoricalCrossentropy()</td>
+<td>用于多交叉熵损失</td>
+</tr>
+<tr>
+<td>BinaryCrossentropy()</td>
+<td>用于二分类的交叉熵损失</td>
+</tr>
+<tr>
+<td>MeanAbsoluteError()</td>
+<td>MAE损失，称为L1 Loss，平均绝对误差，绝对误差作为距离</td>
+</tr>
+<tr>
+<td>MeanSquaredError()</td>
+<td>L2 loss，或欧氏距离，它以误差的平方和作为距离</td>
+</tr>
+<tr>
+<td>Huber()</td>
+<td>Smooth L1损失函数，上个损失的合并</td>
+</tr>
+</tbody></table>
+<h2 id="查看网络结构图"><a href="#查看网络结构图" class="headerlink" title="查看网络结构图"></a>查看网络结构图</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.summary()</td>
+<td>查看网络结构图的神经元多少</td>
+</tr>
+<tr>
+<td>.plot_model(model,show_shapes=True)</td>
+<td>查看网络结构的用的模型</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="激活函数：是线性的映射转换成非线性的映射的过程，这些单调上升的非线性映射做成激活函数，在不同的任务中，总有一个在该任务中表示最好的激活函数"><a href="#激活函数：是线性的映射转换成非线性的映射的过程，这些单调上升的非线性映射做成激活函数，在不同的任务中，总有一个在该任务中表示最好的激活函数" class="headerlink" title="激活函数：是线性的映射转换成非线性的映射的过程，这些单调上升的非线性映射做成激活函数，在不同的任务中，总有一个在该任务中表示最好的激活函数"></a>激活函数：是线性的映射转换成非线性的映射的过程，这些单调上升的非线性映射做成激活函数，在不同的任务中，总有一个在该任务中表示最好的激活函数</h2><p>激活函数会对模型的学习有一定的帮助，</p>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/5.png' height=px >
+
+<h4 id="1：Sigmoid（激活输出层）激活函数，用于到二分类的输出层，会造成梯度消失，梯度饱和"><a href="#1：Sigmoid（激活输出层）激活函数，用于到二分类的输出层，会造成梯度消失，梯度饱和" class="headerlink" title="1：Sigmoid（激活输出层）激活函数，用于到二分类的输出层，会造成梯度消失，梯度饱和"></a>1：Sigmoid（激活输出层）激活函数，用于到二分类的输出层，会造成梯度消失，梯度饱和</h4><p>以0.5为中间形成概率值</p>
+<p>sigmoid函数反向传播时，很容易就会出现梯度消失的情况，从而无法完成深层网络的训练。</p>
+<h4 id="2：tanh-双曲正切曲线-：以0位中心，只要用于隐藏层，tanh两侧的导数也为0，同样会造成梯度消失。梯度饱和"><a href="#2：tanh-双曲正切曲线-：以0位中心，只要用于隐藏层，tanh两侧的导数也为0，同样会造成梯度消失。梯度饱和" class="headerlink" title="2：tanh(双曲正切曲线)：以0位中心，只要用于隐藏层，tanh两侧的导数也为0，同样会造成梯度消失。梯度饱和"></a>2：tanh(双曲正切曲线)：以0位中心，只要用于隐藏层，tanh两侧的导数也为0，同样会造成梯度消失。梯度饱和</h4><p>迭代次数较少，收敛速度更快，因为在0为中间了，将梯度进行了有区分</p>
+<h4 id="3-RELU（多适用于隐藏层）：小于0的都设置为0，大于0的时候会保持梯度不衰减，如果到小于0的时候会出现神经元死亡，计算量小"><a href="#3-RELU（多适用于隐藏层）：小于0的都设置为0，大于0的时候会保持梯度不衰减，如果到小于0的时候会出现神经元死亡，计算量小" class="headerlink" title="3.RELU（多适用于隐藏层）：小于0的都设置为0，大于0的时候会保持梯度不衰减，如果到小于0的时候会出现神经元死亡，计算量小"></a>3.RELU（多适用于隐藏层）：小于0的都设置为0，大于0的时候会保持梯度不衰减，如果到小于0的时候会出现神经元死亡，计算量小</h4><p>Relu会使一部分神经元的输出为0，这样就造成了网络的稀疏性，神经元为负数时会造成死亡，并且减少了参数的相互依存关系，缓解了过拟合问题的发生。计算量小，速度快斜率就是他的本身，可以用于部分深层的网络训练</p>
+<h3 id="4：LeakReLu（隐藏层）：是RELU升级版，可以解决了负向梯度消失的问题，"><a href="#4：LeakReLu（隐藏层）：是RELU升级版，可以解决了负向梯度消失的问题，" class="headerlink" title="4：LeakReLu（隐藏层）：是RELU升级版，可以解决了负向梯度消失的问题，"></a>4：LeakReLu（隐藏层）：是RELU升级版，可以解决了负向梯度消失的问题，</h3><h4 id="5：SoftMax：-激活输出层：多分类问题中）：将网络输出的logits通过softmax函数，就映射成为-0-1-的值，选取概率最大（也就是值对应最大的）接点，作为我们的预测目标类别。"><a href="#5：SoftMax：-激活输出层：多分类问题中）：将网络输出的logits通过softmax函数，就映射成为-0-1-的值，选取概率最大（也就是值对应最大的）接点，作为我们的预测目标类别。" class="headerlink" title="5：SoftMax：(激活输出层：多分类问题中）：将网络输出的logits通过softmax函数，就映射成为(0,1)的值，选取概率最大（也就是值对应最大的）接点，作为我们的预测目标类别。"></a>5：SoftMax：(激活输出层：多分类问题中）：<strong>将网络输出的logits通过softmax函数，就映射成为(0,1)的值</strong>，<strong>选取概率最大（也就是值对应最大的）接点，作为我们的预测目标类别。</strong></h4><h3 id="6：elu-隐藏层-：全程可以求导"><a href="#6：elu-隐藏层-：全程可以求导" class="headerlink" title="6：elu(隐藏层)：全程可以求导"></a>6：elu(隐藏层)：全程可以求导</h3><h1 id="初始化：对权重进行初始化，b可以先设置为0"><a href="#初始化：对权重进行初始化，b可以先设置为0" class="headerlink" title="初始化：对权重进行初始化，b可以先设置为0"></a>初始化：对权重进行初始化，b可以先设置为0</h1><h3 id="激活函数设置的小一些对tanh和sigmoid中的激活函数计算的形成的梯度就会大一些，更新就会快一些，是有利的"><a href="#激活函数设置的小一些对tanh和sigmoid中的激活函数计算的形成的梯度就会大一些，更新就会快一些，是有利的" class="headerlink" title="激活函数设置的小一些对tanh和sigmoid中的激活函数计算的形成的梯度就会大一些，更新就会快一些，是有利的"></a>激活函数设置的小一些对tanh和sigmoid中的激活函数计算的形成的梯度就会大一些，更新就会快一些，是有利的</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>**Xavier 正态分布初始化器： **</td>
+<td></td>
+</tr>
+<tr>
+<td>tf.keras.initializers.glorot_normal(seed=None)</td>
+<td>**Xavier 正态分布初始化器： **                                                                     seed：一个 Python 整数。作为随机发生器的种子。</td>
+</tr>
+<tr>
+<td>initializer = tf.keras.initializers.glorot_normal() # 采样得到权重值                                                                                                   values = initializer(shape=(9, 1))                                                print(values)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>标准化Xavier初始化</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>keras.initializers.glorot_uniform(seed=None)</td>
+<td><strong>seed</strong>: 一个 Python 整数。作为随机发生器的种子。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>He 正态分布初始化器：</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>keras.initializers.he_normal(seed=None)</td>
+<td><strong>seed</strong>: 一个 Python 整数。作为随机发生器的种子。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>标准化的he初始化</strong>，He 均匀方差缩放初始化器</td>
+<td></td>
+</tr>
+<tr>
+<td>keras.initializers.he_uniform(seed=None)</td>
+<td><strong>seed</strong>: 一个 Python 整数。作为随机发生器的种子。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="1：随机初始化：随机初始化从均值为0，标准差是1的高斯分布中取样，使用一些很小的值对参数W进行初始化"><a href="#1：随机初始化：随机初始化从均值为0，标准差是1的高斯分布中取样，使用一些很小的值对参数W进行初始化" class="headerlink" title="1：随机初始化：随机初始化从均值为0，标准差是1的高斯分布中取样，使用一些很小的值对参数W进行初始化"></a><strong>1：随机初始化：随机初始化从均值为0，标准差是1的高斯分布中取样，使用一些很小的值对参数W进行初始化</strong></h4><p>确定第一次取值范围，w，让w随机取高斯分布中的值，</p>
+<h4 id="2：标准初始化："><a href="#2：标准初始化：" class="headerlink" title="2：标准初始化："></a><strong>2：标准初始化：</strong></h4><p><strong>有多少d取值范围在这里面取值：(-1/√d,1/√d)均匀分布中生成当前神经元的权重</strong></p>
+<h4 id="4：标准化Xavier初始化"><a href="#4：标准化Xavier初始化" class="headerlink" title="4：标准化Xavier初始化"></a>4：标准化Xavier初始化</h4><p><strong>正态化Xavier初始化（glorot_normal）</strong>：它从以 0 为中心，标准差为 <code>stddev = sqrt(2 / (fan_in + fan_out))</code> 的正态分布中抽取样本， 其中 <code>fan_in</code> 是输入神经元的个数， <code>fan_out</code> 是输出的神经元个数。</p>
+<p><strong>标准化Xavier初始化（glorot_uniform）</strong>：<code>sqrt(6 / (fan_in + fan_out))</code>， 其中 <code>fan_in</code> 是输入神经元的个数， <code>fan_out</code> 是输出的神经元个数。</p>
+<h4 id="5：b标准化he初始化"><a href="#5：b标准化he初始化" class="headerlink" title="5：b标准化he初始化"></a>5：b标准化he初始化</h4><p><strong>正态化的he初始化（he_normal）</strong>：He 正态分布初始化是以 0 为中心，标准差为 <code>stddev = sqrt(2 / fan_in)</code> 的截断正态分布中抽取样本， 其中 <code>fan_in</code>是输入神经元的个数</p>
+<p><strong>标准化的he初始化（he_uniform）</strong>：其中 <code>limit</code> 是 <code>sqrt(6 / fan_in)</code>， 其中 <code>fan_in</code> 输入神经元的个数</p>
+<h1 id="设置层的数量和尺寸："><a href="#设置层的数量和尺寸：" class="headerlink" title="设置层的数量和尺寸："></a>设置层的数量和尺寸：</h1><p>设置网络的层数，小型网络的损失过高，最后的损失值将展现出多变性，拟合能力有上限，大型的损失较小，会有很多不同的方法来解决。</p>
+<h1 id="在线性分类任务中使用线性分类损失"><a href="#在线性分类任务中使用线性分类损失" class="headerlink" title="在线性分类任务中使用线性分类损失"></a>在线性分类任务中使用线性分类损失</h1><h2 id="线性分类损失值："><a href="#线性分类损失值：" class="headerlink" title="线性分类损失值："></a>线性分类损失值：</h2><h4 id="在多分类中使用softmax激活函数，使用CategoricalCrossentropy-多分类交叉熵损失函数："><a href="#在多分类中使用softmax激活函数，使用CategoricalCrossentropy-多分类交叉熵损失函数：" class="headerlink" title="在多分类中使用softmax激活函数，使用CategoricalCrossentropy()多分类交叉熵损失函数："></a>在多分类中使用softmax激活函数，使用CategoricalCrossentropy()多分类交叉熵损失函数：</h4><img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/6.png' height=px >
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/7.png' height=px >
+
+
+
+<h3 id="在二分类中使用sigmoid激活函数，使用BinaryCrossentropy-二分类的交叉熵损失函数："><a href="#在二分类中使用sigmoid激活函数，使用BinaryCrossentropy-二分类的交叉熵损失函数：" class="headerlink" title="在二分类中使用sigmoid激活函数，使用BinaryCrossentropy()二分类的交叉熵损失函数："></a>在二分类中使用sigmoid激活函数，使用BinaryCrossentropy()二分类的交叉熵损失函数：</h3><img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/8.png' height=px >
+
+
+
+
+
+<h1 id="在回归任务中使用以下损失函数有几种"><a href="#在回归任务中使用以下损失函数有几种" class="headerlink" title="在回归任务中使用以下损失函数有几种"></a>在回归任务中使用以下损失函数有几种</h1><h3 id="MAE损失也被称为L1-Loss，是以绝对误差作为距离"><a href="#MAE损失也被称为L1-Loss，是以绝对误差作为距离" class="headerlink" title="MAE损失也被称为L1 Loss，是以绝对误差作为距离"></a>MAE损失也被称为L1 Loss，是以绝对误差作为距离</h3><p>是在0处不可导就会造成跳过最小值，稀疏性：就是凸函数的斜率与L1的斜率相交较少，为了惩罚较大的值，因此常常将其作为正则项添加到其他loss中作为约束。L1 loss的最大问题是<strong>梯度在零点不平滑，导致会跳过极小值，不可导</strong></p>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/9.png' height=px >
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/10.png' height=px >
+
+<h3 id="MSE损失为L2-loss，或欧氏距离，它以误差的平方和作为距离"><a href="#MSE损失为L2-loss，或欧氏距离，它以误差的平方和作为距离" class="headerlink" title="MSE损失为L2 loss，或欧氏距离，它以误差的平方和作为距离"></a>MSE损失为L2 loss，或欧氏距离，它以误差的平方和作为距离</h3><img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/11.png' height=px >
+
+<p>L2 loss也常常作为正则项。当预测值与目标值相差很大时, <strong>梯度容易爆炸，因为后面的斜率太大会造成爆炸</strong></p>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/12.png' height=px >
+
+
+
+<h3 id="smooth-L1-损失"><a href="#smooth-L1-损失" class="headerlink" title="smooth L1 损失"></a>smooth L1 损失</h3><img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/13.png' height=px >
+
+
+
+<p>在[-1,1]之间实际上就是L2损失，这样解决了L1的不光滑问题，在[-1,1]区间外，实际上就是L1损失，<strong>这样就解决了离群点梯度爆炸的问题。通常在目标检测中使用该损失函数。</strong></p>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/14.png' height=px >
+
+
+
+
+
+<h1 id="深度学习的优化方法，解决鞍点问题和梯度消失及梯度爆炸问题：降低训练损失，只关注最小化目标函数上的表现，"><a href="#深度学习的优化方法，解决鞍点问题和梯度消失及梯度爆炸问题：降低训练损失，只关注最小化目标函数上的表现，" class="headerlink" title="深度学习的优化方法，解决鞍点问题和梯度消失及梯度爆炸问题：降低训练损失，只关注最小化目标函数上的表现，"></a>深度学习的优化方法，解决鞍点问题和梯度消失及梯度爆炸问题：降低训练损失，只关注最小化目标函数上的表现，</h1><h3 id="经过神经网络大数据集运算，经常出现鞍点问题"><a href="#经过神经网络大数据集运算，经常出现鞍点问题" class="headerlink" title="经过神经网络大数据集运算，经常出现鞍点问题"></a><strong>经过神经网络大数据集运算，经常出现鞍点问题</strong></h3><h3 id="海森矩阵，鞍点："><a href="#海森矩阵，鞍点：" class="headerlink" title="海森矩阵，鞍点："></a>海森矩阵，鞍点：</h3><h4 id="多元素上和大型网络中会遇到鞍点问题，"><a href="#多元素上和大型网络中会遇到鞍点问题，" class="headerlink" title="多元素上和大型网络中会遇到鞍点问题，"></a>多元素上和大型网络中会遇到鞍点问题，</h4><p>当函数的海森矩阵在梯度为零的位置上的特征值全为正时，该函数得到局部最小值。</p>
+<p>当函数的海森矩阵在梯度为零的位置上的特征值全为负时，该函数得到局部最大值。</p>
+<p>当函数的海森矩阵在梯度为零的位置上的特征值有正有负时，该函数得到鞍点</p>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/15.png' height=px >
+
+
+
+
+
+<h1 id="梯度消失和梯度爆炸，鞍点，和梯度停止更新"><a href="#梯度消失和梯度爆炸，鞍点，和梯度停止更新" class="headerlink" title="梯度消失和梯度爆炸，鞍点，和梯度停止更新"></a>梯度消失和梯度爆炸，鞍点，和梯度停止更新</h1><h3 id="梯度消失：网络效果不好，梯度值接近为0，并且损失值一直不下降"><a href="#梯度消失：网络效果不好，梯度值接近为0，并且损失值一直不下降" class="headerlink" title="梯度消失：网络效果不好，梯度值接近为0，并且损失值一直不下降"></a>梯度消失：网络效果不好，梯度值接近为0，并且损失值一直不下降</h3><h3 id="梯度爆炸：权重值和损失值打印出来是nan（很大）那就是梯度爆炸"><a href="#梯度爆炸：权重值和损失值打印出来是nan（很大）那就是梯度爆炸" class="headerlink" title="梯度爆炸：权重值和损失值打印出来是nan（很大）那就是梯度爆炸"></a>梯度爆炸：权重值和损失值打印出来是nan（很大）那就是梯度爆炸</h3><p>为什么会造成我们的损失函数难优化，其实有个原因就是因为激活函数存在使得函数计算梯度时候遇到梯度消失问题。在梯度函数上出现的以指数级递增或者递减的情况分别称为<strong>梯度爆炸</strong>或者<strong>梯度消失</strong></p>
+<h3 id="优化的选用：如果数据集小些的时候就直接全阶训练，如果数据量很大的时候就优先用mini-batch梯度下降，要以2的幂次方进行训练，效果更好些，得出的结果可能会在最小值周围来回摆动，再经过学习率退火可以达最小值。"><a href="#优化的选用：如果数据集小些的时候就直接全阶训练，如果数据量很大的时候就优先用mini-batch梯度下降，要以2的幂次方进行训练，效果更好些，得出的结果可能会在最小值周围来回摆动，再经过学习率退火可以达最小值。" class="headerlink" title="优化的选用：如果数据集小些的时候就直接全阶训练，如果数据量很大的时候就优先用mini-batch梯度下降，要以2的幂次方进行训练，效果更好些，得出的结果可能会在最小值周围来回摆动，再经过学习率退火可以达最小值。"></a>优化的选用：如果数据集小些的时候就直接全阶训练，如果数据量很大的时候就优先用mini-batch梯度下降，要以2的幂次方进行训练，效果更好些，得出的结果可能会在最小值周围来回摆动，再经过学习率退火可以达最小值。</h3><h3 id="优化方法：批梯度下降，SGD算法的优化，初始化参数和学习率衰减"><a href="#优化方法：批梯度下降，SGD算法的优化，初始化参数和学习率衰减" class="headerlink" title="优化方法：批梯度下降，SGD算法的优化，初始化参数和学习率衰减"></a>优化方法：批梯度下降，SGD算法的优化，初始化参数和学习率衰减</h3><p>当一个神经元损失值时就是一个维度时的只找一个最小点，对于多个神经元时就形成了多维的就形成最小值形成了山貌，</p>
+<h3 id="mini-batch梯度下降，每次处理固定大小的数据集"><a href="#mini-batch梯度下降，每次处理固定大小的数据集" class="headerlink" title="mini-batch梯度下降，每次处理固定大小的数据集"></a>mini-batch梯度下降，每次处理固定大小的数据集</h3><p>选择一个合适的大小进行 Mini-batch 梯度下降，可以实现快速学习，也应用了向量化带来的好处，且成本函数的下降处于前两者之间。</p>
+<h4 id="mini-batch大小选则：大小选择要以2的幂次方运行的要快一些，因为计算机是以二进制计算"><a href="#mini-batch大小选则：大小选择要以2的幂次方运行的要快一些，因为计算机是以二进制计算" class="headerlink" title="mini-batch大小选则：大小选择要以2的幂次方运行的要快一些，因为计算机是以二进制计算"></a>mini-batch大小选则：大小选择要以2的幂次方运行的要快一些，因为计算机是以二进制计算</h4><img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/16.png' height=px >
+
+
+
+<h1 id="动量算法，解决鞍点：引用计算梯度指数加权平均数的计算方法做梯度更新对学习做调节，让梯度下降更平滑一些更快找到最小值"><a href="#动量算法，解决鞍点：引用计算梯度指数加权平均数的计算方法做梯度更新对学习做调节，让梯度下降更平滑一些更快找到最小值" class="headerlink" title="动量算法，解决鞍点：引用计算梯度指数加权平均数的计算方法做梯度更新对学习做调节，让梯度下降更平滑一些更快找到最小值"></a>动量算法，解决鞍点：引用计算梯度指数加权平均数的计算方法做梯度更新对学习做调节，让梯度下降更平滑一些更快找到最小值</h1><h3 id="在随机梯度下降（SGD）中加入指数加权平均数来更新参数的梯度"><a href="#在随机梯度下降（SGD）中加入指数加权平均数来更新参数的梯度" class="headerlink" title="在随机梯度下降（SGD）中加入指数加权平均数来更新参数的梯度"></a>在随机梯度下降（SGD）中加入指数加权平均数来更新参数的梯度</h3><h3 id="1：优化算法：动量下降，动量太大无法找到最小值，只能在最小值附近徘徊"><a href="#1：优化算法：动量下降，动量太大无法找到最小值，只能在最小值附近徘徊" class="headerlink" title="1：优化算法：动量下降，动量太大无法找到最小值，只能在最小值附近徘徊"></a>1：优化算法：动量下降，动量太大无法找到最小值，只能在最小值附近徘徊</h3><p>部分的梯度下降，训练速度快，但丢失了向量化带来的计算加速，会有很多噪声，需要减少学习率，成本函数总体趋势向全局最小值靠近，但永远不会收敛，而且一直在最小值附近波动，</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 导入相应的工具包</span>
+<span class="token keyword">import</span> tensorflow <span class="token keyword">as</span> tf
+<span class="token comment" spellcheck="true"># 实例化优化方法：SGD </span>
+opt <span class="token operator">=</span> tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>optimizers<span class="token punctuation">.</span>SGD<span class="token punctuation">(</span>learning_rate<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 定义要调整的参数</span>
+var <span class="token operator">=</span> tf<span class="token punctuation">.</span>Variable<span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 定义损失函数：无参但有返回值</span>
+loss <span class="token operator">=</span> <span class="token keyword">lambda</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>var <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2.0</span>  
+<span class="token comment" spellcheck="true"># 计算梯度，并对参数进行更新，步长为 `- learning_rate * grad`</span>
+opt<span class="token punctuation">.</span>minimize<span class="token punctuation">(</span>loss<span class="token punctuation">,</span> <span class="token punctuation">[</span>var<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 展示参数更新结果</span>
+var<span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>keras.optimizers.SGD(lr=0.01, momentum=0.0, decay=0.0, nesterov=False)</td>
+<td>**参数          **                                                                                                          <strong>lr</strong>: float &gt;= 0. 学习率                                                                             <strong>momentum</strong>: float &gt;= 0. 参数，用于加速 SGD 在相关方向上前进，并抑制震荡                                                                                                                                 <strong>decay</strong>: float &gt;= 0. 每次参数更新后学习率衰减值                                               <strong>nesterov</strong>: boolean. 是否使用 Nesterov 动量,True</td>
+</tr>
+<tr>
+<td>tf.keras.optimizers.SGD(     learning_rate=0.01, momentum=0.0, nesterov=False, name=’SGD’, **kwargs )</td>
+<td><strong>learning_rate</strong>：学习率默认0.01                                                                     <strong>momentum</strong>：浮点超参数&gt;=0，加速相关方向的梯度下降并抑制振荡。默认为0，即香草梯度下降。布尔型。                                                                 <strong>nesterov</strong>：是否应用Nesterov动量。默认为False，根据动量项<strong>预先估计</strong>的参数，在Momentum的基础上进一步加快收敛，提高响应性</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>tf.keras.optimizers.<strong>Adagrad</strong>(     learning_rate=0.001, initial_accumulator_value=0.1, epsilon=1e-07,     name=’Adagrad’, **kwargs )</td>
+<td><strong>learning_rate</strong>：学习率，                                                          <strong>initial_accumulator_value</strong>：对应调整学习率衰减的方法，                                    <strong>epsilon：</strong>防止分母为0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>在进行模型训练时，有三个基础的概念：</p>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/17.png' height=px >
+
+
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/18.png' height=px >
+
+
+
+<h4 id="动量是引用历史的值通过权重计算分配给现在的值，只不过越远取的值越小，引入β作为偏差修正指数，让下降的更平滑，加速收敛，下降更快"><a href="#动量是引用历史的值通过权重计算分配给现在的值，只不过越远取的值越小，引入β作为偏差修正指数，让下降的更平滑，加速收敛，下降更快" class="headerlink" title="动量是引用历史的值通过权重计算分配给现在的值，只不过越远取的值越小，引入β作为偏差修正指数，让下降的更平滑，加速收敛，下降更快"></a>动量是引用历史的值通过权重计算分配给现在的值，只不过越远取的值越小，引入β作为偏差修正指数，让下降的更平滑，加速收敛，下降更快</h4><h4 id="动量与梯度的关系：当前后梯度方向一致时，动量梯度下降能够加速学习；而前后梯度方向不一致时，动量梯度下降能够抑制震荡。"><a href="#动量与梯度的关系：当前后梯度方向一致时，动量梯度下降能够加速学习；而前后梯度方向不一致时，动量梯度下降能够抑制震荡。" class="headerlink" title="动量与梯度的关系：当前后梯度方向一致时，动量梯度下降能够加速学习；而前后梯度方向不一致时，动量梯度下降能够抑制震荡。"></a>动量与梯度的关系：<strong>当前后梯度方向一致时，动量梯度下降能够加速学习；而前后梯度方向不一致时，动量梯度下降能够抑制震荡。</strong></h4><h4 id="下面公式通过分段函数进行添加β值和之前历史的算出的值（St历史加权平均），来调节批量梯度下降的波动，"><a href="#下面公式通过分段函数进行添加β值和之前历史的算出的值（St历史加权平均），来调节批量梯度下降的波动，" class="headerlink" title="下面公式通过分段函数进行添加β值和之前历史的算出的值（St历史加权平均），来调节批量梯度下降的波动，"></a>下面公式通过分段函数进行添加β值和之前历史的算出的值（St历史加权平均），来调节批量梯度下降的波动，</h4><img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/19.png' height=px >
+
+<p>其中β越大利用的指数加权平均就越大β，β越大相当于求取平均利用的天数越多<strong>，曲线自然就会越平滑而且越滞后。这些系数被称作</strong>偏差修正（Bias Correction）</p>
+<p>动量算法是解决鞍点，让梯度向量更平滑一些，梯度的步数小些，</p>
+<p>使用加权平均值来进行平滑，考虑前期已经计算的数值，对当下计算的印象，这个是累加</p>
+<h4 id="动量控制学习率衰减"><a href="#动量控制学习率衰减" class="headerlink" title="动量控制学习率衰减"></a>动量控制学习率衰减</h4><p>很多时候我们要对学习率（learning rate）进行衰减，下面的代码示范了如何每30个epoch按10%的速率衰减：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">adjust_learning_rate</span><span class="token punctuation">(</span>optimizer<span class="token punctuation">,</span> epoch<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+​    <span class="token triple-quoted-string string">"""Sets the learning rate to the initial LR decayed by 10 every 30 epochs"""</span>
+
+​    lr <span class="token operator">=</span> args<span class="token punctuation">.</span>lr <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">0.1</span> <span class="token operator">**</span> <span class="token punctuation">(</span>epoch <span class="token operator">//</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+​    <span class="token keyword">for</span> param_group <span class="token keyword">in</span> optimizer<span class="token punctuation">.</span>param_groups<span class="token punctuation">:</span>
+
+​        param_group<span class="token punctuation">[</span><span class="token string">'lr'</span><span class="token punctuation">]</span> <span class="token operator">=</span> lr
+</code></pre>
+<h2 id="什么是param-groups"><a href="#什么是param-groups" class="headerlink" title="什么是param_groups?"></a>什么是param_groups?</h2><p>optimizer通过param_group来管理参数组.param_group中保存了参数组及其对应的学习率,动量等等.所以我们可以通过更改param_group[‘lr’]的值来更改对应参数组的学习率。</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 有两个`param_group`即,len(optim.param_groups)==2</span>
+
+optim<span class="token punctuation">.</span>SGD<span class="token punctuation">(</span><span class="token punctuation">[</span>
+
+​                <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'params': model.base.parameters()&amp;#125;,</span>
+
+​                <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'params': model.classifier.parameters(), 'lr': 1e-3&amp;#125;</span>
+
+​            <span class="token punctuation">]</span><span class="token punctuation">,</span> lr<span class="token operator">=</span><span class="token number">1e</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> momentum<span class="token operator">=</span><span class="token number">0.9</span><span class="token punctuation">)</span>
+
+ 
+
+\#一个参数组
+
+optim<span class="token punctuation">.</span>SGD<span class="token punctuation">(</span>model<span class="token punctuation">.</span>parameters<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> lr<span class="token operator">=</span><span class="token number">1e</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> momentum<span class="token operator">=</span><span class="token punctuation">.</span><span class="token number">9</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="2：AdaGrad"><a href="#2：AdaGrad" class="headerlink" title="2：AdaGrad"></a>2：AdaGrad</h2><h3 id="算法会使用一个小批量随机梯度，每一个小批量的梯度就是历史的梯度，影响的是每个元素学习率，早期降的快但解不佳，后期学习率就小"><a href="#算法会使用一个小批量随机梯度，每一个小批量的梯度就是历史的梯度，影响的是每个元素学习率，早期降的快但解不佳，后期学习率就小" class="headerlink" title="算法会使用一个小批量随机梯度，每一个小批量的梯度就是历史的梯度，影响的是每个元素学习率，早期降的快但解不佳，后期学习率就小"></a><strong>算法会使用一个小批量随机梯度</strong>，每一个小批量的梯度就是历史的梯度，影响的是每个元素学习率，早期降的快但解不佳，后期学习率就小</h3><p>这里的元素是指这批出来的梯度，第一次出来的梯度，s0式每个元素的初始化为0</p>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/20.png' height=px >
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/21.png' height=px >
+
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>keras.optimizers.Adagrad(lr=0.01, epsilon=None, decay=0.0)</td>
+<td>是一种具有特定参数学习率的优化器，它根据参数在训练期间的更新频率进行自适应调整。参数接收的更新越多，更新越小。                                  <strong>参数：</strong>                                                                                                                            <strong>lr</strong>: float &gt;= 0. 学习率                                                                                <strong>epsilon</strong>: float &gt;= 0. 若为 <code>None</code>, 默认为 <code>K.epsilon()</code>                         <strong>decay</strong>: float &gt;= 0. 每次参数更新后学习率衰减值.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>AdaGrad算法会使用一个小批量随机梯度</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>tf.keras.optimizers.<strong>Adagrad</strong>(     learning_rate=0.001, initial_accumulator_value=0.1, epsilon=1e-07,     name=’Adagrad’, **kwargs )</td>
+<td><strong>learning_rate</strong>：学习率，                                                          <strong>initial_accumulator_value</strong>：对应ϵ调整学习率衰减的方法，                                    <strong>epsilon：</strong>防止分母为0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="3：RMSProp-将这些梯度按元素平方做指数加权移动平均，也是对参数的学习率调节如例子对应下式可以把后面一项成为权重项"><a href="#3：RMSProp-将这些梯度按元素平方做指数加权移动平均，也是对参数的学习率调节如例子对应下式可以把后面一项成为权重项" class="headerlink" title="3：RMSProp :将这些梯度按元素平方做指数加权移动平均，也是对参数的学习率调节如例子对应下式可以把后面一项成为权重项"></a>3：RMSProp :将这些梯度按元素平方做指数加权移动平均，也是对参数的学习率调节如例子对应下式<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/22.png' height=px >可以把后面一项成为权重项</h2><img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/23.png' height=px >
+
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数的性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tf.keras.optimizers.RMSprop(     learning_rate=0.001, rho=0.9, momentum=0.0, epsilon=1e-07, centered=False,     name=’RMSprop’, **kwargs )</td>
+<td>learning_rate：学习率rho：</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="4：Adam：将-Momentum-和-RMSProp-算法结合在一起。Adam算法在RMSProp算法基础上对小批量随机梯度也做了指数加权移动平均。为了修正dw梯度"><a href="#4：Adam：将-Momentum-和-RMSProp-算法结合在一起。Adam算法在RMSProp算法基础上对小批量随机梯度也做了指数加权移动平均。为了修正dw梯度" class="headerlink" title="4：Adam：将 Momentum 和 RMSProp 算法结合在一起。Adam算法在RMSProp算法基础上对小批量随机梯度也做了指数加权移动平均。为了修正dw梯度"></a>4：Adam：将 Momentum 和 RMSProp 算法结合在一起。Adam算法在RMSProp算法基础上对小批量随机梯度也做了指数加权移动平均。为了修正dw梯度</h2><img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/24.png' height=px >
+
+<p>假设用每一个 mini-batch 计算 dW、db，第t次迭代时，对学习率和梯度的计算都做了优化</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tf.keras.optimizers.<strong>Adam</strong>(     learning_rate=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-07, amsgrad=False,     name=’Adam’, **kwargs )</td>
+<td>learning_rate：学习率，                                                                                               beta_1：个浮点值或一个常量浮点张量，或一个不带参数并返回实际值的可调用函数。一阶矩估计的指数衰减率。默认为0.9，                                                    beta_2：二阶矩估计的指数衰减率。默认为0.999。                                                                                          epsilon（ε）：数值稳定性的一个小常数，默认为1e-7，作者建议写成1e-8。                                                                                            amsgrad（）：是否应用Adam及beyond算法的收敛性一文中的AMSGrad变量。默认为False。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="Adam与SGD对比："><a href="#Adam与SGD对比：" class="headerlink" title="Adam与SGD对比："></a>Adam与SGD对比：</h1><p>Adam可能不会收敛，因为可能在训练后期引起学习率的震荡，导致模型无法收敛，学习率不一定会是单调递减的</p>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/25.png' height=px >
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/26.png' height=px >
+
+
+
+<h2 id="学习率退火：防止后期学习率过高，跳过最小值-一般用在大型网络中使用学习率退火，小型的就调一个合适的学习率就行"><a href="#学习率退火：防止后期学习率过高，跳过最小值-一般用在大型网络中使用学习率退火，小型的就调一个合适的学习率就行" class="headerlink" title="学习率退火：防止后期学习率过高，跳过最小值,一般用在大型网络中使用学习率退火，小型的就调一个合适的学习率就行"></a>学习率退火：防止后期学习率过高，跳过最小值,一般用在大型网络中使用学习率退火，小型的就调一个合适的学习率就行</h2><p>一般情况下学习率都会随着训练而变化，如果学习率过高，会造成loss的振荡，但是如果学习率减小的过快，又会造成收敛变慢的情况。</p>
+<h3 id="1-分段常数衰减，随着分段值的不同范围衰减学习率的大小，根于迭代的总数来划分准确的值"><a href="#1-分段常数衰减，随着分段值的不同范围衰减学习率的大小，根于迭代的总数来划分准确的值" class="headerlink" title="1 分段常数衰减，随着分段值的不同范围衰减学习率的大小，根于迭代的总数来划分准确的值"></a>1 分段常数衰减，随着分段值的不同范围衰减学习率的大小，根于迭代的总数来划分准确的值</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对数据进进行分组，不同的组分到的学习率不同</td>
+<td></td>
+</tr>
+<tr>
+<td>tf.keras.optimizers.schedules.<strong>PiecewiseConstantDecay</strong>(boundaries, values)</td>
+<td>boundaries：设置分段更新的step值，                                           Values: 针对不用分段的学习率值</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="2：指数衰减"><a href="#2：指数衰减" class="headerlink" title="2：指数衰减"></a>2：指数衰减</h3><p>!<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/27.png' height=px >t表示迭代次数，α0,k是超参数</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tf.keras.optimizers.schedules.<strong>ExponentialDecay</strong>(initial_learning_rate, decay_steps,decay_rate)</td>
+<td>initial_learning_rate: 初始学习率，α0，                                          decay_steps: k值                              decay_rate: 指数的底</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="3-1-t衰减"><a href="#3-1-t衰减" class="headerlink" title="3 1/t衰减"></a>3 1/t衰减</h3><p><img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/28.png' height=px >t表示迭代次数，α0,k是超参数</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tf.keras.optimizers.schedules.InverseTimeDecay(initial_learning_rate, decay_steps,                                                decay_rate)</td>
+<td>Initial_learning_rate: 初始学习率，α0，         decay_step/decay_steps: k值</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="深度学习正则化（L1-L2），把对应的损失值的式子变优化，减少过拟合"><a href="#深度学习正则化（L1-L2），把对应的损失值的式子变优化，减少过拟合" class="headerlink" title="深度学习正则化（L1,L2），把对应的损失值的式子变优化，减少过拟合"></a>深度学习正则化（L1,L2），把对应的损失值的式子变优化，减少过拟合</h1><img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/29.png' height=px >
+
+<h2 id="正则化，即在成本函数中加入一个正则化项-惩罚项-，惩罚模型的复杂度，防止网络过拟合"><a href="#正则化，即在成本函数中加入一个正则化项-惩罚项-，惩罚模型的复杂度，防止网络过拟合" class="headerlink" title="正则化，即在成本函数中加入一个正则化项(惩罚项)，惩罚模型的复杂度，防止网络过拟合"></a><strong>正则化</strong>，<strong>即在成本函数中加入一个正则化项(惩罚项)，惩罚模型的复杂度，防止网络过拟合</strong></h2><h3 id="偏差与方差：是解释学习算法泛化型的一种重要的工具"><a href="#偏差与方差：是解释学习算法泛化型的一种重要的工具" class="headerlink" title="偏差与方差：是解释学习算法泛化型的一种重要的工具"></a>偏差与方差：是解释学习算法泛化型的一种重要的工具</h3><p>泛化误差可分解为偏差、方差与噪声，<strong>泛化性能</strong>是由<strong>学习算法的能力</strong>、<strong>数据的充分性（是不是数据较多）</strong>以及<strong>学习任务本身的难度（这个问题很难解决）</strong>所共同决定的。</p>
+<ul>
+<li><strong>偏差</strong>：度量了学习算法的期望预测与真实结果的偏离程度，即刻画了<strong>学习算法本身的拟合能力</strong></li>
+<li><strong>方差</strong>：度量了同样大小的训练集的变动所导致的学习性能的变化，即刻画了<strong>数据扰动所造成的影响</strong></li>
+<li><strong>噪声</strong>：表达了在当前任务上任何学习算法所能够达到的期望<strong>泛化误差的下界</strong>，即刻画了<strong>学习问题本身的难度</strong>。</li>
+</ul>
+<h3 id="那么偏差、方差与我们的数据集划分到底有什么关系呢？"><a href="#那么偏差、方差与我们的数据集划分到底有什么关系呢？" class="headerlink" title="那么偏差、方差与我们的数据集划分到底有什么关系呢？"></a>那么偏差、方差与我们的数据集划分到底有什么关系呢？</h3><ul>
+<li>1、训练集的错误率较小，而验证集/测试集的错误率较大，<strong>说明模型存在较大方差，可能出现了过拟合</strong></li>
+<li>2、训练集和测试集的错误率都较大，且两者相近，<strong>说明模型存在较大偏差，可能出现了欠拟合</strong></li>
+<li>3、训练集和测试集的错误率都较小，且两者相近，说明方差和偏差都较小，这个模型效果比较好。</li>
+</ul>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p><strong>对于高方差，有以下几种方式：</strong></p>
+<ul>
+<li>获取更多的数据，使得训练能够包含所有可能出现的情况</li>
+<li><strong>正则化（Regularization）</strong></li>
+<li>寻找更合适的网络结构</li>
+</ul>
+<p>对于高偏差，有以下几种方式：</p>
+<ul>
+<li>扩大网络规模，如添加隐藏层或者神经元数量</li>
+<li>寻找合适的网络架构，使用更大的网络结构，如AlexNet</li>
+<li>训练时间更长一些</li>
+</ul>
+<p>不断尝试，直到找到低偏差、低方差的框架。</p>
+<h4 id="数据集的划分"><a href="#数据集的划分" class="headerlink" title="数据集的划分"></a>数据集的划分</h4><p>损失函数中添加正则化，使权重值减少，复杂度或者异常数据点太多对整体数据的结果有很大影响值，就要减少这个特征的影响，</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tf.keras.regularizers.L1(l1=0.01)</td>
+<td>L1正则化的添加</td>
+</tr>
+<tr>
+<td>tf.keras.regularizers.L2(l2=0.01)</td>
+<td>L2正则化的添加</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="模型复不复杂是根据权重大不大有关，如果权重都小了神经网络就变稀疏了"><a href="#模型复不复杂是根据权重大不大有关，如果权重都小了神经网络就变稀疏了" class="headerlink" title="模型复不复杂是根据权重大不大有关，如果权重都小了神经网络就变稀疏了"></a>模型复不复杂是根据权重大不大有关，如果权重都小了神经网络就变稀疏了</h4><h3 id="L2：防止模型过分依赖特定的几项特征，削弱对其影响太大的某些特征"><a href="#L2：防止模型过分依赖特定的几项特征，削弱对其影响太大的某些特征" class="headerlink" title="L2：防止模型过分依赖特定的几项特征，削弱对其影响太大的某些特征"></a><strong>L2</strong>：防止模型过分依赖特定的几项特征，削弱对其影响太大的某些特征</h3><h3 id="如果w就是特别的大就是就是会形成过拟合"><a href="#如果w就是特别的大就是就是会形成过拟合" class="headerlink" title="如果w就是特别的大就是就是会形成过拟合"></a>如果w就是特别的大就是就是会形成过拟合</h3><h3 id="在损失函数后面添加一项，那么梯度下降是要减少损失函数的大小，对于L1和L2来讲就是减少正则项的大小就是来减少权重的大小，当λ变大，w就会减小，然后Z就会变的小，"><a href="#在损失函数后面添加一项，那么梯度下降是要减少损失函数的大小，对于L1和L2来讲就是减少正则项的大小就是来减少权重的大小，当λ变大，w就会减小，然后Z就会变的小，" class="headerlink" title="在损失函数后面添加一项，那么梯度下降是要减少损失函数的大小，对于L1和L2来讲就是减少正则项的大小就是来减少权重的大小，当λ变大，w就会减小，然后Z就会变的小，"></a>在损失函数后面添加一项，那么梯度下降是要减少损失函数的大小，对于L1和L2来讲就是减少正则项的大小就是来减少权重的大小，当λ变大，w就会减小，然后Z就会变的小，</h3><p>这里的λ是正则化参数，它是一个需要优化的超参数。L2正则化又称为权重衰减，因为其导致权重趋向于0（但不全是0）</p>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/30.png' height=px >
+
+<h4 id="L1：防止特征过多模型过于复杂，可以使得其中一些W的值直接为0，删除这个特征的影响"><a href="#L1：防止特征过多模型过于复杂，可以使得其中一些W的值直接为0，删除这个特征的影响" class="headerlink" title="L1：防止特征过多模型过于复杂，可以使得其中一些W的值直接为0，删除这个特征的影响"></a><strong>L1</strong>：防止特征过多模型过于复杂，可以使得其中一些W的值直接为0，删除这个特征的影响</h4><p>我们惩罚权重矩阵的绝对值。其中，λ 为正则化参数，是超参数，不同于L2，权重值可能被减少到0.因此，L1对于压缩模型很有用。其它情况下，一般选择优先选择L2正则化。</p>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/31.png' height=px >
+
+<p>下面更新<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/32.png' height=px ></p>
+<h2 id="2-Dropout对神经元素进行删减，解决过拟合（里面的参数设置0-5到0-8最为合适），添加会更加训练的时间，"><a href="#2-Dropout对神经元素进行删减，解决过拟合（里面的参数设置0-5到0-8最为合适），添加会更加训练的时间，" class="headerlink" title="2.Dropout对神经元素进行删减，解决过拟合（里面的参数设置0.5到0.8最为合适），添加会更加训练的时间，"></a>2.Dropout对神经元素进行删减，解决过拟合（里面的参数设置0.5到0.8最为合适），添加会更加训练的时间，</h2><p>在每个迭代过程中<strong>，随机选择某些节点，并且删除前向和后向连接</strong>，因此，每个迭代过程都会有不同的节点组合，从而导致不同的输出，这可以看成机器学习中的集成方法（ensemble technique）。集成模型一般优于单一模型，因为它们可以捕获更多的随机性。相似地，dropout使得神经网络模型优于正常的模型。</p>
+<ul>
+<li>1、训练过程<ul>
+<li>1、神经元随机失效，概率为P</li>
+<li>2、并且在神经元存在且工作的状态下，权重才会更新，权重更新的越多理论上会变得更大，是因为本来有100个权重，经过dropout后变成了80（如设置0.8）理论上这80个权重就会变大但是现实不是变大的，反而会变小，与学习迭代的次数成正比，由每一轮每个神经学到的特征就不一样的，每个神经元变的更加独立了，泛化型变强了。</li>
+</ul>
+</li>
+<li>2、测试过程<ul>
+<li>1、神经元随机失效，概率为0</li>
+<li>2、所有的神经元都会参与计算，大于训练时候的任意一个模型的计算量</li>
+</ul>
+</li>
+<li>3、模型过程伪代码过程</li>
+</ul>
+<h3 id="随机进行失活："><a href="#随机进行失活：" class="headerlink" title="随机进行失活："></a>随机进行失活：</h3><img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/33.png' height=px >
+
+<h3 id="上图的解释：这样就是每个神经学到的特征就不一样的，每个神经元变的更加独立了"><a href="#上图的解释：这样就是每个神经学到的特征就不一样的，每个神经元变的更加独立了" class="headerlink" title="上图的解释：这样就是每个神经学到的特征就不一样的，每个神经元变的更加独立了"></a>上图的解释：这样就是每个神经学到的特征就不一样的，每个神经元变的更加独立了</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tf.keras.layers.<strong>Dropout</strong>(     rate, noise_shape=None, seed=None, **kwargs )</td>
+<td><strong>rate</strong>：在0和1之间浮动。要删除的输入单位的分数。对应的是要丢掉的比例， <strong>noise_shape</strong>：1D整数张量，表示将与输入相乘的二进制丢失掩码的形状，                                            <strong>seed</strong>：用作随机种子的Python整数</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="dropout注意事项"><a href="#dropout注意事项" class="headerlink" title="dropout注意事项"></a>dropout注意事项</h2><p>1：dropout会增加训练的时间                         </p>
+<p>2：因为dropout在梯度下降中引入了大量的<strong>噪声导致梯度相互抑制（因为每一次学习到的不一样所有就会产生噪声）</strong>，因此学习速率要增加10-100倍。另外一个减少噪声的方法是用momentum，momentum对于标准网络一般采用0.9，对于dropout网络一般是0.95-0.99。两个方法可以同时采用</p>
+<p>3：防止学习过快导致网络增长太大，一般给隐藏层权重的norm一个上限c，c一般取值3-4dropout和max-normalization、large decaying learning rates and high momentum等组合起来效果更好</p>
+<p>4：Dropout Rate：一般取值0.5-0.8之间，drop比例p越小，要求隐含层n越大，训练也会越慢</p>
+<p>5：调试时候使用技巧：</p>
+<ul>
+<li>先确定网络没问题，再打开dropout训练测试：dropout 的缺点是成本函数无法被明确定义，因为每次会随机消除一部分神经元，所以参数也无法确定具体哪一些，在反向传播的时候带来计算上的麻烦，也就无法保证当前<strong>网络是否损失函数下降的</strong>。如果要使用droupout，会先关闭这个参数，保证损失函数是单调下降的，确定网络没有问题，再次打开droupout才会有效。</li>
+</ul>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/34.png' height=px >
+
+
+
+<h2 id="神经网络调优"><a href="#神经网络调优" class="headerlink" title="神经网络调优"></a>神经网络调优</h2><p>算法层面：</p>
+<ul>
+<li>学习率：α</li>
+<li>β1,β2,ϵ: Adam 优化算法的超参数，常设为 0.9、0.999、</li>
+<li>λ：正则化网络参数，</li>
+</ul>
+<p>网络层面：</p>
+<ul>
+<li>hidden units：各隐藏层神经元个数</li>
+<li>layers：神经网络层数</li>
+</ul>
+<p>合理的参数设置</p>
+<ul>
+<li>学习率α\alphaα：0.0001、0.001、0.01、0.1，跨度稍微大一些。</li>
+<li>算法参数β\betaβ， 0.999、0.9995、0.998等，尽可能的选择接近于1的值</li>
+</ul>
+<h2 id="3-提前停止：损失值不变或者变大进行停止"><a href="#3-提前停止：损失值不变或者变大进行停止" class="headerlink" title="3.提前停止：损失值不变或者变大进行停止"></a>3.提前停止：损失值不变或者变大进行停止</h2><p>当验证集的性能越来越差时或者性能不再提升，则立即停止对该模型的训练。 这被称为提前停止。</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tf.keras.callbacks.<strong>EarlyStopping</strong>(     monitor=’val_loss’,  patience=5 )</td>
+<td><strong>monitor</strong>参数表示监测量，这里val_loss表示验证集损失，                  <strong>patience</strong>参数设置的数量，当在这个过程性能无提升时会停止训练</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>也可以设置丢弃的概率</td>
+<td></td>
+</tr>
+<tr>
+<td>self.keras.layers.Dropout(rete=0.2)</td>
+<td>设置了丢弃的概率</td>
+</tr>
+<tr>
+<td>x=self.dropout(x,training=True)</td>
+<td>模型输入的时候，training=True才会启用</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="批标准化-主要为了解决数据分布的变化，为了防止梯度消失问题和梯度爆炸问题，加速了能更快找到最小值，"><a href="#批标准化-主要为了解决数据分布的变化，为了防止梯度消失问题和梯度爆炸问题，加速了能更快找到最小值，" class="headerlink" title="批标准化:主要为了解决数据分布的变化，为了防止梯度消失问题和梯度爆炸问题，加速了能更快找到最小值，"></a>批标准化:主要为了解决数据分布的变化，为了防止梯度消失问题和梯度爆炸问题，加速了能更快找到最小值，</h1><h4 id="为了规范x的"><a href="#为了规范x的" class="headerlink" title="为了规范x的"></a>为了规范x的</h4><h3 id="对每一批次的输入特征和输出的做标准化处理"><a href="#对每一批次的输入特征和输出的做标准化处理" class="headerlink" title="对每一批次的输入特征和输出的做标准化处理"></a>对每一批次的输入特征和输出的做标准化处理</h3><h3 id="就是对数据进行批标准化，使得数据满足均值为0，方差为1的正态分布，后面是有两个超参数进行调参，经过调参后不一定会符合正态分布的，其主要作用是缓解DNN训练中的梯度消失、爆炸现象，加快模型的训练速度"><a href="#就是对数据进行批标准化，使得数据满足均值为0，方差为1的正态分布，后面是有两个超参数进行调参，经过调参后不一定会符合正态分布的，其主要作用是缓解DNN训练中的梯度消失、爆炸现象，加快模型的训练速度" class="headerlink" title="就是对数据进行批标准化，使得数据满足均值为0，方差为1的正态分布，后面是有两个超参数进行调参，经过调参后不一定会符合正态分布的，其主要作用是缓解DNN训练中的梯度消失、爆炸现象，加快模型的训练速度"></a>就是对数据进行批标准化，使得数据满足均值为0，方差为1的正态分布，后面是有两个超参数进行调参，经过调参后不一定会符合正态分布的，其主要作用是缓解DNN训练中的梯度消失、爆炸现象，加快模型的训练速度</h3><p>在大型网络中BN是相当于每一层都有，后面的不进行标准化</p>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/35.png' height=px >
+
+<h2 id="BN层对单个神经元进行，网络训练时一个-mini-batch-的数据来计算该神经元的均值，方差归一化并重构"><a href="#BN层对单个神经元进行，网络训练时一个-mini-batch-的数据来计算该神经元的均值，方差归一化并重构" class="headerlink" title="BN层对单个神经元进行，网络训练时一个 mini-batch 的数据来计算该神经元的均值，方差归一化并重构"></a>BN层对单个神经元进行，网络训练时一个 mini-batch 的数据来计算该神经元的均值，方差归一化并重构</h2><h3 id="最好在中间的每一层就加上BN层，统计一下均值和方差，表示数据的差异很大的时候，膜的向量会很大，整体的让他等量的变大或变小进行重构，标准化，重构，让传播更可控一些，"><a href="#最好在中间的每一层就加上BN层，统计一下均值和方差，表示数据的差异很大的时候，膜的向量会很大，整体的让他等量的变大或变小进行重构，标准化，重构，让传播更可控一些，" class="headerlink" title="最好在中间的每一层就加上BN层，统计一下均值和方差，表示数据的差异很大的时候，膜的向量会很大，整体的让他等量的变大或变小进行重构，标准化，重构，让传播更可控一些，"></a>最好在中间的每一层就加上BN层，统计一下均值和方差，表示数据的差异很大的时候，膜的向量会很大，整体的让他等量的变大或变小进行重构，标准化，重构，让传播更可控一些，</h3><img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/36.png' height=px >
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/37.png' height=px >
+
+
+
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>批量标准化层</td>
+<td></td>
+</tr>
+<tr>
+<td>keras.layers.<strong>BatchNormalization</strong>(axis=-1, momentum=0.99, epsilon=0.001, center=True, scale=True, beta_initializer=’zeros’, gamma_initializer=’ones’, moving_mean_initializer=’zeros’, moving_variance_initializer=’ones’, beta_regularizer=None, gamma_regularizer=None, beta_constraint=None, gamma_constraint=None)</td>
+<td><strong>参数</strong>                                                                                               <strong>axis</strong>: 整数，需要标准化的轴（通常是特征轴）。例如，在 <code>data_format=&quot;channels_first&quot;</code> 的 <code>Conv2D</code> 层之后，&lt;br在 <code>BatchNormalization</code> 中设置 <code>axis=1 </code>           <strong>momentum</strong>: 移动均值和移动方差的动量                      <strong>epsilon</strong>: 增加到方差的小的浮点数，以避免除以零        <strong>center</strong>: 如果为 True，把 <code>beta</code> 的偏移量加到标准化的张量上。如果为 False， <code>beta</code> 被忽略                                                                              <strong>scale</strong>: 如果为 True，乘以 <code>gamma</code>。如果为 False，<code>gamma</code> 不使用。当下一层为线性层（或者例如 <code>nn.relu</code>），这可以被禁用，因为缩放将由下一层完成                                  <strong>beta_initializer</strong>: beta 权重的初始化方法       <strong>gamma_initializer</strong>: 伽马 权重的初始化方法              <strong>moving_mean_initializer</strong>: 移动均值的初始化方法        <strong>moving_variance_initializer</strong>: 移动方差的初始化方法<strong>beta_regularizer</strong>: 可选的 beta 权重的正则化方法     <strong>gamma_regularizer</strong>: 可选的 gamma 权重的正则化方 法<strong>beta_constraint</strong>: 可选的 beta 权重的约束方法     <strong>gamma_constraint</strong>: 可选的 gamma 权重的约束方法</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>输入均值在靠近0的区域，即处于激活函数的线性区域，不利于训练非线性神经网络，从而得到效果较差的模型。因此，需要用 γ 和 β 对标准化后的结果做进一步处理</p>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/38.png' height=px >
+
+<p>上式的引入两个超参数γ和β也是跟着初始化的，也运用到了梯度下降公式中（如同W和b一样），所以可以用各种更新的γ和β的值，如同更新神经网络的权重一样</p>
+<h3 id="为什么批标准化能够是优化过程变得简单"><a href="#为什么批标准化能够是优化过程变得简单" class="headerlink" title="为什么批标准化能够是优化过程变得简单"></a>为什么批标准化能够是优化过程变得简单</h3><p><strong>协变量偏移</strong>，那么有一个解释叫做 <strong>在网络当中数据的分布会随着不同数据集改变</strong> 。这是网络中存在的问题。那我们一起来看一下数据本身分布是在这里会有什么问题。</p>
+<ul>
+<li><strong>1、Batch Normalization的作用就是减小Internal Covariate Shift（协变量偏移） 所带来的影响，让模型变得更加健壮，鲁棒性（Robustness）更强。</strong></li>
+<li><strong>2 、Batch Normalization 的作用，使得均值和方差保持固定（由每一层γ和β决定），不同层学习到不同的分布状态</strong></li>
+<li><strong>3、因此后层的学习变得更容易一些。Batch Normalization 减少了各层 W 和 b 之间的耦合性，让各层更加独立，实现自我训练学习的效果</strong></li>
+</ul>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/39.png' height=px >
+
+<h3 id="网址图形可视化"><a href="#网址图形可视化" class="headerlink" title="网址图形可视化"></a>网址图形可视化</h3><p>pip install tensorboard：进入网址可视化</p>
+<p>tensorboard –logdir=graph ：找到对应的文件名打印出来网址进行复制就可以看了</p>
+<h2 id="数据的增强：也是为了模型的泛化性，让网络能学到更多特征的能力"><a href="#数据的增强：也是为了模型的泛化性，让网络能学到更多特征的能力" class="headerlink" title="数据的增强：也是为了模型的泛化性，让网络能学到更多特征的能力"></a>数据的增强：也是为了模型的泛化性，让网络能学到更多特征的能力</h2><p>数据增强类别：</p>
+<ul>
+<li>离线增强。预先进行所有必要的变换，从根本上增加数据集的规模（例如，通过翻转所有图像，保存后数据集数量会增加2倍）。</li>
+<li>在线增强，或称为动态增强。可通过对即将输入模型的小批量数据的执行相应的变化，这样同一张图片每次训练被随机执行一些变化操作，相当于不同的数据集了。</li>
+</ul>
+<h2 id="几何变换，颜色的变换"><a href="#几何变换，颜色的变换" class="headerlink" title="几何变换，颜色的变换"></a>几何变换，颜色的变换</h2><p>几何变换类即对图像进行几何变换，包括<strong>翻转，旋转，裁剪，变形，缩放</strong>等各类操作</p>
+<p>常见的包括<strong>噪声、模糊、颜色变换、擦除、填充</strong>等等</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tf.image.random_flip_left_right</td>
+<td>翻转</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>keras.preprocessing.image.ImageDataGenerator(                                                                                         rotation_range=0, #整数。随机旋转的度数范围。                width_shift_range=0.0, #浮点数、宽度平移                height_shift_range=0.0, #浮点数、高度平移                brightness_range=None, # 亮度调整                shear_range=0.0, # 裁剪                                                                 zoom_range=0.0, #浮点数 或 [lower, upper]。随机缩放范围                                                                              horizontal_flip=False, # 左右翻转                vertical_flip=False, # 垂直翻转                                                     rescale=None # 尺度调整             )</td>
+<td>数据增强</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>读取文件并数据进行增强</td>
+<td></td>
+</tr>
+<tr>
+<td>def flow_from_directory(self,<br/>                        directory: Any,<br/>                        target_size: Tuple[int, int] = (256, 256),<br/>                        color_mode: str = ‘rgb’,<br/>                        classes: Any = None,<br/>                        class_mode: str = ‘categorical’,<br/>                        batch_size: int = 32,<br/>                        shuffle: bool = True,<br/>                        seed: Any = None,<br/>                        save_to_dir: Any = None,<br/>                        save_prefix: str = ‘’,<br/>                        save_format: str = ‘png’,<br/>                        follow_links: bool = False,<br/>                        subset: Any = None,<br/>                        interpolation: str = ‘nearest’) -&gt; DirectoryIterator</td>
+<td>读取文件并数据进行增强                                                      目录 （<strong>directory</strong>）：字符串，目标目录的路径。每个类应该包含一个子目录。生成器中将包含每个子目录树中的任何PNG、JPG、BMP、PPM或TIF图像。                                                                                                 目标大小（<strong>target_size</strong>）：整数的元组（高度、宽度）。默认值：（256，256）。将调整找到的所有图像的尺寸。<br/>    颜色_模式（<strong>color_mode</strong>）：“灰度”、“rgb”、“rgba”之一。默认值：“rgb”。是否将图像转换为具有1、3或4个通道。&lt;br/                         类列表（*<em>classes**）：类子目录的可选列表。（例如，“狗”、“猫”）。默认值：无。如果没有提供，将根据目录下的子目录名称/结构自动推断类列表，其中每个子目录将被视为不同的类（将映射到标签索引的类的顺序将是字母数字）。包含从类名到类索引的映射的字典可以通过属性class_indexes获得。<br/>    类模式：确定返回的标签数组的类型：“分类（“categorical”）”、“二进制（“binary”）”、“稀疏（“sparse”）”、“输入（“input”）”、“无（None）”模式之一。默认值：“分类”。<br/><br/>        “categorial”则是2维one-hot编码标签；<br/>        “binary”则是一维二进制标签；<br/>        “sparse”是1维整数标签；<br/>        “input”是与输入图像相同的图像（主要用于自动编码器）；<br/>        None，则不会返回任何标签（生成器将只生成一批图像数据，与model.predict_generator（）一起使用非常有用）。请注意，在类模式为“无”的情况下，数据仍然需要驻留在目录的子目录中，以便它正常工作。<br/><br/>    批次大小（batch_size）：数据批次的大小（默认值：32）。<br/>    随机播放（shuffle）：是否随机播放数据（默认值：True）。如果设置为False，则按字母数字顺序对数据进行排序。<br/>    种子（seed）：可选的随机种子，用于洗牌和转换。<br/>    保存路径（save_to_dir）:none或str（默认值：none）。这允许您选择指定一个目录，将生成的增强图片保存到该目录（对于可视化所做的操作很有用）。<br/>    保存前缀（save_prefix）: Str. Prefix用于保存图片的文件名（仅当设置了save_to_dir时才相关）。<br/>    保存格式（save_format）：“png”、“jpeg”之一（仅当设置了save_to_dir时才相关）。默认值：“png”。<br/>    跟随链接（follow_links）：是否跟随类子目录内的符号链接（默认值：False）。<br/>    子集（subset）：如果在ImageDataGenerator中设置了验证分割（validation_split），则为数据的子集（训练集”training” 或验证集”validation”）。<br/>    插值（interpolation）：当目标大小与加载的图像大小不同时，用于对图像重新采样的插值方法。支持的方法有最近邻”nearest”、双线性”bilinear”和双三次”bicubic”。如果安装了PIL版本1.1.3或更高版本，还支持“lanczos”。如果安装了PIL 3.4.0或更高版本，还支持“Box”和“Hamming”。默认情况下，使用“nearest”。<br/><br/>返回值<br/><br/>一个产生（x，y）元组的目录迭代器（DirectoryIterator）。<br/>其中x是包含一批（batch_size，</em> target_size，channels）类型的图像的numpy数组，y是对应标签的numpy数组。<br/></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<pre class=" language-python"><code class="language-python">random_brightness<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>：以随机因素调整图像的亮度。
+random_contrast<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>：通过随机因素调整图像的对比度。
+random_crop<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>：将张量随机裁剪为给定大小。
+random_flip_left_right<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>：随机水平翻转图像（从左到右）。
+random_flip_up_down<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>：垂直（上下颠倒）随机翻转图像。
+random_hue<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>：通过随机因素调整RGB图像的色调。
+random_jpeg_quality<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>：随机更改jpeg编码质量，以产生jpeg噪声。
+random_saturation<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>：通过随机因子调整RGB图像的饱和度。
+resize<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>：调整大小images以size使用指定的method。
+resize_with_crop_or_pad<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>：裁剪和<span class="token operator">/</span>或将图像填充到目标宽度和高度。
+resize_with_pad<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>：调整图像大小并将其填充到目标宽度和高度。
+rgb_to_grayscale<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>：将一个或多个图像从RGB转换为灰度。
+rgb_to_hsv<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>：将一个或多个图像从RGB转换为HSV。
+rgb_to_yiq<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>：将一个或多个图像从RGB转换为YIQ。
+rgb_to_yuv<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>：将一个或多个图像从RGB转换为YUV。
+</code></pre>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/40.png' height=px >
+
+
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/41.png' height=px >
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/42.png' height=px >
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/43.png' height=px >
+
+
+
+
+
+
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/44.png' height=px >
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/45.png' height=px >
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/46.png' height=px >
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/47.png' height=px >
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/56.png' height=px >
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/48.png' height=px >
+
+
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/49.png' height=px >
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/50.png' height=px >
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/51.png' height=px >
+
+<h3 id="步骤7"><a href="#步骤7" class="headerlink" title="步骤7"></a>步骤7</h3><img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/52.png' height=px >
+
+<h3 id=""><a href="#" class="headerlink" title=""></a><img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/53.png' height=px ></h3><img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/53.png' height=px >
+
+<h3 id="步骤9求出特征与均值的差平方函数的导数"><a href="#步骤9求出特征与均值的差平方函数的导数" class="headerlink" title="步骤9求出特征与均值的差平方函数的导数"></a>步骤9求出特征与均值的差平方函数的导数</h3><img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/54.png' height=px >
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/cv%E5%9F%BA%E7%A1%801/55.png' height=px >
+
+
+
+
+
+
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">小龙</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://xiaoyvlongoing.github.io/2020/11/05/CV%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E4%B8%80/">https://xiaoyvlongoing.github.io/2020/11/05/CV%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E4%B8%80/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint policy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">小龙</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/CV/">
+                                    <span class="chip bg-color">CV</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2020/11/05/K%E8%BF%91%E9%82%BB/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="K近邻">
+                        
+                        <span class="card-title">K近邻</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-05
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/11/04/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%EF%BC%8C%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="线性回归，逻辑回归">
+                        
+                        <span class="card-title">线性回归，逻辑回归</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2021</span>
+            
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">小龙</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total Words:&nbsp;<span
+                        class="white-color">102.6k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;Total visits:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;Total visitors:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1458562363@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1458562363" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1458562363" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+</html>

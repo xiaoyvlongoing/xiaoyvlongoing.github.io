@@ -1,0 +1,2290 @@
+<!DOCTYPE HTML>
+<html lang="Html">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Transformer架构解析, 小龙播客">
+    <meta name="description" content="家里蹲大学">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Transformer架构解析 | 小龙播客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="小龙播客" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">小龙播客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">小龙播客</div>
+        <div class="logo-desc">
+            
+            家里蹲大学
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Transformer架构解析</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">深度学习</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                深度学习
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2020-12-05
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2021-11-05
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    12.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    48 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Transformer架构解析"><a href="#Transformer架构解析" class="headerlink" title="Transformer架构解析"></a>Transformer架构解析</h1><p>Transformer总体架构可分为四个部分:编码层是连接到解码层的第二子层里面</p>
+<p>Transformer：实现英语法（训练和预测有着很大的差别的）</p>
+<p>预测的时候Decoder端本质上是单循环，单步输出</p>
+<p>预测的时候：如果有10个单词就要循环10次，一次循环输出一次，inear和softmax一次，需要循环10次</p>
+<p>训练的时候：并行的过程编码（英文）和解码（法文）并行向上，经过6层，12层一次输出，所以在训练的时候比较快，但是在测试的时候进行一次，一次的输出对比较忙些</p>
+<p><img src="http://121.199.45.168:8001/img/4.png" alt="avatar"></p>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/Transformer%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%20/1.png' height=px >
+
+
+
+
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/Transformer%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%20/2.png' height=px >
+
+
+
+
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/Transformer%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%20/3.png' height=px >
+
+
+
+
+
+
+
+
+
+<ul>
+<li><p>输入部分</p>
+<ul>
+<li>源文本嵌入层及其位置编码器</li>
+</ul>
+<h3 id="文本嵌入层的作用"><a href="#文本嵌入层的作用" class="headerlink" title="文本嵌入层的作用"></a>文本嵌入层的作用</h3><ul>
+<li>无论是源文本嵌入还是目标文本嵌入，都是为了将文本中词汇的数字表示转变为向量表示, 希望在这样的高维空间捕捉词汇间的关系.</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 导入必备的工具包</span>
+<span class="token keyword">import</span> torch
+
+<span class="token comment" spellcheck="true"># 预定义的网络层torch.nn, 工具开发者已经帮助我们开发好的一些常用层, </span>
+<span class="token comment" spellcheck="true"># 比如，卷积层, lstm层, embedding层等, 不需要我们再重新造轮子.</span>
+<span class="token keyword">import</span> torch<span class="token punctuation">.</span>nn <span class="token keyword">as</span> nn
+
+<span class="token comment" spellcheck="true"># 数学计算工具包</span>
+<span class="token keyword">import</span> math
+
+<span class="token comment" spellcheck="true"># torch中变量封装函数Variable.</span>
+<span class="token keyword">from</span> torch<span class="token punctuation">.</span>autograd <span class="token keyword">import</span> Variable
+
+<span class="token comment" spellcheck="true"># 定义Embeddings类来实现文本嵌入层，这里s说明代表两个一模一样的嵌入层, 他们共享参数.</span>
+<span class="token comment" spellcheck="true"># 该类继承nn.Module, 这样就有标准层的一些功能, 这里我们也可以理解为一种模式, 我们自己实现的所有层都会这样去写.</span>
+<span class="token keyword">class</span> <span class="token class-name">Embeddings</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> d_model<span class="token punctuation">,</span> vocab<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""类的初始化函数, 有两个参数, d_model: 指词嵌入的维度, vocab: 指词表的大小."""</span>
+        <span class="token comment" spellcheck="true"># 接着就是使用super的方式指明继承nn.Module的初始化函数, 我们自己实现的所有层都会这样去写.</span>
+        super<span class="token punctuation">(</span>Embeddings<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 之后就是调用nn中的预定义层Embedding, 获得一个词嵌入对象self.lut</span>
+        self<span class="token punctuation">.</span>lut <span class="token operator">=</span> nn<span class="token punctuation">.</span>Embedding<span class="token punctuation">(</span>vocab<span class="token punctuation">,</span> d_model<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 最后就是将d_model传入类中</span>
+        self<span class="token punctuation">.</span>d_model <span class="token operator">=</span> d_model
+
+    <span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""可以将其理解为该层的前向传播逻辑，所有层中都会有此函数
+           当传给该类的实例化对象参数时, 自动调用该类函数
+           参数x: 因为Embedding层是首层, 所以代表输入给模型的文本通过词汇映射后的张量"""</span>
+
+        <span class="token comment" spellcheck="true"># 将x传给self.lut并与根号下self.d_model相乘作为结果返回</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>lut<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">*</span> math<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span>self<span class="token punctuation">.</span>d_model<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="位置编码器的作用"><a href="#位置编码器的作用" class="headerlink" title="位置编码器的作用"></a>位置编码器的作用</h3><ul>
+<li><p>因为在Transformer的编码器结构中, 并没有针对词汇位置信息的处理，因此需要在Embedding层后加入位置编码器，将词汇位置不同可能会产生不同语义的信息加入到词嵌入张量中, 以弥补位置信息的缺失.</p>
+</li>
+<li><p>目标文本嵌入层及其位置编码器</p>
+<ul>
+<li>​    <img src="http://121.199.45.168:8001/img/5.png" alt="avatar"></li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 定义位置编码器类, 我们同样把它看做一个层, 因此会继承nn.Module    </span>
+<span class="token keyword">class</span> <span class="token class-name">PositionalEncoding</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> d_model<span class="token punctuation">,</span> dropout<span class="token punctuation">,</span> max_len<span class="token operator">=</span><span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""位置编码器类的初始化函数, 共有三个参数, 分别是d_model: 词嵌入维度, 
+           dropout: 置0比率, max_len: 每个句子的最大长度"""</span>
+        super<span class="token punctuation">(</span>PositionalEncoding<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># 实例化nn中预定义的Dropout层, 并将dropout传入其中, 获得对象self.dropout</span>
+        self<span class="token punctuation">.</span>dropout <span class="token operator">=</span> nn<span class="token punctuation">.</span>Dropout<span class="token punctuation">(</span>p<span class="token operator">=</span>dropout<span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># 初始化一个位置编码矩阵, 它是一个0阵，矩阵的大小是max_len x d_model.</span>
+        pe <span class="token operator">=</span> torch<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span>max_len<span class="token punctuation">,</span> d_model<span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># 初始化一个绝对位置矩阵, 在我们这里，词汇的绝对位置就是用它的索引去表示. </span>
+        <span class="token comment" spellcheck="true"># 所以我们首先使用arange方法获得一个连续自然数向量，然后再使用unsqueeze方法拓展向量维度使其成为矩阵， </span>
+        <span class="token comment" spellcheck="true"># 又因为参数传的是1，代表矩阵拓展的位置，会使向量变成一个max_len x 1 的矩阵， </span>
+        position <span class="token operator">=</span> torch<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> max_len<span class="token punctuation">)</span><span class="token punctuation">.</span>unsqueeze<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># 绝对位置矩阵初始化之后，接下来就是考虑如何将这些位置信息加入到位置编码矩阵中，</span>
+        <span class="token comment" spellcheck="true"># 最简单思路就是先将max_len x 1的绝对位置矩阵， 变换成max_len x d_model形状，然后覆盖原来的初始位置编码矩阵即可， </span>
+        <span class="token comment" spellcheck="true"># 要做这种矩阵变换，就需要一个1xd_model形状的变换矩阵div_term，我们对这个变换矩阵的要求除了形状外，</span>
+        <span class="token comment" spellcheck="true"># 还希望它能够将自然数的绝对位置编码缩放成足够小的数字，有助于在之后的梯度下降过程中更快的收敛.  这样我们就可以开始初始化这个变换矩阵了.</span>
+        <span class="token comment" spellcheck="true"># 首先使用arange获得一个自然数矩阵， 但是细心的同学们会发现， 我们这里并没有按照预计的一样初始化一个1xd_model的矩阵， </span>
+        <span class="token comment" spellcheck="true"># 而是有了一个跳跃，只初始化了一半即1xd_model/2 的矩阵。 为什么是一半呢，其实这里并不是真正意义上的初始化了一半的矩阵，</span>
+        <span class="token comment" spellcheck="true"># 我们可以把它看作是初始化了两次，而每次初始化的变换矩阵会做不同的处理，第一次初始化的变换矩阵分布在正弦波上， 第二次初始化的变换矩阵分布在余弦波上， </span>
+        <span class="token comment" spellcheck="true"># 并把这两个矩阵分别填充在位置编码矩阵的偶数和奇数位置上，组成最终的位置编码矩阵.</span>
+        div_term <span class="token operator">=</span> torch<span class="token punctuation">.</span>exp<span class="token punctuation">(</span>torch<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> d_model<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">*</span>
+                             <span class="token operator">-</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token number">10000.0</span><span class="token punctuation">)</span> <span class="token operator">/</span> d_model<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        pe<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> torch<span class="token punctuation">.</span>sin<span class="token punctuation">(</span>position <span class="token operator">*</span> div_term<span class="token punctuation">)</span>
+        pe<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> torch<span class="token punctuation">.</span>cos<span class="token punctuation">(</span>position <span class="token operator">*</span> div_term<span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># 这样我们就得到了位置编码矩阵pe, pe现在还只是一个二维矩阵，要想和embedding的输出（一个三维张量）相加，</span>
+        <span class="token comment" spellcheck="true"># 就必须拓展一个维度，所以这里使用unsqueeze拓展维度.</span>
+        pe <span class="token operator">=</span> pe<span class="token punctuation">.</span>unsqueeze<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># 最后把pe位置编码矩阵注册成模型的buffer，什么是buffer呢，</span>
+        <span class="token comment" spellcheck="true"># 我们把它认为是对模型效果有帮助的，但是却不是模型结构中超参数或者参数，不需要随着优化步骤进行更新的增益对象. </span>
+        <span class="token comment" spellcheck="true"># 注册之后我们就可以在模型保存后重加载时和模型结构与参数一同被加载.</span>
+        self<span class="token punctuation">.</span>register_buffer<span class="token punctuation">(</span><span class="token string">'pe'</span><span class="token punctuation">,</span> pe<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""forward函数的参数是x, 表示文本序列的词嵌入表示"""</span>
+        <span class="token comment" spellcheck="true"># 在相加之前我们对pe做一些适配工作， 将这个三维张量的第二维也就是句子最大长度的那一维将切片到与输入的x的第二维相同即x.size(1)，</span>
+        <span class="token comment" spellcheck="true"># 因为我们默认max_len为5000一般来讲实在太大了，很难有一条句子包含5000个词汇，所以要进行与输入张量的适配. </span>
+        <span class="token comment" spellcheck="true"># 最后使用Variable进行封装，使其与x的样式相同，但是它是不需要进行梯度求解的，因此把requires_grad设置成false.</span>
+        x <span class="token operator">=</span> x <span class="token operator">+</span> Variable<span class="token punctuation">(</span>self<span class="token punctuation">.</span>pe<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token punctuation">:</span>x<span class="token punctuation">.</span>size<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+                         requires_grad<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 最后使用self.dropout对象进行'丢弃'操作, 并返回结果.</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>dropout<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>register_buffer</code>（ <em>name</em> ， <em>张量</em> ， <em>persistent = True</em> ）相当于定死的操作，并不能被进行梯度进行更新，加载</td>
+<td>参数                                                                                                                            <strong>name</strong> （ <em>字符串</em> ）–缓冲区的名称。 可以使用给定名称从此模块访问缓冲区                                                                                                          <strong>tensor</strong> （ <a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor"><em>Tensor</em> </a>）–要注册的缓冲区。                                                       <strong>persistent</strong> （ <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#bool"><em>bool</em> </a>）–缓冲区是否是此模块的一部分 <a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/generated/torch.jit.ScriptModule.html?highlight=register_buffer#torch.jit.ScriptModule.state_dict"><code>state_dict</code></a>.</td>
+<td>向模块添加缓冲区。这通常用于注册不应被视为模型参数的缓冲区。  例如，BatchNorm的  <code>running_mean</code>不是参数，而是模块状态的一部分。  默认情况下，缓冲区是持久性的，并将与参数一起保存。  可以通过设置更改此行为  <code>persistent</code> 至  <code>False</code>。  持久缓冲区和非持久缓冲区之间的唯一区别是后者将不属于该模块的一部分  <a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/generated/torch.jit.ScriptModule.html?highlight=register_buffer#torch.jit.ScriptModule.state_dict"><code>state_dict</code></a>. 缓冲区可以使用给定名称作为属性进行访问。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>masked_fill</code>（ <em>掩码</em> ， <em>值</em> ） →张量</td>
+<td>进行掩码操作</td>
+<td></td>
+</tr>
+<tr>
+<td>.clones</td>
+<td>对函数进行克隆</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>输出部分</p>
+<ul>
+<li>线性层</li>
+<li>softmax层<ul>
+<li><img src="http://121.199.45.168:8001/img/6.png" alt="avatar"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h3 id="编码器部分：编码和解码都可以用到，如果用到未来的信息会得到问题，在解码的时候尽量不能看到后面的信息"><a href="#编码器部分：编码和解码都可以用到，如果用到未来的信息会得到问题，在解码的时候尽量不能看到后面的信息" class="headerlink" title="编码器部分：编码和解码都可以用到，如果用到未来的信息会得到问题，在解码的时候尽量不能看到后面的信息"></a>编码器部分：编码和解码都可以用到，如果用到未来的信息会得到问题，在解码的时候尽量不能看到后面的信息</h3><ul>
+<li>由N个编码器层堆叠而成 </li>
+<li>每个编码器层由两个子层连接结构组成</li>
+<li>第一个子层连接结构包括一个多头自注意力子层和规范化层以及一个残差连接</li>
+<li>第二个子层连接结构包括一个前馈全连接子层和规范化层以及一个残差连接</li>
+</ul>
+<p><img src="http://121.199.45.168:8001/img/7.png" alt="avatar"></p>
+<ul>
+<li><h4 id="1-：掩码张量"><a href="#1-：掩码张量" class="headerlink" title="1 ：掩码张量"></a>1 ：掩码张量</h4></li>
+</ul>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/Transformer%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%20/4.png' height=px >
+
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/Transformer%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%20/5.png' height=px >
+
+
+
+<ul>
+<li><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+<th>函数解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>掩码张量</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.``triu</code>（ <em>输入</em> ， <em>对角线= 0</em> ， *** ， <em>输出=无</em> ） →张量</td>
+<td><strong>input</strong> （ <a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor"><em>Tensor</em> </a>）–输入张量。  <strong>对角线</strong> （ <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#int"><em>int</em> </a><em>，</em> <em>可选</em> ）–要考虑的对角线 ，out （ <a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor"><em>Tensor</em> </a><em>，</em> <em>可选</em> ）–输出张量。</td>
+<td>返回矩阵（二维张量）或矩阵批次的上三角部分  <code>input</code>，结果张量的其他元素  <code>out</code> 设置为0。 争论  <a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/generated/torch.diagonal.html#torch.diagonal"><code>diagonal</code></a>控制要考虑的对角线。  如果  <a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/generated/torch.diagonal.html#torch.diagonal"><code>diagonal</code></a>= 0时，矩阵的上三角部分定义为对角线上方和上方的元素，将保留主对角线上及上方的所有元素。  正值排除主要对角线上方的对角线，同样，负值排除主要对角线下方的对角线。  主要对角线是索引集  { ( 一世 , 一世 ) } \ lbrace（i，i）\ rbrace { （ i ， i ） }   为 一世 ∈ [ 0 , 分 ⁡ { d 1 , d 2 } − 1 ] 我\ in [0，\ min \ {d_ {1}，d_ {2} }-1] 我 ∈ [ 0 ， 分钟 { d 1 ， d 2 } - 1 ]   ，其中 d 1 , d 2 d_ {1}，d_ {2} d 1 ， d 2   是所述矩阵的维数。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+<li><p>什么是掩码张量</p>
+<ul>
+<li>它的尺寸不定，里面一般只有1和0的元素，代表位置被遮掩或者不被遮掩，至于是0位置被遮掩还是1位置被遮掩可以自定义，因此它的作用就是让另外一个张量中的一些数值被遮掩，也可以说被替换, 它的表现形式是一个张量.</li>
+</ul>
+</li>
+<li><p>掩码张量的作用:</p>
+<ul>
+<li>在transformer中,  掩码张量的主要作用在应用attention(将在下一小节讲解)时，有一些生成的attention张量中的值计算有可能已知了未来信息而得到的，未来信息被看到是因为训练时会把整个输出结果都一次性进行Embedding，但是理论上解码器的的输出却不是一次就能产生最终结果的，而是一次次通过上一次结果综合得出的，因此，未来的信息可能被提前利用.  所以，我们会进行遮掩. 关于解码器的有关知识将在后面的章节中讲解.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">subsequent_mask</span><span class="token punctuation">(</span>size<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""生成向后遮掩的掩码张量, 参数size是掩码张量最后两个维度的大小, 它的最后两维形成一个方阵"""</span>
+    <span class="token comment" spellcheck="true"># 在函数中, 首先定义掩码张量的形状</span>
+    attn_shape <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> size<span class="token punctuation">,</span> size<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># 然后使用np.ones方法向这个形状中添加1元素,形成上三角阵, 最后为了节约空间, </span>
+    <span class="token comment" spellcheck="true"># 再使其中的数据类型变为无符号8位整形unit8 </span>
+    subsequent_mask <span class="token operator">=</span> np<span class="token punctuation">.</span>triu<span class="token punctuation">(</span>np<span class="token punctuation">.</span>ones<span class="token punctuation">(</span>attn_shape<span class="token punctuation">)</span><span class="token punctuation">,</span> k<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token string">'uint8'</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># 最后将numpy类型转化为torch中的tensor, 内部做一个1 - 的操作, </span>
+    <span class="token comment" spellcheck="true"># 在这个其实是做了一个三角阵的反转, subsequent_mask中的每个元素都会被1减, </span>
+    <span class="token comment" spellcheck="true"># 如果是0, subsequent_mask中的该位置由0变成1</span>
+    <span class="token comment" spellcheck="true"># 如果是1, subsequent_mask中的该位置由1变成0 </span>
+    <span class="token keyword">return</span> torch<span class="token punctuation">.</span>from_numpy<span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> subsequent_mask<span class="token punctuation">)</span>
+</code></pre>
+<ul>
+<li></li>
+<li>解码器部分<ul>
+<li>由N个解码器层堆叠而成</li>
+<li>每个解码器层由三个子层连接结构组成</li>
+<li>第一个子层连接结构包括一个多头自注意力子层和规范化层以及一个残差连接</li>
+<li>第二个子层连接结构包括一个多头注意力子层和规范化层以及一个残差连接</li>
+<li>第三个子层连接结构包括一个前馈全连接子层和规范化层以及一个残差连接<ul>
+<li>​    <img src="http://121.199.45.168:8001/img/8.png" alt="avatar"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="学习了文本嵌入层的作用"><a href="#学习了文本嵌入层的作用" class="headerlink" title="学习了文本嵌入层的作用:"></a>学习了文本嵌入层的作用:</h4><ul>
+<li>无论是源文本嵌入还是目标文本嵌入，都是为了将文本中<strong>词汇的数字表示转变为向量表示, 希望在这样的高维空间捕捉词汇间的关系.</strong></li>
+</ul>
+<h4 id="学习并实现了文本嵌入层的类-Embeddings"><a href="#学习并实现了文本嵌入层的类-Embeddings" class="headerlink" title="学习并实现了文本嵌入层的类: Embeddings"></a>学习并实现了文本嵌入层的类: Embeddings</h4><ul>
+<li>初始化函数以d_model, 词嵌入维度, 和vocab, 词汇总数为参数, 内部主要使用了nn中的预定层Embedding进行词嵌入.</li>
+<li>在forward函数中, 将输入x传入到Embedding的实例化对象中, 然后乘以一个根号下d_model进行缩放, 控制数值大小.</li>
+<li>它的输出是文本嵌入后的结果.</li>
+</ul>
+<h4 id="学习了位置编码器的作用"><a href="#学习了位置编码器的作用" class="headerlink" title="学习了位置编码器的作用:"></a>学习了位置编码器的作用:</h4><ul>
+<li>因为在Transformer的编码器结构中, 并没有针对词汇位置信息的处理，因此需要在Embedding层后加入位置编码器，将词汇位置不同可能会产生不同语义的信息加入到词嵌入张量中, 以弥补位置信息的缺失.</li>
+</ul>
+<h4 id="学习并实现了位置编码器的类-PositionalEncoding"><a href="#学习并实现了位置编码器的类-PositionalEncoding" class="headerlink" title="学习并实现了位置编码器的类: PositionalEncoding"></a>学习并实现了位置编码器的类: PositionalEncoding</h4><ul>
+<li>初始化函数以d_model, dropout, max_len为参数, 分别代表d_model: 词嵌入维度, dropout: 置0比率, max_len: 每个句子的最大长度.</li>
+<li>forward函数中的输入参数为x, 是Embedding层的输出.</li>
+<li>最终输出一个加入了位置编码信息的词嵌入张量.</li>
+</ul>
+<h4 id="实现了绘制词汇向量中特征的分布曲线"><a href="#实现了绘制词汇向量中特征的分布曲线" class="headerlink" title="实现了绘制词汇向量中特征的分布曲线:"></a>实现了绘制词汇向量中特征的分布曲线:</h4><ul>
+<li>保证同一词汇随着所在位置不同它对应位置嵌入向量会发生变化.</li>
+<li>正弦波和余弦波的值域范围都是1到-1, 这又很好的控制了嵌入数值的大小, 有助于梯度的快速计算.</li>
+</ul>
+<h3 id="2-注意力机制"><a href="#2-注意力机制" class="headerlink" title="2 注意力机制"></a>2 注意力机制</h3><p>我们观察事物时，之所以能够快速判断一种事物(当然允许判断是错误的), 是因为我们大脑能够很快把注意力放在事物最具有辨识度的部分从而作出判断，而并非是从头到尾的观察一遍事物后，才能有判断结果. 正是基于这样的理论，就产生了注意力机制.</p>
+<ul>
+<li>什么是注意力计算规则:<ul>
+<li>它需要三个指定的输入Q(query), K(key), V(value), 然后通过公式得到注意力的计算结果, 这个结果代表query在key和value作用下的表示. 而这个具体的计算规则有很多种, 我这里只介绍我们用到的这一种.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>我们这里使用的注意力的计算规则:</li>
+</ul>
+<p><img src="http://121.199.45.168:8001/img/9.png" alt="avatar"></p>
+<pre class=" language-python"><code class="language-python">假如我们有一个问题<span class="token punctuation">:</span> 给出一段文本，使用一些关键词对它进行描述!
+为了方便统一正确答案，这道题可能预先已经给大家写出了一些关键词作为提示<span class="token punctuation">.</span>其中这些给出的提示就可以看作是key， 
+而整个的文本信息就相当于是query，value的含义则更抽象，可以比作是你看到这段文本信息后，脑子里浮现的答案信息，
+这里我们又假设大家最开始都不是很聪明，第一次看到这段文本后脑子里基本上浮现的信息就只有提示这些信息，
+因此key与value基本是相同的，但是随着我们对这个问题的深入理解，通过我们的思考脑子里想起来的东西原来越多，
+并且能够开始对我们query也就是这段文本，提取关键信息进行表示<span class="token punctuation">.</span>  这就是注意力作用的过程， 通过这个过程，
+我们最终脑子里的value发生了变化，
+根据提示key生成了query的关键词表示方法，也就是另外一种特征表示方法<span class="token punctuation">.</span>
+
+刚刚我们说到key和value一般情况下默认是相同，与query是不同的，这种是我们一般的注意力输入形式，
+但有一种特殊情况，就是我们query与key和value相同，这种情况我们称为自注意力机制，就如同我们的刚刚的例子， 
+使用一般注意力机制，是使用不同于给定文本的关键词表示它<span class="token punctuation">.</span> 而自注意力机制<span class="token punctuation">,</span>
+需要用给定文本自身来表达自己，也就是说你需要从给定文本中抽取关键词来表述它<span class="token punctuation">,</span> 相当于对文本自身的一次特征提取<span class="token punctuation">.</span>
+</code></pre>
+<p>提示就是相当与：K</p>
+<p>整个文本的信息：Q</p>
+<p>自己得到的就是：V</p>
+<p>一般注意力机制形式就是：K和V是很相近的，</p>
+<p>自注意力机制：是Q，K，V这三个都是相当于相同，</p>
+<p>dk的最后一维的大小, 一般情况下就等同于我们的词嵌入维度</p>
+<p><img src="http://121.199.45.168:8001/img/9.png" alt="avatar"></p>
+<p><img src="http://121.199.45.168:8001/img/10.png" alt="avatar"></p>
+<p>在函数中, 首先取query的最后一维的大小, 一般情况下就等同于我们的词嵌入维度, 命名为d_k</p>
+<p>query，key：因为他们最后一层都是词嵌入维度<br>transpose：先进行矩阵转置<br>matmul：矩阵相乘</p>
+<h3 id="多头注意力机制"><a href="#多头注意力机制" class="headerlink" title="多头注意力机制"></a>多头注意力机制</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+<th>函数解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>contiguous</code>(<em>memory_format=torch.contiguous_format</em>) → Tensor</td>
+<td><strong>memory_format</strong> （ <a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/tensor_attributes.html#torch.torch.memory_format"><code>torch.memory_format</code></a>（可选）–返回的Tensor所需的内存格式。  默认：  <code>torch.contiguous_format</code>.</td>
+<td>返回一个 连续 的内存张量，其中包含与以下内容相同的数据 <code>self</code>张量。  如          果<br/><code>self</code> 张                    量已经是指定的内存格式，此函数返                                                                                                     回&lt;b</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>​                      </p>
+<p>从多头注意力的结构图中，貌似这个所谓的多个头就是指多组线性变换层，其实并不是，我只有使用了一组线性变化层，即三个变换张量对Q，K，V分别进行线性变换，这些变换不会改变原有张量的尺寸，因此每个变换矩阵都是方阵，得到输出结果后，多头的作用才开始显现，每个头开始从词义层面分割输出的张量，也就是每个头都想获得一组Q，K，V进行注意力机制的计算，但是句子中的每个词的表示只获得一部分，也就是只分割了最后一维的词嵌入向量.<br>这就是所谓的多头，将每个头的获得的输入送到注意力机制中, 就形成多头注意力机制.</p>
+<p>多头注意力机制的作用:</p>
+<ul>
+<li>这种结构设计能让每个注意力机制去优化每个词汇的不同特征部分，从而均衡同一种注意力机制可能产生的偏差，让词义拥有来自更多元的表达，实验表明可以从而提升模型效果.</li>
+</ul>
+<p><img src="http://121.199.45.168:8001/img/13.png" alt="avatar"></p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 用于深度拷贝的copy工具包</span>
+<span class="token keyword">import</span> copy
+
+<span class="token comment" spellcheck="true"># 首先需要定义克隆函数, 因为在多头注意力机制的实现中, 用到多个结构相同的线性层.</span>
+<span class="token comment" spellcheck="true"># 我们将使用clone函数将他们一同初始化在一个网络层列表对象中. 之后的结构中也会用到该函数.</span>
+<span class="token keyword">def</span> <span class="token function">clones</span><span class="token punctuation">(</span>module<span class="token punctuation">,</span> N<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""用于生成相同网络层的克隆函数, 它的参数module表示要克隆的目标网络层, N代表需要克隆的数量"""</span>
+    <span class="token comment" spellcheck="true"># 在函数中, 我们通过for循环对module进行N次深度拷贝, 使其每个module成为独立的层,</span>
+    <span class="token comment" spellcheck="true"># 然后将其放在nn.ModuleList类型的列表中存放.</span>
+    <span class="token keyword">return</span> nn<span class="token punctuation">.</span>ModuleList<span class="token punctuation">(</span><span class="token punctuation">[</span>copy<span class="token punctuation">.</span>deepcopy<span class="token punctuation">(</span>module<span class="token punctuation">)</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span>N<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+实现了深度拷贝
+
+
+
+<span class="token comment" spellcheck="true"># 我们使用一个类来实现多头注意力机制的处理</span>
+<span class="token keyword">class</span> <span class="token class-name">MultiHeadedAttention</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">,</span> embedding_dim<span class="token punctuation">,</span> dropout<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""在类的初始化时, 会传入三个参数，head代表头数，embedding_dim代表词嵌入的维度， 
+           dropout代表进行dropout操作时置0比率，默认是0.1."""</span>
+        super<span class="token punctuation">(</span>MultiHeadedAttention<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># 在函数中，首先使用了一个测试中常用的assert语句，判断h是否能被d_model整除，</span>
+        <span class="token comment" spellcheck="true"># 这是因为我们之后要给每个头分配等量的词特征.也就是embedding_dim/head个.</span>
+        <span class="token keyword">assert</span> embedding_dim <span class="token operator">%</span> head <span class="token operator">==</span> <span class="token number">0</span><span class="token comment" spellcheck="true">#embedding_dim：词嵌入维度，head：头</span>
+
+        <span class="token comment" spellcheck="true"># 得到每个头获得的分割词向量维度d_k</span>
+        self<span class="token punctuation">.</span>d_k <span class="token operator">=</span> embedding_dim <span class="token operator">//</span> head
+        <span class="token comment" spellcheck="true">#词嵌入拉平</span>
+        embedding_dim：词嵌入的维度
+
+
+
+        <span class="token comment" spellcheck="true"># 传入头数h</span>
+        self<span class="token punctuation">.</span>head <span class="token operator">=</span> head
+
+        <span class="token comment" spellcheck="true"># 然后获得线性层对象，通过nn的Linear实例化，它的内部变换矩阵是embedding_dim x embedding_dim，然后使用clones函数克隆四个，</span>
+        <span class="token comment" spellcheck="true"># 为什么是四个呢，这是因为在多头注意力中，Q，K，V各需要一个，最后拼接的矩阵还需要一个，因此一共是四个.线性层</span>
+        self<span class="token punctuation">.</span>linears <span class="token operator">=</span> clones<span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Linear<span class="token punctuation">(</span>embedding_dim<span class="token punctuation">,</span> embedding_dim<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># self.attn为None，它代表最后得到的注意力张量，现在还没有结果所以为None.</span>
+        self<span class="token punctuation">.</span>attn <span class="token operator">=</span> None
+
+        <span class="token comment" spellcheck="true"># 最后就是一个self.dropout对象，它通过nn中的Dropout实例化而来，置0比率为传进来的参数dropout.</span>
+        self<span class="token punctuation">.</span>dropout <span class="token operator">=</span> nn<span class="token punctuation">.</span>Dropout<span class="token punctuation">(</span>p<span class="token operator">=</span>dropout<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> query<span class="token punctuation">,</span> key<span class="token punctuation">,</span> value<span class="token punctuation">,</span> mask<span class="token operator">=</span>None<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment" spellcheck="true">#多头注意力机制，计算的函数</span>
+        <span class="token triple-quoted-string string">"""前向逻辑函数, 它的输入参数有四个，前三个就是注意力机制需要的Q, K, V，
+           最后一个是注意力机制中可能需要的mask掩码张量，默认是None. """</span>
+
+        <span class="token comment" spellcheck="true"># 如果存在掩码张量mask</span>
+        <span class="token keyword">if</span> mask <span class="token keyword">is</span> <span class="token operator">not</span> None<span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># 使用unsqueeze拓展维度，代表多头中的第n个头</span>
+            mask <span class="token operator">=</span> mask<span class="token punctuation">.</span>unsqueeze<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># 接着，我们获得一个batch_size的变量，他是query尺寸的第1个数字，代表有多少条样本.</span>
+        batch_size <span class="token operator">=</span> query<span class="token punctuation">.</span>size<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># 之后就进入多头处理环节</span>
+        <span class="token comment" spellcheck="true"># 首先利用zip将输入QKV与三个线性层组到一起，然后使用for循环，将输入QKV分别传到线性层中，</span>
+        <span class="token comment" spellcheck="true"># 做完线性变换后，开始为每个头分割输入，这里使用view方法对线性变换的结果进行维度重塑，多加了一个维度h，代表头数，</span>
+        <span class="token comment" spellcheck="true"># 这样就意味着每个头可以获得一部分词特征组成的句子，其中的-1代表自适应维度，</span>
+        <span class="token comment" spellcheck="true"># 计算机会根据这种变换自动计算这里的值.然后对第二维和第三维进行转置操作，</span>
+        <span class="token comment" spellcheck="true"># 为了让代表句子长度维度和词向量维度能够相邻，这样注意力机制才能找到词义与句子位置的关系，</span>
+        <span class="token comment" spellcheck="true"># 从attention函数中可以看到，利用的是原始输入的倒数第一和第二维.这样我们就得到了每个头的输入.</span>
+        query<span class="token punctuation">,</span> key<span class="token punctuation">,</span> value <span class="token operator">=</span> \
+           <span class="token punctuation">[</span>model<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">.</span>view<span class="token punctuation">(</span>batch_size<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>head<span class="token punctuation">,</span> self<span class="token punctuation">.</span>d_k<span class="token punctuation">)</span><span class="token punctuation">.</span>transpose<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true">#view（批次，自适应，头，每个头的维度），这里是有说明的，整一个批次其实是数据的连续存储的，先用批次进行划分，形成几个单独的模块，在进行划分头，和每个头的维度。</span>
+           
+            <span class="token keyword">for</span> model<span class="token punctuation">,</span> x <span class="token keyword">in</span> zip<span class="token punctuation">(</span>self<span class="token punctuation">.</span>linears<span class="token punctuation">,</span> <span class="token punctuation">(</span>query<span class="token punctuation">,</span> key<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true">#self.linears：拷贝的线性层，(query, key, value)：以元组的形象qkv</span>
+<span class="token comment" spellcheck="true">#-1为自适应</span>
+
+        <span class="token comment" spellcheck="true"># 得到每个头的输入后，接下来就是将他们传入到attention中，</span>
+        <span class="token comment" spellcheck="true"># 这里直接调用我们之前实现的attention函数.同时也将mask和dropout传入其中.</span>
+        x<span class="token punctuation">,</span> self<span class="token punctuation">.</span>attn <span class="token operator">=</span> attention<span class="token punctuation">(</span>query<span class="token punctuation">,</span> key<span class="token punctuation">,</span> value<span class="token punctuation">,</span> mask<span class="token operator">=</span>mask<span class="token punctuation">,</span> dropout<span class="token operator">=</span>self<span class="token punctuation">.</span>dropout<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#self.attn：注意力的权重矩阵</span>
+
+
+
+        <span class="token comment" spellcheck="true"># 通过多头注意力计算后，我们就得到了每个头计算结果组成的4维张量，我们需要将其转换为输入的形状以方便后续的计算，</span>
+        <span class="token comment" spellcheck="true"># 因此这里开始进行第一步处理环节的逆操作，先对第二和第三维进行转置，然后使用contiguous方法，</span>
+        <span class="token comment" spellcheck="true"># 这个方法的作用就是能够让转置后的张量应用view方法，否则将无法直接使用，</span>
+        <span class="token comment" spellcheck="true"># 所以，下一步就是使用view重塑形状，变成和输入形状相同.</span>
+        x <span class="token operator">=</span> x<span class="token punctuation">.</span>transpose<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span>contiguous<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>view<span class="token punctuation">(</span>batch_size<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>head <span class="token operator">*</span> self<span class="token punctuation">.</span>d_k<span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># 最后使用线性层列表中的最后一个线性层对输入进行线性变换得到最终的多头注意力结构的输出.</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>linears<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+</code></pre>
+<p>学习并实现了多头注意力机制的类: MultiHeadedAttention</p>
+<ul>
+<li>因为多头注意力机制中需要使用多个相同的线性层, 首先实现了克隆函数clones.</li>
+<li>clones函数的输入是module，N，分别代表克隆的目标层，和克隆个数.</li>
+<li>clones函数的输出是装有N个克隆层的Module列表.</li>
+<li>接着实现MultiHeadedAttention类, 它的初始化函数输入是h, d_model, dropout分别代表头数，词嵌入维度和置零比率.</li>
+<li>它的实例化对象输入是Q, K, V以及掩码张量mask.</li>
+<li>它的实例化对象输出是通过多头注意力机制处理的Q的注意力表示.</li>
+</ul>
+<h3 id="前馈全连接层：对维度不进行改变，就是把对复杂过程的拟合程度不够-通过增加两层网络来增强模型的能力"><a href="#前馈全连接层：对维度不进行改变，就是把对复杂过程的拟合程度不够-通过增加两层网络来增强模型的能力" class="headerlink" title="前馈全连接层：对维度不进行改变，就是把对复杂过程的拟合程度不够, 通过增加两层网络来增强模型的能力"></a>前馈全连接层：对维度不进行改变，就是把对复杂过程的拟合程度不够, 通过增加两层网络来增强模型的能力</h3><ul>
+<li>什么是前馈全连接层:<ul>
+<li>在Transformer中前馈全连接层就是具有两层线性层的全连接网络.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>前馈全连接层的作用:<ul>
+<li>考虑注意力机制可能对复杂过程的拟合程度不够, 通过增加两层网络来增强模型的能力</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 通过类PositionwiseFeedForward来实现前馈全连接层</span>
+<span class="token keyword">class</span> <span class="token class-name">PositionwiseFeedForward</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> d_model<span class="token punctuation">,</span> d_ff<span class="token punctuation">,</span> dropout<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true">#d_model：词嵌入的维度</span>
+        <span class="token triple-quoted-string string">"""初始化函数有三个输入参数分别是d_model：词嵌入维度, d_ff：前馈全连接层输入的维度,和dropout=0.1，第一个是线性层的输入维度也是第二个线性层的输出维度，
+           因为我们希望输入通过前馈全连接层后输入和输出的维度不变. 第二个参数d_ff就是第二个线性层的输入维度和第一个线性层的输出维度. 
+           最后一个是dropout置0比率."""</span>
+        super<span class="token punctuation">(</span>PositionwiseFeedForward<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># 首先按照我们预期使用nn实例化了两个线性层对象，self.w1和self.w2</span>
+        <span class="token comment" spellcheck="true"># 它们的参数分别是d_model, d_ff和d_ff, d_model</span>
+        self<span class="token punctuation">.</span>w1 <span class="token operator">=</span> nn<span class="token punctuation">.</span>Linear<span class="token punctuation">(</span>d_model<span class="token punctuation">,</span> d_ff<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>w2 <span class="token operator">=</span> nn<span class="token punctuation">.</span>Linear<span class="token punctuation">(</span>d_ff<span class="token punctuation">,</span> d_model<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 然后使用nn的Dropout实例化了对象self.dropout</span>
+        self<span class="token punctuation">.</span>dropout <span class="token operator">=</span> nn<span class="token punctuation">.</span>Dropout<span class="token punctuation">(</span>dropout<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""输入参数为x，代表来自上一层的输出"""</span>
+        <span class="token comment" spellcheck="true"># 首先经过第一个线性层，然后使用Funtional中relu函数进行激活,</span>
+        <span class="token comment" spellcheck="true"># 之后再使用dropout进行随机置0，最后通过第二个线性层w2，返回最终结果.</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>w2<span class="token punctuation">(</span>self<span class="token punctuation">.</span>dropout<span class="token punctuation">(</span>F<span class="token punctuation">.</span>relu<span class="token punctuation">(</span>self<span class="token punctuation">.</span>w1<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>学习并实现了前馈全连接层的类: PositionwiseFeedForward</p>
+<ul>
+<li>它的实例化参数为d_model, d_ff, dropout, 分别代表词嵌入维度, 线性变换维度, 和置零比率.</li>
+<li>它的输入参数x, 表示上层的输出.</li>
+<li>它的输出是经过2层线性网络变换的特征表示.</li>
+</ul>
+<h3 id="规范化层：增加规范化是因为这个模型使用的大量的注意力机制存在很多的过大过小的情况，导致学习过程出现异常，使用规范化"><a href="#规范化层：增加规范化是因为这个模型使用的大量的注意力机制存在很多的过大过小的情况，导致学习过程出现异常，使用规范化" class="headerlink" title="规范化层：增加规范化是因为这个模型使用的大量的注意力机制存在很多的过大过小的情况，导致学习过程出现异常，使用规范化"></a>规范化层：增加规范化是因为这个模型使用的大量的注意力机制存在很多的过大过小的情况，导致学习过程出现异常，使用规范化</h3><p>规范化层的作用:</p>
+<ul>
+<li>它是所有深层网络模型都需要的标准网络层，因为随着网络层数的增加，通过多层的计算后参数可能开始出现过大或过小的情况，这样可能会导致学习过程出现异常，模型可能收敛非常的慢. 因此都会在一定层数后接规范化层进行数值的规范化，使其特征数值在合理范围内.</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 通过LayerNorm实现规范化层的类</span>
+<span class="token keyword">class</span> <span class="token class-name">LayerNorm</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> features<span class="token punctuation">,</span> eps<span class="token operator">=</span><span class="token number">1e</span><span class="token operator">-</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""初始化函数有两个参数, 一个是features, 表示词嵌入的维度,
+           另一个是eps它是一个足够小的数, 在规范化公式的分母中出现,
+           防止分母为0.默认是1e-6."""</span>
+        super<span class="token punctuation">(</span>LayerNorm<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># 根据features的形状初始化两个参数张量a2，和b2，第一个初始化为1张量，</span>
+        <span class="token comment" spellcheck="true"># 也就是里面的元素都是1，第二个初始化为0张量，也就是里面的元素都是0，这两个张量就是规范化层的参数，</span>
+        <span class="token comment" spellcheck="true"># 因为直接对上一层得到的结果做规范化公式计算，将改变结果的正常表征，因此就需要有参数作为调节因子，</span>
+        <span class="token comment" spellcheck="true"># 使其即能满足规范化要求，又能不改变针对目标的表征.最后使用nn.parameter封装，代表他们是模型的参数。</span>
+        <span class="token comment" spellcheck="true">#nn.parameter封装会被训练的时候可以进行更新</span>
+        self<span class="token punctuation">.</span>a2 <span class="token operator">=</span> nn<span class="token punctuation">.</span>Parameter<span class="token punctuation">(</span>torch<span class="token punctuation">.</span>ones<span class="token punctuation">(</span>features<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#一个全1</span>
+        self<span class="token punctuation">.</span>b2 <span class="token operator">=</span> nn<span class="token punctuation">.</span>Parameter<span class="token punctuation">(</span>torch<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span>features<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#一个全0</span>
+
+        <span class="token comment" spellcheck="true"># 把eps传到类中</span>
+        self<span class="token punctuation">.</span>eps <span class="token operator">=</span> eps
+
+    <span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""输入参数x代表来自上一层的输出"""</span>
+        <span class="token comment" spellcheck="true"># 在函数中，首先对输入变量x求其最后一个维度的均值，并保持输出维度与输入维度一致.</span>
+        <span class="token comment" spellcheck="true"># 接着再求最后一个维度的标准差，然后就是根据规范化公式，用x减去均值除以标准差获得规范化的结果，</span>
+        <span class="token comment" spellcheck="true"># 最后对结果乘以我们的缩放参数，即a2，*号代表同型点乘，即对应位置进行乘法操作，加上位移参数b2.返回即可.</span>
+        mean <span class="token operator">=</span> x<span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> keepdim<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#求均值</span>
+        std <span class="token operator">=</span> x<span class="token punctuation">.</span>std<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> keepdim<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#标准差</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>a2 <span class="token operator">*</span> <span class="token punctuation">(</span>x <span class="token operator">-</span> mean<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span>std <span class="token operator">+</span> self<span class="token punctuation">.</span>eps<span class="token punctuation">)</span> <span class="token operator">+</span> self<span class="token punctuation">.</span>b2
+</code></pre>
+<p>学习并实现了规范化层的类: LayerNorm</p>
+<ul>
+<li>它的实例化参数有两个, features和eps，分别表示词嵌入特征大小，和一个足够小的数.</li>
+<li>它的输入参数x代表来自上一层的输出.</li>
+<li>它的输出就是经过规范化的特征表示.</li>
+</ul>
+<h3 id="子层连接结构"><a href="#子层连接结构" class="headerlink" title="子层连接结构"></a>子层连接结构</h3><p>什么是子层连接结构:</p>
+<ul>
+<li>如图所示，输入到每个子层以及规范化层的过程中，还使用了残差链接（跳跃连接），因此我们把这一部分结构整体叫做子层连接（代表子层及其链接结构），在每个编码器层中，都有两个子层，这两个子层加上周围的链接结构就形成了两个子层连接结构.</li>
+</ul>
+<p><img src="http://121.199.45.168:8001/img/15.png" alt="avatar"></p>
+<p><img src="http://121.199.45.168:8001/img/16.png" alt="avatar"></p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 使用SublayerConnection来实现子层连接结构的类</span>
+<span class="token keyword">class</span> <span class="token class-name">SublayerConnection</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> size<span class="token punctuation">,</span> dropout<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""它输入参数有两个, size以及dropout， size一般是都是词嵌入维度的大小， 
+           dropout本身是对模型结构中的节点数进行随机抑制的比率， 
+           又因为节点被抑制等效就是该节点的输出都是0，因此也可以把dropout看作是对输出矩阵的随机置0的比率.
+        """</span>
+        super<span class="token punctuation">(</span>SublayerConnection<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 实例化了规范化对象self.norm</span>
+        self<span class="token punctuation">.</span>norm <span class="token operator">=</span> LayerNorm<span class="token punctuation">(</span>size<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 又使用nn中预定义的droupout实例化一个self.dropout对象.</span>
+        self<span class="token punctuation">.</span>dropout <span class="token operator">=</span> nn<span class="token punctuation">.</span>Dropout<span class="token punctuation">(</span>p<span class="token operator">=</span>dropout<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">,</span> sublayer<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""前向逻辑函数中, 接收上一个层或者子层的输入作为第一个参数，
+           将该子层连接中的子层函数作为第二个参数"""</span>
+
+        <span class="token comment" spellcheck="true"># 我们首先对输出进行规范化，然后将结果传给子层处理，之后再对子层进行dropout操作，</span>
+        <span class="token comment" spellcheck="true"># 随机停止一些网络中神经元的作用，来防止过拟合. 最后还有一个add操作， </span>
+        <span class="token comment" spellcheck="true"># 因为存在跳跃连接，所以是将输入x与dropout后的子层输出结果相加作为最终的子层连接输出.</span>
+        <span class="token keyword">return</span> x <span class="token operator">+</span> self<span class="token punctuation">.</span>dropout<span class="token punctuation">(</span>sublayer<span class="token punctuation">(</span>self<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>学习并实现了子层连接结构的类: SublayerConnection</p>
+<ul>
+<li>类的初始化函数输入参数是size, dropout, 分别代表词嵌入大小和置零比率.</li>
+<li>它的实例化对象输入参数是x, sublayer, 分别代表上一层输出以及子层的函数表示.</li>
+<li>它的输出就是通过子层连接结构处理的输出.</li>
+</ul>
+<h3 id="编码器层"><a href="#编码器层" class="headerlink" title="编码器层"></a>编码器层</h3><p>编码器层的作用:</p>
+<ul>
+<li>作为编码器的组成单元, 每个编码器层完成一次对输入的特征提取过程, 即编码过程.</li>
+</ul>
+<p><img src="http://121.199.45.168:8001/img/17.png" alt="avatar"></p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 使用EncoderLayer类实现编码器层</span>
+<span class="token keyword">class</span> <span class="token class-name">EncoderLayer</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> size<span class="token punctuation">,</span> self_attn<span class="token punctuation">,</span> feed_forward<span class="token punctuation">,</span> dropout<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""它的初始化函数参数有四个，分别是size，其实就是我们词嵌入维度的大小，它也将作为我们编码器层的大小, 
+           第二个self_attn，之后我们将传入多头自注意力子层实例化对象, 并且是自注意力机制, 
+           第三个是feed_froward, 之后我们将传入前馈全连接层实例化对象, 最后一个是置0比率dropout."""</span>
+        super<span class="token punctuation">(</span>EncoderLayer<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token comment" spellcheck="true"># 首先将self_attn和feed_forward传入其中.</span>
+        self<span class="token punctuation">.</span>self_attn <span class="token operator">=</span> self_attn
+        self<span class="token punctuation">.</span>feed_forward <span class="token operator">=</span> feed_forward
+
+        <span class="token comment" spellcheck="true"># 如图所示, 编码器层中有两个子层连接结构, 所以使用clones函数进行克隆</span>
+        <span class="token comment" spellcheck="true">#SublayerConnection：实现子层连接</span>
+        self<span class="token punctuation">.</span>sublayer <span class="token operator">=</span> clones<span class="token punctuation">(</span>SublayerConnection<span class="token punctuation">(</span>size<span class="token punctuation">,</span> dropout<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#克隆了两个</span>
+        <span class="token comment" spellcheck="true"># 把size传入其中</span>
+        self<span class="token punctuation">.</span>size <span class="token operator">=</span> size
+
+    <span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">,</span> mask<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""forward函数中有两个输入参数，x和mask，分别代表上一层的输出，和掩码张量mask."""</span>
+        <span class="token comment" spellcheck="true"># 里面就是按照结构图左侧的流程. 首先通过第一个子层连接结构，其中包含多头自注意力子层，</span>
+        <span class="token comment" spellcheck="true"># 然后通过第二个子层连接结构，其中包含前馈全连接子层. 最后返回结果.</span>
+        x <span class="token operator">=</span> self<span class="token punctuation">.</span>sublayer<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token keyword">lambda</span> x<span class="token punctuation">:</span> self<span class="token punctuation">.</span>self_attn<span class="token punctuation">(</span>x<span class="token punctuation">,</span> x<span class="token punctuation">,</span> x<span class="token punctuation">,</span> mask<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">#三个x分别是Q,K,V</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>sublayer<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> self<span class="token punctuation">.</span>feed_forward<span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python">size <span class="token operator">=</span> <span class="token number">512</span><span class="token comment" spellcheck="true">#</span>
+head <span class="token operator">=</span> <span class="token number">8</span><span class="token comment" spellcheck="true">#头</span>
+d_model <span class="token operator">=</span> <span class="token number">512</span><span class="token comment" spellcheck="true">#词嵌入维度</span>
+d_ff <span class="token operator">=</span> <span class="token number">64</span><span class="token comment" spellcheck="true">#矩阵的方阵</span>
+x <span class="token operator">=</span> pe_result<span class="token comment" spellcheck="true">#位置编码器</span>
+dropout <span class="token operator">=</span> <span class="token number">0.2</span><span class="token comment" spellcheck="true">#</span>
+self_attn <span class="token operator">=</span> MultiHeadedAttention<span class="token punctuation">(</span>head<span class="token punctuation">,</span> d_model<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#多头注意力</span>
+ff <span class="token operator">=</span> PositionwiseFeedForward<span class="token punctuation">(</span>d_model<span class="token punctuation">,</span> d_ff<span class="token punctuation">,</span> dropout<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#前馈全连接网络</span>
+mask <span class="token operator">=</span> Variable<span class="token punctuation">(</span>torch<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#伪的数</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python">el <span class="token operator">=</span> EncoderLayer<span class="token punctuation">(</span>size<span class="token punctuation">,</span> self_attn<span class="token punctuation">,</span> ff<span class="token punctuation">,</span> dropout<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#size：词嵌入，多头注意力，前馈全连接层，</span>
+el_result <span class="token operator">=</span> el<span class="token punctuation">(</span>x<span class="token punctuation">,</span> mask<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>el_result<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>el_result<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
+</code></pre>
+<p>学习并实现了编码器层的类: EncoderLayer</p>
+<ul>
+<li>类的初始化函数共有4个, 别是size，其实就是我们词嵌入维度的大小.  第二个self_attn，之后我们将传入多头自注意力子层实例化对象, 并且是自注意力机制. 第三个是feed_froward,  之后我们将传入前馈全连接层实例化对象. 最后一个是置0比率dropout.</li>
+<li>实例化对象的输入参数有2个，x代表来自上一层的输出, mask代表掩码张量.</li>
+<li>它的输出代表经过整个编码层的特征表示.</li>
+</ul>
+<h3 id="编码器"><a href="#编码器" class="headerlink" title="编码器"></a>编码器</h3><p>编码器的作用:</p>
+<ul>
+<li>编码器用于对输入进行指定的特征提取过程, 也称为编码, 由N个编码器层堆叠而成.</li>
+</ul>
+<p><img src="http://121.199.45.168:8001/img/7.png" alt="avatar"></p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 使用Encoder类来实现编码器</span>
+<span class="token keyword">class</span> <span class="token class-name">Encoder</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> layer<span class="token punctuation">,</span> N<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""初始化函数的两个参数分别代表编码器层和编码器层的个数"""</span>
+        super<span class="token punctuation">(</span>Encoder<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 首先使用clones函数克隆N个编码器层放在self.layers中</span>
+        self<span class="token punctuation">.</span>layers <span class="token operator">=</span> clones<span class="token punctuation">(</span>layer<span class="token punctuation">,</span> N<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 再初始化一个规范化层, 它将用在编码器的最后面.</span>
+        self<span class="token punctuation">.</span>norm <span class="token operator">=</span> LayerNorm<span class="token punctuation">(</span>layer<span class="token punctuation">.</span>size<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">,</span> mask<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""forward函数的输入和编码器层相同, x代表上一层的输出, mask代表掩码张量"""</span>
+        <span class="token comment" spellcheck="true"># 首先就是对我们克隆的编码器层进行循环，每次都会得到一个新的x，</span>
+        <span class="token comment" spellcheck="true"># 这个循环的过程，就相当于输出的x经过了N个编码器层的处理. </span>
+        <span class="token comment" spellcheck="true"># 最后再通过规范化层的对象self.norm进行处理，最后返回结果. </span>
+        <span class="token keyword">for</span> layer <span class="token keyword">in</span> self<span class="token punctuation">.</span>layers<span class="token punctuation">:</span><span class="token comment" spellcheck="true">#一层一层的传入的</span>
+            x <span class="token operator">=</span> layer<span class="token punctuation">(</span>x<span class="token punctuation">,</span> mask<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#得出来的x是下次的输入</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+</code></pre>
+<p>实例化参数:</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 第一个实例化参数layer, 它是一个编码器层的实例化对象, 因此需要传入编码器层的参数</span>
+<span class="token comment" spellcheck="true"># 又因为编码器层中的子层是不共享的, 因此需要使用深度拷贝各个对象.</span>
+size <span class="token operator">=</span> <span class="token number">512</span>
+head <span class="token operator">=</span> <span class="token number">8</span>
+d_model <span class="token operator">=</span> <span class="token number">512</span>
+d_ff <span class="token operator">=</span> <span class="token number">64</span>
+c <span class="token operator">=</span> copy<span class="token punctuation">.</span>deepcopy<span class="token comment" spellcheck="true">#两个值多次拷贝</span>
+attn <span class="token operator">=</span> MultiHeadedAttention<span class="token punctuation">(</span>head<span class="token punctuation">,</span> d_model<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#注意力机制</span>
+ff <span class="token operator">=</span> PositionwiseFeedForward<span class="token punctuation">(</span>d_model<span class="token punctuation">,</span> d_ff<span class="token punctuation">,</span> dropout<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#前馈全连接层</span>
+dropout <span class="token operator">=</span> <span class="token number">0.2</span>
+layer <span class="token operator">=</span> EncoderLayer<span class="token punctuation">(</span>size<span class="token punctuation">,</span> c<span class="token punctuation">(</span>attn<span class="token punctuation">)</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span>ff<span class="token punctuation">)</span><span class="token punctuation">,</span> dropout<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#子层编码器层</span>
+
+<span class="token comment" spellcheck="true"># 编码器中编码器层的个数N</span>
+N <span class="token operator">=</span> <span class="token number">8</span>
+mask <span class="token operator">=</span> Variable<span class="token punctuation">(</span>torch<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>调用:</p>
+<pre class=" language-python"><code class="language-python">en <span class="token operator">=</span> Encoder<span class="token punctuation">(</span>layer<span class="token punctuation">,</span> N<span class="token punctuation">)</span>
+en_result <span class="token operator">=</span> en<span class="token punctuation">(</span>x<span class="token punctuation">,</span> mask<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>en_result<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>en_result<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
+</code></pre>
+<p>学习并实现了编码器的类: Encoder</p>
+<ul>
+<li>类的初始化函数参数有两个，分别是layer和N，代表编码器层和编码器层的个数.</li>
+<li>forward函数的输入参数也有两个, 和编码器层的forward相同, x代表上一层的输出, mask代码掩码张量.</li>
+<li>编码器类的输出就是Transformer中编码器的特征提取表示, 它将成为解码器的输入的一部分.</li>
+</ul>
+<h2 id="解码器部分实现"><a href="#解码器部分实现" class="headerlink" title="解码器部分实现"></a>解码器部分实现</h2><p>解码器部分:</p>
+<ul>
+<li>由N个解码器层堆叠而成</li>
+<li>每个解码器层由三个子层连接结构组成</li>
+<li>第一个子层连接结构包括一个多头自注意力子层和规范化层以及一个残差连接</li>
+<li>第二个子层连接结构包括一个多头注意力子层和规范化层以及一个残差连接</li>
+<li>第三个子层连接结构包括一个前馈全连接子层和规范化层以及一个残差连接</li>
+</ul>
+<p><img src="http://121.199.45.168:8001/img/8.png" alt="avatar"></p>
+<p>说明:</p>
+<ul>
+<li>解码器层中的各个部分，如，多头注意力机制，规范化层，前馈全连接网络，子层连接结构都与编码器中的实现相同. 因此这里可以直接拿来构建解码器层.</li>
+</ul>
+<h3 id="解码器层：有两个掩码，以及源数据掩码张量掩码到不重要的信息和目标数据掩码张量，掩码到未来的信息"><a href="#解码器层：有两个掩码，以及源数据掩码张量掩码到不重要的信息和目标数据掩码张量，掩码到未来的信息" class="headerlink" title="解码器层：有两个掩码，以及源数据掩码张量掩码到不重要的信息和目标数据掩码张量，掩码到未来的信息"></a>解码器层：有两个掩码，以及源数据掩码张量掩码到不重要的信息和目标数据掩码张量，掩码到未来的信息</h3><p>解码器层的作用:</p>
+<ul>
+<li>作为解码器的组成单元, 每个解码器层根据给定的输入向目标方向进行特征提取操作，即解码过程.</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 使用DecoderLayer的类实现解码器层</span>
+<span class="token keyword">class</span> <span class="token class-name">DecoderLayer</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> size<span class="token punctuation">,</span> self_attn<span class="token punctuation">,</span> src_attn<span class="token punctuation">,</span> feed_forward<span class="token punctuation">,</span> dropout<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""初始化函数的参数有5个, 分别是size，代表词嵌入的维度大小, 同时也代表解码器层的尺寸，
+            第二个是self_attn，多头自注意力对象，也就是说这个注意力机制需要Q=K=V， 
+            第三个是src_attn，多头注意力对象，这里Q!=K=V， 第四个是前馈全连接层对象，最后就是droupout置0比率.
+        """</span>
+        super<span class="token punctuation">(</span>DecoderLayer<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 在初始化函数中， 主要就是将这些输入传到类中</span>
+        self<span class="token punctuation">.</span>size <span class="token operator">=</span> size
+        self<span class="token punctuation">.</span>self_attn <span class="token operator">=</span> self_attn
+        self<span class="token punctuation">.</span>src_attn <span class="token operator">=</span> src_attn
+        self<span class="token punctuation">.</span>feed_forward <span class="token operator">=</span> feed_forward
+        <span class="token comment" spellcheck="true"># 按照结构图使用clones函数克隆三个子层连接对象.</span>
+        self<span class="token punctuation">.</span>sublayer <span class="token operator">=</span> clones<span class="token punctuation">(</span>SublayerConnection<span class="token punctuation">(</span>size<span class="token punctuation">,</span> dropout<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">,</span> memory<span class="token punctuation">,</span> source_mask<span class="token punctuation">,</span> target_mask<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""forward函数中的参数有4个，分别是来自上一层的输入x，
+           来自编码器层的语义存储变量mermory（2，4，512）上一编码的输入， 以及源数据掩码张量和目标数据掩码张量.
+        """</span>
+        <span class="token comment" spellcheck="true"># 将memory表示成m方便之后使用</span>
+        m <span class="token operator">=</span> memory
+
+        <span class="token comment" spellcheck="true"># 将x传入第一个子层结构，第一个子层结构的输入分别是x和self-attn函数，因为是自注意力机制，所以Q,K,V都是x，</span>
+        <span class="token comment" spellcheck="true"># 最后一个参数是目标数据掩码张量，这时要对目标数据进行遮掩，因为此时模型可能还没有生成任何目标数据，</span>
+        <span class="token comment" spellcheck="true"># 比如在解码器准备生成第一个字符或词汇时，我们其实已经传入了第一个字符以便计算损失，</span>
+        <span class="token comment" spellcheck="true"># 但是我们不希望在生成第一个字符时模型能利用这个信息，因此我们会将其遮掩，同样生成第二个字符或词汇时，</span>
+        <span class="token comment" spellcheck="true"># 模型只能使用第一个字符或词汇信息，第二个字符以及之后的信息都不允许被模型使用.</span>
+        x <span class="token operator">=</span> self<span class="token punctuation">.</span>sublayer<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token keyword">lambda</span> x<span class="token punctuation">:</span> self<span class="token punctuation">.</span>self_attn<span class="token punctuation">(</span>x<span class="token punctuation">,</span> x<span class="token punctuation">,</span> x<span class="token punctuation">,</span> target_mask<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#target_mask：目标进行掩码</span>
+
+        <span class="token comment" spellcheck="true"># 接着进入第二个子层，这个子层中常规的注意力机制，q是输入x; k，v是编码层输出memory， </span>
+        <span class="token comment" spellcheck="true"># 同样也传入source_mask，但是进行源数据遮掩的原因并非是抑制信息泄漏，而是遮蔽掉对结果没有意义的字符而产生的注意力值，</span>
+        <span class="token comment" spellcheck="true"># 以此提升模型效果和训练速度. 这样就完成了第二个子层的处理.</span>
+        x <span class="token operator">=</span> self<span class="token punctuation">.</span>sublayer<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token keyword">lambda</span> x<span class="token punctuation">:</span> self<span class="token punctuation">.</span>src_attn<span class="token punctuation">(</span>x<span class="token punctuation">,</span> m<span class="token punctuation">,</span> m<span class="token punctuation">,</span> source_mask<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#常规注意力机制，</span>
+
+        <span class="token comment" spellcheck="true"># 最后一个子层就是前馈全连接子层，经过它的处理后就可以返回结果.这就是我们的解码器层结构.</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>sublayer<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> self<span class="token punctuation">.</span>feed_forward<span class="token punctuation">)</span>
+</code></pre>
+<p>学习并实现了解码器层的类: DecoderLayer</p>
+<ul>
+<li>类的初始化函数的参数有5个, 分别是size，代表词嵌入的维度大小,  同时也代表解码器层的尺寸，第二个是self_attn，多头自注意力对象，也就是说这个注意力机制需要Q=K=V，第三个是src_attn，多头注意力对象，这里Q!=K=V，  第四个是前馈全连接层对象，最后就是droupout置0比率.</li>
+<li>forward函数的参数有4个，分别是来自上一层的输入x，来自编码器层的语义存储变量mermory， 以及源数据掩码张量和目标数据掩码张量.</li>
+<li>最终输出了由编码器输入和目标数据一同作用的特征提取结果.</li>
+</ul>
+<h3 id="解码器"><a href="#解码器" class="headerlink" title="解码器"></a>解码器</h3><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 使用类Decoder来实现解码器</span>
+<span class="token keyword">class</span> <span class="token class-name">Decoder</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> layer<span class="token punctuation">,</span> N<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""初始化函数的参数有两个，第一个就是解码器层layer，第二个是解码器层的个数N."""</span>
+        super<span class="token punctuation">(</span>Decoder<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 首先使用clones方法克隆了N个layer，然后实例化了一个规范化层. </span>
+        <span class="token comment" spellcheck="true"># 因为数据走过了所有的解码器层后最后要做规范化处理. </span>
+        self<span class="token punctuation">.</span>layers <span class="token operator">=</span> clones<span class="token punctuation">(</span>layer<span class="token punctuation">,</span> N<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>norm <span class="token operator">=</span> LayerNorm<span class="token punctuation">(</span>layer<span class="token punctuation">.</span>size<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">,</span> memory<span class="token punctuation">,</span> source_mask<span class="token punctuation">,</span> target_mask<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""forward函数中的参数有4个，x代表目标数据的嵌入表示，memory是编码器层的输出，
+           source_mask, target_mask代表源数据和目标数据的掩码张量"""</span>
+
+        <span class="token comment" spellcheck="true"># 然后就是对每个层进行循环，当然这个循环就是变量x通过每一个层的处理，</span>
+        <span class="token comment" spellcheck="true"># 得出最后的结果，再进行一次规范化返回即可. </span>
+        <span class="token keyword">for</span> layer <span class="token keyword">in</span> self<span class="token punctuation">.</span>layers<span class="token punctuation">:</span><span class="token comment" spellcheck="true">#一层一层往里面放</span>
+            x <span class="token operator">=</span> layer<span class="token punctuation">(</span>x<span class="token punctuation">,</span> memory<span class="token punctuation">,</span> source_mask<span class="token punctuation">,</span> target_mask<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#x：目标数据的嵌入表示，要将x依次经历所有的编码器处理，最后在规范化层memory：编码器的输出张量，source_mask：源码数据的掩码张量，target_mask：目标数据的掩码张量</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>norm<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+</code></pre>
+<p>实例化参数:</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 分别是解码器层layer和解码器层的个数N</span>
+size <span class="token operator">=</span> <span class="token number">512</span>
+d_model <span class="token operator">=</span> <span class="token number">512</span>
+head <span class="token operator">=</span> <span class="token number">8</span>
+d_ff <span class="token operator">=</span> <span class="token number">64</span>
+dropout <span class="token operator">=</span> <span class="token number">0.2</span>
+c <span class="token operator">=</span> copy<span class="token punctuation">.</span>deepcopy
+attn <span class="token operator">=</span> MultiHeadedAttention<span class="token punctuation">(</span>head<span class="token punctuation">,</span> d_model<span class="token punctuation">)</span>
+ff <span class="token operator">=</span> PositionwiseFeedForward<span class="token punctuation">(</span>d_model<span class="token punctuation">,</span> d_ff<span class="token punctuation">,</span> dropout<span class="token punctuation">)</span>
+layer <span class="token operator">=</span> DecoderLayer<span class="token punctuation">(</span>d_model<span class="token punctuation">,</span> c<span class="token punctuation">(</span>attn<span class="token punctuation">)</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span>attn<span class="token punctuation">)</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span>ff<span class="token punctuation">)</span><span class="token punctuation">,</span> dropout<span class="token punctuation">)</span>
+N <span class="token operator">=</span> <span class="token number">8</span>
+</code></pre>
+<p>输入参数:</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 输入参数与解码器层的输入参数相同</span>
+x <span class="token operator">=</span> pe_result
+memory <span class="token operator">=</span> en_result
+mask <span class="token operator">=</span> Variable<span class="token punctuation">(</span>torch<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+source_mask <span class="token operator">=</span> target_mask <span class="token operator">=</span> mask<span class="token comment" spellcheck="true">#掩码张量都表示一样</span>
+</code></pre>
+<p>调用:</p>
+<pre class=" language-python"><code class="language-python">de <span class="token operator">=</span> Decoder<span class="token punctuation">(</span>layer<span class="token punctuation">,</span> N<span class="token punctuation">)</span>
+de_result <span class="token operator">=</span> de<span class="token punctuation">(</span>x<span class="token punctuation">,</span> memory<span class="token punctuation">,</span> source_mask<span class="token punctuation">,</span> target_mask<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>de_result<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>de_result<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
+</code></pre>
+<ul>
+<li><p>解码器总结:</p>
+<ul>
+<li>学习了解码器的作用:<ul>
+<li>根据编码器的结果以及上一次预测的结果, 对下一次可能出现的’值’进行特征表示.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>学习并实现了解码器的类: Decoder<ul>
+<li>类的初始化函数的参数有两个，第一个就是解码器层layer，第二个是解码器层的个数N.</li>
+<li>forward函数中的参数有4个，x代表目标数据的嵌入表示，memory是编码器层的输出，src_mask, tgt_mask代表源数据和目标数据的掩码张量.</li>
+<li>输出解码过程的最终特征表示.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="输出部分实现"><a href="#输出部分实现" class="headerlink" title="输出部分实现"></a>输出部分实现</h2><ul>
+<li>输出部分包含:<ul>
+<li>线性层</li>
+<li>softmax层</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://121.199.45.168:8001/img/6.png" alt="avatar"></p>
+<h3 id="线性层的作用"><a href="#线性层的作用" class="headerlink" title="线性层的作用"></a>线性层的作用</h3><ul>
+<li>通过对上一步的线性变化得到指定维度的输出, 也就是转换维度的作用.</li>
+</ul>
+<h3 id="softmax层的作用"><a href="#softmax层的作用" class="headerlink" title="softmax层的作用"></a>softmax层的作用</h3><ul>
+<li>使最后一维的向量中的数字缩放到0-1的概率值域内, 并满足他们的和为1.</li>
+</ul>
+<hr>
+<ul>
+<li>线性层和softmax层的代码分析:</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># nn.functional工具包装载了网络层中那些只进行计算, 而没有参数的层</span>
+<span class="token keyword">import</span> torch<span class="token punctuation">.</span>nn<span class="token punctuation">.</span>functional <span class="token keyword">as</span> F
+
+<span class="token comment" spellcheck="true"># 将线性层和softmax计算层一起实现, 因为二者的共同目标是生成最后的结构</span>
+<span class="token comment" spellcheck="true"># 因此把类的名字叫做Generator, 生成器类</span>
+<span class="token keyword">class</span> <span class="token class-name">Generator</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> d_model<span class="token punctuation">,</span> vocab_size<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""初始化函数的输入参数有两个, d_model代表词嵌入维度, vocab_size代表词表大小."""</span>
+        super<span class="token punctuation">(</span>Generator<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 首先就是使用nn中的预定义线性层进行实例化, 得到一个对象self.project等待使用, </span>
+        <span class="token comment" spellcheck="true"># 这个线性层的参数有两个, 就是初始化函数传进来的两个参数: d_model, vocab_size</span>
+        self<span class="token punctuation">.</span>project <span class="token operator">=</span> nn<span class="token punctuation">.</span>Linear<span class="token punctuation">(</span>d_model<span class="token punctuation">,</span> vocab_size<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""前向逻辑函数中输入是上一层的输出张量x"""</span>
+        <span class="token comment" spellcheck="true"># 在函数中, 首先使用上一步得到的self.project对x进行线性变化, </span>
+        <span class="token comment" spellcheck="true"># 然后使用F中已经实现的log_softmax进行的softmax处理.</span>
+        <span class="token comment" spellcheck="true"># 在这里之所以使用log_softmax是因为和我们这个pytorch版本的损失函数实现有关, 在其他版本中将修复.</span>
+        <span class="token comment" spellcheck="true"># log_softmax就是对softmax的结果又取了对数, 因为对数函数是单调递增函数, </span>
+        <span class="token comment" spellcheck="true"># 因此对最终我们取最大的概率值没有影响. 最后返回结果即可.</span>
+        <span class="token keyword">return</span> F<span class="token punctuation">.</span>log_softmax<span class="token punctuation">(</span>self<span class="token punctuation">.</span>project<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> dim<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+</code></pre>
+<ul>
+<li>nn.Linear演示:</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> m <span class="token operator">=</span> nn<span class="token punctuation">.</span>Linear<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> input <span class="token operator">=</span> torch<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> output <span class="token operator">=</span> m<span class="token punctuation">(</span>input<span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">print</span><span class="token punctuation">(</span>output<span class="token punctuation">.</span>size<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+torch<span class="token punctuation">.</span>Size<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">128</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<blockquote>
+<ul>
+<li>实例化参数:</li>
+</ul>
+</blockquote>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 词嵌入维度是512维</span>
+d_model <span class="token operator">=</span> <span class="token number">512</span>
+
+<span class="token comment" spellcheck="true"># 词表大小是1000</span>
+vocab_size <span class="token operator">=</span> <span class="token number">1000</span>
+</code></pre>
+<hr>
+<blockquote>
+<ul>
+<li>输入参数:</li>
+</ul>
+</blockquote>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 输入x是上一层网络的输出, 我们使用来自解码器层的输出</span>
+x <span class="token operator">=</span> de_result
+</code></pre>
+<hr>
+<blockquote>
+<ul>
+<li>调用:</li>
+</ul>
+</blockquote>
+<pre class=" language-python"><code class="language-python">gen <span class="token operator">=</span> Generator<span class="token punctuation">(</span>d_model<span class="token punctuation">,</span> vocab_size<span class="token punctuation">)</span>
+gen_result <span class="token operator">=</span> gen<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>gen_result<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>gen_result<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 使用EncoderDecoder类来实现编码器-解码器结构</span>
+<span class="token keyword">class</span> <span class="token class-name">EncoderDecoder</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> encoder<span class="token punctuation">,</span> decoder<span class="token punctuation">,</span> source_embed<span class="token punctuation">,</span> target_embed<span class="token punctuation">,</span> generator<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""初始化函数中有5个参数, 分别是编码器对象, 解码器对象, 
+           源数据嵌入函数, 目标数据嵌入函数,  以及输出部分的类别生成器对象
+        """</span>
+        super<span class="token punctuation">(</span>EncoderDecoder<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 将参数传入到类中</span>
+        self<span class="token punctuation">.</span>encoder <span class="token operator">=</span> encoder
+        self<span class="token punctuation">.</span>decoder <span class="token operator">=</span> decoder
+        self<span class="token punctuation">.</span>src_embed <span class="token operator">=</span> source_embed
+        self<span class="token punctuation">.</span>tgt_embed <span class="token operator">=</span> target_embed
+        self<span class="token punctuation">.</span>generator <span class="token operator">=</span> generator
+
+    <span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> source<span class="token punctuation">,</span> target<span class="token punctuation">,</span> source_mask<span class="token punctuation">,</span> target_mask<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""在forward函数中，有四个参数, source代表源数据, target代表目标数据, 
+           source_mask和target_mask代表对应的掩码张量"""</span>
+
+        <span class="token comment" spellcheck="true"># 在函数中, 将source, source_mask传入编码函数, 得到结果后,</span>
+        <span class="token comment" spellcheck="true"># 与source_mask，target，和target_mask一同传给解码函数.</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>decode<span class="token punctuation">(</span>self<span class="token punctuation">.</span>encode<span class="token punctuation">(</span>source<span class="token punctuation">,</span> source_mask<span class="token punctuation">)</span><span class="token punctuation">,</span> source_mask<span class="token punctuation">,</span>
+                            target<span class="token punctuation">,</span> target_mask<span class="token punctuation">)</span>
+         <span class="token comment" spellcheck="true">#self.encode(source, source_mask)：编码一个张量</span>
+         <span class="token comment" spellcheck="true">#self.decode(self.encode(source, source_mask), source_mask,</span>
+                            target<span class="token punctuation">,</span> target_mask<span class="token punctuation">)</span>解码
+
+    <span class="token keyword">def</span> <span class="token function">encode</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> source<span class="token punctuation">,</span> source_mask<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""编码函数, 以source和source_mask为参数"""</span>
+        <span class="token comment" spellcheck="true"># 使用src_embed对source做处理，原数据的嵌入操作, 然后和source_mask一起传给self.encoder</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>encoder<span class="token punctuation">(</span>self<span class="token punctuation">.</span>src_embed<span class="token punctuation">(</span>source<span class="token punctuation">)</span><span class="token punctuation">,</span> source_mask<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">decode</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> memory<span class="token punctuation">,</span> source_mask<span class="token punctuation">,</span> target<span class="token punctuation">,</span> target_mask<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""解码函数, 以memory即编码器的输出，整个编码器的返回结果, source_mask：原数据的掩码张量, target：目标数据, target_mask：目标数据的掩码张量为参数"""</span>
+        <span class="token comment" spellcheck="true"># 使用tgt_embed对target做处理, 然后和source_mask, target_mask, memory一起传给self.decoder</span>
+        
+        
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>decoder<span class="token punctuation">(</span>self<span class="token punctuation">.</span>tgt_embed<span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">,</span> memory<span class="token punctuation">,</span> source_mask<span class="token punctuation">,</span> target_mask<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">#tgt_embed(target)：词嵌入，memory：编码器的输出张量，source_mask：原数据的掩码张量，target_mask：目标数据的掩码张量</span>
+</code></pre>
+<blockquote>
+<ul>
+<li>实例化参数</li>
+</ul>
+</blockquote>
+<pre class=" language-python"><code class="language-python">vocab_size <span class="token operator">=</span> <span class="token number">1000</span>
+d_model <span class="token operator">=</span> <span class="token number">512</span>
+encoder <span class="token operator">=</span> en<span class="token comment" spellcheck="true">#编码器：实例化对象</span>
+decoder <span class="token operator">=</span> de<span class="token comment" spellcheck="true">#解码器：</span>
+source_embed <span class="token operator">=</span> nn<span class="token punctuation">.</span>Embedding<span class="token punctuation">(</span>vocab_size<span class="token punctuation">,</span> d_model<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#vocab_size：总词汇，d_model：词嵌入维度</span>
+target_embed <span class="token operator">=</span> nn<span class="token punctuation">.</span>Embedding<span class="token punctuation">(</span>vocab_size<span class="token punctuation">,</span> d_model<span class="token punctuation">)</span>
+generator <span class="token operator">=</span> gen
+</code></pre>
+<hr>
+<blockquote>
+<ul>
+<li>输入参数:</li>
+</ul>
+</blockquote>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 假设源数据与目标数据相同, 实际中并不相同</span>
+source <span class="token operator">=</span> target <span class="token operator">=</span> Variable<span class="token punctuation">(</span>torch<span class="token punctuation">.</span>LongTensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">421</span><span class="token punctuation">,</span> <span class="token number">508</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">491</span><span class="token punctuation">,</span> <span class="token number">998</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">221</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 假设src_mask与tgt_mask相同，实际中并不相同</span>
+source_mask <span class="token operator">=</span> target_mask <span class="token operator">=</span> Variable<span class="token punctuation">(</span>torch<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<blockquote>
+<ul>
+<li>调用:</li>
+</ul>
+</blockquote>
+<pre class=" language-python"><code class="language-python">ed <span class="token operator">=</span> EncoderDecoder<span class="token punctuation">(</span>encoder<span class="token punctuation">,</span> decoder<span class="token punctuation">,</span> source_embed<span class="token punctuation">,</span> target_embed<span class="token punctuation">,</span> generator<span class="token punctuation">)</span>
+ed_result <span class="token operator">=</span> ed<span class="token punctuation">(</span>source<span class="token punctuation">,</span> target<span class="token punctuation">,</span> source_mask<span class="token punctuation">,</span> target_mask<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>ed_result<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>ed_result<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="Tansformer模型构建过程的代码分析"><a href="#Tansformer模型构建过程的代码分析" class="headerlink" title="Tansformer模型构建过程的代码分析"></a>Tansformer模型构建过程的代码分析</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">make_model</span><span class="token punctuation">(</span>source_vocab<span class="token punctuation">,</span> target_vocab<span class="token punctuation">,</span> N<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">,</span> 
+               d_model<span class="token operator">=</span><span class="token number">512</span><span class="token punctuation">,</span> d_ff<span class="token operator">=</span><span class="token number">2048</span><span class="token punctuation">,</span> head<span class="token operator">=</span><span class="token number">8</span><span class="token punctuation">,</span> dropout<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""该函数用来构建模型, 有7个参数，分别是
+    source_vocab：源数据特征(词汇)总数，
+    target_vocab：目标数据特征(词汇)总数，
+    N：编码器和解码器堆叠数，
+    d_model：词向量映射维度，
+    d_ff：前馈全连接网络中变换矩阵的维度，
+    head：多头注意力结构中的多头数，以及
+    置零比率dropout."""</span>
+
+    <span class="token comment" spellcheck="true"># 首先得到一个深度拷贝命令，接下来很多结构都需要进行深度拷贝，</span>
+    <span class="token comment" spellcheck="true"># 来保证他们彼此之间相互独立，不受干扰.</span>
+    c <span class="token operator">=</span> copy<span class="token punctuation">.</span>deepcopy
+
+    <span class="token comment" spellcheck="true"># 实例化了多头注意力类，得到对象attn</span>
+    attn <span class="token operator">=</span> MultiHeadedAttention<span class="token punctuation">(</span>head<span class="token punctuation">,</span> d_model<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># 然后实例化前馈全连接类，得到对象ff </span>
+    ff <span class="token operator">=</span> PositionwiseFeedForward<span class="token punctuation">(</span>d_model<span class="token punctuation">,</span> d_ff<span class="token punctuation">,</span> dropout<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># 实例化位置编码类，得到对象position</span>
+    position <span class="token operator">=</span> PositionalEncoding<span class="token punctuation">(</span>d_model<span class="token punctuation">,</span> dropout<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># 根据结构图, 最外层是EncoderDecoder，在EncoderDecoder中，</span>
+    <span class="token comment" spellcheck="true"># 分别是编码器层，解码器层，源数据Embedding层和位置编码组成的有序结构，</span>
+    <span class="token comment" spellcheck="true"># 目标数据Embedding层和位置编码组成的有序结构，以及类别生成器层. </span>
+    <span class="token comment" spellcheck="true"># 在编码器层中有attention子层以及前馈全连接子层，</span>
+    <span class="token comment" spellcheck="true"># 在解码器层中有两个attention子层以及前馈全连接层.</span>
+    model <span class="token operator">=</span> EncoderDecoder<span class="token punctuation">(</span>
+        Encoder<span class="token punctuation">(</span>EncoderLayer<span class="token punctuation">(</span>d_model<span class="token punctuation">,</span> c<span class="token punctuation">(</span>attn<span class="token punctuation">)</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span>ff<span class="token punctuation">)</span><span class="token punctuation">,</span> dropout<span class="token punctuation">)</span><span class="token punctuation">,</span> N<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        Decoder<span class="token punctuation">(</span>DecoderLayer<span class="token punctuation">(</span>d_model<span class="token punctuation">,</span> c<span class="token punctuation">(</span>attn<span class="token punctuation">)</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span>attn<span class="token punctuation">)</span><span class="token punctuation">,</span> 
+                             c<span class="token punctuation">(</span>ff<span class="token punctuation">)</span><span class="token punctuation">,</span> dropout<span class="token punctuation">)</span><span class="token punctuation">,</span> N<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">#编码器子层</span>
+        nn<span class="token punctuation">.</span>Sequential<span class="token punctuation">(</span>Embeddings<span class="token punctuation">(</span>d_model<span class="token punctuation">,</span> source_vocab<span class="token punctuation">)</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span>position<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        nn<span class="token punctuation">.</span>Sequential<span class="token punctuation">(</span>Embeddings<span class="token punctuation">(</span>d_model<span class="token punctuation">,</span> target_vocab<span class="token punctuation">)</span><span class="token punctuation">,</span> c<span class="token punctuation">(</span>position<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        Generator<span class="token punctuation">(</span>d_model<span class="token punctuation">,</span> target_vocab<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># 模型结构完成后，接下来就是初始化模型中的参数，比如线性层中的变换矩阵</span>
+    <span class="token comment" spellcheck="true"># 这里一但判断参数的维度大于1，则会将其初始化成一个服从均匀分布的矩阵，</span>
+    <span class="token keyword">for</span> p <span class="token keyword">in</span> model<span class="token punctuation">.</span>parameters<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> p<span class="token punctuation">.</span>dim<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">:</span>
+            nn<span class="token punctuation">.</span>init<span class="token punctuation">.</span>xavier_uniform<span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> model
+</code></pre>
+<ul>
+<li><p>学习并实现了编码器-解码器结构的类: EncoderDecoder</p>
+<ul>
+<li>类的初始化函数传入5个参数, 分别是编码器对象, 解码器对象, 源数据嵌入函数, 目标数据嵌入函数, 以及输出部分的类别生成器对象.</li>
+<li>类中共实现三个函数, forward, encode, decode</li>
+<li>forward是主要逻辑函数, 有四个参数, source代表源数据, target代表目标数据, source_mask和target_mask代表对应的掩码张量.</li>
+<li>encode是编码函数, 以source和source_mask为参数. </li>
+<li>decode是解码函数, 以memory即编码器的输出, source_mask, target, target_mask为参数</li>
+</ul>
+<hr>
+</li>
+<li><p>学习并实现了模型构建函数: make_model</p>
+<ul>
+<li>有7个参数，分别是源数据特征(词汇)总数，目标数据特征(词汇)总数，编码器和解码器堆叠数，词向量映射维度，前馈全连接网络中变换矩阵的维度，多头注意力结构中的多头数，以及置零比率dropout.</li>
+<li>该函数最后返回一个构建好的模型对象.</li>
+</ul>
+</li>
+</ul>
+<h2 id="模型基本测试运行"><a href="#模型基本测试运行" class="headerlink" title="模型基本测试运行"></a>模型基本测试运行</h2><ul>
+<li>我们将通过一个小的copy任务完成模型的基本测试工作.</li>
+</ul>
+<hr>
+<ul>
+<li>copy任务介绍:<ul>
+<li>任务描述: 针对数字序列进行学习, 学习的最终目标是使输出与输入的序列相同. 如输入[1, 5, 8, 9, 3], 输出也是[1, 5, 8, 9, 3].</li>
+<li>任务意义: copy任务在模型基础测试中具有重要意义，因为copy操作对于模型来讲是一条明显规律, 因此模型能否在短时间内，小数据集中学会它，可以帮助我们断定模型所有过程是否正常，是否已具备基本学习能力.  </li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="使用copy任务进行模型基本测试的四步曲"><a href="#使用copy任务进行模型基本测试的四步曲" class="headerlink" title="使用copy任务进行模型基本测试的四步曲"></a>使用copy任务进行模型基本测试的四步曲</h3><ul>
+<li>第一步: 构建数据集生成器</li>
+<li>第二步: 获得Transformer模型及其优化器和损失函数</li>
+<li>第三步: 运行模型进行训练和评估</li>
+<li>第四步: 使用模型进行贪婪解码</li>
+</ul>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/Transformer%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90%20/6.png' height=px >
+
+<p>增加小数点整数不能和folt类型相乘</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">小龙</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://xiaoyvlongoing.github.io/2020/12/05/Transformer%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90/">https://xiaoyvlongoing.github.io/2020/12/05/Transformer%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint policy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">小龙</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">深度学习</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2020/12/05/Transformer%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Transformer架构解析">
+                        
+                        <span class="card-title">Transformer架构解析</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">深度学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/11/05/TensorFlow%E4%BB%A3%E7%A0%81%E6%90%AD%E5%BB%BA%E8%BF%90%E7%94%A8%E5%9F%BA%E7%A1%80/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="TensorFlow代码搭建运用基础">
+                        
+                        <span class="card-title">TensorFlow代码搭建运用基础</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">深度学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2021</span>
+            
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">小龙</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total Words:&nbsp;<span
+                        class="white-color">102.6k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;Total visits:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;Total visitors:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1458562363@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1458562363" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1458562363" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+</html>
