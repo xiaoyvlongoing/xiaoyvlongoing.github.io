@@ -531,6 +531,576 @@ plt<span class="token punctuation">.</span>show<span class="token punctuation">(
       </tags>
   </entry>
   <entry>
+    <title>Numpy基础</title>
+    <url>/2020/02/10/Numpy%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h2 id="numpy数组"><a href="#numpy数组" class="headerlink" title="numpy数组"></a>numpy数组</h2><h4 id="numpy夹角运算"><a href="#numpy夹角运算" class="headerlink" title="numpy夹角运算"></a>numpy夹角运算</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>umpy.arctan2(<em>x1</em>, <em>x2</em>)</td>
+<td>对应的可以算数夹角</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>numpy.clip( <em>a</em> , <em>a_min</em> , <em>a_max</em> , <em>out=None</em> , **<em>kwargs</em> )</td>
+<td>给定一个区间，区间之外的值被 裁剪 为 <br/>区间边。 例如，如果间隔为 <code>[0, 1]</code>指定，小于 0 的值变为 0，而大于 0 的值<br/>比 1 变成 1。</td>
+</tr>
+<tr>
+<td>例如</td>
+<td>np.clip(a, 3, 6, out=a)                                                                                      array([3, 3, 3, 3, 4, 5, 6, 6, 6, 6])</td>
+</tr>
+<tr>
+<td><a href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html?highlight=clip#numpy.clip">https://numpy.org/doc/stable/reference/generated/numpy.clip.html?highlight=clip#numpy.clip</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="查看数组基本操作"><a href="#查看数组基本操作" class="headerlink" title="查看数组基本操作"></a>查看数组基本操作</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数定义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>np.array（【】，dtype=np.数组类型）</td>
+<td>进行数据的存储的容器</td>
+</tr>
+<tr>
+<td>存储数据容器的变量.shape</td>
+<td>产看数组维度的元组，几行几列用（）写出</td>
+</tr>
+<tr>
+<td>存储数据容器的变量.ndim</td>
+<td>查看是几维的数组</td>
+</tr>
+<tr>
+<td>存储数据容器的变量.size</td>
+<td>查看数组里面有多少元素</td>
+</tr>
+<tr>
+<td>存储数据容器的变量.itemsize</td>
+<td>一个数组元素的长度（字节大小）</td>
+</tr>
+<tr>
+<td>存储数据容器的变量.dtype</td>
+<td>数组元素的类型</td>
+</tr>
+<tr>
+<td>np.<strong>sum</strong>()</td>
+<td>求和</td>
+</tr>
+<tr>
+<td>np.<strong>polyfit</strong>（）</td>
+<td>多项式拟合</td>
+</tr>
+</tbody></table>
+<h4 id="生成创建数组的方法"><a href="#生成创建数组的方法" class="headerlink" title="生成创建数组的方法"></a>生成创建数组的方法</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数使用方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>np.ones([])</td>
+<td>创建里面都是1的二维数组，【】写上几行几列用逗号隔开</td>
+</tr>
+<tr>
+<td>np.ones_like(存储数据容器的变量)</td>
+<td>创建里面都是1的二维数组</td>
+</tr>
+<tr>
+<td>np.zeros([])</td>
+<td>创建里面都是0的二维数组，【】写上几行几列用逗号隔开</td>
+</tr>
+<tr>
+<td>np.zeros_like(存储数据容器的变量)</td>
+<td>创建里面都是0的二维数组</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>np.array(存储数据容器的变量)</td>
+<td>对存储数据容器的变量的深拷贝</td>
+</tr>
+<tr>
+<td>np.asarray(存储数据容器的变量)</td>
+<td>对存储数据容器的变量的浅拷贝</td>
+</tr>
+<tr>
+<td><strong>创建等比等差数列的数组</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>np.linspace(start,stop,num,endpoint)</td>
+<td>创建等差数组 — 指定数量 参数:                                                     start:序列的起始值                                                                                    stop:序列的终止值                                                                                               num:要生成的等间隔样例数量，默认为50                                             endpoint:序列中是否包含stop值，默认为ture</td>
+</tr>
+<tr>
+<td>np.arange(start,stop,step,dtype)</td>
+<td>创建等差数组 — 指定步长                                                                                   参数start:为开头，                                                                                                                   stop：为结尾                                                                                                       step:步长,默认值为1</td>
+</tr>
+<tr>
+<td>np.logspace(start,stop,num)</td>
+<td>创建等比数列 参数:                                                                                          start:表示用几位数开头，                                                                                stop：表示用几位数结束                                                                               num:要生成的等比数列数量的元素，默认为50</td>
+</tr>
+<tr>
+<td><strong>正态分布</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>np.random.normal（<strong>loc=0.0, scale=1.0, size=None</strong>）</td>
+<td>生成正态分布的随机数，                                                                                loc：float 此概率分布的<strong>均值</strong>（对应着整个分布的中心centre）scale：float：此概率分布的<strong>标准差</strong>（对应于分布的宽度，scale越大越矮胖，scale越小，越瘦高）                                                              size：可以创建一个维度的多少数，也几行几列二维的随机数</td>
+</tr>
+<tr>
+<td><strong>np.random.uniform(low=0.0, high=1.0, size=None)</strong></td>
+<td>low: 采样下界，float类型，默认值为0；                                                              high: 采样上界，float类型，默认值为1；                                                                  size: 输出样本数目，为int或元组(tuple)类型，例如，size=(m,n,k), 则输出m<em>n</em>k个样本，缺省时输出1个值。</td>
+</tr>
+</tbody></table>
+<h4 id="数组的索引，切片，形状改变"><a href="#数组的索引，切片，形状改变" class="headerlink" title="数组的索引，切片，形状改变"></a>数组的索引，切片，形状改变</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数定义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>存储数据容器的变量【】</td>
+<td>要分清维度，想要几维的用逗号隔开，在想要的维度再用《：》提取</td>
+</tr>
+<tr>
+<td>存储数据容器的变量.reshape([])</td>
+<td>改变想要的几行几列，但是要与原来的总元素量相匹配，是用成法得到总元素相同</td>
+</tr>
+<tr>
+<td>存储数据容器的变量.reshape(-1,1)</td>
+<td>把每一个元素都形成一个维</td>
+</tr>
+<tr>
+<td>存储数据容器的变量.resize([])</td>
+<td></td>
+</tr>
+<tr>
+<td>存储数据容器的变量.T</td>
+<td>进行行与列进行互换</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>折叠成一维的数组</td>
+<td></td>
+</tr>
+<tr>
+<td>变量.<strong>flatten</strong>()</td>
+<td>返回一个折叠成一维的数组。但是该函数只能适用于numpy对象，即array或者mat，普通的list列表是不行的。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="数组的修改"><a href="#数组的修改" class="headerlink" title="数组的修改"></a>数组的修改</h4><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>stock_change.astype(np.int32)</td>
+<td>数组的修类型</td>
+</tr>
+<tr>
+<td>ndarray.tostring([order])</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>np.unique(存储数据容器的变量)</td>
+<td>数组的去重</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="ndarray运算（逻辑）"><a href="#ndarray运算（逻辑）" class="headerlink" title="ndarray运算（逻辑）"></a>ndarray运算（逻辑）</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数定义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>np.random.seed()</td>
+<td>确定随机数生成种子，用它后每次生成的数都是一样的</td>
+</tr>
+<tr>
+<td>np.random.randn(几行，几列)</td>
+<td>创建0到1之间的随机数</td>
+</tr>
+<tr>
+<td>np.random.randit(开头,结尾,(几行,几列))</td>
+<td>随机创建数组</td>
+</tr>
+<tr>
+<td>np.all(存储数据容器的变量[取值范围]&gt;条件判断)</td>
+<td>符合条件为True，不符合为：False,判断给定轴向上的所有元素是否都为True</td>
+</tr>
+<tr>
+<td>np.any()</td>
+<td>判断给定轴向上是否有一个元素为True</td>
+</tr>
+<tr>
+<td>np.where(存储数据容器的变量[取值范围]&gt;条件判断,1,0)</td>
+<td>符合条件为1，不符合为0</td>
+</tr>
+<tr>
+<td>np.where(np.logical_and(temp &gt; 60,temp&lt;90),1,0)</td>
+<td>np.logical_and:符合条件为1，不符合为0，</td>
+</tr>
+<tr>
+<td>np.where(np.logical_or(temp &gt; 90, temp &lt; 60), 1, 0)</td>
+<td>np.logical_or：大于90或小于60的换为1，否则为0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>统计函数</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>np.max(存储数据容器的变量,axis=0或者1)</td>
+<td>按照列（0）或者行（1）进行提取，</td>
+</tr>
+<tr>
+<td>np.min(存储数据容器的变量,axis=0或者1)</td>
+<td>按照列（0）或者行（1）进行提取，</td>
+</tr>
+<tr>
+<td>np.median()</td>
+<td>先排序在找中位数</td>
+</tr>
+<tr>
+<td>np.mean()</td>
+<td>均差</td>
+</tr>
+<tr>
+<td>np.std()</td>
+<td>标准差</td>
+</tr>
+<tr>
+<td>np.var()</td>
+<td>求解方差</td>
+</tr>
+<tr>
+<td>np.argmax(axis=)</td>
+<td>最大元素对应的下标</td>
+</tr>
+<tr>
+<td>np.argmin(axis=)</td>
+<td>最小元素对应的下标</td>
+</tr>
+<tr>
+<td>axis(“off”)</td>
+<td>不按行或列</td>
+</tr>
+<tr>
+<td>np.square</td>
+<td>每个元素的经行平方</td>
+</tr>
+<tr>
+<td><strong>sqrt()</strong></td>
+<td>方法返回数字x的平方根</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>np.maximum（【】，【】）</td>
+<td>能选取最大的列表（向量）</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="广播机制：一个数组与另一个数组是否能不能运算"><a href="#广播机制：一个数组与另一个数组是否能不能运算" class="headerlink" title="广播机制：一个数组与另一个数组是否能不能运算"></a>广播机制：一个数组与另一个数组是否能不能运算</h2><p>横着为行。竖着为列，</p>
+<p><strong>是否能相加</strong>：要从两个数组的后缘维度（从末尾开始算起的维度）的轴长度相符</p>
+<p><strong>怎么查看维度</strong>：第一个是最外面的中括号有几个元素，后面进行递减查看</p>
+<p><strong>矩阵的乘法遵循法则</strong>：第一横行乘于第一竖列再进行相加得出第一个相乘的数</p>
+<h3 id="单位矩阵，逆，转置"><a href="#单位矩阵，逆，转置" class="headerlink" title="单位矩阵，逆，转置"></a><strong>单位矩阵</strong>，<strong>逆</strong>，<strong>转置</strong></h3><h6 id="单位矩阵：从-左上角到右下角的对角线（称为主对角线）上的元素均为-1-以外全都为-0"><a href="#单位矩阵：从-左上角到右下角的对角线（称为主对角线）上的元素均为-1-以外全都为-0" class="headerlink" title="单位矩阵：从 左上角到右下角的对角线（称为主对角线）上的元素均为 1 以外全都为 0"></a><strong>单位矩阵</strong>：<strong>从 左上角到右下角的对角线（称为主对角线）上的元素均为 1 以外全都为 0</strong></h6><p><strong>逆</strong>：两个数组相乘，称为了单位矩阵就算是一个数组是另一个数组的逆</p>
+<p><strong>转置</strong>：行与列的互换</p>
+<h2 id="NP的矩阵乘法要遵循下面的公式，也可以进过转至进行运算"><a href="#NP的矩阵乘法要遵循下面的公式，也可以进过转至进行运算" class="headerlink" title="NP的矩阵乘法要遵循下面的公式，也可以进过转至进行运算"></a>NP的矩阵乘法要遵循下面的公式，也可以进过转至进行运算</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数定义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>np.dot</td>
+<td>矩阵进行相乘</td>
+</tr>
+<tr>
+<td>np.matmul</td>
+<td>矩阵进行相乘，单是不能矩阵与标量（一维）的相乘</td>
+</tr>
+<tr>
+<td>.set_printoptions(<em>precision=None</em>, <em>threshold=None</em>, <em>edgeitems=None</em>, <em>linewidth=None</em>, <em>suppress=None</em>, <em>nanstr=None</em>, <em>infstr=None</em>, <em>formatter=None</em>, <em>sign=None</em>, <em>floatmode=None</em>, ***, <em>legacy=None</em>)</td>
+<td><strong>precision</strong>：浮点精度可以设置，<strong>threshold</strong>：长数组可以总结为，<strong>suppress=True</strong>小结果可以被抑制，<strong>formatter={}<strong>自定义格式化程序可用于根据需要显示数组元素，</strong>要放回默认选项</strong>，可以使用(edgeitems=3, infstr=’inf’, linewidth=75, nanstr=’nan’, precision=8, suppress=False, threshold=1000, formatter=None)</td>
+</tr>
+</tbody></table>
+<h3 id="按元素减去参数。"><a href="#按元素减去参数。" class="headerlink" title="按元素减去参数。"></a>按元素减去参数。</h3><h4 id="numpy-subtract"><a href="#numpy-subtract" class="headerlink" title="numpy.subtract"></a>numpy.subtract</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>numpy.subtract</code>(<em>x1</em>, <em>x2</em>, <em>/</em>, <em>out=None</em>, ***, <em>where=True</em>, <em>casting=’same_kind’</em>, <em>order=’K’</em>, <em>dtype=None</em>, <em>subok=True</em>[, <em>signature</em>, <em>extobj</em>])</td>
+<td>参数 ：                                                                                                                                  <strong>x1, x2</strong>：要彼此相减的数组。如果 <code>x1.shape != x2.shape</code>，它们必须可以广播到一个普通的形状（将成为输出的形状，                                                                                          <strong>out</strong>：结果存储的位置。  如果提供，它必须具有输入广播到的形状。  如果未提供或没有，返回一个新分配的数组。  元组（只能作为关键字参数）的长度必须等于输出的数量</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h3><pre class=" language-python"><code class="language-python">np<span class="token punctuation">.</span>subtract<span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">4.0</span><span class="token punctuation">)</span>
+<span class="token operator">-</span><span class="token number">3.0</span>
+
+
+
+x1 <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">9.0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+x2 <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">3.0</span><span class="token punctuation">)</span>
+np<span class="token punctuation">.</span>subtract<span class="token punctuation">(</span>x1<span class="token punctuation">,</span> x2<span class="token punctuation">)</span>
+array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+       <span class="token punctuation">[</span> <span class="token number">3</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">3</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">3</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+       <span class="token punctuation">[</span> <span class="token number">6</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">6</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">6</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#这 -运算符可以用作 np.subtract上 数组。 </span>
+
+x1 <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">9.0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+x2 <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">3.0</span><span class="token punctuation">)</span>
+x1 <span class="token operator">-</span> x2
+array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+       <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+       <span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+]]></content>
+      <categories>
+        <category>Numpy</category>
+      </categories>
+      <tags>
+        <tag>Numpy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TensorFlow代码搭建运用基础</title>
+    <url>/2020/11/05/TensorFlow%E4%BB%A3%E7%A0%81%E6%90%AD%E5%BB%BA%E8%BF%90%E7%94%A8%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h1 id="TensorFlow代码搭建运用基础"><a href="#TensorFlow代码搭建运用基础" class="headerlink" title="TensorFlow代码搭建运用基础"></a>TensorFlow代码搭建运用基础</h1><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>from pyitcast.transformer_utils import <strong>get_std_opt</strong></td>
+<td>该工具用于获得标准的针对Transformer模型的优化器，该标准优化器基于Adam优化器, 使其对序列到序列的任务更有效.</td>
+</tr>
+<tr>
+<td>from pyitcast.transformer_utils import <strong>LabelSmoothing</strong></td>
+<td>标签平滑工具包, 该工具用于标签平滑, 标签平滑的作用就是小幅度的改变原有标签值的值域</td>
+</tr>
+<tr>
+<td>from pyitcast.transformer_utils import <strong>SimpleLossCompute</strong></td>
+<td>导入损失计算工具包, 该工具能够使用标签平滑后的结果进行损失的计算, 损失的计算方法可以认为是交叉熵损失函数.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>from pyitcast.transformer_utils import <strong>run_epoch</strong></td>
+<td>该工具将对模型使用给定的损失函数计算方法进行单轮参数更新. # 并打印每轮参数更新的损失结果.</td>
+</tr>
+<tr>
+<td>from pyitcast.transformer_utils import <strong>greedy_decode</strong></td>
+<td>贪婪解码的方式是每次预测都选择概率最大的结果作为输出,</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>from pyitcast.transformer import <strong>TransformerModel</strong></td>
+<td>数据集</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>定义数据类型以及用于转换为Tensor的指令</strong>。字段类对可以由张量表示的常见文本处理数据类型进行建模。  它包含一个Vocab对象，该对象定义了字段元素及其对应的数字表示形式的可能值的集合。  Field对象还保存其他与应如何对数据类型进行数字化有关的参数，例如令牌化方法和应产生的Tensor类型。 如果在数据集中的两个列之间共享字段（例如，在QA数据集中的问题和答案），则它们将具有共享的词汇表。</td>
+<td></td>
+</tr>
+<tr>
+<td>TEXT = torchtext.data.Field(<strong>tokenize=get_tokenizer</strong>(“切分的预料句”),<strong>init_token=</strong>‘<sos>起始’, <strong>eos_token=</strong>‘<eos>结束’,<strong>lower=True</strong>)</td>
+<td><strong>tokenize</strong> –用于使用此字段将字符串标记为顺序示例的函数。 如果为“ spacy”，则使用SpaCy标记器。 如果将不可序列化的函数作为参数传递，则该字段将无法序列化。 默认值：string.split。<strong>init_token</strong> –使用该字段的每个示例之前都将添加一个令牌，如果没有初始令牌，则为None。 默认值：无。<strong>eos_token</strong> –使用此字段将附加到每个示例的令牌，或无则表示无句尾令牌。 默认值：无。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>train_txt, val_txt, test_txt  = torchtext.datasets.WikiText2.splits（TEXT）</td>
+<td>WikiText2：数据文本库，splits：分割，并切分为对应训练文本, 验证文本，测试文本, 并对这些文本施加刚刚创建的语料域</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>WikiText2数据集</strong>：这是使用数据集的最简单方法，并假定字段，词汇表和迭代器参数具有通用默认值。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>torchtext.datasets.``WikiText2</code>（ <em>path</em> ， <em>text_field</em> ， <em>newline_eos = True</em> ， <em>encoding =’utf-8’</em> ， *** kwargs* ）：为WikiText-2数据集的拆分创建迭代器对象。</td>
+<td>参数： <strong>batch_size</strong> –批次大小。<strong>bptt_len</strong> –随时间反向传播的序列长度。<strong>设备</strong> –用于在其上创建批处理的设备。 对于CPU使用-1，对于当前活动的GPU设备使用无，<strong>root</strong> –数据集的zip存档将被扩展到的根目录； 因此，将在其wikitext-2子目录中存储数据文件的目录，<strong>wv_type，wv_dim</strong> （ <em>wv_dir</em> <em>，</em> ）–传递给文本字段的Vocab构造函数。 单词向量可以通过train.dataset.fields [‘text’]。vocab.vectors访问。 <strong>keyword arguments</strong> （ <em>剩余</em> ）–传递给splits方法</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>splits</code>（ <em>text_field</em> ， <em>root =’。data’</em> ， <em>train =’wiki.train.tokens’</em> ， <em>validation =’wiki.valid.tokens’</em> ， <em>test =’wiki.test.tokens’</em> ， *** kwargs* ）** <strong>数据集的分割</strong></td>
+<td><strong>text_field</strong> –将用于文本数据的字段。                     <strong>root</strong> –数据集的zip存档将被扩展到的根目录； 因此，将在其wikitext-2子目录中存储数据文件的目录。                                                         <strong>train</strong> –火车数据的文件名。 默认值：“ wiki.train.tokens”。                                                   <strong>validation</strong>-验证数据的文件名，或“无”不加载验证集。 默认值：“ wiki.valid.tokens”。                                            <strong>test</strong> –测试数据的文件名，或“无”不加载测试集。 默认值：“ wiki.test.tokens”</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>build_vocab（<strong>train_txt：数据集</strong>，<strong>max_size=10000</strong>) #将词汇表中频率前10000的单词取出来，<strong>min_freq=10</strong>) #将词汇表中频率大于等于10的单词取出来）</td>
+<td>build_vocab方法中这样可以使用vocab对象的stoi方法统计文本共包含的不重复词汇总数.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>新增函数</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>numericalize（）</td>
+<td>方法将单词映射成对应的连续数字</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.``narrow</code>（ *<em>input</em>, <em>dim</em>, <em>start</em>, <em>length</em> ）</td>
+<td><strong>input</strong>（ <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor"><em>张量</em> </a>）–要 的张量 缩小  <strong>dim</strong> （ <a href="https://docs.python.org/3/library/functions.html#int"><em>int</em> </a>）– 的尺寸 缩小  <strong>start</strong> （ <a href="https://docs.python.org/3/library/functions.html#int"><em>int</em> </a>）–起始尺寸  <strong>length</strong> （ <a href="https://docs.python.org/3/library/functions.html#int"><em>int</em> </a>）–到最终尺寸的距离</td>
+</tr>
+<tr>
+<td>data = data.narrow(0, 0, nbatch * bsz)</td>
+<td>之后使用narrow方法对不规整的剩余数据进行删除,     # 第一个参数是代表横轴删除还是纵轴删除, 0为横轴，1为纵轴     # 第二个和第三个参数代表保留开始轴到结束轴的数值.类似于切片</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>contiguous</code>(<em>memory_format=torch.contiguous_format</em>)连续 的内存张量，用了转置后要用</td>
+<td><strong>memory_format</strong> （ <a href="https://pytorch.org/docs/stable/tensor_attributes.html#torch.torch.memory_format"><code>torch.memory_format</code></a>（可选）–返回的Tensor所需的内存格式。  默认：  <code>torch.contiguous_format</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td>返回一个 连续 的内存张量，其中包含与以下内容相同的数据 <code>self</code>张量。  如果<br/><code>self</code> 张量已经是指定的内存格式，此函数返回<br/><code>self</code> 张量。</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>裁剪参数可迭代的梯度范数。 范数是在所有梯度上一起计算的，就好像它们被串联到单个矢量中一样。  渐变就地修改，</td>
+<td>使用nn自带的clip_grad_norm_方法进行梯度规范化, 防止出现梯度消失或爆炸</td>
+</tr>
+<tr>
+<td><code>torch.nn.utils.``clip_grad_norm_</code>（ <em>parameters</em> ， <em>max_norm</em> ， <em>norm_type = 2.0</em></td>
+<td><strong>parameters</strong>（ <em>Iterable</em> <em>[* <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor"><em>Tensor</em> </a></em>]或* <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor"><em>Tensor</em> </a>）–张量或单个Tensor的可迭代量，将对梯度进行归一化<strong>max_norm</strong> （ <a href="https://docs.python.org/3/library/functions.html#float"><em>float</em> </a><em>或</em> <a href="https://docs.python.org/3/library/functions.html#int"><em>int</em> </a>）–渐变的最大范数<strong>norm_type</strong> （ <a href="https://docs.python.org/3/library/functions.html#float"><em>float</em> </a><em>或</em> <a href="https://docs.python.org/3/library/functions.html#int"><em>int</em> </a>）–使用的p范数的类型。 可 <code>&#39;inf&#39;</code> 为无穷范数</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SQL数据类型</title>
     <url>/2020/02/10/SQL%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<img src='https://suncos-01-1254144885.cos.ap-shanghai.myqcloud.com/Hexo/S.png' height=400px >
@@ -1035,576 +1605,6 @@ time date default  <span class="token string">"2020-01-01"</span>
       </tags>
   </entry>
   <entry>
-    <title>TensorFlow代码搭建运用基础</title>
-    <url>/2020/11/05/TensorFlow%E4%BB%A3%E7%A0%81%E6%90%AD%E5%BB%BA%E8%BF%90%E7%94%A8%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<h1 id="TensorFlow代码搭建运用基础"><a href="#TensorFlow代码搭建运用基础" class="headerlink" title="TensorFlow代码搭建运用基础"></a>TensorFlow代码搭建运用基础</h1><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>函数性质</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>from pyitcast.transformer_utils import <strong>get_std_opt</strong></td>
-<td>该工具用于获得标准的针对Transformer模型的优化器，该标准优化器基于Adam优化器, 使其对序列到序列的任务更有效.</td>
-</tr>
-<tr>
-<td>from pyitcast.transformer_utils import <strong>LabelSmoothing</strong></td>
-<td>标签平滑工具包, 该工具用于标签平滑, 标签平滑的作用就是小幅度的改变原有标签值的值域</td>
-</tr>
-<tr>
-<td>from pyitcast.transformer_utils import <strong>SimpleLossCompute</strong></td>
-<td>导入损失计算工具包, 该工具能够使用标签平滑后的结果进行损失的计算, 损失的计算方法可以认为是交叉熵损失函数.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>from pyitcast.transformer_utils import <strong>run_epoch</strong></td>
-<td>该工具将对模型使用给定的损失函数计算方法进行单轮参数更新. # 并打印每轮参数更新的损失结果.</td>
-</tr>
-<tr>
-<td>from pyitcast.transformer_utils import <strong>greedy_decode</strong></td>
-<td>贪婪解码的方式是每次预测都选择概率最大的结果作为输出,</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>函数</th>
-<th>函数性质</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>from pyitcast.transformer import <strong>TransformerModel</strong></td>
-<td>数据集</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>定义数据类型以及用于转换为Tensor的指令</strong>。字段类对可以由张量表示的常见文本处理数据类型进行建模。  它包含一个Vocab对象，该对象定义了字段元素及其对应的数字表示形式的可能值的集合。  Field对象还保存其他与应如何对数据类型进行数字化有关的参数，例如令牌化方法和应产生的Tensor类型。 如果在数据集中的两个列之间共享字段（例如，在QA数据集中的问题和答案），则它们将具有共享的词汇表。</td>
-<td></td>
-</tr>
-<tr>
-<td>TEXT = torchtext.data.Field(<strong>tokenize=get_tokenizer</strong>(“切分的预料句”),<strong>init_token=</strong>‘<sos>起始’, <strong>eos_token=</strong>‘<eos>结束’,<strong>lower=True</strong>)</td>
-<td><strong>tokenize</strong> –用于使用此字段将字符串标记为顺序示例的函数。 如果为“ spacy”，则使用SpaCy标记器。 如果将不可序列化的函数作为参数传递，则该字段将无法序列化。 默认值：string.split。<strong>init_token</strong> –使用该字段的每个示例之前都将添加一个令牌，如果没有初始令牌，则为None。 默认值：无。<strong>eos_token</strong> –使用此字段将附加到每个示例的令牌，或无则表示无句尾令牌。 默认值：无。</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>train_txt, val_txt, test_txt  = torchtext.datasets.WikiText2.splits（TEXT）</td>
-<td>WikiText2：数据文本库，splits：分割，并切分为对应训练文本, 验证文本，测试文本, 并对这些文本施加刚刚创建的语料域</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>WikiText2数据集</strong>：这是使用数据集的最简单方法，并假定字段，词汇表和迭代器参数具有通用默认值。</td>
-<td></td>
-</tr>
-<tr>
-<td><code>torchtext.datasets.``WikiText2</code>（ <em>path</em> ， <em>text_field</em> ， <em>newline_eos = True</em> ， <em>encoding =’utf-8’</em> ， *** kwargs* ）：为WikiText-2数据集的拆分创建迭代器对象。</td>
-<td>参数： <strong>batch_size</strong> –批次大小。<strong>bptt_len</strong> –随时间反向传播的序列长度。<strong>设备</strong> –用于在其上创建批处理的设备。 对于CPU使用-1，对于当前活动的GPU设备使用无，<strong>root</strong> –数据集的zip存档将被扩展到的根目录； 因此，将在其wikitext-2子目录中存储数据文件的目录，<strong>wv_type，wv_dim</strong> （ <em>wv_dir</em> <em>，</em> ）–传递给文本字段的Vocab构造函数。 单词向量可以通过train.dataset.fields [‘text’]。vocab.vectors访问。 <strong>keyword arguments</strong> （ <em>剩余</em> ）–传递给splits方法</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>splits</code>（ <em>text_field</em> ， <em>root =’。data’</em> ， <em>train =’wiki.train.tokens’</em> ， <em>validation =’wiki.valid.tokens’</em> ， <em>test =’wiki.test.tokens’</em> ， *** kwargs* ）** <strong>数据集的分割</strong></td>
-<td><strong>text_field</strong> –将用于文本数据的字段。                     <strong>root</strong> –数据集的zip存档将被扩展到的根目录； 因此，将在其wikitext-2子目录中存储数据文件的目录。                                                         <strong>train</strong> –火车数据的文件名。 默认值：“ wiki.train.tokens”。                                                   <strong>validation</strong>-验证数据的文件名，或“无”不加载验证集。 默认值：“ wiki.valid.tokens”。                                            <strong>test</strong> –测试数据的文件名，或“无”不加载测试集。 默认值：“ wiki.test.tokens”</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>build_vocab（<strong>train_txt：数据集</strong>，<strong>max_size=10000</strong>) #将词汇表中频率前10000的单词取出来，<strong>min_freq=10</strong>) #将词汇表中频率大于等于10的单词取出来）</td>
-<td>build_vocab方法中这样可以使用vocab对象的stoi方法统计文本共包含的不重复词汇总数.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p>新增函数</p>
-<table>
-<thead>
-<tr>
-<th>函数</th>
-<th>函数性质</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>numericalize（）</td>
-<td>方法将单词映射成对应的连续数字</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>torch.``narrow</code>（ *<em>input</em>, <em>dim</em>, <em>start</em>, <em>length</em> ）</td>
-<td><strong>input</strong>（ <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor"><em>张量</em> </a>）–要 的张量 缩小  <strong>dim</strong> （ <a href="https://docs.python.org/3/library/functions.html#int"><em>int</em> </a>）– 的尺寸 缩小  <strong>start</strong> （ <a href="https://docs.python.org/3/library/functions.html#int"><em>int</em> </a>）–起始尺寸  <strong>length</strong> （ <a href="https://docs.python.org/3/library/functions.html#int"><em>int</em> </a>）–到最终尺寸的距离</td>
-</tr>
-<tr>
-<td>data = data.narrow(0, 0, nbatch * bsz)</td>
-<td>之后使用narrow方法对不规整的剩余数据进行删除,     # 第一个参数是代表横轴删除还是纵轴删除, 0为横轴，1为纵轴     # 第二个和第三个参数代表保留开始轴到结束轴的数值.类似于切片</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>contiguous</code>(<em>memory_format=torch.contiguous_format</em>)连续 的内存张量，用了转置后要用</td>
-<td><strong>memory_format</strong> （ <a href="https://pytorch.org/docs/stable/tensor_attributes.html#torch.torch.memory_format"><code>torch.memory_format</code></a>（可选）–返回的Tensor所需的内存格式。  默认：  <code>torch.contiguous_format</code>.</td>
-</tr>
-<tr>
-<td></td>
-<td>返回一个 连续 的内存张量，其中包含与以下内容相同的数据 <code>self</code>张量。  如果<br/><code>self</code> 张量已经是指定的内存格式，此函数返回<br/><code>self</code> 张量。</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>函数</th>
-<th>函数性质</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>裁剪参数可迭代的梯度范数。 范数是在所有梯度上一起计算的，就好像它们被串联到单个矢量中一样。  渐变就地修改，</td>
-<td>使用nn自带的clip_grad_norm_方法进行梯度规范化, 防止出现梯度消失或爆炸</td>
-</tr>
-<tr>
-<td><code>torch.nn.utils.``clip_grad_norm_</code>（ <em>parameters</em> ， <em>max_norm</em> ， <em>norm_type = 2.0</em></td>
-<td><strong>parameters</strong>（ <em>Iterable</em> <em>[* <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor"><em>Tensor</em> </a></em>]或* <a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor"><em>Tensor</em> </a>）–张量或单个Tensor的可迭代量，将对梯度进行归一化<strong>max_norm</strong> （ <a href="https://docs.python.org/3/library/functions.html#float"><em>float</em> </a><em>或</em> <a href="https://docs.python.org/3/library/functions.html#int"><em>int</em> </a>）–渐变的最大范数<strong>norm_type</strong> （ <a href="https://docs.python.org/3/library/functions.html#float"><em>float</em> </a><em>或</em> <a href="https://docs.python.org/3/library/functions.html#int"><em>int</em> </a>）–使用的p范数的类型。 可 <code>&#39;inf&#39;</code> 为无穷范数</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>深度学习</category>
-      </categories>
-      <tags>
-        <tag>深度学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Numpy基础</title>
-    <url>/2020/02/10/Numpy%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<h2 id="numpy数组"><a href="#numpy数组" class="headerlink" title="numpy数组"></a>numpy数组</h2><h4 id="numpy夹角运算"><a href="#numpy夹角运算" class="headerlink" title="numpy夹角运算"></a>numpy夹角运算</h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>函数性质</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>umpy.arctan2(<em>x1</em>, <em>x2</em>)</td>
-<td>对应的可以算数夹角</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>函数性质</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>numpy.clip( <em>a</em> , <em>a_min</em> , <em>a_max</em> , <em>out=None</em> , **<em>kwargs</em> )</td>
-<td>给定一个区间，区间之外的值被 裁剪 为 <br/>区间边。 例如，如果间隔为 <code>[0, 1]</code>指定，小于 0 的值变为 0，而大于 0 的值<br/>比 1 变成 1。</td>
-</tr>
-<tr>
-<td>例如</td>
-<td>np.clip(a, 3, 6, out=a)                                                                                      array([3, 3, 3, 3, 4, 5, 6, 6, 6, 6])</td>
-</tr>
-<tr>
-<td><a href="https://numpy.org/doc/stable/reference/generated/numpy.clip.html?highlight=clip#numpy.clip">https://numpy.org/doc/stable/reference/generated/numpy.clip.html?highlight=clip#numpy.clip</a></td>
-<td></td>
-</tr>
-</tbody></table>
-<h4 id="查看数组基本操作"><a href="#查看数组基本操作" class="headerlink" title="查看数组基本操作"></a>查看数组基本操作</h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>函数定义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>np.array（【】，dtype=np.数组类型）</td>
-<td>进行数据的存储的容器</td>
-</tr>
-<tr>
-<td>存储数据容器的变量.shape</td>
-<td>产看数组维度的元组，几行几列用（）写出</td>
-</tr>
-<tr>
-<td>存储数据容器的变量.ndim</td>
-<td>查看是几维的数组</td>
-</tr>
-<tr>
-<td>存储数据容器的变量.size</td>
-<td>查看数组里面有多少元素</td>
-</tr>
-<tr>
-<td>存储数据容器的变量.itemsize</td>
-<td>一个数组元素的长度（字节大小）</td>
-</tr>
-<tr>
-<td>存储数据容器的变量.dtype</td>
-<td>数组元素的类型</td>
-</tr>
-<tr>
-<td>np.<strong>sum</strong>()</td>
-<td>求和</td>
-</tr>
-<tr>
-<td>np.<strong>polyfit</strong>（）</td>
-<td>多项式拟合</td>
-</tr>
-</tbody></table>
-<h4 id="生成创建数组的方法"><a href="#生成创建数组的方法" class="headerlink" title="生成创建数组的方法"></a>生成创建数组的方法</h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>函数使用方法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>np.ones([])</td>
-<td>创建里面都是1的二维数组，【】写上几行几列用逗号隔开</td>
-</tr>
-<tr>
-<td>np.ones_like(存储数据容器的变量)</td>
-<td>创建里面都是1的二维数组</td>
-</tr>
-<tr>
-<td>np.zeros([])</td>
-<td>创建里面都是0的二维数组，【】写上几行几列用逗号隔开</td>
-</tr>
-<tr>
-<td>np.zeros_like(存储数据容器的变量)</td>
-<td>创建里面都是0的二维数组</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>np.array(存储数据容器的变量)</td>
-<td>对存储数据容器的变量的深拷贝</td>
-</tr>
-<tr>
-<td>np.asarray(存储数据容器的变量)</td>
-<td>对存储数据容器的变量的浅拷贝</td>
-</tr>
-<tr>
-<td><strong>创建等比等差数列的数组</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>np.linspace(start,stop,num,endpoint)</td>
-<td>创建等差数组 — 指定数量 参数:                                                     start:序列的起始值                                                                                    stop:序列的终止值                                                                                               num:要生成的等间隔样例数量，默认为50                                             endpoint:序列中是否包含stop值，默认为ture</td>
-</tr>
-<tr>
-<td>np.arange(start,stop,step,dtype)</td>
-<td>创建等差数组 — 指定步长                                                                                   参数start:为开头，                                                                                                                   stop：为结尾                                                                                                       step:步长,默认值为1</td>
-</tr>
-<tr>
-<td>np.logspace(start,stop,num)</td>
-<td>创建等比数列 参数:                                                                                          start:表示用几位数开头，                                                                                stop：表示用几位数结束                                                                               num:要生成的等比数列数量的元素，默认为50</td>
-</tr>
-<tr>
-<td><strong>正态分布</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>np.random.normal（<strong>loc=0.0, scale=1.0, size=None</strong>）</td>
-<td>生成正态分布的随机数，                                                                                loc：float 此概率分布的<strong>均值</strong>（对应着整个分布的中心centre）scale：float：此概率分布的<strong>标准差</strong>（对应于分布的宽度，scale越大越矮胖，scale越小，越瘦高）                                                              size：可以创建一个维度的多少数，也几行几列二维的随机数</td>
-</tr>
-<tr>
-<td><strong>np.random.uniform(low=0.0, high=1.0, size=None)</strong></td>
-<td>low: 采样下界，float类型，默认值为0；                                                              high: 采样上界，float类型，默认值为1；                                                                  size: 输出样本数目，为int或元组(tuple)类型，例如，size=(m,n,k), 则输出m<em>n</em>k个样本，缺省时输出1个值。</td>
-</tr>
-</tbody></table>
-<h4 id="数组的索引，切片，形状改变"><a href="#数组的索引，切片，形状改变" class="headerlink" title="数组的索引，切片，形状改变"></a>数组的索引，切片，形状改变</h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>函数定义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>存储数据容器的变量【】</td>
-<td>要分清维度，想要几维的用逗号隔开，在想要的维度再用《：》提取</td>
-</tr>
-<tr>
-<td>存储数据容器的变量.reshape([])</td>
-<td>改变想要的几行几列，但是要与原来的总元素量相匹配，是用成法得到总元素相同</td>
-</tr>
-<tr>
-<td>存储数据容器的变量.reshape(-1,1)</td>
-<td>把每一个元素都形成一个维</td>
-</tr>
-<tr>
-<td>存储数据容器的变量.resize([])</td>
-<td></td>
-</tr>
-<tr>
-<td>存储数据容器的变量.T</td>
-<td>进行行与列进行互换</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>折叠成一维的数组</td>
-<td></td>
-</tr>
-<tr>
-<td>变量.<strong>flatten</strong>()</td>
-<td>返回一个折叠成一维的数组。但是该函数只能适用于numpy对象，即array或者mat，普通的list列表是不行的。</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h4 id="数组的修改"><a href="#数组的修改" class="headerlink" title="数组的修改"></a>数组的修改</h4><table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>stock_change.astype(np.int32)</td>
-<td>数组的修类型</td>
-</tr>
-<tr>
-<td>ndarray.tostring([order])</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>np.unique(存储数据容器的变量)</td>
-<td>数组的去重</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="ndarray运算（逻辑）"><a href="#ndarray运算（逻辑）" class="headerlink" title="ndarray运算（逻辑）"></a>ndarray运算（逻辑）</h3><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>函数定义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>np.random.seed()</td>
-<td>确定随机数生成种子，用它后每次生成的数都是一样的</td>
-</tr>
-<tr>
-<td>np.random.randn(几行，几列)</td>
-<td>创建0到1之间的随机数</td>
-</tr>
-<tr>
-<td>np.random.randit(开头,结尾,(几行,几列))</td>
-<td>随机创建数组</td>
-</tr>
-<tr>
-<td>np.all(存储数据容器的变量[取值范围]&gt;条件判断)</td>
-<td>符合条件为True，不符合为：False,判断给定轴向上的所有元素是否都为True</td>
-</tr>
-<tr>
-<td>np.any()</td>
-<td>判断给定轴向上是否有一个元素为True</td>
-</tr>
-<tr>
-<td>np.where(存储数据容器的变量[取值范围]&gt;条件判断,1,0)</td>
-<td>符合条件为1，不符合为0</td>
-</tr>
-<tr>
-<td>np.where(np.logical_and(temp &gt; 60,temp&lt;90),1,0)</td>
-<td>np.logical_and:符合条件为1，不符合为0，</td>
-</tr>
-<tr>
-<td>np.where(np.logical_or(temp &gt; 90, temp &lt; 60), 1, 0)</td>
-<td>np.logical_or：大于90或小于60的换为1，否则为0</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>统计函数</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>np.max(存储数据容器的变量,axis=0或者1)</td>
-<td>按照列（0）或者行（1）进行提取，</td>
-</tr>
-<tr>
-<td>np.min(存储数据容器的变量,axis=0或者1)</td>
-<td>按照列（0）或者行（1）进行提取，</td>
-</tr>
-<tr>
-<td>np.median()</td>
-<td>先排序在找中位数</td>
-</tr>
-<tr>
-<td>np.mean()</td>
-<td>均差</td>
-</tr>
-<tr>
-<td>np.std()</td>
-<td>标准差</td>
-</tr>
-<tr>
-<td>np.var()</td>
-<td>求解方差</td>
-</tr>
-<tr>
-<td>np.argmax(axis=)</td>
-<td>最大元素对应的下标</td>
-</tr>
-<tr>
-<td>np.argmin(axis=)</td>
-<td>最小元素对应的下标</td>
-</tr>
-<tr>
-<td>axis(“off”)</td>
-<td>不按行或列</td>
-</tr>
-<tr>
-<td>np.square</td>
-<td>每个元素的经行平方</td>
-</tr>
-<tr>
-<td><strong>sqrt()</strong></td>
-<td>方法返回数字x的平方根</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>np.maximum（【】，【】）</td>
-<td>能选取最大的列表（向量）</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="广播机制：一个数组与另一个数组是否能不能运算"><a href="#广播机制：一个数组与另一个数组是否能不能运算" class="headerlink" title="广播机制：一个数组与另一个数组是否能不能运算"></a>广播机制：一个数组与另一个数组是否能不能运算</h2><p>横着为行。竖着为列，</p>
-<p><strong>是否能相加</strong>：要从两个数组的后缘维度（从末尾开始算起的维度）的轴长度相符</p>
-<p><strong>怎么查看维度</strong>：第一个是最外面的中括号有几个元素，后面进行递减查看</p>
-<p><strong>矩阵的乘法遵循法则</strong>：第一横行乘于第一竖列再进行相加得出第一个相乘的数</p>
-<h3 id="单位矩阵，逆，转置"><a href="#单位矩阵，逆，转置" class="headerlink" title="单位矩阵，逆，转置"></a><strong>单位矩阵</strong>，<strong>逆</strong>，<strong>转置</strong></h3><h6 id="单位矩阵：从-左上角到右下角的对角线（称为主对角线）上的元素均为-1-以外全都为-0"><a href="#单位矩阵：从-左上角到右下角的对角线（称为主对角线）上的元素均为-1-以外全都为-0" class="headerlink" title="单位矩阵：从 左上角到右下角的对角线（称为主对角线）上的元素均为 1 以外全都为 0"></a><strong>单位矩阵</strong>：<strong>从 左上角到右下角的对角线（称为主对角线）上的元素均为 1 以外全都为 0</strong></h6><p><strong>逆</strong>：两个数组相乘，称为了单位矩阵就算是一个数组是另一个数组的逆</p>
-<p><strong>转置</strong>：行与列的互换</p>
-<h2 id="NP的矩阵乘法要遵循下面的公式，也可以进过转至进行运算"><a href="#NP的矩阵乘法要遵循下面的公式，也可以进过转至进行运算" class="headerlink" title="NP的矩阵乘法要遵循下面的公式，也可以进过转至进行运算"></a>NP的矩阵乘法要遵循下面的公式，也可以进过转至进行运算</h2><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>函数定义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>np.dot</td>
-<td>矩阵进行相乘</td>
-</tr>
-<tr>
-<td>np.matmul</td>
-<td>矩阵进行相乘，单是不能矩阵与标量（一维）的相乘</td>
-</tr>
-<tr>
-<td>.set_printoptions(<em>precision=None</em>, <em>threshold=None</em>, <em>edgeitems=None</em>, <em>linewidth=None</em>, <em>suppress=None</em>, <em>nanstr=None</em>, <em>infstr=None</em>, <em>formatter=None</em>, <em>sign=None</em>, <em>floatmode=None</em>, ***, <em>legacy=None</em>)</td>
-<td><strong>precision</strong>：浮点精度可以设置，<strong>threshold</strong>：长数组可以总结为，<strong>suppress=True</strong>小结果可以被抑制，<strong>formatter={}<strong>自定义格式化程序可用于根据需要显示数组元素，</strong>要放回默认选项</strong>，可以使用(edgeitems=3, infstr=’inf’, linewidth=75, nanstr=’nan’, precision=8, suppress=False, threshold=1000, formatter=None)</td>
-</tr>
-</tbody></table>
-<h3 id="按元素减去参数。"><a href="#按元素减去参数。" class="headerlink" title="按元素减去参数。"></a>按元素减去参数。</h3><h4 id="numpy-subtract"><a href="#numpy-subtract" class="headerlink" title="numpy.subtract"></a>numpy.subtract</h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>函数性质</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>numpy.subtract</code>(<em>x1</em>, <em>x2</em>, <em>/</em>, <em>out=None</em>, ***, <em>where=True</em>, <em>casting=’same_kind’</em>, <em>order=’K’</em>, <em>dtype=None</em>, <em>subok=True</em>[, <em>signature</em>, <em>extobj</em>])</td>
-<td>参数 ：                                                                                                                                  <strong>x1, x2</strong>：要彼此相减的数组。如果 <code>x1.shape != x2.shape</code>，它们必须可以广播到一个普通的形状（将成为输出的形状，                                                                                          <strong>out</strong>：结果存储的位置。  如果提供，它必须具有输入广播到的形状。  如果未提供或没有，返回一个新分配的数组。  元组（只能作为关键字参数）的长度必须等于输出的数量</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h3><pre class=" language-python"><code class="language-python">np<span class="token punctuation">.</span>subtract<span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">4.0</span><span class="token punctuation">)</span>
-<span class="token operator">-</span><span class="token number">3.0</span>
-
-
-
-x1 <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">9.0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-x2 <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">3.0</span><span class="token punctuation">)</span>
-np<span class="token punctuation">.</span>subtract<span class="token punctuation">(</span>x1<span class="token punctuation">,</span> x2<span class="token punctuation">)</span>
-array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-       <span class="token punctuation">[</span> <span class="token number">3</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">3</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">3</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-       <span class="token punctuation">[</span> <span class="token number">6</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">6</span><span class="token punctuation">.</span><span class="token punctuation">,</span>  <span class="token number">6</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true">#这 -运算符可以用作 np.subtract上 数组。 </span>
-
-x1 <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">9.0</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-x2 <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">3.0</span><span class="token punctuation">)</span>
-x1 <span class="token operator">-</span> x2
-array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-       <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-       <span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">.</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-</code></pre>
-]]></content>
-      <categories>
-        <category>Numpy</category>
-      </categories>
-      <tags>
-        <tag>Numpy</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>fasttext工具</title>
     <url>/2020/02/10/fasttext%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<img src='https://github.com/xiaoyvlongoing/xiaoyvlongoing.github.io/blob/main/favicon.png' height=400px >
@@ -1717,6 +1717,88 @@ array<span class="token punctuation">(</span><span class="token punctuation">[</
       </categories>
       <tags>
         <tag>NLP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>二分查找</title>
+    <url>/2020/02/10/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</url>
+    <content><![CDATA[<h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><ol>
+<li><h5 id="二分查找要求是有序，是为了索引快速查找到中间值"><a href="#二分查找要求是有序，是为了索引快速查找到中间值" class="headerlink" title="二分查找要求是有序，是为了索引快速查找到中间值"></a>二分查找要求是有序，是为了索引快速查找到中间值</h5></li>
+<li><h5 id="二分查找要求是顺序存储的"><a href="#二分查找要求是顺序存储的" class="headerlink" title="二分查找要求是顺序存储的"></a>二分查找要求是顺序存储的</h5></li>
+<li><h5 id="二分查找是从中间开始查找的"><a href="#二分查找是从中间开始查找的" class="headerlink" title="二分查找是从中间开始查找的"></a>二分查找是从中间开始查找的</h5></li>
+<li><h5 id="时间复杂度最好O（1），最坏O（logn）"><a href="#时间复杂度最好O（1），最坏O（logn）" class="headerlink" title="时间复杂度最好O（1），最坏O（logn）"></a>时间复杂度最好O（1），最坏O（logn）</h5></li>
+</ol>
+<h2 id="递归版本"><a href="#递归版本" class="headerlink" title="递归版本"></a>递归版本</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">binary_search</span><span class="token punctuation">(</span>alist<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> len<span class="token punctuation">(</span>alist<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token boolean">False</span>
+    n <span class="token operator">=</span> len<span class="token punctuation">(</span>alist<span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">2</span>
+    <span class="token keyword">if</span> item <span class="token operator">==</span> alist<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+    <span class="token keyword">elif</span> item <span class="token operator">&lt;</span> alist<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> binary_search<span class="token punctuation">(</span>alist<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span>n<span class="token punctuation">]</span><span class="token punctuation">,</span>item<span class="token punctuation">)</span>
+
+    <span class="token keyword">elif</span> item <span class="token operator">></span> alist<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span>  binary_search<span class="token punctuation">(</span>alist<span class="token punctuation">[</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">,</span>item<span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    alist <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">]</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>binary_search<span class="token punctuation">(</span>alist<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>binary_search<span class="token punctuation">(</span>alist<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="非递归版本"><a href="#非递归版本" class="headerlink" title="非递归版本"></a>非递归版本</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">binary_search</span><span class="token punctuation">(</span>alist<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    start <span class="token operator">=</span> <span class="token number">0</span>
+    end <span class="token operator">=</span> len<span class="token punctuation">(</span>alist<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>
+    <span class="token keyword">while</span> start <span class="token operator">&lt;=</span> end<span class="token punctuation">:</span>
+        mid <span class="token operator">=</span><span class="token punctuation">(</span>start<span class="token operator">+</span>end<span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span>
+        <span class="token keyword">if</span> item <span class="token operator">==</span> alist<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token boolean">True</span><span class="token comment" spellcheck="true">#要是找到数值的下标的话返回mid</span>
+        <span class="token keyword">elif</span> item <span class="token operator">&lt;</span> alist<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            end <span class="token operator">=</span> mid <span class="token operator">-</span><span class="token number">1</span>
+        <span class="token keyword">elif</span> item <span class="token operator">></span> alist<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            start <span class="token operator">=</span> mid <span class="token operator">+</span><span class="token number">1</span>
+    <span class="token keyword">return</span> <span class="token boolean">False</span>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    alist <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>binary_search<span class="token punctuation">(</span>alist<span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="查找3的第一个数"><a href="#查找3的第一个数" class="headerlink" title="查找3的第一个数"></a>查找3的第一个数</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">binary_search</span><span class="token punctuation">(</span>alist<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    start <span class="token operator">=</span> <span class="token number">0</span>
+    end <span class="token operator">=</span> len<span class="token punctuation">(</span>alist<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>
+
+    <span class="token keyword">while</span> start <span class="token operator">&lt;=</span> end<span class="token punctuation">:</span>
+        mid <span class="token operator">=</span><span class="token punctuation">(</span>start<span class="token operator">+</span>end<span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span>
+        <span class="token keyword">if</span> item <span class="token operator">==</span> alist<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> mid <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">or</span> alist<span class="token punctuation">[</span>mid<span class="token number">-1</span><span class="token punctuation">]</span> <span class="token operator">!=</span>item<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> mid
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                end <span class="token operator">=</span> mid <span class="token operator">-</span><span class="token number">1</span>
+        <span class="token keyword">elif</span> item <span class="token operator">&lt;</span> alist<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            end <span class="token operator">=</span> mid <span class="token operator">-</span><span class="token number">1</span>
+        <span class="token keyword">elif</span> item <span class="token operator">></span> alist<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            start <span class="token operator">=</span> mid <span class="token operator">+</span><span class="token number">1</span>
+    <span class="token keyword">return</span> <span class="token boolean">False</span>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    alist <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>binary_search<span class="token punctuation">(</span>alist<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="线性结构：就是一对一的关系"><a href="#线性结构：就是一对一的关系" class="headerlink" title="线性结构：就是一对一的关系"></a>线性结构：就是一对一的关系</h3><h3 id="非线性结构：一个节点可能对应着前驱后继的多个节点"><a href="#非线性结构：一个节点可能对应着前驱后继的多个节点" class="headerlink" title="非线性结构：一个节点可能对应着前驱后继的多个节点"></a>非线性结构：一个节点可能对应着前驱后继的多个节点</h3><h2 id="树：非线性"><a href="#树：非线性" class="headerlink" title="树：非线性"></a>树：非线性</h2><ol>
+<li><h5 id="有序树，二叉树：每个节点最多含有二个子树为二叉树"><a href="#有序树，二叉树：每个节点最多含有二个子树为二叉树" class="headerlink" title="有序树，二叉树：每个节点最多含有二个子树为二叉树"></a>有序树，二叉树：每个节点最多含有二个子树为二叉树</h5></li>
+<li><h5 id="完全二叉树，除了最后一层节点除外，其他的节点都满了为完全二叉树，最后一层还是紧密排序的"><a href="#完全二叉树，除了最后一层节点除外，其他的节点都满了为完全二叉树，最后一层还是紧密排序的" class="headerlink" title="完全二叉树，除了最后一层节点除外，其他的节点都满了为完全二叉树，最后一层还是紧密排序的"></a>完全二叉树，除了最后一层节点除外，其他的节点都满了为完全二叉树，最后一层还是紧密排序的</h5></li>
+<li><h5 id="满二叉树：所有节点都满了没有一个空的为满二叉树"><a href="#满二叉树：所有节点都满了没有一个空的为满二叉树" class="headerlink" title="满二叉树：所有节点都满了没有一个空的为满二叉树"></a>满二叉树：所有节点都满了没有一个空的为满二叉树</h5></li>
+<li><h5 id="平衡二叉树：当且仅当任何节点的两棵子树的高度差不大于1的二叉树"><a href="#平衡二叉树：当且仅当任何节点的两棵子树的高度差不大于1的二叉树" class="headerlink" title="平衡二叉树：当且仅当任何节点的两棵子树的高度差不大于1的二叉树"></a>平衡二叉树：当且仅当任何节点的两棵子树的高度差不大于1的二叉树</h5></li>
+<li><h5 id="排序二叉树："><a href="#排序二叉树：" class="headerlink" title="排序二叉树："></a>排序二叉树：</h5><h6 id="1：若左子树不为空，则左子树所有节点的值均小于它的根节点"><a href="#1：若左子树不为空，则左子树所有节点的值均小于它的根节点" class="headerlink" title="1：若左子树不为空，则左子树所有节点的值均小于它的根节点"></a>1：若左子树不为空，则左子树所有节点的值均小于它的根节点</h6><h6 id="2：若右子树不为空，则右子树所有节点的值均大于它的根节点"><a href="#2：若右子树不为空，则右子树所有节点的值均大于它的根节点" class="headerlink" title="2：若右子树不为空，则右子树所有节点的值均大于它的根节点"></a>2：若右子树不为空，则右子树所有节点的值均大于它的根节点</h6><h6 id="3：子节点的树左右也为排序"><a href="#3：子节点的树左右也为排序" class="headerlink" title="3：子节点的树左右也为排序"></a>3：子节点的树左右也为排序</h6></li>
+</ol>
+<p>​    </p>
+<h2 id="链表二叉树"><a href="#链表二叉树" class="headerlink" title="链表二叉树"></a>链表二叉树</h2><ol>
+<li><h5 id="二叉树的第i层至多有2-i-1节点"><a href="#二叉树的第i层至多有2-i-1节点" class="headerlink" title="二叉树的第i层至多有2^i-1节点"></a>二叉树的第i层至多有2^i-1节点</h5></li>
+<li><h5 id="深度为k的二叉树至多与2-k-1个节点"><a href="#深度为k的二叉树至多与2-k-1个节点" class="headerlink" title="深度为k的二叉树至多与2^k-1个节点"></a>深度为k的二叉树至多与2^k-1个节点</h5></li>
+</ol>
+<h2 id="二叉树的广度优先遍历"><a href="#二叉树的广度优先遍历" class="headerlink" title="二叉树的广度优先遍历"></a>二叉树的广度优先遍历</h2><h5 id="深度优先：深度优先，选择一个路直达找到终点"><a href="#深度优先：深度优先，选择一个路直达找到终点" class="headerlink" title="深度优先：深度优先，选择一个路直达找到终点"></a>深度优先：深度优先，选择一个路直达找到终点</h5><h5 id="广度优先：可以找到最短的路径，先选择一条路找一层，没有再选择一条路径进行找，这一层没有就要从新选路走两层，再换直达找到。"><a href="#广度优先：可以找到最短的路径，先选择一条路找一层，没有再选择一条路径进行找，这一层没有就要从新选路走两层，再换直达找到。" class="headerlink" title="广度优先：可以找到最短的路径，先选择一条路找一层，没有再选择一条路径进行找，这一层没有就要从新选路走两层，再换直达找到。"></a>广度优先：可以找到最短的路径，先选择一条路找一层，没有再选择一条路径进行找，这一层没有就要从新选路走两层，再换直达找到。</h5><h2 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h2><h5 id="先序遍历：根左右，先写根，然后再靠左边的数值都写出来，写到底，然后在写最后叶节点的右边"><a href="#先序遍历：根左右，先写根，然后再靠左边的数值都写出来，写到底，然后在写最后叶节点的右边" class="headerlink" title="先序遍历：根左右，先写根，然后再靠左边的数值都写出来，写到底，然后在写最后叶节点的右边"></a>先序遍历：根左右，先写根，然后再靠左边的数值都写出来，写到底，然后在写最后叶节点的右边</h5><h5 id="中序遍历：左根右，左边开始，要从最左边的叶节点开始写"><a href="#中序遍历：左根右，左边开始，要从最左边的叶节点开始写" class="headerlink" title="中序遍历：左根右，左边开始，要从最左边的叶节点开始写"></a>中序遍历：左根右，左边开始，要从最左边的叶节点开始写</h5><h5 id="后序遍历：左右根，从叶节点开始先左右再跟"><a href="#后序遍历：左右根，从叶节点开始先左右再跟" class="headerlink" title="后序遍历：左右根，从叶节点开始先左右再跟"></a>后序遍历：左右根，从叶节点开始先左右再跟</h5><h2 id="遍历的结果反推处理二叉树的是什么结构"><a href="#遍历的结果反推处理二叉树的是什么结构" class="headerlink" title="遍历的结果反推处理二叉树的是什么结构"></a>遍历的结果反推处理二叉树的是什么结构</h2><h5 id="知道中序遍历，和先序遍历就可以找到规律"><a href="#知道中序遍历，和先序遍历就可以找到规律" class="headerlink" title="知道中序遍历，和先序遍历就可以找到规律"></a>知道中序遍历，和先序遍历就可以找到规律</h5>]]></content>
+      <categories>
+        <category>算法，树</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -2088,88 +2170,6 @@ sns<span class="token punctuation">.</span>jointplot<span class="token punctuati
       </categories>
       <tags>
         <tag>机器学习，算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>二分查找</title>
-    <url>/2020/02/10/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</url>
-    <content><![CDATA[<h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><ol>
-<li><h5 id="二分查找要求是有序，是为了索引快速查找到中间值"><a href="#二分查找要求是有序，是为了索引快速查找到中间值" class="headerlink" title="二分查找要求是有序，是为了索引快速查找到中间值"></a>二分查找要求是有序，是为了索引快速查找到中间值</h5></li>
-<li><h5 id="二分查找要求是顺序存储的"><a href="#二分查找要求是顺序存储的" class="headerlink" title="二分查找要求是顺序存储的"></a>二分查找要求是顺序存储的</h5></li>
-<li><h5 id="二分查找是从中间开始查找的"><a href="#二分查找是从中间开始查找的" class="headerlink" title="二分查找是从中间开始查找的"></a>二分查找是从中间开始查找的</h5></li>
-<li><h5 id="时间复杂度最好O（1），最坏O（logn）"><a href="#时间复杂度最好O（1），最坏O（logn）" class="headerlink" title="时间复杂度最好O（1），最坏O（logn）"></a>时间复杂度最好O（1），最坏O（logn）</h5></li>
-</ol>
-<h2 id="递归版本"><a href="#递归版本" class="headerlink" title="递归版本"></a>递归版本</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">binary_search</span><span class="token punctuation">(</span>alist<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span> len<span class="token punctuation">(</span>alist<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token boolean">False</span>
-    n <span class="token operator">=</span> len<span class="token punctuation">(</span>alist<span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">2</span>
-    <span class="token keyword">if</span> item <span class="token operator">==</span> alist<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token boolean">True</span>
-    <span class="token keyword">elif</span> item <span class="token operator">&lt;</span> alist<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> binary_search<span class="token punctuation">(</span>alist<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span>n<span class="token punctuation">]</span><span class="token punctuation">,</span>item<span class="token punctuation">)</span>
-
-    <span class="token keyword">elif</span> item <span class="token operator">></span> alist<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span>  binary_search<span class="token punctuation">(</span>alist<span class="token punctuation">[</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">,</span>item<span class="token punctuation">)</span>
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    alist <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">]</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>binary_search<span class="token punctuation">(</span>alist<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>binary_search<span class="token punctuation">(</span>alist<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-</code></pre>
-<h2 id="非递归版本"><a href="#非递归版本" class="headerlink" title="非递归版本"></a>非递归版本</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">binary_search</span><span class="token punctuation">(</span>alist<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    start <span class="token operator">=</span> <span class="token number">0</span>
-    end <span class="token operator">=</span> len<span class="token punctuation">(</span>alist<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>
-    <span class="token keyword">while</span> start <span class="token operator">&lt;=</span> end<span class="token punctuation">:</span>
-        mid <span class="token operator">=</span><span class="token punctuation">(</span>start<span class="token operator">+</span>end<span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span>
-        <span class="token keyword">if</span> item <span class="token operator">==</span> alist<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">True</span><span class="token comment" spellcheck="true">#要是找到数值的下标的话返回mid</span>
-        <span class="token keyword">elif</span> item <span class="token operator">&lt;</span> alist<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">:</span>
-            end <span class="token operator">=</span> mid <span class="token operator">-</span><span class="token number">1</span>
-        <span class="token keyword">elif</span> item <span class="token operator">></span> alist<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">:</span>
-            start <span class="token operator">=</span> mid <span class="token operator">+</span><span class="token number">1</span>
-    <span class="token keyword">return</span> <span class="token boolean">False</span>
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    alist <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>binary_search<span class="token punctuation">(</span>alist<span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-</code></pre>
-<h4 id="查找3的第一个数"><a href="#查找3的第一个数" class="headerlink" title="查找3的第一个数"></a>查找3的第一个数</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">binary_search</span><span class="token punctuation">(</span>alist<span class="token punctuation">,</span>item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    start <span class="token operator">=</span> <span class="token number">0</span>
-    end <span class="token operator">=</span> len<span class="token punctuation">(</span>alist<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>
-
-    <span class="token keyword">while</span> start <span class="token operator">&lt;=</span> end<span class="token punctuation">:</span>
-        mid <span class="token operator">=</span><span class="token punctuation">(</span>start<span class="token operator">+</span>end<span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span>
-        <span class="token keyword">if</span> item <span class="token operator">==</span> alist<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> mid <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">or</span> alist<span class="token punctuation">[</span>mid<span class="token number">-1</span><span class="token punctuation">]</span> <span class="token operator">!=</span>item<span class="token punctuation">:</span>
-                <span class="token keyword">return</span> mid
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                end <span class="token operator">=</span> mid <span class="token operator">-</span><span class="token number">1</span>
-        <span class="token keyword">elif</span> item <span class="token operator">&lt;</span> alist<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">:</span>
-            end <span class="token operator">=</span> mid <span class="token operator">-</span><span class="token number">1</span>
-        <span class="token keyword">elif</span> item <span class="token operator">></span> alist<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">:</span>
-            start <span class="token operator">=</span> mid <span class="token operator">+</span><span class="token number">1</span>
-    <span class="token keyword">return</span> <span class="token boolean">False</span>
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    alist <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>binary_search<span class="token punctuation">(</span>alist<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-</code></pre>
-<h3 id="线性结构：就是一对一的关系"><a href="#线性结构：就是一对一的关系" class="headerlink" title="线性结构：就是一对一的关系"></a>线性结构：就是一对一的关系</h3><h3 id="非线性结构：一个节点可能对应着前驱后继的多个节点"><a href="#非线性结构：一个节点可能对应着前驱后继的多个节点" class="headerlink" title="非线性结构：一个节点可能对应着前驱后继的多个节点"></a>非线性结构：一个节点可能对应着前驱后继的多个节点</h3><h2 id="树：非线性"><a href="#树：非线性" class="headerlink" title="树：非线性"></a>树：非线性</h2><ol>
-<li><h5 id="有序树，二叉树：每个节点最多含有二个子树为二叉树"><a href="#有序树，二叉树：每个节点最多含有二个子树为二叉树" class="headerlink" title="有序树，二叉树：每个节点最多含有二个子树为二叉树"></a>有序树，二叉树：每个节点最多含有二个子树为二叉树</h5></li>
-<li><h5 id="完全二叉树，除了最后一层节点除外，其他的节点都满了为完全二叉树，最后一层还是紧密排序的"><a href="#完全二叉树，除了最后一层节点除外，其他的节点都满了为完全二叉树，最后一层还是紧密排序的" class="headerlink" title="完全二叉树，除了最后一层节点除外，其他的节点都满了为完全二叉树，最后一层还是紧密排序的"></a>完全二叉树，除了最后一层节点除外，其他的节点都满了为完全二叉树，最后一层还是紧密排序的</h5></li>
-<li><h5 id="满二叉树：所有节点都满了没有一个空的为满二叉树"><a href="#满二叉树：所有节点都满了没有一个空的为满二叉树" class="headerlink" title="满二叉树：所有节点都满了没有一个空的为满二叉树"></a>满二叉树：所有节点都满了没有一个空的为满二叉树</h5></li>
-<li><h5 id="平衡二叉树：当且仅当任何节点的两棵子树的高度差不大于1的二叉树"><a href="#平衡二叉树：当且仅当任何节点的两棵子树的高度差不大于1的二叉树" class="headerlink" title="平衡二叉树：当且仅当任何节点的两棵子树的高度差不大于1的二叉树"></a>平衡二叉树：当且仅当任何节点的两棵子树的高度差不大于1的二叉树</h5></li>
-<li><h5 id="排序二叉树："><a href="#排序二叉树：" class="headerlink" title="排序二叉树："></a>排序二叉树：</h5><h6 id="1：若左子树不为空，则左子树所有节点的值均小于它的根节点"><a href="#1：若左子树不为空，则左子树所有节点的值均小于它的根节点" class="headerlink" title="1：若左子树不为空，则左子树所有节点的值均小于它的根节点"></a>1：若左子树不为空，则左子树所有节点的值均小于它的根节点</h6><h6 id="2：若右子树不为空，则右子树所有节点的值均大于它的根节点"><a href="#2：若右子树不为空，则右子树所有节点的值均大于它的根节点" class="headerlink" title="2：若右子树不为空，则右子树所有节点的值均大于它的根节点"></a>2：若右子树不为空，则右子树所有节点的值均大于它的根节点</h6><h6 id="3：子节点的树左右也为排序"><a href="#3：子节点的树左右也为排序" class="headerlink" title="3：子节点的树左右也为排序"></a>3：子节点的树左右也为排序</h6></li>
-</ol>
-<p>​    </p>
-<h2 id="链表二叉树"><a href="#链表二叉树" class="headerlink" title="链表二叉树"></a>链表二叉树</h2><ol>
-<li><h5 id="二叉树的第i层至多有2-i-1节点"><a href="#二叉树的第i层至多有2-i-1节点" class="headerlink" title="二叉树的第i层至多有2^i-1节点"></a>二叉树的第i层至多有2^i-1节点</h5></li>
-<li><h5 id="深度为k的二叉树至多与2-k-1个节点"><a href="#深度为k的二叉树至多与2-k-1个节点" class="headerlink" title="深度为k的二叉树至多与2^k-1个节点"></a>深度为k的二叉树至多与2^k-1个节点</h5></li>
-</ol>
-<h2 id="二叉树的广度优先遍历"><a href="#二叉树的广度优先遍历" class="headerlink" title="二叉树的广度优先遍历"></a>二叉树的广度优先遍历</h2><h5 id="深度优先：深度优先，选择一个路直达找到终点"><a href="#深度优先：深度优先，选择一个路直达找到终点" class="headerlink" title="深度优先：深度优先，选择一个路直达找到终点"></a>深度优先：深度优先，选择一个路直达找到终点</h5><h5 id="广度优先：可以找到最短的路径，先选择一条路找一层，没有再选择一条路径进行找，这一层没有就要从新选路走两层，再换直达找到。"><a href="#广度优先：可以找到最短的路径，先选择一条路找一层，没有再选择一条路径进行找，这一层没有就要从新选路走两层，再换直达找到。" class="headerlink" title="广度优先：可以找到最短的路径，先选择一条路找一层，没有再选择一条路径进行找，这一层没有就要从新选路走两层，再换直达找到。"></a>广度优先：可以找到最短的路径，先选择一条路找一层，没有再选择一条路径进行找，这一层没有就要从新选路走两层，再换直达找到。</h5><h2 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h2><h5 id="先序遍历：根左右，先写根，然后再靠左边的数值都写出来，写到底，然后在写最后叶节点的右边"><a href="#先序遍历：根左右，先写根，然后再靠左边的数值都写出来，写到底，然后在写最后叶节点的右边" class="headerlink" title="先序遍历：根左右，先写根，然后再靠左边的数值都写出来，写到底，然后在写最后叶节点的右边"></a>先序遍历：根左右，先写根，然后再靠左边的数值都写出来，写到底，然后在写最后叶节点的右边</h5><h5 id="中序遍历：左根右，左边开始，要从最左边的叶节点开始写"><a href="#中序遍历：左根右，左边开始，要从最左边的叶节点开始写" class="headerlink" title="中序遍历：左根右，左边开始，要从最左边的叶节点开始写"></a>中序遍历：左根右，左边开始，要从最左边的叶节点开始写</h5><h5 id="后序遍历：左右根，从叶节点开始先左右再跟"><a href="#后序遍历：左右根，从叶节点开始先左右再跟" class="headerlink" title="后序遍历：左右根，从叶节点开始先左右再跟"></a>后序遍历：左右根，从叶节点开始先左右再跟</h5><h2 id="遍历的结果反推处理二叉树的是什么结构"><a href="#遍历的结果反推处理二叉树的是什么结构" class="headerlink" title="遍历的结果反推处理二叉树的是什么结构"></a>遍历的结果反推处理二叉树的是什么结构</h2><h5 id="知道中序遍历，和先序遍历就可以找到规律"><a href="#知道中序遍历，和先序遍历就可以找到规律" class="headerlink" title="知道中序遍历，和先序遍历就可以找到规律"></a>知道中序遍历，和先序遍历就可以找到规律</h5>]]></content>
-      <categories>
-        <category>算法，树</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -3432,183 +3432,6 @@ test_x形状<span class="token punctuation">:</span>  <span class="token punctua
       </tags>
   </entry>
   <entry>
-    <title>集成学习-随机森林-boosting-Bagging</title>
-    <url>/2019/01/05/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0-%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97-boosting-Bagging/</url>
-    <content><![CDATA[<h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><h3 id="集成学习思想：建立几个模型来解决单一预测问题，生成多个分类器、模型各自独立学习，预测，把这些预测组合成总预测。"><a href="#集成学习思想：建立几个模型来解决单一预测问题，生成多个分类器、模型各自独立学习，预测，把这些预测组合成总预测。" class="headerlink" title="集成学习思想：建立几个模型来解决单一预测问题，生成多个分类器、模型各自独立学习，预测，把这些预测组合成总预测。"></a>集成学习思想：建立几个模型来解决单一预测问题，生成多个分类器、模型各自独立学习，预测，把这些预测组合成总预测。</h3><h3 id="1-1：集成学习中boosting和Bagging作用："><a href="#1-1：集成学习中boosting和Bagging作用：" class="headerlink" title="1.1：集成学习中boosting和Bagging作用："></a>1.1：集成学习中boosting和Bagging作用：</h3><ul>
-<li><p><strong>弱弱变强：主要用于解决欠拟合问题</strong>—》集成学习中<strong>boosting</strong>：逐步增强学习(所有数据，对数据进行修改)</p>
-</li>
-<li><p>互相扼制：主要用于解决过拟合问题**—》集成学习中 ** <strong>Bagging</strong>：采样学习集成(部分数据)</p>
-<h3 id="bagging集成与boosting集成的区别："><a href="#bagging集成与boosting集成的区别：" class="headerlink" title="bagging集成与boosting集成的区别："></a>bagging集成与boosting集成的区别：</h3><ul>
-<li>区别一:数据方面<ul>
-<li>Bagging：对数据进行采样训练；</li>
-<li>Boosting：根据前一轮学习结果调整数据的重要性。</li>
-</ul>
-</li>
-<li>区别二:投票方面<ul>
-<li>Bagging：所有学习器平权投票；</li>
-<li>Boosting：对学习器进行加权投票。</li>
-</ul>
-</li>
-<li>区别三:学习顺序<ul>
-<li>Bagging的学习是并行的，每个学习器没有依赖关系；</li>
-<li>Boosting学习是串行，学习有先后顺序。</li>
-</ul>
-</li>
-<li>区别四:主要作用<ul>
-<li>Bagging主要用于提高泛化性能（解决过拟合，也可以说降低方差）</li>
-<li>Boosting主要用于提高训练精度 （解决欠拟合，也可以说降低偏差）</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="1-2：随机森林-Bagging-决策树："><a href="#1-2：随机森林-Bagging-决策树：" class="headerlink" title="1.2：随机森林:Bagging    +     决策树："></a>1.2：随机森林:<strong>Bagging    +</strong>     <strong>决策树</strong>：</h3><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>函数性质</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>from sklearn.ensemble  import  <strong>RandomForestClassifier</strong></td>
-<td><strong>随机森林</strong></td>
-</tr>
-<tr>
-<td>from sklearn.preprocessing import <strong>OneHotEncoder</strong></td>
-<td>实现one=hot表示，就是把标签里面的对应的特征用最大概率等于1描述出来，有几个参与的特征就会有分出来几个对应的数，这些数里面都有对应的概率，取概率最大的让它等于1，要导入这个包</td>
-</tr>
-<tr>
-<td>from sklearn.metrics import <strong>log_loss（ eps=1e-15, normalize=True）</strong></td>
-<td>导入log计算方式                                                  <strong>eps=le</strong>-15：下图里面的max-15，使用eps要用one=hot表示                                  normalize=True:是否标准化</td>
-</tr>
-<tr>
-<td><strong>RandomForestClassifier</strong>(n_estimators=10,criterion=’gini’, max_depth=None, bootstrap=True, random_state=None, min_samples_split=2)</td>
-<td><strong>随机森林</strong>：                                        <strong>n_estimators</strong>：integer，optional(default = 10)森林里的树木数量120,200,300,500,800,1200  在利用最大投票数或平均值来预测之前，你想要建立子树的数量。                                                          <strong>Criterion</strong>：string，可选(default =“gini”)  分割特征的测量方法                                            <strong>max_depth</strong>：integer或None，可选(默认=无)  树的最大深度 5,8,15,25,30 <strong>max_features=”auto”</strong>,<strong>每个决策树的最大特征数量</strong>  If “auto”, then                                    “auto”：开根号来选择<code>max_features=sqrt(n_features)</code>. If “sqrt”, then <code>max_features=sqrt(n_features)</code>(same as “auto”). If “log2”, then ，  log为底多少的对数<code>max_features=log2(n_features)</code>. If None, then <code>max_features=n_features</code>. 最大的特征就是表达的特征                                <strong>bootstrap：</strong>boolean，optional(default = True)  是否在构建树时使用放回抽样 <strong>min_samples_split</strong>   <strong>内部节点再划分所需最小样本数</strong>  这个值限制了子树继续划分的条件，如果某节点的样本数少于min_samples_split，则不会继续再尝试选择最优特征来进行划分，默认是2。 如果样本量不大，不需要管这个值。如果样本量数量级非常大，则推荐增大这个值。                                                 <strong>min_samples_leaf</strong>  <strong>叶子节点的最小样本数 ** 这个值限制了叶子节点最少的样本数，如果某叶子节点数目小于样本数，则会和兄弟节点一起被剪枝， 默认是1。 叶是决策树的末端节点。 较小的叶子使模型更容易捕捉训练数据中的噪声。   一般来说，我更偏向于将最小叶子节点数目设置为大于50。 <strong>random_state=None</strong> ：  随机种子               <strong>min_impurity_split:</strong> 大于纯度接着划分，小于了就不化分了， 节点划分最小不</strong>纯度**  这个值限制了决策树的增长，如果某节点的不纯度(基于基尼系数，均方差)小于这个阈值，则该节点不再生成子节点。即为叶子节点 。  一般不推荐改动默认值1e-7。                                       n_jobs = 1 ：满负合跑起来</td>
-</tr>
-<tr>
-<td>.<strong>fit_resample</strong>（x，y）</td>
-<td>训练数据</td>
-</tr>
-<tr>
-<td>.<strong>oob_score_</strong></td>
-<td>这是没有取到的数据，包外估计准确率得分</td>
-</tr>
-<tr>
-<td>.<strong>predict_proba</strong>(x_test)</td>
-<td>返回的是一个 n 行 k 列的数组， 第 i 行 第 j 列上的数值是模型预测 第 i 个预测样本为某个标签的概率百分占比情况，并且每一行的概率和为1。</td>
-</tr>
-</tbody></table>
-<h4 id="1-21：随机森林：是一个包含多个决策树的分类器，并且其输出的类别是由个别树输出的类别的众数而定。"><a href="#1-21：随机森林：是一个包含多个决策树的分类器，并且其输出的类别是由个别树输出的类别的众数而定。" class="headerlink" title="1.21：随机森林：是一个包含多个决策树的分类器，并且其输出的类别是由个别树输出的类别的众数而定。"></a>1.21：随机森林：<strong>是一个包含多个决策树的分类器</strong>，并且其输出的类别是由个别树输出的类别的众数而定。</h4><h4 id="1-22：随机森林步骤："><a href="#1-22：随机森林步骤：" class="headerlink" title="1.22：随机森林步骤："></a>1.22：随机森林步骤：</h4><ol>
-<li>随机选取<strong>m</strong>条数据，这是有放回的抽样，<ol>
-<li>为啥随机：因为随机每个训练出来的样本结构都是一样的</li>
-<li>为啥放回：因为不放回的话，样本不同没有交集，训练出来都是片面，差异很大</li>
-</ol>
-</li>
-<li>随机选取k个数据特征，选择的比较少的特征</li>
-<li>训练决策树</li>
-<li>重复1-3步骤，构成n个弱决策树</li>
-<li>平权投票集成n个弱决策树</li>
-</ol>
-<h4 id="1-23：包外估计：集成分类器泛化误差的无偏估计，就是又放回的数据总有一些没有采集到的解释"><a href="#1-23：包外估计：集成分类器泛化误差的无偏估计，就是又放回的数据总有一些没有采集到的解释" class="headerlink" title="1.23：包外估计：集成分类器泛化误差的无偏估计，就是又放回的数据总有一些没有采集到的解释"></a>1.23：包外估计：集成分类器泛化误差的无偏估计，就是又放回的数据总有一些没有采集到的解释</h4><p>无偏估计：比如</p>
-<ul>
-<li>没有采集到的占比：</li>
-<li><strong>没有采集到的作用</strong>：用来验证和测试，让模型更准确<ul>
-<li>学习决策树时，用来辅助剪枝，估计个结点的后验概率以辅助对零训练样本结点的处理</li>
-<li>神经网络的时候，用来辅助早期停止以减少过拟合</li>
-</ul>
-</li>
-</ul>
-<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/1.png' height=px >
-
-<h3 id="1-24-Boosting步骤：进行的是加权投票"><a href="#1-24-Boosting步骤：进行的是加权投票" class="headerlink" title="1.24:Boosting步骤：进行的是加权投票"></a>1.24:Boosting步骤：进行的是加权投票</h3><ul>
-<li>训练一个学习器，</li>
-<li>进过调整数据的分布调整（正确的数据进行缩小，错误的数据进行放大）</li>
-<li>在进行第二轮的学习器</li>
-<li>再进行数据的分布的调整，</li>
-<li>把训练注意集中到错误的数据中</li>
-<li>重复上面的工作</li>
-</ul>
-<h2 id="2-1：AdaBoost介绍：所有都参与计算，"><a href="#2-1：AdaBoost介绍：所有都参与计算，" class="headerlink" title="2.1：AdaBoost介绍：所有都参与计算，"></a>2.1：AdaBoost介绍：所有都参与计算，</h2><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>函数向</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>from sklearn.ensemble import <strong>AdaBoostClassifier</strong></td>
-<td>AdaBoost：分类器</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<ul>
-<li><p>步骤一：初始化训练数据权重相等，训练第一个学习器。</p>
-<ul>
-<li><blockquote>
-<p>该假设每个训练样本在基分类器的学习中作用相同，这一假设可以保证第一步能够在原始数据上学习基本分类器H1(x)H_1(x)H1(x)</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>步骤二：AdaBoost反复学习基本分类器，在每一轮m=1,2,…,Mm=1,2,…,Mm=1,2,…,M顺次的执行下列操作：</p>
-<ul>
-<li><p>（a） 在权值分布为DtD_tDt的训练数据上，<strong>确定基分类器；</strong></p>
-</li>
-<li><p>（b） 计算该学习器在训练数据中的<strong>错误率</strong>：</p>
-<ul>
-<li><strong>错误率：</strong>是分类器划分时对错的概率</li>
-</ul>
-<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/2.png' height=px ></li>
-<li><p>（c） 计算该学习器的<strong>投票权重</strong>：</p>
-<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/3.png' height=px ></li>
-<li><p>（d） 根据投票权重，对<strong>训练数据重新赋权</strong><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/3.png' height=px ></p>
-<ul>
-<li><blockquote>
-<p>将下一轮学习器的注意力集中在错误数据上</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>重复执行a到d步，m次；</p>
-</li>
-</ul>
-</li>
-</ul>
-<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/5.png' height=px >
-
-<ul>
-<li>步骤三：对m个学习器进行加权投票</li>
-</ul>
-<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/6.png' height=px >
-
-<h3 id="案例："><a href="#案例：" class="headerlink" title="案例："></a>案例：</h3><p>1：</p>
-<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/7.png' height=px >
-
-<p>2：<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/8.png' height=px ></p>
-<p>3：<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/9.png' height=px ></p>
-<h3 id="4：下面错误率为0-2143是上一阶段的3个相加：0-07143×3-0-2143"><a href="#4：下面错误率为0-2143是上一阶段的3个相加：0-07143×3-0-2143" class="headerlink" title="4：下面错误率为0.2143是上一阶段的3个相加：0.07143×3 =0.2143"></a>4：下面错误率为0.2143是上一阶段的3个相加：0.07143×3 =0.2143<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/10.png' height=px ></h3><h4 id="5：下面错误率为0-1820是上一阶段的4个相加：0-0455×4-0-1820"><a href="#5：下面错误率为0-1820是上一阶段的4个相加：0-0455×4-0-1820" class="headerlink" title="5：下面错误率为0.1820是上一阶段的4个相加：0.0455×4 =0.1820"></a>5：下面错误率为0.1820是上一阶段的4个相加：0.0455×4 =0.1820<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/11.png' height=px ></h4><h2 id="3-1：GBDT-梯度提升树：利用的是回归决策树思想"><a href="#3-1：GBDT-梯度提升树：利用的是回归决策树思想" class="headerlink" title="3.1：GBDT:梯度提升树：利用的是回归决策树思想"></a>3.1：GBDT:梯度提升树：利用的是回归决策树思想</h2><h3 id="3-2：Decision-Tree：CART回归树：分类回归都可以用"><a href="#3-2：Decision-Tree：CART回归树：分类回归都可以用" class="headerlink" title="3.2：Decision Tree：CART回归树：分类回归都可以用"></a>3.2：Decision Tree：CART回归树：分类回归都可以用</h3><h4 id="思想：对于回归树算法来说最重要的是寻找最佳的划分点，那么回归树中的可划分点包含了所有特征的所有可取的值。"><a href="#思想：对于回归树算法来说最重要的是寻找最佳的划分点，那么回归树中的可划分点包含了所有特征的所有可取的值。" class="headerlink" title="思想：对于回归树算法来说最重要的是寻找最佳的划分点，那么回归树中的可划分点包含了所有特征的所有可取的值。"></a>思想：对于回归树算法来说最重要的是寻找最佳的划分点，那么回归树中的可划分点包含了所有特征的所有可取的值。</h4><h3 id="3-3：Gradient-Boosting：-拟合负梯度"><a href="#3-3：Gradient-Boosting：-拟合负梯度" class="headerlink" title="3.3：Gradient Boosting： 拟合负梯度"></a>3.3：Gradient Boosting： 拟合负梯度</h3><ul>
-<li><h4 id="不同的损失函数将会得到不同的负梯度，如果选择平方损失"><a href="#不同的损失函数将会得到不同的负梯度，如果选择平方损失" class="headerlink" title="不同的损失函数将会得到不同的负梯度，如果选择平方损失"></a>不同的损失函数将会得到不同的负梯度，如果选择平方损失</h4></li>
-<li><h4 id="此时我们发现GBDT的负梯度就是残差，所以说对于回归问题，我们要拟合的就是残差。"><a href="#此时我们发现GBDT的负梯度就是残差，所以说对于回归问题，我们要拟合的就是残差。" class="headerlink" title="此时我们发现GBDT的负梯度就是残差，所以说对于回归问题，我们要拟合的就是残差。"></a>此时我们发现GBDT的负梯度就是残差，所以说对于回归问题，我们要拟合的就是残差。</h4></li>
-</ul>
-<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/12.png' height=px >
-
-<h4 id="残差：实际值和选值的相差的数"><a href="#残差：实际值和选值的相差的数" class="headerlink" title="残差：实际值和选值的相差的数"></a>残差：实际值和选值的相差的数</h4><p><strong>Friedman提出了梯度提升树算法</strong>，<strong>这是利用最速下降的近似方法</strong>，其关<strong>键是利用损失函数的负梯度作为提升树算法中的残差的近似值</strong>。</p>
-<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/13.png' height=px >]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>集成学习lightGBM</title>
     <url>/2020/11/04/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0lightGBM/</url>
     <content><![CDATA[<h1 id="lightGBM"><a href="#lightGBM" class="headerlink" title="lightGBM"></a>lightGBM</h1><h3 id="1：基于Histogram（直方图）的决策树算法"><a href="#1：基于Histogram（直方图）的决策树算法" class="headerlink" title="1：基于Histogram（直方图）的决策树算法"></a>1：基于Histogram（直方图）的决策树算法</h3><p>优点：<strong>最明显就是内存消耗的降低</strong>，<strong>在计算上的代价也大幅降低，因为普通的每遍历一个特征值就需要计算一次分裂的增益，而lightGBM把连续的浮点特征值离散化成k个整数，只计算k次</strong></p>
@@ -3876,78 +3699,37 @@ test_x形状<span class="token punctuation">:</span>  <span class="token punctua
       </tags>
   </entry>
   <entry>
-    <title>EM算法-马尔可夫链</title>
-    <url>/2019/01/06/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/</url>
-    <content><![CDATA[<h2 id="1：EM算法：期望最大化，对应的：E-期望步，M：极大步"><a href="#1：EM算法：期望最大化，对应的：E-期望步，M：极大步" class="headerlink" title="1：EM算法：期望最大化，对应的：E:期望步，M：极大步"></a>1：EM算法：期望最大化，对应的：E:期望步，M：极大步</h2><h4 id="EM：解决数据损失情况下的参数问题估计"><a href="#EM：解决数据损失情况下的参数问题估计" class="headerlink" title="EM：解决数据损失情况下的参数问题估计"></a>EM：解决数据损失情况下的参数问题估计</h4><ol>
-<li>根据已经给出的观测数据，估计出模型参数的值</li>
-<li>再依据上一步估计出来的参数值估计缺失数据的值</li>
-<li>再根据缺失数据加上之前已经观测到的数据查看是否有没有变化，发生变化重新再对参数进行估计</li>
-<li>然后重复迭代，直到最后的上一步没有发生变化收敛，迭代结束</li>
-</ol>
-<h3 id="极大似然估计目的：利用已知的样本结果，反推最有可能（最大概率）导致这样的结果的参数值，"><a href="#极大似然估计目的：利用已知的样本结果，反推最有可能（最大概率）导致这样的结果的参数值，" class="headerlink" title="极大似然估计目的：利用已知的样本结果，反推最有可能（最大概率）导致这样的结果的参数值，"></a>极大似然估计目的：利用已知的样本结果，反推最有可能（最大概率）导致这样的结果的参数值，</h3><p>极大似然估计：用来估计模型参数的统计学方法</p>
-<ul>
-<li>样本集的数量：</li>
-<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/1.png' height=px ></li>
-<li>各自概率的乘积，样本x各个样本联合概率：<img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/2.png' height=px ></li>
-<li>在对应的<img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/3.png' height=px >这里面满足最大值的<img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/4.png' height=px >的值的点在那</li>
-</ul>
-<p>最大似然函数估计值的求解步骤：</p>
-<ul>
-<li>写出似然函数：<img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/5.png' height=px ></li>
-<li>对似然函数取对数：<img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/6.png' height=px ></li>
-<li>对上式求导，令导数为0得到似然方程</li>
-</ul>
-<h2 id="EM算法的流程"><a href="#EM算法的流程" class="headerlink" title="EM算法的流程"></a>EM算法的流程</h2><p>算法过程描述：</p>
-<p>（1）<strong>初始化参数：</strong>先初始化男生身高的正态分布的参数：如均值=1.65，方差=0.15；</p>
-<p>（2）<strong>计算分布：</strong>计算每一个人更可能属于男生分布或者女生分布；</p>
-<p>（3）<strong>重新估计参数</strong>：通过分为男生的n个人来重新估计男生身高分布的参数（最大似然估计），女生分布也按照相同的方式估计出来，更新分布。</p>
-<p>（4）这时候两个分布的概率也变了，<strong>然后重复步骤（1）至（3），直到参数不发生变化为止</strong>。</p>
-<p>输入：</p>
-<ul>
-<li>n个样本观察数据 <img src="https://www.zhihu.com/equation?tex=x=(x_%7B1%7D,x_%7B2%7D,...x_%7Bn%7D)" alt="[公式]"> ，未观察到的隐含数据 <img src="https://www.zhihu.com/equation?tex=z=(z_%7B1%7D,z_%7B2%7D,...,z_%7Bn%7D)" alt="[公式]"> ，</li>
-<li>联合分布 <img src="https://www.zhihu.com/equation?tex=p(x,z;%5Ctheta)" alt="[公式]"> ，条件分布 <img src="https://www.zhihu.com/equation?tex=p(z%7Cx,%5Ctheta)" alt="[公式]"> ，最大迭代次数 J。</li>
-</ul>
-<p>算法的步骤：</p>
-<ul>
-<li><p>随机初始化模型参数θ的初值 <img src="https://www.zhihu.com/equation?tex=%5Ctheta_%7B0%7D" alt="[公式]"> 。</p>
+    <title>集成学习-随机森林-boosting-Bagging</title>
+    <url>/2019/01/05/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0-%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97-boosting-Bagging/</url>
+    <content><![CDATA[<h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><h3 id="集成学习思想：建立几个模型来解决单一预测问题，生成多个分类器、模型各自独立学习，预测，把这些预测组合成总预测。"><a href="#集成学习思想：建立几个模型来解决单一预测问题，生成多个分类器、模型各自独立学习，预测，把这些预测组合成总预测。" class="headerlink" title="集成学习思想：建立几个模型来解决单一预测问题，生成多个分类器、模型各自独立学习，预测，把这些预测组合成总预测。"></a>集成学习思想：建立几个模型来解决单一预测问题，生成多个分类器、模型各自独立学习，预测，把这些预测组合成总预测。</h3><h3 id="1-1：集成学习中boosting和Bagging作用："><a href="#1-1：集成学习中boosting和Bagging作用：" class="headerlink" title="1.1：集成学习中boosting和Bagging作用："></a>1.1：集成学习中boosting和Bagging作用：</h3><ul>
+<li><p><strong>弱弱变强：主要用于解决欠拟合问题</strong>—》集成学习中<strong>boosting</strong>：逐步增强学习(所有数据，对数据进行修改)</p>
 </li>
-<li><p>j=1,2,…,J开始EM算法迭代：</p>
-<ul>
-<li>E步：<img src="https://tva1.sinaimg.cn/large/006tNbRwly1gblmrnv3z6j30ic05sgm0.jpg" alt="https://tva1.sinaimg.cn/large/006tNbRwly1gblmrnv3z6j30ic05sgm0.jpg"></li>
-<li>M步：<strong>极大化 <img src="https://www.zhihu.com/equation?tex=l(%5Ctheta,%5Ctheta_%7Bj%7D)" alt="[公式]"> ,得到 <img src="https://www.zhihu.com/equation?tex=%5Ctheta_%7Bj+1%7D" alt="[公式]"> :</strong></li>
+<li><p>互相扼制：主要用于解决过拟合问题**—》集成学习中 ** <strong>Bagging</strong>：采样学习集成(部分数据)</p>
+<h3 id="bagging集成与boosting集成的区别："><a href="#bagging集成与boosting集成的区别：" class="headerlink" title="bagging集成与boosting集成的区别："></a>bagging集成与boosting集成的区别：</h3><ul>
+<li>区别一:数据方面<ul>
+<li>Bagging：对数据进行采样训练；</li>
+<li>Boosting：根据前一轮学习结果调整数据的重要性。</li>
 </ul>
-<p>​    <img src="https://tva1.sinaimg.cn/large/006tNbRwly1gblmtv3a9tj30dq01s3yf.jpg" alt="https://tva1.sinaimg.cn/large/006tNbRwly1gblmtv3a9tj30dq01s3yf.jpg"></p>
+</li>
+<li>区别二:投票方面<ul>
+<li>Bagging：所有学习器平权投票；</li>
+<li>Boosting：对学习器进行加权投票。</li>
+</ul>
+</li>
+<li>区别三:学习顺序<ul>
+<li>Bagging的学习是并行的，每个学习器没有依赖关系；</li>
+<li>Boosting学习是串行，学习有先后顺序。</li>
+</ul>
+</li>
+<li>区别四:主要作用<ul>
+<li>Bagging主要用于提高泛化性能（解决过拟合，也可以说降低方差）</li>
+<li>Boosting主要用于提高训练精度 （解决欠拟合，也可以说降低偏差）</li>
+</ul>
 </li>
 </ul>
-<ul>
-<li><p><strong>如果<img src="https://www.zhihu.com/equation?tex=%5Ctheta_%7Bj+1%7D" alt="[公式]"> 已经收敛，则算法结束。否则继续进行E步和M步进行迭代。</strong></p>
-<p><strong>输出：</strong>模型参数θ。</p>
 </li>
 </ul>
-<h2 id="2：HMM模型马尔科夫模型：是统计模型，它用来描述一个含有隐含未知参数的马尔可夫过程。"><a href="#2：HMM模型马尔科夫模型：是统计模型，它用来描述一个含有隐含未知参数的马尔可夫过程。" class="headerlink" title="2：HMM模型马尔科夫模型：是统计模型，它用来描述一个含有隐含未知参数的马尔可夫过程。"></a>2：HMM模型马尔科夫模型：是统计模型，它用来<strong>描述一个含有隐含未知参数的马尔可夫过程。</strong></h2><h3 id="马尔可夫链：状态空间中从一个状态到另一个状态转换的随机过程"><a href="#马尔可夫链：状态空间中从一个状态到另一个状态转换的随机过程" class="headerlink" title="马尔可夫链：状态空间中从一个状态到另一个状态转换的随机过程"></a><strong>马尔可夫链：</strong>状态空间中从一个状态到另一个状态转换的随机过程</h3><p><strong>马尔可夫链：</strong>就是隐含状态链</p>
-<p><strong>隐含状态链（隐含状态）：</strong>如隐含状态(骰子)之间存在转换概率，下一个不知道是D4,D6,D8</p>
-<p><strong>输出概率（可见状态）：</strong>就是表示D4：产生一个数据是四分之一，D6是六分之一，D8是八分之一</p>
-<p><strong>其中有两个状态转换</strong>：</p>
-<ol>
-<li>隐含状态到隐含状态的转换（<strong>转换概率</strong>）</li>
-<li>隐含装态到可见状态的输出（<strong>输出概率</strong>）</li>
-</ol>
-<ul>
-<li><strong>马尔可夫性质</strong>：无记忆性：<strong>下一状态的概率分布只能由当前状态决定，在时间序列中它前面的事件均与之无关</strong>。这种特定类型的“无记忆性”称作<strong>马尔可夫性质</strong>。</li>
-<li><strong>系统根据概率分布，可以从一个状态变到另一个状态，也可以保持当前状态</strong></li>
-<li><strong>状态的改变叫做转移，与不同的状态改变相关的概率叫做转移概率。</strong></li>
-<li>求<strong>马尔科夫链的模型</strong>：既然某一时刻状态转移的概率只依赖前一个状态，那么<strong>只要求出系统中任意两个状态之间的转移概率，这个马尔科夫链的模型就定了。</strong></li>
-</ul>
-<p>马尔可夫解决那些问题：</p>
-<ol>
-<li><p>求出<strong>隐含状态链 <strong>维特比算法（Viterbi algorithm）</strong>：求出最大的概率值，知道了隐含概率的数量和转换概率，可见状态</strong><img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/8.png' height=px ></p>
-</li>
-<li><p><strong>求输出概率：</strong>知道了隐含状态数量和输出的概率，转换概率，直接求出<img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/9.png' height=px ></p>
-</li>
-<li><p>求**转换概率：  ** <strong>前向算法</strong>。</p>
-<img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/10.png' height=px ></li>
-</ol>
-<h2 id="HMM模型基础："><a href="#HMM模型基础：" class="headerlink" title="HMM模型基础："></a>HMM模型基础：</h2><table>
+<h3 id="1-2：随机森林-Bagging-决策树："><a href="#1-2：随机森林-Bagging-决策树：" class="headerlink" title="1.2：随机森林:Bagging    +     决策树："></a>1.2：随机森林:<strong>Bagging    +</strong>     <strong>决策树</strong>：</h3><table>
 <thead>
 <tr>
 <th>函数</th>
@@ -3955,20 +3737,74 @@ test_x形状<span class="token punctuation">:</span>  <span class="token punctua
 </tr>
 </thead>
 <tbody><tr>
-<td>from hmmlearn import <strong>hmm</strong></td>
-<td>HMM模型</td>
+<td>from sklearn.ensemble  import  <strong>RandomForestClassifier</strong></td>
+<td><strong>随机森林</strong></td>
 </tr>
 <tr>
-<td>模型=hmm.<strong>MultinomialHMM</strong>（n_components=n_states, n_iter=100, tol=0.01）</td>
-<td>离散状态的<strong>MultinomialHMM</strong>模型：<strong>n_components</strong>=n_states：隐藏层个数             <strong>n_iter</strong>=数值 ：最大迭代次数                                           <strong>tol</strong>=  数值      ：    收敛阈值</td>
+<td>from sklearn.preprocessing import <strong>OneHotEncoder</strong></td>
+<td>实现one=hot表示，就是把标签里面的对应的特征用最大概率等于1描述出来，有几个参与的特征就会有分出来几个对应的数，这些数里面都有对应的概率，取概率最大的让它等于1，要导入这个包</td>
 </tr>
 <tr>
-<td>模型.</td>
-<td><strong>hhm属性：</strong>                                                                  “<strong>startprob_</strong> “：参数对应我们的隐藏状态初始分布Π,                                                                      “<strong>transmat_</strong> “：对应我们的状态转移矩阵A,                                                “<strong>emissionprob_</strong> “：对应我们的观测状态概率矩阵B。</td>
+<td>from sklearn.metrics import <strong>log_loss（ eps=1e-15, normalize=True）</strong></td>
+<td>导入log计算方式                                                  <strong>eps=le</strong>-15：下图里面的max-15，使用eps要用one=hot表示                                  normalize=True:是否标准化</td>
 </tr>
 <tr>
-<td>print(“球的观测顺序：\n”,”,”.join(map(lambda x: observations[x],seen.flatten())))                                   print(“最可能的隐藏状态序列为:\n”， “, “.join(map(lambda x: states[x], box)))</td>
-<td></td>
+<td><strong>RandomForestClassifier</strong>(n_estimators=10,criterion=’gini’, max_depth=None, bootstrap=True, random_state=None, min_samples_split=2)</td>
+<td><strong>随机森林</strong>：                                        <strong>n_estimators</strong>：integer，optional(default = 10)森林里的树木数量120,200,300,500,800,1200  在利用最大投票数或平均值来预测之前，你想要建立子树的数量。                                                          <strong>Criterion</strong>：string，可选(default =“gini”)  分割特征的测量方法                                            <strong>max_depth</strong>：integer或None，可选(默认=无)  树的最大深度 5,8,15,25,30 <strong>max_features=”auto”</strong>,<strong>每个决策树的最大特征数量</strong>  If “auto”, then                                    “auto”：开根号来选择<code>max_features=sqrt(n_features)</code>. If “sqrt”, then <code>max_features=sqrt(n_features)</code>(same as “auto”). If “log2”, then ，  log为底多少的对数<code>max_features=log2(n_features)</code>. If None, then <code>max_features=n_features</code>. 最大的特征就是表达的特征                                <strong>bootstrap：</strong>boolean，optional(default = True)  是否在构建树时使用放回抽样 <strong>min_samples_split</strong>   <strong>内部节点再划分所需最小样本数</strong>  这个值限制了子树继续划分的条件，如果某节点的样本数少于min_samples_split，则不会继续再尝试选择最优特征来进行划分，默认是2。 如果样本量不大，不需要管这个值。如果样本量数量级非常大，则推荐增大这个值。                                                 <strong>min_samples_leaf</strong>  <strong>叶子节点的最小样本数 ** 这个值限制了叶子节点最少的样本数，如果某叶子节点数目小于样本数，则会和兄弟节点一起被剪枝， 默认是1。 叶是决策树的末端节点。 较小的叶子使模型更容易捕捉训练数据中的噪声。   一般来说，我更偏向于将最小叶子节点数目设置为大于50。 <strong>random_state=None</strong> ：  随机种子               <strong>min_impurity_split:</strong> 大于纯度接着划分，小于了就不化分了， 节点划分最小不</strong>纯度**  这个值限制了决策树的增长，如果某节点的不纯度(基于基尼系数，均方差)小于这个阈值，则该节点不再生成子节点。即为叶子节点 。  一般不推荐改动默认值1e-7。                                       n_jobs = 1 ：满负合跑起来</td>
+</tr>
+<tr>
+<td>.<strong>fit_resample</strong>（x，y）</td>
+<td>训练数据</td>
+</tr>
+<tr>
+<td>.<strong>oob_score_</strong></td>
+<td>这是没有取到的数据，包外估计准确率得分</td>
+</tr>
+<tr>
+<td>.<strong>predict_proba</strong>(x_test)</td>
+<td>返回的是一个 n 行 k 列的数组， 第 i 行 第 j 列上的数值是模型预测 第 i 个预测样本为某个标签的概率百分占比情况，并且每一行的概率和为1。</td>
+</tr>
+</tbody></table>
+<h4 id="1-21：随机森林：是一个包含多个决策树的分类器，并且其输出的类别是由个别树输出的类别的众数而定。"><a href="#1-21：随机森林：是一个包含多个决策树的分类器，并且其输出的类别是由个别树输出的类别的众数而定。" class="headerlink" title="1.21：随机森林：是一个包含多个决策树的分类器，并且其输出的类别是由个别树输出的类别的众数而定。"></a>1.21：随机森林：<strong>是一个包含多个决策树的分类器</strong>，并且其输出的类别是由个别树输出的类别的众数而定。</h4><h4 id="1-22：随机森林步骤："><a href="#1-22：随机森林步骤：" class="headerlink" title="1.22：随机森林步骤："></a>1.22：随机森林步骤：</h4><ol>
+<li>随机选取<strong>m</strong>条数据，这是有放回的抽样，<ol>
+<li>为啥随机：因为随机每个训练出来的样本结构都是一样的</li>
+<li>为啥放回：因为不放回的话，样本不同没有交集，训练出来都是片面，差异很大</li>
+</ol>
+</li>
+<li>随机选取k个数据特征，选择的比较少的特征</li>
+<li>训练决策树</li>
+<li>重复1-3步骤，构成n个弱决策树</li>
+<li>平权投票集成n个弱决策树</li>
+</ol>
+<h4 id="1-23：包外估计：集成分类器泛化误差的无偏估计，就是又放回的数据总有一些没有采集到的解释"><a href="#1-23：包外估计：集成分类器泛化误差的无偏估计，就是又放回的数据总有一些没有采集到的解释" class="headerlink" title="1.23：包外估计：集成分类器泛化误差的无偏估计，就是又放回的数据总有一些没有采集到的解释"></a>1.23：包外估计：集成分类器泛化误差的无偏估计，就是又放回的数据总有一些没有采集到的解释</h4><p>无偏估计：比如</p>
+<ul>
+<li>没有采集到的占比：</li>
+<li><strong>没有采集到的作用</strong>：用来验证和测试，让模型更准确<ul>
+<li>学习决策树时，用来辅助剪枝，估计个结点的后验概率以辅助对零训练样本结点的处理</li>
+<li>神经网络的时候，用来辅助早期停止以减少过拟合</li>
+</ul>
+</li>
+</ul>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/1.png' height=px >
+
+<h3 id="1-24-Boosting步骤：进行的是加权投票"><a href="#1-24-Boosting步骤：进行的是加权投票" class="headerlink" title="1.24:Boosting步骤：进行的是加权投票"></a>1.24:Boosting步骤：进行的是加权投票</h3><ul>
+<li>训练一个学习器，</li>
+<li>进过调整数据的分布调整（正确的数据进行缩小，错误的数据进行放大）</li>
+<li>在进行第二轮的学习器</li>
+<li>再进行数据的分布的调整，</li>
+<li>把训练注意集中到错误的数据中</li>
+<li>重复上面的工作</li>
+</ul>
+<h2 id="2-1：AdaBoost介绍：所有都参与计算，"><a href="#2-1：AdaBoost介绍：所有都参与计算，" class="headerlink" title="2.1：AdaBoost介绍：所有都参与计算，"></a>2.1：AdaBoost介绍：所有都参与计算，</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>from sklearn.ensemble import <strong>AdaBoostClassifier</strong></td>
+<td>AdaBoost：分类器</td>
 </tr>
 <tr>
 <td></td>
@@ -3979,146 +3815,59 @@ test_x形状<span class="token punctuation">:</span>  <span class="token punctua
 <td></td>
 </tr>
 </tbody></table>
-<h3 id="HMM解决是什么问题：就是经可能的让输入法和我想要写的话一样"><a href="#HMM解决是什么问题：就是经可能的让输入法和我想要写的话一样" class="headerlink" title="HMM解决是什么问题：就是经可能的让输入法和我想要写的话一样"></a>HMM解决是什么问题：就是经可能的让输入法和我想要写的话一样</h3><p>输入法的任务字符，尽可能的猜测我要写的一段话，并把最可能的词语放在最前面让我选择，这就可以看做一个<strong>HMM模型了。</strong></p>
-<h3 id="HMM模型的定义："><a href="#HMM模型的定义：" class="headerlink" title="HMM模型的定义："></a>HMM模型的定义：</h3><ul>
-<li>即观测序列：<strong>一类序列数据是可以观测到的，键盘上敲出来的一系列字符就是</strong>观测序列**</li>
-<li><strong>即隐藏状态序列，简称状态序列</strong>。另一类数据是不能观察到的，实际想写的一段话就是<strong>隐藏状态序列</strong></li>
-<li>Q=q1,q2,…,qN：Q是所有可能的隐藏状态的集合<ul>
-<li>N是可能的隐藏状态数</li>
-</ul>
-</li>
-<li>V=v1,v2,…vM  ：V是所有可能的观测状态的集合<ul>
-<li>M是所有的可能的观察状态数。</li>
-</ul>
-</li>
-<li>i=i1,i2,…,iT<ul>
-<li>意一个隐藏状态it∈Q</li>
-</ul>
-</li>
-<li>O=o1,o2,…oT<ul>
-<li>任意一个观察状态ot∈V</li>
-</ul>
-</li>
-</ul>
-<h3 id="定义假设："><a href="#定义假设：" class="headerlink" title="定义假设："></a>定义假设：</h3><ul>
-<li><strong>齐次马尔科夫链假设：</strong> <strong>任意时刻的隐藏状态只依赖于它前一个隐藏状态</strong>，<ul>
-<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/11.png' height=px ></li>
-</ul>
-</li>
-<li><strong>观测独立性假设：</strong>即任意时刻的观察状态只仅仅依赖于当前时刻的隐藏状态，这也是一个为了简化模型的假设，独立同分布，与其他的没有什么关系<ul>
-<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/12.png' height=px ></li>
-</ul>
-</li>
-</ul>
-<h3 id="HMM模型的构成：一个HMM模型，可以由隐藏状态初始概率分布Π-状态转移概率矩阵A和观测状态概率矩阵B决定。"><a href="#HMM模型的构成：一个HMM模型，可以由隐藏状态初始概率分布Π-状态转移概率矩阵A和观测状态概率矩阵B决定。" class="headerlink" title="HMM模型的构成：一个HMM模型，可以由隐藏状态初始概率分布Π , 状态转移概率矩阵A和观测状态概率矩阵B决定。"></a>HMM模型的构成：一个HMM模型，可以由<strong>隐藏状态初始概率分布Π , 状态转移概率矩阵A和观测状态概率矩阵B决定</strong>。</h3><p>隐藏状态又称状态</p>
 <ul>
-<li><strong>Π ,A决定状态序列，B决定观测序列。</strong></li>
-<li>HMM模型可以由一个三元组λ 表示如下：<ul>
-<li><strong>λ</strong>=(A,B,Π)=  (状态序列，观测序列，初始状态概率分布)</li>
-</ul>
-</li>
-</ul>
-<h4 id="隐藏观测序列，观测序列："><a href="#隐藏观测序列，观测序列：" class="headerlink" title="隐藏观测序列，观测序列："></a>隐藏观测序列，观测序列：</h4><ul>
-<li><p><strong>O：</strong>为观测序列（输出观测1到下一个输出2的顺序）（<strong>是可重复的</strong>），</p>
+<li><p>步骤一：初始化训练数据权重相等，训练第一个学习器。</p>
 <ul>
-<li><strong>O1到Ot</strong>：形成了（红白共）</li>
-<li>固定了i的状态求观察序列O出现的概率：P(O∣i,λ)=bi1(o1)bi2(o2)…biT(oT)</li>
+<li><blockquote>
+<p>该假设每个训练样本在基分类器的学习中作用相同，这一假设可以保证第一步能够在原始数据上学习基本分类器H1(x)H_1(x)H1(x)</p>
+</blockquote>
+</li>
 </ul>
 </li>
-<li><p><strong>i：</strong>为隐藏观测序列（<strong>是可重复的</strong>）</p>
+<li><p>步骤二：AdaBoost反复学习基本分类器，在每一轮m=1,2,…,Mm=1,2,…,Mm=1,2,…,M顺次的执行下列操作：</p>
 <ul>
-<li><strong>T：</strong>多少个隐藏观测序列的长度（<strong>可重复的</strong>）</li>
+<li><p>（a） 在权值分布为DtD_tDt的训练数据上，<strong>确定基分类器；</strong></p>
+</li>
+<li><p>（b） 计算该学习器在训练数据中的<strong>错误率</strong>：</p>
+<ul>
+<li><strong>错误率：</strong>是分类器划分时对错的概率</li>
+</ul>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/2.png' height=px ></li>
+<li><p>（c） 计算该学习器的<strong>投票权重</strong>：</p>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/3.png' height=px ></li>
+<li><p>（d） 根据投票权重，对<strong>训练数据重新赋权</strong><img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/3.png' height=px ></p>
+<ul>
+<li><blockquote>
+<p>将下一轮学习器的注意力集中在错误数据上</p>
+</blockquote>
+</li>
 </ul>
 </li>
-<li><p><strong>i1到it</strong>：隐含状态：盒子1盒子2盒子3….等等状态</p>
+<li><p>重复执行a到d步，m次；</p>
 </li>
-<li><p>求任意出现的概率：P(i∣λ)=Πi1ai1,i2ai2,i3…aiT−1,iT</p>
-</li>
-<li><h5 id="暴力求解：用于隐藏状态数极少的模型，如果隐藏状态多，则上述算法太耗时，"><a href="#暴力求解：用于隐藏状态数极少的模型，如果隐藏状态多，则上述算法太耗时，" class="headerlink" title="暴力求解：用于隐藏状态数极少的模型，如果隐藏状态多，则上述算法太耗时，"></a>暴力求解：用于隐藏状态数极少的模型，如果隐藏状态多，则上述算法太耗时，</h5><ul>
-<li><strong>O和i联合出现的概率是：</strong></li>
-<li><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9slj91238j30v6030mxg.jpg" alt="https://tva1.sinaimg.cn/large/006tNbRwly1g9slj91238j30v6030mxg.jpg"></li>
-<li><strong>然后求边缘概率分布</strong>，即可得到观测序列O在模型λ  下出现的条件概率P(O|λ )P(O|λ )：<img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9sliqg1bnj30we03ijrs.jpg" alt="https://tva1.sinaimg.cn/large/006tNbRwly1g9sliqg1bnj30we03ijrs.jpg"></li>
-</ul>
-</li>
-</ul>
-<h4 id="隐藏状态集合，观测状态集合（属性）："><a href="#隐藏状态集合，观测状态集合（属性）：" class="headerlink" title="隐藏状态集合，观测状态集合（属性）："></a>隐藏状态集合，观测状态集合（属性）：</h4><ul>
-<li><strong>V：</strong>为观测状态集合（输出观测有几种状态（<strong>属性</strong>））</li>
-<li><strong>M：</strong>是所有的可能的观察状态数。</li>
-<li><strong>Q：</strong>隐藏状态集合（<strong>属性</strong>）</li>
-<li><strong>N：</strong>是可能的隐藏状态数</li>
-</ul>
-<h4 id="隐藏状态转移概率，可观状态抽取观测状态概率："><a href="#隐藏状态转移概率，可观状态抽取观测状态概率：" class="headerlink" title="隐藏状态转移概率，可观状态抽取观测状态概率："></a>隐藏状态转移概率，可观状态抽取观测状态概率：</h4><ul>
-<li><strong>Π：</strong>初始状态（第一次抽取隐含状态）<strong>概率</strong></li>
-<li>Π=[Πi]N</li>
-<li><strong>A：</strong>隐藏状态转移<strong>概率</strong>：aij=P(it+1=qj∣it=qi)</li>
-<li>时刻t的隐藏状态是it=qj  <ul>
-<li>时刻t到下一个状态：it+1=qj</li>
-</ul>
-</li>
-<li>状态转移矩阵：A=[aij]N×N：如：共三次隐藏状态转移的概率<img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/13.png' height=px ></li>
-<li><strong>B：</strong>可观状态抽取观测状态<strong>概率</strong>：bj(k)=P(ot=vk∣it=qj)</li>
-<li>时刻t的隐藏状态是it=qj<ul>
-<li>对应的观察状态为ot=vk</li>
-</ul>
-</li>
-<li>可观状态转移矩阵：B=[bj(k)]N×M：有两种可观状态的属性，每种隐藏的可观状态概率<img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/14.png' height=px ></li>
-<li>评估观测序列概率：—前向后向概率计算<ul>
-<li>即给定模型λ=(A,B,Π)和观测序列O={o1,o2,…oT}，计算在模型 λ下某一个观测序列O出现的概率P(O|λ )。</li>
-</ul>
-</li>
-<li>预测问题，解码问题：– 维特比算法<ul>
-<li>即给定模型λ=(A,B,Π)和观测序列O={o1,o2,…oT}，求给定观测序列条件下，最可能出现的对应的状态序列。</li>
-</ul>
-</li>
-<li>模型参数学习问题：——<strong>鲍姆-韦尔奇算法</strong><ul>
-<li>即给定观测序列O={o1,o2,…oT}，估计模型λ=(A,B,Π)的参数，使该模型下观测序列的条件概率P(O∣λ)最大。</li>
 </ul>
 </li>
 </ul>
-<h2 id="前向后向算法评估观察序列概率"><a href="#前向后向算法评估观察序列概率" class="headerlink" title="前向后向算法评估观察序列概率"></a>前向后向算法评估观察序列概率</h2><p><strong>前向后向算法：</strong>求HMM观测序列的概率用来求HMM观测序列的概率：</p>
-<p><strong>前向算法本质：</strong>上属于动态规划的算法，也就是我们要通过找到局部状态递推的公式，这样一步步的从子问题的最优解拓展到整个问题的最优解。</p>
-<h4 id="前向概率：在第1次时刻："><a href="#前向概率：在第1次时刻：" class="headerlink" title="前向概率：在第1次时刻："></a><strong>前向概率：</strong>在第1次时刻：</h4><img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/15.png' height=px >
-
-<h4 id="前向概率第t时刻的概率："><a href="#前向概率第t时刻的概率：" class="headerlink" title="前向概率第t时刻的概率："></a>前向概率第t时刻的概率：</h4><img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/16.png' height=px >
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/5.png' height=px >
 
 <ul>
-<li><strong>定义时刻t时隐藏状态为qi, 观测状态的序列为o1,o2,…ot的概率为前向概率。</strong>记为：</li>
+<li>步骤三：对m个学习器进行加权投票</li>
 </ul>
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9slmvd9loj30fw02g749.jpg" alt="image-20191211105957494"></p>
-<h4 id="动态规划：前面算的算法保证是最优的，当前的状态最优，"><a href="#动态规划：前面算的算法保证是最优的，当前的状态最优，" class="headerlink" title="动态规划：前面算的算法保证是最优的，当前的状态最优，"></a>动态规划：前面算的算法保证是最优的，当前的状态最优，</h4><h4 id="已经找到了在时刻t时各个隐藏状态的前向概率，需要递推出时刻t-1时各个隐藏状态的前向概率"><a href="#已经找到了在时刻t时各个隐藏状态的前向概率，需要递推出时刻t-1时各个隐藏状态的前向概率" class="headerlink" title="已经找到了在时刻t时各个隐藏状态的前向概率，需要递推出时刻t+1时各个隐藏状态的前向概率"></a>已经找到了在时刻t时各个隐藏状态的前向概率，需要递推出时刻t+1时各个隐藏状态的前向概率</h4><p>时刻<strong>t时各个隐藏状态的前向概率</strong>，<strong>再乘以对应的状态转移概率</strong>，<strong>即αt(j)aji</strong>就是在时刻<strong>t观测到o1,o2,…ot</strong>，并且时刻t隐藏状态qj, 时刻t+1隐藏状态qi的概率。</p>
-<p><strong>t+1隐藏状态qi的概率：</strong>所有的线对应的概率求和**即<img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9slp8yvkfj304g0383ye.jpg" alt="image-20191211110215169">就是在时刻t观测到o1,o2,…ot，并且时刻t+1隐藏状态qi的概率。</p>
-<p><strong>观测状态ot+1只依赖于t+1时刻隐藏状态qi：</strong><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9slrgxh3ej308a02w0sp.jpg" alt="https://tva1.sinaimg.cn/large/006tNbRwly1g9slrgxh3ej308a02w0sp.jpg">在时刻t+1观测到o1,o2,…ot,ot+1，并且时刻t+1隐藏状态qi的概率。</p>
-<p><strong>时刻t+1对应的隐藏状态i的前向概率：</strong><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9slsz81imj30es03k74d.jpg" alt="https://tva1.sinaimg.cn/large/006tNbRwly1g9slsz81imj30es03k74d.jpg"></p>
-<p><strong>T观测序列为o1,o2,…ot的概率：</strong><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9slux5d62j303i02y0sl.jpg" alt="https://tva1.sinaimg.cn/large/006tNbRwly1g9slux5d62j303i02y0sl.jpg">时刻1开始，到时刻T结束，αT(i)表示在时刻T观测序列为o1,o2,…oT，并且时刻T隐藏状态qi的概率，我们只要将所有隐藏状态对应的概率相加</p>
-<h2 id="算法的总结，近似算法：有个缺点，如果隐藏状态可能出现存在转移概率为0，这是该算法就全为0了"><a href="#算法的总结，近似算法：有个缺点，如果隐藏状态可能出现存在转移概率为0，这是该算法就全为0了" class="headerlink" title="算法的总结，近似算法：有个缺点，如果隐藏状态可能出现存在转移概率为0，这是该算法就全为0了"></a>算法的总结，近似算法：有个缺点，如果隐藏状态可能出现存在转移概率为0，这是该算法就全为0了</h2><p>输入：HMM模型λ=(A,B,Π)，观测序列O=(o1,o2,…oT)</p>
-<p>输出：观测序列概率P(O∣λ)</p>
-<ul>
-<li><ul>
-<li>) 计算时刻1的各个隐藏状态前向概率：就是如盒子1的概率乘是红球的概率<img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9slxk9vcfj30g002mjrd.jpg" alt="image-20191211111014281">、</li>
-<li><ol start="2">
-<li>递推时刻2,3,… …T时刻的前向概率：<img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9slyiv27sj30m003yweo.jpg" alt="image-20191211111110223"></li>
-</ol>
-</li>
-<li><ol start="3">
-<li>计算最终结果：<img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9slzfz1n3j30ai03oq2x.jpg" alt="image-20191211111203339"></li>
-</ol>
-</li>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/6.png' height=px >
+
+<h3 id="案例："><a href="#案例：" class="headerlink" title="案例："></a>案例：</h3><p>1：</p>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/7.png' height=px >
+
+<p>2：<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/8.png' height=px ></p>
+<p>3：<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/9.png' height=px ></p>
+<h3 id="4：下面错误率为0-2143是上一阶段的3个相加：0-07143×3-0-2143"><a href="#4：下面错误率为0-2143是上一阶段的3个相加：0-07143×3-0-2143" class="headerlink" title="4：下面错误率为0.2143是上一阶段的3个相加：0.07143×3 =0.2143"></a>4：下面错误率为0.2143是上一阶段的3个相加：0.07143×3 =0.2143<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/10.png' height=px ></h3><h4 id="5：下面错误率为0-1820是上一阶段的4个相加：0-0455×4-0-1820"><a href="#5：下面错误率为0-1820是上一阶段的4个相加：0-0455×4-0-1820" class="headerlink" title="5：下面错误率为0.1820是上一阶段的4个相加：0.0455×4 =0.1820"></a>5：下面错误率为0.1820是上一阶段的4个相加：0.0455×4 =0.1820<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/11.png' height=px ></h4><h2 id="3-1：GBDT-梯度提升树：利用的是回归决策树思想"><a href="#3-1：GBDT-梯度提升树：利用的是回归决策树思想" class="headerlink" title="3.1：GBDT:梯度提升树：利用的是回归决策树思想"></a>3.1：GBDT:梯度提升树：利用的是回归决策树思想</h2><h3 id="3-2：Decision-Tree：CART回归树：分类回归都可以用"><a href="#3-2：Decision-Tree：CART回归树：分类回归都可以用" class="headerlink" title="3.2：Decision Tree：CART回归树：分类回归都可以用"></a>3.2：Decision Tree：CART回归树：分类回归都可以用</h3><h4 id="思想：对于回归树算法来说最重要的是寻找最佳的划分点，那么回归树中的可划分点包含了所有特征的所有可取的值。"><a href="#思想：对于回归树算法来说最重要的是寻找最佳的划分点，那么回归树中的可划分点包含了所有特征的所有可取的值。" class="headerlink" title="思想：对于回归树算法来说最重要的是寻找最佳的划分点，那么回归树中的可划分点包含了所有特征的所有可取的值。"></a>思想：对于回归树算法来说最重要的是寻找最佳的划分点，那么回归树中的可划分点包含了所有特征的所有可取的值。</h4><h3 id="3-3：Gradient-Boosting：-拟合负梯度"><a href="#3-3：Gradient-Boosting：-拟合负梯度" class="headerlink" title="3.3：Gradient Boosting： 拟合负梯度"></a>3.3：Gradient Boosting： 拟合负梯度</h3><ul>
+<li><h4 id="不同的损失函数将会得到不同的负梯度，如果选择平方损失"><a href="#不同的损失函数将会得到不同的负梯度，如果选择平方损失" class="headerlink" title="不同的损失函数将会得到不同的负梯度，如果选择平方损失"></a>不同的损失函数将会得到不同的负梯度，如果选择平方损失</h4></li>
+<li><h4 id="此时我们发现GBDT的负梯度就是残差，所以说对于回归问题，我们要拟合的就是残差。"><a href="#此时我们发现GBDT的负梯度就是残差，所以说对于回归问题，我们要拟合的就是残差。" class="headerlink" title="此时我们发现GBDT的负梯度就是残差，所以说对于回归问题，我们要拟合的就是残差。"></a>此时我们发现GBDT的负梯度就是残差，所以说对于回归问题，我们要拟合的就是残差。</h4></li>
 </ul>
-</li>
-</ul>
-<p>从递推公式可以看出，我们的算法时间复杂度是O(TN2)，比暴力解法的时间复杂度O(TNT)少了几个数量级。</p>
-<h3 id="后向概率：一步步的往后退"><a href="#后向概率：一步步的往后退" class="headerlink" title="后向概率：一步步的往后退"></a>后向概率：一步步的往后退</h3><img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/17.png' height=px >
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/12.png' height=px >
 
-<h1 id="维特比算法解码隐藏状态序列"><a href="#维特比算法解码隐藏状态序列" class="headerlink" title="维特比算法解码隐藏状态序列"></a>维特比算法解码隐藏状态序列</h1><p>维特比算法解码隐藏状态序列<br>    1.解决问题：<br>        即给定模型和观测序列，求给定观测序列条件下，最可能出现的对应的隐藏状态序列。<br>    2.怎么解决<br>        输入：HMM – λ=(A,B,Π)，观测序列O<br>        输出：最优可能的隐藏状态序列<br>        流程：<br>            1.初始化局部状态：<br>            2.进行动态规划递推时刻t=2,3,…T时刻的局部状态<br>            3.计算时刻T最可能隐藏状态序列出现的概率<br>            4.利用局部状态，进行回溯，寻找参数</p>
-<p>维特比算法：给定模型和观测序列条件下，<strong>求给定观测序列条件下</strong>，最有可能出现的对应的隐藏状态序列</p>
-<p>维特比算法：是一个求序列最短路径的动态规划算法</p>
-<h3 id="公式："><a href="#公式：" class="headerlink" title="公式："></a>公式：<img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/18.png' height=px ></h3><h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/19.png' height=px >
-
-
-
-
-
-]]></content>
+<h4 id="残差：实际值和选值的相差的数"><a href="#残差：实际值和选值的相差的数" class="headerlink" title="残差：实际值和选值的相差的数"></a>残差：实际值和选值的相差的数</h4><p><strong>Friedman提出了梯度提升树算法</strong>，<strong>这是利用最速下降的近似方法</strong>，其关<strong>键是利用损失函数的负梯度作为提升树算法中的残差的近似值</strong>。</p>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%EF%BC%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%EF%BC%8Cboosting%EF%BC%8CBagging/13.png' height=px >]]></content>
       <categories>
         <category>机器学习</category>
       </categories>
@@ -4511,6 +4260,257 @@ x_train<span class="token punctuation">,</span> x_test<span class="token punctua
 <td></td>
 </tr>
 </tbody></table>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>EM算法-马尔可夫链</title>
+    <url>/2019/01/06/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/</url>
+    <content><![CDATA[<h2 id="1：EM算法：期望最大化，对应的：E-期望步，M：极大步"><a href="#1：EM算法：期望最大化，对应的：E-期望步，M：极大步" class="headerlink" title="1：EM算法：期望最大化，对应的：E:期望步，M：极大步"></a>1：EM算法：期望最大化，对应的：E:期望步，M：极大步</h2><h4 id="EM：解决数据损失情况下的参数问题估计"><a href="#EM：解决数据损失情况下的参数问题估计" class="headerlink" title="EM：解决数据损失情况下的参数问题估计"></a>EM：解决数据损失情况下的参数问题估计</h4><ol>
+<li>根据已经给出的观测数据，估计出模型参数的值</li>
+<li>再依据上一步估计出来的参数值估计缺失数据的值</li>
+<li>再根据缺失数据加上之前已经观测到的数据查看是否有没有变化，发生变化重新再对参数进行估计</li>
+<li>然后重复迭代，直到最后的上一步没有发生变化收敛，迭代结束</li>
+</ol>
+<h3 id="极大似然估计目的：利用已知的样本结果，反推最有可能（最大概率）导致这样的结果的参数值，"><a href="#极大似然估计目的：利用已知的样本结果，反推最有可能（最大概率）导致这样的结果的参数值，" class="headerlink" title="极大似然估计目的：利用已知的样本结果，反推最有可能（最大概率）导致这样的结果的参数值，"></a>极大似然估计目的：利用已知的样本结果，反推最有可能（最大概率）导致这样的结果的参数值，</h3><p>极大似然估计：用来估计模型参数的统计学方法</p>
+<ul>
+<li>样本集的数量：</li>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/1.png' height=px ></li>
+<li>各自概率的乘积，样本x各个样本联合概率：<img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/2.png' height=px ></li>
+<li>在对应的<img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/3.png' height=px >这里面满足最大值的<img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/4.png' height=px >的值的点在那</li>
+</ul>
+<p>最大似然函数估计值的求解步骤：</p>
+<ul>
+<li>写出似然函数：<img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/5.png' height=px ></li>
+<li>对似然函数取对数：<img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/6.png' height=px ></li>
+<li>对上式求导，令导数为0得到似然方程</li>
+</ul>
+<h2 id="EM算法的流程"><a href="#EM算法的流程" class="headerlink" title="EM算法的流程"></a>EM算法的流程</h2><p>算法过程描述：</p>
+<p>（1）<strong>初始化参数：</strong>先初始化男生身高的正态分布的参数：如均值=1.65，方差=0.15；</p>
+<p>（2）<strong>计算分布：</strong>计算每一个人更可能属于男生分布或者女生分布；</p>
+<p>（3）<strong>重新估计参数</strong>：通过分为男生的n个人来重新估计男生身高分布的参数（最大似然估计），女生分布也按照相同的方式估计出来，更新分布。</p>
+<p>（4）这时候两个分布的概率也变了，<strong>然后重复步骤（1）至（3），直到参数不发生变化为止</strong>。</p>
+<p>输入：</p>
+<ul>
+<li>n个样本观察数据 <img src="https://www.zhihu.com/equation?tex=x=(x_%7B1%7D,x_%7B2%7D,...x_%7Bn%7D)" alt="[公式]"> ，未观察到的隐含数据 <img src="https://www.zhihu.com/equation?tex=z=(z_%7B1%7D,z_%7B2%7D,...,z_%7Bn%7D)" alt="[公式]"> ，</li>
+<li>联合分布 <img src="https://www.zhihu.com/equation?tex=p(x,z;%5Ctheta)" alt="[公式]"> ，条件分布 <img src="https://www.zhihu.com/equation?tex=p(z%7Cx,%5Ctheta)" alt="[公式]"> ，最大迭代次数 J。</li>
+</ul>
+<p>算法的步骤：</p>
+<ul>
+<li><p>随机初始化模型参数θ的初值 <img src="https://www.zhihu.com/equation?tex=%5Ctheta_%7B0%7D" alt="[公式]"> 。</p>
+</li>
+<li><p>j=1,2,…,J开始EM算法迭代：</p>
+<ul>
+<li>E步：<img src="https://tva1.sinaimg.cn/large/006tNbRwly1gblmrnv3z6j30ic05sgm0.jpg" alt="https://tva1.sinaimg.cn/large/006tNbRwly1gblmrnv3z6j30ic05sgm0.jpg"></li>
+<li>M步：<strong>极大化 <img src="https://www.zhihu.com/equation?tex=l(%5Ctheta,%5Ctheta_%7Bj%7D)" alt="[公式]"> ,得到 <img src="https://www.zhihu.com/equation?tex=%5Ctheta_%7Bj+1%7D" alt="[公式]"> :</strong></li>
+</ul>
+<p>​    <img src="https://tva1.sinaimg.cn/large/006tNbRwly1gblmtv3a9tj30dq01s3yf.jpg" alt="https://tva1.sinaimg.cn/large/006tNbRwly1gblmtv3a9tj30dq01s3yf.jpg"></p>
+</li>
+</ul>
+<ul>
+<li><p><strong>如果<img src="https://www.zhihu.com/equation?tex=%5Ctheta_%7Bj+1%7D" alt="[公式]"> 已经收敛，则算法结束。否则继续进行E步和M步进行迭代。</strong></p>
+<p><strong>输出：</strong>模型参数θ。</p>
+</li>
+</ul>
+<h2 id="2：HMM模型马尔科夫模型：是统计模型，它用来描述一个含有隐含未知参数的马尔可夫过程。"><a href="#2：HMM模型马尔科夫模型：是统计模型，它用来描述一个含有隐含未知参数的马尔可夫过程。" class="headerlink" title="2：HMM模型马尔科夫模型：是统计模型，它用来描述一个含有隐含未知参数的马尔可夫过程。"></a>2：HMM模型马尔科夫模型：是统计模型，它用来<strong>描述一个含有隐含未知参数的马尔可夫过程。</strong></h2><h3 id="马尔可夫链：状态空间中从一个状态到另一个状态转换的随机过程"><a href="#马尔可夫链：状态空间中从一个状态到另一个状态转换的随机过程" class="headerlink" title="马尔可夫链：状态空间中从一个状态到另一个状态转换的随机过程"></a><strong>马尔可夫链：</strong>状态空间中从一个状态到另一个状态转换的随机过程</h3><p><strong>马尔可夫链：</strong>就是隐含状态链</p>
+<p><strong>隐含状态链（隐含状态）：</strong>如隐含状态(骰子)之间存在转换概率，下一个不知道是D4,D6,D8</p>
+<p><strong>输出概率（可见状态）：</strong>就是表示D4：产生一个数据是四分之一，D6是六分之一，D8是八分之一</p>
+<p><strong>其中有两个状态转换</strong>：</p>
+<ol>
+<li>隐含状态到隐含状态的转换（<strong>转换概率</strong>）</li>
+<li>隐含装态到可见状态的输出（<strong>输出概率</strong>）</li>
+</ol>
+<ul>
+<li><strong>马尔可夫性质</strong>：无记忆性：<strong>下一状态的概率分布只能由当前状态决定，在时间序列中它前面的事件均与之无关</strong>。这种特定类型的“无记忆性”称作<strong>马尔可夫性质</strong>。</li>
+<li><strong>系统根据概率分布，可以从一个状态变到另一个状态，也可以保持当前状态</strong></li>
+<li><strong>状态的改变叫做转移，与不同的状态改变相关的概率叫做转移概率。</strong></li>
+<li>求<strong>马尔科夫链的模型</strong>：既然某一时刻状态转移的概率只依赖前一个状态，那么<strong>只要求出系统中任意两个状态之间的转移概率，这个马尔科夫链的模型就定了。</strong></li>
+</ul>
+<p>马尔可夫解决那些问题：</p>
+<ol>
+<li><p>求出<strong>隐含状态链 <strong>维特比算法（Viterbi algorithm）</strong>：求出最大的概率值，知道了隐含概率的数量和转换概率，可见状态</strong><img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/8.png' height=px ></p>
+</li>
+<li><p><strong>求输出概率：</strong>知道了隐含状态数量和输出的概率，转换概率，直接求出<img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/9.png' height=px ></p>
+</li>
+<li><p>求**转换概率：  ** <strong>前向算法</strong>。</p>
+<img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/10.png' height=px ></li>
+</ol>
+<h2 id="HMM模型基础："><a href="#HMM模型基础：" class="headerlink" title="HMM模型基础："></a>HMM模型基础：</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数性质</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>from hmmlearn import <strong>hmm</strong></td>
+<td>HMM模型</td>
+</tr>
+<tr>
+<td>模型=hmm.<strong>MultinomialHMM</strong>（n_components=n_states, n_iter=100, tol=0.01）</td>
+<td>离散状态的<strong>MultinomialHMM</strong>模型：<strong>n_components</strong>=n_states：隐藏层个数             <strong>n_iter</strong>=数值 ：最大迭代次数                                           <strong>tol</strong>=  数值      ：    收敛阈值</td>
+</tr>
+<tr>
+<td>模型.</td>
+<td><strong>hhm属性：</strong>                                                                  “<strong>startprob_</strong> “：参数对应我们的隐藏状态初始分布Π,                                                                      “<strong>transmat_</strong> “：对应我们的状态转移矩阵A,                                                “<strong>emissionprob_</strong> “：对应我们的观测状态概率矩阵B。</td>
+</tr>
+<tr>
+<td>print(“球的观测顺序：\n”,”,”.join(map(lambda x: observations[x],seen.flatten())))                                   print(“最可能的隐藏状态序列为:\n”， “, “.join(map(lambda x: states[x], box)))</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="HMM解决是什么问题：就是经可能的让输入法和我想要写的话一样"><a href="#HMM解决是什么问题：就是经可能的让输入法和我想要写的话一样" class="headerlink" title="HMM解决是什么问题：就是经可能的让输入法和我想要写的话一样"></a>HMM解决是什么问题：就是经可能的让输入法和我想要写的话一样</h3><p>输入法的任务字符，尽可能的猜测我要写的一段话，并把最可能的词语放在最前面让我选择，这就可以看做一个<strong>HMM模型了。</strong></p>
+<h3 id="HMM模型的定义："><a href="#HMM模型的定义：" class="headerlink" title="HMM模型的定义："></a>HMM模型的定义：</h3><ul>
+<li>即观测序列：<strong>一类序列数据是可以观测到的，键盘上敲出来的一系列字符就是</strong>观测序列**</li>
+<li><strong>即隐藏状态序列，简称状态序列</strong>。另一类数据是不能观察到的，实际想写的一段话就是<strong>隐藏状态序列</strong></li>
+<li>Q=q1,q2,…,qN：Q是所有可能的隐藏状态的集合<ul>
+<li>N是可能的隐藏状态数</li>
+</ul>
+</li>
+<li>V=v1,v2,…vM  ：V是所有可能的观测状态的集合<ul>
+<li>M是所有的可能的观察状态数。</li>
+</ul>
+</li>
+<li>i=i1,i2,…,iT<ul>
+<li>意一个隐藏状态it∈Q</li>
+</ul>
+</li>
+<li>O=o1,o2,…oT<ul>
+<li>任意一个观察状态ot∈V</li>
+</ul>
+</li>
+</ul>
+<h3 id="定义假设："><a href="#定义假设：" class="headerlink" title="定义假设："></a>定义假设：</h3><ul>
+<li><strong>齐次马尔科夫链假设：</strong> <strong>任意时刻的隐藏状态只依赖于它前一个隐藏状态</strong>，<ul>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/11.png' height=px ></li>
+</ul>
+</li>
+<li><strong>观测独立性假设：</strong>即任意时刻的观察状态只仅仅依赖于当前时刻的隐藏状态，这也是一个为了简化模型的假设，独立同分布，与其他的没有什么关系<ul>
+<li><img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/12.png' height=px ></li>
+</ul>
+</li>
+</ul>
+<h3 id="HMM模型的构成：一个HMM模型，可以由隐藏状态初始概率分布Π-状态转移概率矩阵A和观测状态概率矩阵B决定。"><a href="#HMM模型的构成：一个HMM模型，可以由隐藏状态初始概率分布Π-状态转移概率矩阵A和观测状态概率矩阵B决定。" class="headerlink" title="HMM模型的构成：一个HMM模型，可以由隐藏状态初始概率分布Π , 状态转移概率矩阵A和观测状态概率矩阵B决定。"></a>HMM模型的构成：一个HMM模型，可以由<strong>隐藏状态初始概率分布Π , 状态转移概率矩阵A和观测状态概率矩阵B决定</strong>。</h3><p>隐藏状态又称状态</p>
+<ul>
+<li><strong>Π ,A决定状态序列，B决定观测序列。</strong></li>
+<li>HMM模型可以由一个三元组λ 表示如下：<ul>
+<li><strong>λ</strong>=(A,B,Π)=  (状态序列，观测序列，初始状态概率分布)</li>
+</ul>
+</li>
+</ul>
+<h4 id="隐藏观测序列，观测序列："><a href="#隐藏观测序列，观测序列：" class="headerlink" title="隐藏观测序列，观测序列："></a>隐藏观测序列，观测序列：</h4><ul>
+<li><p><strong>O：</strong>为观测序列（输出观测1到下一个输出2的顺序）（<strong>是可重复的</strong>），</p>
+<ul>
+<li><strong>O1到Ot</strong>：形成了（红白共）</li>
+<li>固定了i的状态求观察序列O出现的概率：P(O∣i,λ)=bi1(o1)bi2(o2)…biT(oT)</li>
+</ul>
+</li>
+<li><p><strong>i：</strong>为隐藏观测序列（<strong>是可重复的</strong>）</p>
+<ul>
+<li><strong>T：</strong>多少个隐藏观测序列的长度（<strong>可重复的</strong>）</li>
+</ul>
+</li>
+<li><p><strong>i1到it</strong>：隐含状态：盒子1盒子2盒子3….等等状态</p>
+</li>
+<li><p>求任意出现的概率：P(i∣λ)=Πi1ai1,i2ai2,i3…aiT−1,iT</p>
+</li>
+<li><h5 id="暴力求解：用于隐藏状态数极少的模型，如果隐藏状态多，则上述算法太耗时，"><a href="#暴力求解：用于隐藏状态数极少的模型，如果隐藏状态多，则上述算法太耗时，" class="headerlink" title="暴力求解：用于隐藏状态数极少的模型，如果隐藏状态多，则上述算法太耗时，"></a>暴力求解：用于隐藏状态数极少的模型，如果隐藏状态多，则上述算法太耗时，</h5><ul>
+<li><strong>O和i联合出现的概率是：</strong></li>
+<li><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9slj91238j30v6030mxg.jpg" alt="https://tva1.sinaimg.cn/large/006tNbRwly1g9slj91238j30v6030mxg.jpg"></li>
+<li><strong>然后求边缘概率分布</strong>，即可得到观测序列O在模型λ  下出现的条件概率P(O|λ )P(O|λ )：<img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9sliqg1bnj30we03ijrs.jpg" alt="https://tva1.sinaimg.cn/large/006tNbRwly1g9sliqg1bnj30we03ijrs.jpg"></li>
+</ul>
+</li>
+</ul>
+<h4 id="隐藏状态集合，观测状态集合（属性）："><a href="#隐藏状态集合，观测状态集合（属性）：" class="headerlink" title="隐藏状态集合，观测状态集合（属性）："></a>隐藏状态集合，观测状态集合（属性）：</h4><ul>
+<li><strong>V：</strong>为观测状态集合（输出观测有几种状态（<strong>属性</strong>））</li>
+<li><strong>M：</strong>是所有的可能的观察状态数。</li>
+<li><strong>Q：</strong>隐藏状态集合（<strong>属性</strong>）</li>
+<li><strong>N：</strong>是可能的隐藏状态数</li>
+</ul>
+<h4 id="隐藏状态转移概率，可观状态抽取观测状态概率："><a href="#隐藏状态转移概率，可观状态抽取观测状态概率：" class="headerlink" title="隐藏状态转移概率，可观状态抽取观测状态概率："></a>隐藏状态转移概率，可观状态抽取观测状态概率：</h4><ul>
+<li><strong>Π：</strong>初始状态（第一次抽取隐含状态）<strong>概率</strong></li>
+<li>Π=[Πi]N</li>
+<li><strong>A：</strong>隐藏状态转移<strong>概率</strong>：aij=P(it+1=qj∣it=qi)</li>
+<li>时刻t的隐藏状态是it=qj  <ul>
+<li>时刻t到下一个状态：it+1=qj</li>
+</ul>
+</li>
+<li>状态转移矩阵：A=[aij]N×N：如：共三次隐藏状态转移的概率<img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/13.png' height=px ></li>
+<li><strong>B：</strong>可观状态抽取观测状态<strong>概率</strong>：bj(k)=P(ot=vk∣it=qj)</li>
+<li>时刻t的隐藏状态是it=qj<ul>
+<li>对应的观察状态为ot=vk</li>
+</ul>
+</li>
+<li>可观状态转移矩阵：B=[bj(k)]N×M：有两种可观状态的属性，每种隐藏的可观状态概率<img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/14.png' height=px ></li>
+<li>评估观测序列概率：—前向后向概率计算<ul>
+<li>即给定模型λ=(A,B,Π)和观测序列O={o1,o2,…oT}，计算在模型 λ下某一个观测序列O出现的概率P(O|λ )。</li>
+</ul>
+</li>
+<li>预测问题，解码问题：– 维特比算法<ul>
+<li>即给定模型λ=(A,B,Π)和观测序列O={o1,o2,…oT}，求给定观测序列条件下，最可能出现的对应的状态序列。</li>
+</ul>
+</li>
+<li>模型参数学习问题：——<strong>鲍姆-韦尔奇算法</strong><ul>
+<li>即给定观测序列O={o1,o2,…oT}，估计模型λ=(A,B,Π)的参数，使该模型下观测序列的条件概率P(O∣λ)最大。</li>
+</ul>
+</li>
+</ul>
+<h2 id="前向后向算法评估观察序列概率"><a href="#前向后向算法评估观察序列概率" class="headerlink" title="前向后向算法评估观察序列概率"></a>前向后向算法评估观察序列概率</h2><p><strong>前向后向算法：</strong>求HMM观测序列的概率用来求HMM观测序列的概率：</p>
+<p><strong>前向算法本质：</strong>上属于动态规划的算法，也就是我们要通过找到局部状态递推的公式，这样一步步的从子问题的最优解拓展到整个问题的最优解。</p>
+<h4 id="前向概率：在第1次时刻："><a href="#前向概率：在第1次时刻：" class="headerlink" title="前向概率：在第1次时刻："></a><strong>前向概率：</strong>在第1次时刻：</h4><img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/15.png' height=px >
+
+<h4 id="前向概率第t时刻的概率："><a href="#前向概率第t时刻的概率：" class="headerlink" title="前向概率第t时刻的概率："></a>前向概率第t时刻的概率：</h4><img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/16.png' height=px >
+
+<ul>
+<li><strong>定义时刻t时隐藏状态为qi, 观测状态的序列为o1,o2,…ot的概率为前向概率。</strong>记为：</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9slmvd9loj30fw02g749.jpg" alt="image-20191211105957494"></p>
+<h4 id="动态规划：前面算的算法保证是最优的，当前的状态最优，"><a href="#动态规划：前面算的算法保证是最优的，当前的状态最优，" class="headerlink" title="动态规划：前面算的算法保证是最优的，当前的状态最优，"></a>动态规划：前面算的算法保证是最优的，当前的状态最优，</h4><h4 id="已经找到了在时刻t时各个隐藏状态的前向概率，需要递推出时刻t-1时各个隐藏状态的前向概率"><a href="#已经找到了在时刻t时各个隐藏状态的前向概率，需要递推出时刻t-1时各个隐藏状态的前向概率" class="headerlink" title="已经找到了在时刻t时各个隐藏状态的前向概率，需要递推出时刻t+1时各个隐藏状态的前向概率"></a>已经找到了在时刻t时各个隐藏状态的前向概率，需要递推出时刻t+1时各个隐藏状态的前向概率</h4><p>时刻<strong>t时各个隐藏状态的前向概率</strong>，<strong>再乘以对应的状态转移概率</strong>，<strong>即αt(j)aji</strong>就是在时刻<strong>t观测到o1,o2,…ot</strong>，并且时刻t隐藏状态qj, 时刻t+1隐藏状态qi的概率。</p>
+<p><strong>t+1隐藏状态qi的概率：</strong>所有的线对应的概率求和**即<img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9slp8yvkfj304g0383ye.jpg" alt="image-20191211110215169">就是在时刻t观测到o1,o2,…ot，并且时刻t+1隐藏状态qi的概率。</p>
+<p><strong>观测状态ot+1只依赖于t+1时刻隐藏状态qi：</strong><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9slrgxh3ej308a02w0sp.jpg" alt="https://tva1.sinaimg.cn/large/006tNbRwly1g9slrgxh3ej308a02w0sp.jpg">在时刻t+1观测到o1,o2,…ot,ot+1，并且时刻t+1隐藏状态qi的概率。</p>
+<p><strong>时刻t+1对应的隐藏状态i的前向概率：</strong><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9slsz81imj30es03k74d.jpg" alt="https://tva1.sinaimg.cn/large/006tNbRwly1g9slsz81imj30es03k74d.jpg"></p>
+<p><strong>T观测序列为o1,o2,…ot的概率：</strong><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9slux5d62j303i02y0sl.jpg" alt="https://tva1.sinaimg.cn/large/006tNbRwly1g9slux5d62j303i02y0sl.jpg">时刻1开始，到时刻T结束，αT(i)表示在时刻T观测序列为o1,o2,…oT，并且时刻T隐藏状态qi的概率，我们只要将所有隐藏状态对应的概率相加</p>
+<h2 id="算法的总结，近似算法：有个缺点，如果隐藏状态可能出现存在转移概率为0，这是该算法就全为0了"><a href="#算法的总结，近似算法：有个缺点，如果隐藏状态可能出现存在转移概率为0，这是该算法就全为0了" class="headerlink" title="算法的总结，近似算法：有个缺点，如果隐藏状态可能出现存在转移概率为0，这是该算法就全为0了"></a>算法的总结，近似算法：有个缺点，如果隐藏状态可能出现存在转移概率为0，这是该算法就全为0了</h2><p>输入：HMM模型λ=(A,B,Π)，观测序列O=(o1,o2,…oT)</p>
+<p>输出：观测序列概率P(O∣λ)</p>
+<ul>
+<li><ul>
+<li>) 计算时刻1的各个隐藏状态前向概率：就是如盒子1的概率乘是红球的概率<img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9slxk9vcfj30g002mjrd.jpg" alt="image-20191211111014281">、</li>
+<li><ol start="2">
+<li>递推时刻2,3,… …T时刻的前向概率：<img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9slyiv27sj30m003yweo.jpg" alt="image-20191211111110223"></li>
+</ol>
+</li>
+<li><ol start="3">
+<li>计算最终结果：<img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9slzfz1n3j30ai03oq2x.jpg" alt="image-20191211111203339"></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<p>从递推公式可以看出，我们的算法时间复杂度是O(TN2)，比暴力解法的时间复杂度O(TNT)少了几个数量级。</p>
+<h3 id="后向概率：一步步的往后退"><a href="#后向概率：一步步的往后退" class="headerlink" title="后向概率：一步步的往后退"></a>后向概率：一步步的往后退</h3><img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/17.png' height=px >
+
+<h1 id="维特比算法解码隐藏状态序列"><a href="#维特比算法解码隐藏状态序列" class="headerlink" title="维特比算法解码隐藏状态序列"></a>维特比算法解码隐藏状态序列</h1><p>维特比算法解码隐藏状态序列<br>    1.解决问题：<br>        即给定模型和观测序列，求给定观测序列条件下，最可能出现的对应的隐藏状态序列。<br>    2.怎么解决<br>        输入：HMM – λ=(A,B,Π)，观测序列O<br>        输出：最优可能的隐藏状态序列<br>        流程：<br>            1.初始化局部状态：<br>            2.进行动态规划递推时刻t=2,3,…T时刻的局部状态<br>            3.计算时刻T最可能隐藏状态序列出现的概率<br>            4.利用局部状态，进行回溯，寻找参数</p>
+<p>维特比算法：给定模型和观测序列条件下，<strong>求给定观测序列条件下</strong>，最有可能出现的对应的隐藏状态序列</p>
+<p>维特比算法：是一个求序列最短路径的动态规划算法</p>
+<h3 id="公式："><a href="#公式：" class="headerlink" title="公式："></a>公式：<img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/18.png' height=px ></h3><h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><img src='https://boes.oss-cn-beijing.aliyuncs.com/EM%E7%AE%97%E6%B3%95-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE/19.png' height=px >
+
+
+
+
+
 ]]></content>
       <categories>
         <category>机器学习</category>
